@@ -64,50 +64,84 @@ class _CoursesState extends State<Courses> {
         color: Color(0xff3D3D3D),
         borderRadius: BorderRadius.circular(20),
       ),
-      //1st Row
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
-                "assets/png/candageography.png",
-              ),
-            ],
-          ),
-          Column(
+      child: Column(
+        children: [
+          //1st Row
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Issues in Canadian Geography"),
-              Text(
-                "Ponum Ghazzanfar",
-                style: TextStyle(color: Color(0xffFFD643)),
-              ),
-              Row(
-                children: [
-                  Text("Category - History"),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.020,
-                  ),
-                  Text(
-                    "PKR 1000",
-                    style: TextStyle(color: Color(0xff00B0D7)),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.015,
-                  ),
-                  Text(
-                    "PKR 1500",
-                    style: TextStyle(
-                        color: Color(0xff949494),
-                        decoration: TextDecoration.lineThrough),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    "assets/png/candageography.png",
                   ),
                 ],
               ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Issues in Canadian Geography"),
+                  Text(
+                    "Ponum Ghazzanfar",
+                    style: TextStyle(color: Color(0xffFFD643)),
+                  ),
+                  Row(
+                    children: [
+                      Text("Category - History"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.020,
+                      ),
+                      Text(
+                        "PKR 1000",
+                        style: TextStyle(color: Color(0xff00B0D7)),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.015,
+                      ),
+                      Text(
+                        "PKR 1500",
+                        style: TextStyle(
+                            color: Color(0xff949494),
+                            decoration: TextDecoration.lineThrough),
+                      ),
+                    ],
+                  ),
+                ],
+              )
             ],
-          )
+          ),
+          //2nd row
+          // Row(
+          //   children: <Widget>[
+          //     Container(
+          //       width: double.infinity,
+          //       height: MediaQuery.of(context).size.height * 0.20,
+          //       decoration: BoxDecoration(
+          //         color: Color(0xff646464),
+          //         borderRadius: BorderRadius.circular(30),
+          //       ),
+          //       child: Row(
+          //         children: <Widget>[
+          //           Column(
+          //             children: <Widget>[
+          //               Container(
+          //                 decoration: BoxDecoration(
+          //                   shape: BoxShape.circle,
+          //                   color: Color(0xff464646),
+          //                 ),
+          //                 child: Center(
+          //                   child: Text("01"),
+          //                 ),
+          //               ),
+          //             ],
+          //           )
+          //         ],
+          //       ),
+          //     ),
+          //   ],
+          // )
         ],
       ),
     );
