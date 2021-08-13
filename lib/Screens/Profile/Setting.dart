@@ -27,6 +27,9 @@ class _SettingsState extends State<Settings> {
           ),
           Header(),
           Container(
+            margin: EdgeInsets.only(left: MediaQuery.of(context).size.width *.01,
+            right: MediaQuery.of(context).size.width *.01
+            ),
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

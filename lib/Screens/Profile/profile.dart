@@ -29,7 +29,7 @@ class _ProfileState extends State<Profile> {
                         left: MediaQuery.of(context).size.width * .01,
                         right: MediaQuery.of(context).size.width * .01,
                       ),
-                      height: MediaQuery.of(context).size.height * .893,
+                      height: MediaQuery.of(context).size.height * .87,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -53,7 +53,7 @@ class _ProfileState extends State<Profile> {
                         left: MediaQuery.of(context).size.width * .02,
                         right: MediaQuery.of(context).size.width * .02,
                       ),
-                      height: MediaQuery.of(context).size.height * .89,
+                      height: MediaQuery.of(context).size.height * .87,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Color(0xff404040),
@@ -96,13 +96,11 @@ class _ProfileState extends State<Profile> {
                       height: MediaQuery.of(context).size.height * .15,
                       width: double.infinity,
                     ),
-          
-          
                     Container(
                       padding: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * .06),
                       margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * .15,
+                        top: MediaQuery.of(context).size.height * .16,
                         left: MediaQuery.of(context).size.width * .02,
                         right: MediaQuery.of(context).size.width * .02,
                       ),
@@ -176,9 +174,6 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                     ),
-          
-          
-          
                     Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -186,10 +181,9 @@ class _ProfileState extends State<Profile> {
                             fit: BoxFit.cover),
                       ),
                       padding: EdgeInsets.only(
-                        left:MediaQuery.of(context).size.width * .08,
-                        right: MediaQuery.of(context).size.width * .08,
-                        top: MediaQuery.of(context).size.height * .02
-                          ),
+                          left: MediaQuery.of(context).size.width * .08,
+                          right: MediaQuery.of(context).size.width * .08,
+                          top: MediaQuery.of(context).size.height * .02),
                       margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * .37,
                         left: MediaQuery.of(context).size.width * .02,
@@ -216,9 +210,13 @@ class _ProfileState extends State<Profile> {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context).size.width *
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .07,
-                                          right: MediaQuery.of(context).size.width *
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .07),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
@@ -230,9 +228,13 @@ class _ProfileState extends State<Profile> {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context).size.width *
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .09,
-                                          right: MediaQuery.of(context).size.width *
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .09),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
@@ -240,7 +242,9 @@ class _ProfileState extends State<Profile> {
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Settings"),
                                   onPressed: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Settings()));
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Settings()));
                                   },
                                 ),
                               ],
@@ -249,10 +253,6 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
-          
-          
-          
-          
                     Positioned(
                       top: MediaQuery.of(context).size.height * .1,
                       left: 0,
@@ -261,7 +261,6 @@ class _ProfileState extends State<Profile> {
                         child: ClipOval(
                           child: Image.asset('assets/png/Mask Group.png'),
                         ),
-                        backgroundImage: AssetImage(""),
                         backgroundColor: Color(0xff404040),
                         radius: MediaQuery.of(context).size.height * .06,
                       ),
