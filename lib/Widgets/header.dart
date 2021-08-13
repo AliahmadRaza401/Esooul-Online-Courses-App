@@ -22,7 +22,7 @@ class _HeaderState extends State<Header> {
               ],
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.030,
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
