@@ -13,13 +13,12 @@ class _HeaderState extends State<Header> {
     return SafeArea(
       child: Container(
         padding: EdgeInsets.all(12.0),
-        
         child: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset("assets/Frame.png"),
+                Image.asset("assets/png/Frame.png"),
               ],
             ),
             SizedBox(
@@ -45,19 +44,21 @@ class _HeaderState extends State<Header> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: [_myConatiner("assets/bell.png")],
+                          children: [_myConatiner("assets/png/bell.png")],
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.020,
                         ),
                         Column(
-                          children: [_myConatiner("assets/shopping-cart.png")],
+                          children: [
+                            _myConatiner("assets/png/shopping-cart.png")
+                          ],
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.020,
                         ),
                         Column(
-                          children: [_myConatiner("assets/search.png")],
+                          children: [_myConatiner("assets/png/search.png")],
                         ),
                       ],
                     )
