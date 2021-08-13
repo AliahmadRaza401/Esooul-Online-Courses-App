@@ -1,4 +1,4 @@
-import 'package:esooul/Screens/Favorite/favorte.dart';
+import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/Screens/WishList/wishList.dart';
@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
-  final _indexPage = [Home(), Wishlist(), Favorite(), Profile()];
+  final _indexPage = [Home(), Courses(), Wishlist(), Profile()];
 
   @override
   Widget build(BuildContext context) {
