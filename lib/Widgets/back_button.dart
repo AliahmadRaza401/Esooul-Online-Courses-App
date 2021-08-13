@@ -27,11 +27,11 @@ class BackButtonWidget extends StatelessWidget {
               width: 1.5,
             ),
             left: BorderSide(
-              color: Colors.white,
+              color: Colors.black,
               width: 1.5,
             ),
             right: BorderSide(
-              color: Colors.white,
+              color: Colors.black,
               width: 1.5,
             ),
           ),
@@ -62,14 +62,16 @@ class BackButtonWidget extends StatelessWidget {
                   // elevation: MaterialStateProperty.all(3),
                   shadowColor: MaterialStateProperty.all(Colors.transparent),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 10,
                     bottom: 10,
                   ),
                   child: Text(
-                    "< back",
+                    "< Back",
                     style: TextStyle(
                       fontSize: 18,
                       // fontWeight: FontWeight.w700,
