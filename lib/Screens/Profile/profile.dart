@@ -291,6 +291,8 @@ class _ProfileState extends State<Profile> {
             height: MediaQuery.of(context).size.height * .04,
             child: TextField(
               textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black),
+              
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * .01),
