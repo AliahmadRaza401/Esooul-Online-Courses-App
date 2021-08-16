@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BackButtonWidget extends StatelessWidget {
-  const BackButtonWidget({
+  final String iconPath;
+  BackButtonWidget({
     Key? key,
+    required this.iconPath,
   }) : super(key: key);
 
   @override
@@ -81,7 +83,7 @@ class BackButtonWidget extends StatelessWidget {
                 ),
               ),
               Image.asset(
-                "assets/png/backbuttonimage.png",
+                iconPath,
                 height: MediaQuery.of(context).size.height * 0.050,
                 width: MediaQuery.of(context).size.width * 0.080,
               )

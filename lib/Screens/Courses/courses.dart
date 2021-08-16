@@ -39,7 +39,8 @@ class _CoursesState extends State<Courses> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    BackButtonWidget(),
+                    BackButtonWidget(
+                        iconPath: "assets/png/backbuttonimage.png"),
                     Text(
                       "Select a Course",
                       style: TextStyle(fontWeight: FontWeight.w100),
