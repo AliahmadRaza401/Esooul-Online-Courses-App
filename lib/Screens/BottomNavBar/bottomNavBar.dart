@@ -6,14 +6,17 @@ import 'package:esooul/Screens/WishList/wishList.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-void main() => runApp(MaterialApp(home: BottomNavBar()));
+void main() => runApp(MaterialApp(home: BottomNavBar(page: "home",)));
 
 class BottomNavBar extends StatefulWidget {
+  late String page;
+  BottomNavBar({required this.page});
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  _BottomNavBarState createState() => _BottomNavBarState(currentPage: page);
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  _BottomNavBarState({required this.currentPage});
   // int _selectedIndex = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
@@ -70,7 +73,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         body: Container(
           color: Color(0xff212121),
           child: Center(
-            child: PageNavigator(page: "$currentPage"),
+            child: PageNavigator(page: currentPage),
             // _indexPage.elementAt(_selectedIndex),
           ),
         ));

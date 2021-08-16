@@ -1,3 +1,5 @@
+import 'package:esooul/Navigator/pageNavigator.dart';
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -244,7 +246,7 @@ class _ProfileState extends State<Profile> {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => Settings()));
+                                            builder: (context) => BottomNavBar(page: 'setting')));
                                   },
                                 ),
                               ],
