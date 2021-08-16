@@ -36,7 +36,7 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
                   ),
                 ),
                 height: MediaQuery.of(context).size.height * .002,
-                width: MediaQuery.of(context).size.width * .37,
+                width: MediaQuery.of(context).size.width * .35,
               )
             ],
           ),
@@ -48,17 +48,17 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
             child: Row(
               children: [
                 smallcards("assets/png/Rectangle 9.png", "Intro to Business",
-                    "John Doe ", 1000, 1500),
+                    "John Doe ", 1000,),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,
                 ),
                 smallcards("assets/png/Rectangle 9.png", "Intro to Business",
-                    "John Doe ", 1000, 1500),
+                    "John Doe ", 1000,),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,
                 ),
                 smallcards("assets/png/Rectangle 9.png", "Intro to Business",
-                    "John Doe ", 1000, 1500),
+                    "John Doe ", 1000,),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,
                 ),
@@ -71,7 +71,7 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
   }
 
   Widget smallcards(
-      String img, String title, String name, double discounted, double price) {
+      String img, String title, String name, double discounted, ) {
     return Stack(
       children: [
         Container(
@@ -144,13 +144,7 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * .06,
                               ),
-                              Text(
-                                "PKR $price",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  decoration: TextDecoration.lineThrough,
-                                ),
-                              )
+                             
                             ],
                           ),
                         ],
@@ -164,6 +158,8 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
                     ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
+                                                     side: BorderSide(width:1, color:Colors.white),
+
                           primary: Color(0xff810000),
                           padding: EdgeInsets.symmetric(
                             horizontal: MediaQuery.of(context).size.width * .04,
@@ -175,7 +171,8 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
                     ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          
+                                                     side: BorderSide(width:1, color:Colors.white),
+
                           primary: Color(0xff024360),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(100)),

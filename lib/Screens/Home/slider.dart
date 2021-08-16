@@ -12,7 +12,7 @@ class _SlidersState extends State<Sliders> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .13,
+      height: MediaQuery.of(context).size.height * .2,
       width: double.infinity,
       margin: EdgeInsets.only(
         top: MediaQuery.of(context).size.height * .001,
@@ -56,7 +56,7 @@ class _SlidersState extends State<Sliders> {
           topRight:
               Radius.circular(MediaQuery.of(context).size.width * .08)),
                 image: DecorationImage(
-          image: AssetImage("assets/png/Frame.png"),
+          image: AssetImage("assets/png/image 5.png"),
           fit: BoxFit.cover,
         ),
               ),

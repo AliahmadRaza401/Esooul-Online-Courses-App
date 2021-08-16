@@ -16,7 +16,7 @@ class _BoardsState extends State<Boards> {
         right: MediaQuery.of(context).size.width * .01,
 
       ),
-      height: MediaQuery.of(context).size.height * .35,
+      height: MediaQuery.of(context).size.height * .31,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -45,6 +45,8 @@ class _BoardsState extends State<Boards> {
               ],
             ),
             Wrap(
+              spacing: MediaQuery.of(context).size.width *.03,
+              
               children: [
                 board("assets/png/ractangle.png", 'assets/png/cambrig.png',
                     "Cambridge"),
@@ -69,31 +71,29 @@ class _BoardsState extends State<Boards> {
   }
 
   Widget board(String backimage, String logo, String title) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * .01,
-        left: MediaQuery.of(context).size.width * .01,
-        right: MediaQuery.of(context).size.width * .015,
-        bottom: MediaQuery.of(context).size.height * .01,
-      ),
-      height: MediaQuery.of(context).size.height * .11,
-      width: MediaQuery.of(context).size.width * .28,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: AssetImage(backimage),
-          fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.only(top: 15),
+      child: Container(
+       
+        height: MediaQuery.of(context).size.height * .11,
+        width: MediaQuery.of(context).size.width * .28,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(backimage),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(logo),
-          Text(
-            title,
-            style: TextStyle( fontSize: 17),
-          )
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(logo),
+            Text(
+              title,
+              style: TextStyle( fontSize: 17),
+            )
+          ],
+        ),
       ),
     );
   }
