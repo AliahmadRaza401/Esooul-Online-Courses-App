@@ -17,6 +17,12 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -252,9 +258,17 @@ class _ProfileState extends State<Profile> {
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Settings"),
                                   onPressed: () {
+<<<<<<< HEAD
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) => Settings()));
+=======
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                            builder: (context) => BottomNavBar(
+                                                  activeIndex: 4,
+                                                )));
+>>>>>>> 4460a2e877452e59355f184d179cd20f357cbacb
                                   },
                                 ),
                               ],
@@ -302,7 +316,6 @@ class _ProfileState extends State<Profile> {
             child: TextField(
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black),
-              
               decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * .01),

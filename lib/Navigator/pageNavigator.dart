@@ -21,10 +21,9 @@ class PageNavigator extends StatelessWidget {
       child = Profile();
     } else if (page == "profile") {
       child = Profile();
-    } 
-    else if (page == "setting") {
+    } else if (page == "setting") {
       child = Settings();
-    }else {
+    } else {
       return child = Home();
     }
 

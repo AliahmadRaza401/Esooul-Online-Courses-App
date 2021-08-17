@@ -18,7 +18,7 @@ class _HeaderState extends State<Header> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset("assets/png/Frame.png"),
+                Image.asset("assets/png/elogo.png"),
               ],
             ),
             SizedBox(

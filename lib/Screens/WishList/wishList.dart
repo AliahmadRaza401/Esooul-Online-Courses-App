@@ -41,6 +41,9 @@ class _WishlistState extends State<Wishlist> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         BackButtonWidget(iconPath: "assets/png/hearticon.png"),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.020,
+                        ),
                         _courseContainer(
                             "assets/png/candageography.png",
                             "Issues in Canadian Geography",
@@ -48,6 +51,9 @@ class _WishlistState extends State<Wishlist> {
                             "Category - History",
                             "1000",
                             "1500"),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.020,
+                        ),
                         _courseContainer(
                             "assets/png/candageography.png",
                             "Issues in Canadian Geography",
@@ -55,6 +61,9 @@ class _WishlistState extends State<Wishlist> {
                             "Category - History",
                             "1000",
                             "1500"),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.020,
+                        ),
                       ],
                     ),
                   )),
@@ -75,94 +84,97 @@ class _WishlistState extends State<Wishlist> {
         color: Color(0xff3D3D3D),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Column(
-        children: [
-          //1st Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    imgPath,
-                    height: 80,
-                    width: 80,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(subject),
-                  Text(
-                    author,
-                    style: TextStyle(color: Color(0xffFFD643)),
-                  ),
-                  Row(
-                    children: [
-                      Text(category),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.020,
-                      ),
-                      Text(
-                        discountPrice,
-                        style: TextStyle(color: Color(0xff00B0D7)),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.015,
-                      ),
-                      Text(
-                        price,
-                        style: TextStyle(
-                            color: Color(0xff949494),
-                            decoration: TextDecoration.lineThrough),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ],
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Row(
-                    children: [
-                      ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xff646464),
-                            shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
-                          ),
-                          onPressed: () {},
-                          icon: Icon(Icons.add),
-                          label: Text("Add to cart")),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.10,
-                      ),
-                      ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xff646464),
-                            shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
-                          ),
-                          onPressed: () {},
-                          icon: Icon(Icons.close),
-                          label: Text("Remove")),
-                    ],
-                  ),
-                ],
-              )
-            ],
-          )
-        ],
+      child: Container(
+        child: Column(
+          children: [
+            //1st Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Image.asset(
+                      imgPath,
+                      height: MediaQuery.of(context).size.height * 0.090,
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(subject),
+                    Text(
+                      author,
+                      style: TextStyle(color: Color(0xffFFD643)),
+                    ),
+                    Row(
+                      children: [
+                        Text(category),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.020,
+                        ),
+                        Text(
+                          discountPrice,
+                          style: TextStyle(color: Color(0xff00B0D7)),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.015,
+                        ),
+                        Text(
+                          price,
+                          style: TextStyle(
+                              color: Color(0xff949494),
+                              decoration: TextDecoration.lineThrough),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                ElevatedButton.icon(
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: Size(150, 10),
+                                      primary: Color(0xff646464),
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20))),
+                                    ),
+                                    onPressed: () {},
+                                    icon: Icon(Icons.add),
+                                    label: Text("Add to cart")),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.10,
+                                ),
+                                ElevatedButton.icon(
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: Size(150, 10),
+                                      primary: Color(0xff646464),
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20))),
+                                    ),
+                                    onPressed: () {},
+                                    icon: Icon(Icons.close),
+                                    label: Text("Remove")),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

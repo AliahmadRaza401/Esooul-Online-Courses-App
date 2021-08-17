@@ -64,8 +64,8 @@ class _CategoriesState extends State<Categories> {
       padding: const EdgeInsets.all(.5),
       child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => BottomNavBar(page: navigator)));
+            // Navigator.of(context).push(MaterialPageRoute(
+            //     builder: (context) => BottomNavBar(activeIndex: ,)));
           },
           style: ElevatedButton.styleFrom(
             primary: Color(0xff2F2F2F),

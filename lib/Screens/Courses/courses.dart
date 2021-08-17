@@ -1,3 +1,8 @@
+import 'package:esooul/Screens/Authentication/forget_password.dart';
+import 'package:esooul/Screens/Authentication/login.dart';
+import 'package:esooul/Screens/Authentication/pin_code.dart';
+import 'package:esooul/Screens/Authentication/signup.dart';
+import 'package:esooul/Screens/WishList/wishList.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +16,7 @@ class Courses extends StatefulWidget {
 }
 
 class _CoursesState extends State<Courses> {
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,19 +41,117 @@ class _CoursesState extends State<Courses> {
                           MediaQuery.of(context).size.width * .08),
                       topRight: Radius.circular(
                           MediaQuery.of(context).size.width * .08))),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    BackButtonWidget(
-                        iconPath: "assets/png/backbuttonimage.png"),
-                    Text(
-                      "Select a Course",
-                      style: TextStyle(fontWeight: FontWeight.w100),
-                    ),
-                    _courseContainer()
-                  ],
-                ),
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                children: <Widget>[
+                  BackButtonWidget(iconPath: "assets/png/backbuttonimage.png"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                      Text(
+                        "Select a Course",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height * .002,
+                        width: MediaQuery.of(context).size.width * .65,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                            colors: [
+                              Colors.black,
+                              Colors.white38,
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.020,
+                  ),
+                  _courseContainer(
+                      "assets/png/candageography.png",
+                      "Issues in Canadian Geography",
+                      "Ponum Ghazanfar",
+                      "History",
+                      "1000",
+                      "1500",
+                      "2K",
+                      "12 jun 2021",
+                      isFavorite),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.020,
+                  ),
+                  _courseContainer(
+                      "assets/png/candageography.png",
+                      "Issues in Canadian Geography",
+                      "Ponum Ghazanfar",
+                      "History",
+                      "1000",
+                      "1500",
+                      "2K",
+                      "12 jun 2021",
+                      isFavorite),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.020,
+                  ),
+                  ElevatedButton(
+                    child: Text('Sign in'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LogIn()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Sign Up'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUp()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Forget PAssword'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgetPassword()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('OTP'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => EnterPinCode()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('WishList'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Wishlist()),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ]),
@@ -56,9 +160,18 @@ class _CoursesState extends State<Courses> {
     );
   }
 
-  _courseContainer() {
+  _courseContainer(
+      String imagePath,
+      String subject,
+      String author,
+      String category,
+      String disountprice,
+      String price,
+      String likes,
+      String date,
+      bool isFavorite) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(10.0),
       height: MediaQuery.of(context).size.height * 0.18,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -74,35 +187,34 @@ class _CoursesState extends State<Courses> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset(
-                    "assets/png/candageography.png",
-                  ),
+                  Image.asset(imagePath,
+                      height: MediaQuery.of(context).size.height * 0.090),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("Issues in Canadian Geography"),
+                  Text(subject),
                   Text(
-                    "Ponum Ghazzanfar",
+                    author,
                     style: TextStyle(color: Color(0xffFFD643)),
                   ),
                   Row(
                     children: [
-                      Text("Category - History"),
+                      Text("Category - $category"),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.020,
                       ),
                       Text(
-                        "PKR 1000",
+                        disountprice,
                         style: TextStyle(color: Color(0xff00B0D7)),
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.015,
                       ),
                       Text(
-                        "PKR 1500",
+                        price,
                         style: TextStyle(
                             color: Color(0xff949494),
                             decoration: TextDecoration.lineThrough),
@@ -113,36 +225,60 @@ class _CoursesState extends State<Courses> {
               )
             ],
           ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.020),
           //2nd row
-          // Row(
-          //   children: <Widget>[
-          //     Container(
-          //       width: double.infinity,
-          //       height: MediaQuery.of(context).size.height * 0.20,
-          //       decoration: BoxDecoration(
-          //         color: Color(0xff646464),
-          //         borderRadius: BorderRadius.circular(30),
-          //       ),
-          //       child: Row(
-          //         children: <Widget>[
-          //           Column(
-          //             children: <Widget>[
-          //               Container(
-          //                 decoration: BoxDecoration(
-          //                   shape: BoxShape.circle,
-          //                   color: Color(0xff464646),
-          //                 ),
-          //                 child: Center(
-          //                   child: Text("01"),
-          //                 ),
-          //               ),
-          //             ],
-          //           )
-          //         ],
-          //       ),
-          //     ),
-          //   ],
-          // )
+          Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.045,
+                  decoration: BoxDecoration(
+                    color: Color(0xff646464),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.07,
+                            height: MediaQuery.of(context).size.height * 0.040,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xff464646),
+                            ),
+                            child: Center(
+                              child: Text("01"),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Text(likes),
+                      Text("Created $date"),
+                      Text(
+                        "Buy Now",
+                        style: TextStyle(color: Colors.yellow),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: Colors.red,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            isFavorite = !isFavorite;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
