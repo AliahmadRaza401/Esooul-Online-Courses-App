@@ -13,7 +13,7 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      height: MediaQuery.of(context).size.height * .19,
+      height: MediaQuery.of(context).size.height * .21,
       child: Column(
         children: [
           Row(
