@@ -13,7 +13,7 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      height: MediaQuery.of(context).size.height * .21,
+      // height: MediaQuery.of(context).size.height * .21,
       child: Column(
         children: [
           Row(
@@ -43,9 +43,8 @@ class _CategoriesState extends State<Categories> {
             height: MediaQuery.of(context).size.height * .02,
           ),
           Wrap(
-            
+            spacing: 5,
             children: [
-              
               button("Art & Design", ""),
               button("Engineering", ""),
               button("Information Technology", ""),

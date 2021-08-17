@@ -1,8 +1,4 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
-import 'package:esooul/Screens/Courses/courses.dart';
-import 'package:esooul/Screens/Home/home.dart';
-import 'package:esooul/Screens/Profile/profile.dart';
-import 'package:esooul/Screens/WishList/wishList.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 

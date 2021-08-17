@@ -4,7 +4,6 @@ import 'package:esooul/Screens/Home/newlyFeatured2.dart';
 import 'package:esooul/Screens/Home/slider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
-
 import 'boards.dart';
 import 'categories.dart';
 
@@ -67,16 +66,18 @@ class _HomeState extends State<Home> {
                                 MediaQuery.of(context).size.width * .08),
                             topRight: Radius.circular(
                                 MediaQuery.of(context).size.width * .08))),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Sliders(),
-                          Boards(),
-                          LikedCourses(),
-                          NewlyFeaturedCourses(),
-                          Categories(),
-                          NewlyFeatured2()
-                        ],
+                    child: ClipRRect(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Sliders(),
+                            Boards(),
+                            LikedCourses(),
+                            NewlyFeaturedCourses(),
+                            Categories(),
+                            NewlyFeatured2()
+                          ],
+                        ),
                       ),
                     ),
                   ),

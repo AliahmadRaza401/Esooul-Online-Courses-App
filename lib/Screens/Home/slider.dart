@@ -56,7 +56,7 @@ class _SlidersState extends State<Sliders> {
           topRight:
               Radius.circular(MediaQuery.of(context).size.width * .08)),
                 image: DecorationImage(
-          image: AssetImage("assets/png/image 5.png"),
+          image: AssetImage("assets/png/slider2.png"),
           fit: BoxFit.cover,
         ),
               ),
@@ -68,7 +68,7 @@ class _SlidersState extends State<Sliders> {
           topRight:
               Radius.circular(MediaQuery.of(context).size.width * .09)),
                 image: DecorationImage(
-          image: AssetImage("assets/png/image 5.png"),
+          image: AssetImage("assets/png/slider3.png"),
           fit: BoxFit.cover,
         ),
               ),

@@ -80,7 +80,7 @@ class _NewlyFeatured2State extends State<NewlyFeatured2> {
       decoration: BoxDecoration(
         borderRadius:
        BorderRadius.circular(MediaQuery.of(context).size.height * .02),
-        color: Color(0xff393939),
+        color: Color(0xff2F2E2E),
       ),
       height: MediaQuery.of(context).size.height * .26,
       width: MediaQuery.of(context).size.width * .5,

@@ -1,8 +1,12 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Courses/Units.dart';
+import 'package:esooul/Screens/Profile/Privacy.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+
+import 'Terms and privacy.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key? key}) : super(key: key);
@@ -225,7 +229,11 @@ class _ProfileState extends State<Profile> {
                                               BorderRadius.circular(15.0)),
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Contact Us"),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                     
+                                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Units()));
+
+                                  },
                                 ),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -246,7 +254,7 @@ class _ProfileState extends State<Profile> {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => BottomNavBar(page: 'setting')));
+                                            builder: (context) => Settings()));
                                   },
                                 ),
                               ],

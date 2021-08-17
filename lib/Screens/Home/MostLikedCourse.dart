@@ -47,9 +47,9 @@ class _LikedCoursesState extends State<LikedCourses> {
               children: [
                 cards("assets/png/Rectangle 9.png","Intro to Business","John Doe ",1000,1500),
                 SizedBox(width: MediaQuery.of(context).size.width *.03,),
-                  cards("assets/png/Rectangle 9.png","Intro to Business","John Doe ",1000,1500),
+                  cards("assets/png/MostLiked3.png","Intro to Business","John Doe ",1000,1500),
                     SizedBox(width: MediaQuery.of(context).size.width *.03,),
-                  cards("assets/png/Rectangle 9.png","Intro to Business","John Doe ",1000,1500),
+                  cards("assets/png/Mostliked2.png","Intro to Business","John Doe ",1000,1500),
               ],
             ),
           ),
