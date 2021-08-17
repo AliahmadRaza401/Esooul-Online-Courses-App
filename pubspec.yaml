@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.1
   flutter_image_slideshow: ^0.1.1
+  after_layout: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Splash/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         //   bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         // ),
       ),
-      home: BottomNavBar(),
+      home: Splash()
     );
   }
 }
