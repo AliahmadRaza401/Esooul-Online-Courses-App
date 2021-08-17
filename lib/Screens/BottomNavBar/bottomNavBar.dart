@@ -28,10 +28,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List<Widget> pageList = [
     Home(),
+    Courses(),
     Profile(),
-    Settings(),
-    Settings(),
-    Settings()
   ];
 
   @override

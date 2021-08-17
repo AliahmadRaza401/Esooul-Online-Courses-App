@@ -12,7 +12,7 @@ class _LikedCoursesState extends State<LikedCourses> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      height: MediaQuery.of(context).size.height * .5,
+      height: MediaQuery.of(context).size.height * .49,
       child: Column(
         children: [
            Row(
@@ -152,6 +152,7 @@ class _LikedCoursesState extends State<LikedCourses> {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff810000),
+                           side: BorderSide(width:1, color:Colors.white),
                             padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.08,),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(100)),
@@ -161,6 +162,7 @@ class _LikedCoursesState extends State<LikedCourses> {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff024360),
+                           side: BorderSide(width:1, color:Colors.white),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(100)),
                         ),

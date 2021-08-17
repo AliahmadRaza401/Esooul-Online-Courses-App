@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:esooul/Screens/Authentication/login.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   }
 
   @override
-  void afterFirstLayout(BuildContext context) => nextScreen();
+  void afterFirstLayout(BuildContext context) => LogIn();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
         ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Image.asset("assets/png/Mask Group.png"),
+        child: Image.asset("assets/png/elogo.png"),
       ),
       // VideoPlayer(_controller),
       // FutureBuilder(

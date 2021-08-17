@@ -1,10 +1,12 @@
 import 'package:esooul/Screens/Home/MostLikedCourse.dart';
 import 'package:esooul/Screens/Home/NewFeatured.dart';
+import 'package:esooul/Screens/Home/newlyFeatured2.dart';
 import 'package:esooul/Screens/Home/slider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
 import 'boards.dart';
+import 'categories.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -72,6 +74,8 @@ class _HomeState extends State<Home> {
                           Boards(),
                           LikedCourses(),
                           NewlyFeaturedCourses(),
+                          Categories(),
+                          NewlyFeatured2()
                         ],
                       ),
                     ),
