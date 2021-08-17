@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/pin_code.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -39,15 +40,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         child: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .15,
+              top: MediaQuery.of(context).size.height * .090,
               left: MediaQuery.of(context).size.width * .01,
               right: MediaQuery.of(context).size.width * .01,
             ),
             child: Column(
               children: [
-                Image.asset("assets/png/Frame.png"),
+                Image.asset("assets/png/elogo.png"),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.060,
+                  height: MediaQuery.of(context).size.height * 0.080,
                 ),
                 Text(
                   "Don't worry! we're here for rescue",
@@ -101,7 +102,6 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         child: Form(
                           key: _formKey,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               SizedBox(
                                 height:
@@ -129,6 +129,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                 },
 
                                 textInputtype: TextInputType.emailAddress,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
+                              ElevatedButton(
+                                child: Text('Get Code'),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => EnterPinCode()),
+                                  );
+                                },
                               ),
 
                               Expanded(

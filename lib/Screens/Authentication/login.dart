@@ -1,3 +1,5 @@
+import 'package:esooul/Screens/Authentication/forget_password.dart';
+import 'package:esooul/Screens/Authentication/signup.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -40,13 +42,17 @@ class _LogInState extends State<LogIn> {
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .15,
+              top: MediaQuery.of(context).size.height * .09,
               left: MediaQuery.of(context).size.width * .01,
               right: MediaQuery.of(context).size.width * .01,
               bottom: MediaQuery.of(context).size.height * 0.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Image.asset("assets/png/elogo.png"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.020,
+                ),
                 Text(
                   "Hello",
                   style: TextStyle(fontSize: 18.0),
@@ -98,11 +104,18 @@ class _LogInState extends State<LogIn> {
                       child: Form(
                         key: _formKey,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
                             Text(
                               "Login to your account",
                               style: TextStyle(fontSize: 18.0),
+                            ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.040,
                             ),
                             TextFormFieldWidget(
                               label: 'Email',
@@ -118,6 +131,10 @@ class _LogInState extends State<LogIn> {
                               },
 
                               textInputtype: TextInputType.emailAddress,
+                            ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
                             ),
                             TextFormFieldWidget(
                               label: 'Password',
@@ -136,13 +153,61 @@ class _LogInState extends State<LogIn> {
                               isSecure: true,
                               textInputtype: TextInputType.visiblePassword,
                             ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
                             GestureDetector(child: Text("Forget Passsword?")),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
+                            ElevatedButton(
+                              child: Text('Forget Password'),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ForgetPassword()),
+                                );
+                              },
+                            ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
                             Text("Or"),
-                            Text("Don't Have an account?"),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
 
-                            Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text("Copyright Reserved@Esooul"),
+                            Text("Don't Have an account?"),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
+                            ElevatedButton(
+                              child: Text('Register'),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUp()),
+                                );
+                              },
+                            ),
+
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.020,
+                            ),
+
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text("Copyright Reserved@Esooul"),
+                              ),
                             )
 
                             // SliderButton(

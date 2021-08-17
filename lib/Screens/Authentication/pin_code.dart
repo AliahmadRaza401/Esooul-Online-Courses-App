@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/login.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class _EnterPinCodeState extends State<EnterPinCode> {
             ),
             child: Column(
               children: [
-                Image.asset("assets/png/Frame.png"),
+                Image.asset("assets/png/elogo.png"),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.060,
                 ),
@@ -90,7 +91,6 @@ class _EnterPinCodeState extends State<EnterPinCode> {
                         child: Form(
                           key: _formKey,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               SizedBox(
                                 height:
@@ -173,6 +173,25 @@ class _EnterPinCodeState extends State<EnterPinCode> {
                                     },
                                   ),
                                 ],
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.040,
+                              ),
+                              Text("Didn't receive yet?"),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
+                              ElevatedButton(
+                                child: Text('Log IN'),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LogIn()),
+                                  );
+                                },
                               ),
                               Expanded(
                                 child: Align(
