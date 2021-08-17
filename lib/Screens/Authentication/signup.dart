@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/login.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -41,14 +42,17 @@ class _SignUpState extends State<SignUp> {
         child: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .15,
+              top: MediaQuery.of(context).size.height * .09,
               left: MediaQuery.of(context).size.width * .01,
               right: MediaQuery.of(context).size.width * .01,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset("assets/png/Frame.png"),
+                Image.asset("assets/png/elogo.png"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.020,
+                ),
                 Text(
                   "Good to see you",
                   style: TextStyle(fontSize: 18.0),
@@ -101,11 +105,18 @@ class _SignUpState extends State<SignUp> {
                         child: Form(
                           key: _formKey,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
                               Text(
                                 "Create New Account",
                                 style: TextStyle(fontSize: 18.0),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.030,
                               ),
                               TextFormFieldWidget(
                                 label: 'Name',
@@ -122,6 +133,10 @@ class _SignUpState extends State<SignUp> {
 
                                 textInputtype: TextInputType.name,
                               ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
                               TextFormFieldWidget(
                                 label: 'Email',
                                 controller: _emailController,
@@ -136,6 +151,10 @@ class _SignUpState extends State<SignUp> {
                                 },
 
                                 textInputtype: TextInputType.emailAddress,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
                               ),
                               TextFormFieldWidget(
                                 label: 'Password',
@@ -154,6 +173,10 @@ class _SignUpState extends State<SignUp> {
                                 isSecure: true,
                                 textInputtype: TextInputType.visiblePassword,
                               ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
                               TextFormFieldWidget(
                                 label: 'Password',
                                 controller: _confirmpasswordController,
@@ -171,11 +194,31 @@ class _SignUpState extends State<SignUp> {
                                 isSecure: true,
                                 textInputtype: TextInputType.visiblePassword,
                               ),
-
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
                               Text("Already Have an account?"),
-                              Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text("Copyright Reserved@Esooul"),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
+                              ElevatedButton(
+                                child: Text('Sign in'),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LogIn()),
+                                  );
+                                },
+                              ),
+
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text("Copyright Reserved@Esooul"),
+                                ),
                               )
 
                               // SliderButton(
