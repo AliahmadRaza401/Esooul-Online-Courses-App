@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/forget_password.dart';
 import 'package:esooul/Screens/Authentication/signup.dart';
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -163,13 +164,12 @@ class _LogInState extends State<LogIn> {
                                   MediaQuery.of(context).size.height * 0.020,
                             ),
                             ElevatedButton(
-                              child: Text('Forget Password'),
+                              child: Text('LogIn'),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ForgetPassword()),
-                                );
+                                Navigator.of(context).pushReplacement(
+                                    new MaterialPageRoute(
+                                        builder: (context) =>
+                                            new BottomNavBar(activeIndex: 0)));
                               },
                             ),
                             SizedBox(

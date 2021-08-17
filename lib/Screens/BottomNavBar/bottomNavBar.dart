@@ -29,6 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> pageList = [
     Home(),
     Courses(),
+    Wishlist(),
     Profile(),
   ];
 
