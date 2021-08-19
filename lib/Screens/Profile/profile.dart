@@ -257,18 +257,16 @@ class _ProfileState extends State<Profile> {
                                               BorderRadius.circular(15.0)),
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Settings"),
-                                  onPressed: () {
-<<<<<<< HEAD
+                                  onPressed: (){
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) => Settings()));
-=======
+
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                             builder: (context) => BottomNavBar(
                                                   activeIndex: 4,
                                                 )));
->>>>>>> 4460a2e877452e59355f184d179cd20f357cbacb
                                   },
                                 ),
                               ],

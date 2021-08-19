@@ -52,12 +52,12 @@ class _NewlyFeaturedCoursesState extends State<NewlyFeaturedCourses> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,
                 ),
-                smallcards("assets/png/Rectangle 9.png", "Intro to Business",
+                smallcards("assets/png/MostLiked3.png", "Intro to Business",
                     "John Doe ", 1000,),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,
                 ),
-                smallcards("assets/png/Rectangle 9.png", "Intro to Business",
+                smallcards("assets/png/Mostliked2.png", "Intro to Business",
                     "John Doe ", 1000,),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .03,

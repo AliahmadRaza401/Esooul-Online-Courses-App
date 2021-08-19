@@ -21,69 +21,85 @@ class _HomeState extends State<Home> {
       color: Color(0xff2F2F2F),
       child: SizedBox(
         height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Header(),
-              Stack(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * .001,
-                      left: MediaQuery.of(context).size.width * .01,
-                      right: MediaQuery.of(context).size.width * .01,
-                    ),
-                    height: MediaQuery.of(context).size.height * .79,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            Colors.blue,
-                            Colors.black,
-                          ],
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .09),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .09)),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Header(),
+                Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .09),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .09)),
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * .001,
+                          left: MediaQuery.of(context).size.width * .01,
+                          right: MediaQuery.of(context).size.width * .01,
                         ),
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(
-                                MediaQuery.of(context).size.width * .08),
-                            topRight: Radius.circular(
-                                MediaQuery.of(context).size.width * .08))),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * .003,
-                      left: MediaQuery.of(context).size.width * .015,
-                      right: MediaQuery.of(context).size.width * .015,
+                        height: MediaQuery.of(context).size.height * .79,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.blue,
+                                Colors.black,
+                              ],
+                            ),
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(
+                                    MediaQuery.of(context).size.width * .08),
+                                topRight: Radius.circular(
+                                    MediaQuery.of(context).size.width * .08))),
+                      ),
                     ),
-                    height: MediaQuery.of(context).size.height * .789,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Color(0xff2F2E2E),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(
-                                MediaQuery.of(context).size.width * .08),
-                            topRight: Radius.circular(
-                                MediaQuery.of(context).size.width * .08))),
-                    child: ClipRRect(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Sliders(),
-                            Boards(),
-                            LikedCourses(),
-                            NewlyFeaturedCourses(),
-                            Categories(),
-                            NewlyFeatured2()
-                          ],
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .12),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .12)),
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * .003,
+                          left: MediaQuery.of(context).size.width * .015,
+                          right: MediaQuery.of(context).size.width * .015,
+                        ),
+                        height: MediaQuery.of(context).size.height * .789,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Color(0xff2F2E2E),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(
+                                    MediaQuery.of(context).size.width * .08),
+                                topRight: Radius.circular(
+                                    MediaQuery.of(context).size.width * .08))),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Sliders(),
+                              Boards(),
+                              LikedCourses(),
+                              NewlyFeaturedCourses(),
+                              Categories(),
+                              NewlyFeatured2()
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

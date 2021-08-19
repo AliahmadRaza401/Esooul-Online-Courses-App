@@ -25,58 +25,64 @@ class _SlidersState extends State<Sliders> {
               topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
               topRight:
                   Radius.circular(MediaQuery.of(context).size.width * .08))),
-      child: ImageSlideshow(
-        
-        width: double.infinity,
-        isLoop: true,
-        height: 200,
-        initialPage: 0,
-        indicatorColor: Colors.blue,
-
-        indicatorBackgroundColor: Colors.grey,
-
-        children: [
-           Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
-          topRight:
-              Radius.circular(MediaQuery.of(context).size.width * .08)),
-                image: DecorationImage(
-          image: AssetImage("assets/png/image 5.png"),
-          fit: BoxFit.cover,
-        ),
-              ),
-            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .09),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .09)),
+        child: ImageSlideshow(
           
-         Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
-          topRight:
-              Radius.circular(MediaQuery.of(context).size.width * .08)),
-                image: DecorationImage(
-          image: AssetImage("assets/png/slider2.png"),
-          fit: BoxFit.cover,
-        ),
-              ),
-            ),
-          Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(MediaQuery.of(context).size.width * .09),
-          topRight:
-              Radius.circular(MediaQuery.of(context).size.width * .09)),
-                image: DecorationImage(
-          image: AssetImage("assets/png/slider3.png"),
-          fit: BoxFit.cover,
-        ),
-              ),
-            ),
-        ],
+          width: double.infinity,
+          isLoop: true,
+          height: 200,
+          initialPage: 0,
+          indicatorColor: Colors.blue,
       
-        autoPlayInterval: 2000,
-
+          indicatorBackgroundColor: Colors.grey,
+      
+          children: [
+             Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .08)),
+                  image: DecorationImage(
+            image: AssetImage("assets/png/image 5.png"),
+            fit: BoxFit.cover,
+          ),
+                ),
+              ),
+            
+           Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .08)),
+                  image: DecorationImage(
+            image: AssetImage("assets/png/slider2.png"),
+            fit: BoxFit.cover,
+          ),
+                ),
+              ),
+            Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .09),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .09)),
+                  image: DecorationImage(
+            image: AssetImage("assets/png/slider3.png"),
+            fit: BoxFit.cover,
+          ),
+                ),
+              ),
+          ],
+        
+          autoPlayInterval: 2000,
+      
+        ),
       ),
     );
   }

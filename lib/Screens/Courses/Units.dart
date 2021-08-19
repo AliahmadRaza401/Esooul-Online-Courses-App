@@ -24,7 +24,7 @@ class _UnitsState extends State<Units> {
                     left: MediaQuery.of(context).size.width * .01,
                     right: MediaQuery.of(context).size.width * .01,
                   ),
-                  height: MediaQuery.of(context).size.height * .85,
+                  height: MediaQuery.of(context).size.height * .82,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -48,7 +48,7 @@ class _UnitsState extends State<Units> {
                     left: MediaQuery.of(context).size.width * .015,
                     right: MediaQuery.of(context).size.width * .015,
                   ),
-                  height: MediaQuery.of(context).size.height * .85,
+                  height: MediaQuery.of(context).size.height * .82,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: Color(0xff000000),
@@ -57,288 +57,294 @@ class _UnitsState extends State<Units> {
                               MediaQuery.of(context).size.width * .08),
                           topRight: Radius.circular(
                               MediaQuery.of(context).size.width * .08))),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: BackButtonWidget(
-                              iconPath: 'assets/png/presentation4.png'),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Select a Unit",
-                              style: TextStyle(fontSize: 15),
-                            ),
-                            Container(
-                              height: MediaQuery.of(context).size.height * .002,
-                              width: MediaQuery.of(context).size.width * .7,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  colors: [
-                                    Colors.black,
-                                    Colors.white,
-                                  ],
-                                ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .1),
+            topRight:
+                Radius.circular(MediaQuery.of(context).size.width * .1)),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: BackButtonWidget(
+                                iconPath: 'assets/png/presentation4.png'),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Select a Unit",
+                                style: TextStyle(fontSize: 15),
                               ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Container(
+                              Container(
+                                height: MediaQuery.of(context).size.height * .002,
+                                width: MediaQuery.of(context).size.width * .7,
                                 decoration: BoxDecoration(
-                                    color: Color(0xff7B7B7B),
-                                    borderRadius: BorderRadius.circular(
-                                        MediaQuery.of(context).size.height *.03)),
-                                width: MediaQuery.of(context).size.width * .9,
-                                height: MediaQuery.of(context).size.height * .3,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                image: AssetImage('assets/png/image 8.png'),
-                                fit: BoxFit.cover),
-                                              borderRadius: BorderRadius.circular(
-                                                  MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      .03)),
-                                          width:
-                                              MediaQuery.of(context).size.width *
-                                                  .8,
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  .2,
-                                        )
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topRight,
+                                    end: Alignment.bottomLeft,
+                                    colors: [
+                                      Colors.black,
+                                      Colors.white,
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color(0xff7B7B7B),
+                                      borderRadius: BorderRadius.circular(
+                                          MediaQuery.of(context).size.height *.03)),
+                                  width: MediaQuery.of(context).size.width * .9,
+                                  height: MediaQuery.of(context).size.height * .3,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            "Introduction to  Issues in Canadian Geography,",
-                                            style: TextStyle(fontSize: 15),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                  image: AssetImage('assets/png/image 8.png'),
+                                  fit: BoxFit.cover),
+                                                borderRadius: BorderRadius.circular(
+                                                    MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        .03)),
+                                            width:
+                                                MediaQuery.of(context).size.width *
+                                                    .8,
+                                            height:
+                                                MediaQuery.of(context).size.height *
+                                                    .2,
                                           )
                                         ],
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 25),
-                                      child: Row(
-                                       children: [
-                                        Column(
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
-                                            Text("Likes 2K"),
+                                            Text(
+                                              "Introduction to  Issues in Canadian Geography,",
+                                              style: TextStyle(fontSize: 15),
+                                            )
                                           ],
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(left:25),
-                                          child: Column(
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 25),
+                                        child: Row(
+                                         children: [
+                                          Column(
                                             children: [
-                                              Text("Created 12 jun 2021"),
+                                              Text("Likes 2K"),
                                             ],
                                           ),
-                                        )
-                                      ],),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10,right: 10),
-                          child: Card(
-                            
-                           color: Color(0xff3D3D3D),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                          child: SizedBox(
-                            
-                            
-                            child: SingleChildScrollView(
-                              
-                              child: ExpansionTile(
-                                title: Column(
-                                          children: [
-                                            ListTile(
-                                              leading:
-                                                  Image.asset('assets/png/Mask.png'),
-                                              title: Column(
-                                                children: [
-                                                  Row(
-                                                    children: [
-                                                      Text("Topic 01-lorem isum"),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        "Author- ",
-                                                        style: TextStyle(
-                                                            color: Color(0xffFFD643)),
-                                                      ),
-                                                      Text("Alexender")
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Text("Topic - 15"),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:25),
+                                            child: Column(
+                                              children: [
+                                                Text("Created 12 jun 2021"),
+                                              ],
                                             ),
-                                            Container(
-                                                padding: EdgeInsets.only(
-                                                    left: MediaQuery.of(context).size.width *.001,
-                                                    right: MediaQuery.of(context)
-                                                            .size
-                                                            .width *
-                                                        .01),
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xffD9D9D9),
-                                                    borderRadius: BorderRadius.circular(
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            .03)),
-                                                width: MediaQuery
-                                                            .of(context)
-                                                        .size
-                                                        .width *
-                                                    .85,
-                                                height:
-                                                    MediaQuery.of(context).size.height *
-                                                        .04,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.spaceBetween,
+                                          )
+                                        ],),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Card(
+                              
+                             color: Color(0xff3D3D3D),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                            child: SizedBox(
+                              
+                              
+                              child: SingleChildScrollView(
+                                
+                                child: ExpansionTile(
+                                  title: Column(
+                                            children: [
+                                              ListTile(
+                                                leading:
+                                                    Image.asset('assets/png/Mask.png'),
+                                                title: Column(
                                                   children: [
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.center,
+                                                    Row(
                                                       children: [
-                                                        CircleAvatar(
-                                                          backgroundColor:
-                                                              Color(0xff464646),
-                                                          child: Text('1'),
-                                                          radius: 16,
-                                                        )
+                                                        Text("Topic 01-lorem isum"),
                                                       ],
                                                     ),
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.center,
+                                                    Row(
                                                       children: [
                                                         Text(
-                                                          "Likes  2k",
+                                                          "Author- ",
                                                           style: TextStyle(
-                                                              fontSize: 12,
-                                                              color: Color(0xff0B0C0B)),
+                                                              color: Color(0xffFFD643)),
                                                         ),
+                                                        Text("Alexender")
                                                       ],
                                                     ),
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.center,
+                                                    Row(
                                                       children: [
-                                                        Text(
-                                                          "Created 12 jun 2021",
-                                                          style: TextStyle(
-                                                              fontSize: 12,
-                                                              color: Color(0xff0B0C0B)),
-                                                        )
+                                                        Text("Topic - 15"),
                                                       ],
                                                     ),
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.center,
-                                                      children: [
-                                                        Row(
-                                                          children: [
-                                                            Text(
-                                                              'Buy Now',
-                                                              style: TextStyle(
-                                                                  fontSize: 12,
-                                                                  color: Color(
-                                                                      0xff0B0C0B)),
-                                                            ),
-                                                            SizedBox(
-                                                              width:
-                                                                  MediaQuery.of(context)
-                                                                          .size
-                                                                          .width *
-                                                                      .01,
-                                                            ),
-                                                            Icon(
-                                                              Icons.favorite,
-                                                              color: Colors.red,
-                                                              size: 30,
-                                                            )
-                                                          ],
-                                                        )
-                                                      ],
-                                                    )
                                                   ],
-                                                )),
-                                                
-                                                SizedBox(height: MediaQuery.of(context).size.height *.02,)
+                                                ),
+                                              ),
+                                              Container(
+                                                  padding: EdgeInsets.only(
+                                                      left: MediaQuery.of(context).size.width *.001,
+                                                      right: MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          .01),
+                                                  decoration: BoxDecoration(
+                                                      color: Color(0xffD9D9D9),
+                                                      borderRadius: BorderRadius.circular(
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              .03)),
+                                                  width: MediaQuery
+                                                              .of(context)
+                                                          .size
+                                                          .width *
+                                                      .85,
+                                                  height:
+                                                      MediaQuery.of(context).size.height *
+                                                          .04,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: [
+                                                          CircleAvatar(
+                                                            backgroundColor:
+                                                                Color(0xff464646),
+                                                            child: Text('1'),
+                                                            radius: 16,
+                                                          )
+                                                        ],
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: [
+                                                          Text(
+                                                            "Likes  2k",
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                color: Color(0xff0B0C0B)),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: [
+                                                          Text(
+                                                            "Created 12 jun 2021",
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                color: Color(0xff0B0C0B)),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.center,
+                                                        children: [
+                                                          Row(
+                                                            children: [
+                                                              Text(
+                                                                'Buy Now',
+                                                                style: TextStyle(
+                                                                    fontSize: 12,
+                                                                    color: Color(
+                                                                        0xff0B0C0B)),
+                                                              ),
+                                                              SizedBox(
+                                                                width:
+                                                                    MediaQuery.of(context)
+                                                                            .size
+                                                                            .width *
+                                                                        .01,
+                                                              ),
+                                                              Icon(
+                                                                Icons.favorite,
+                                                                color: Colors.red,
+                                                                size: 30,
+                                                              )
+                                                            ],
+                                                          )
+                                                        ],
+                                                      )
+                                                    ],
+                                                  )),
+                                                  
+                                                  SizedBox(height: MediaQuery.of(context).size.height *.02,)
+                                            ],
+                                          ),
+                                          children: [
+                                            card(
+                                                'assets/png/Mask.png',
+                                                01,
+                                                'Intro to history',
+                                                'Alexender',
+                                                'Topic - 15',
+                                                2,
+                                                '12 june 2021',
+                                                "Buy now"),
+                                                card(
+                                                'assets/png/Mask.png',
+                                                01,
+                                                'Intro to history',
+                                                'Alexender',
+                                                'Topic - 15',
+                                                2,
+                                                '12 june 2021',
+                                                "Buy now"),card(
+                                                'assets/png/Mask.png',
+                                                01,
+                                                'Intro to history',
+                                                'Alexender',
+                                                'Topic - 15',
+                                                2,
+                                                '12 june 2021',
+                                                "Buy now"),
                                           ],
-                                        ),
-                                        children: [
-                                          card(
-                                              'assets/png/Mask.png',
-                                              01,
-                                              'Intro to history',
-                                              'Alexender',
-                                              'Topic - 15',
-                                              2,
-                                              '12 june 2021',
-                                              "Buy now"),
-                                              card(
-                                              'assets/png/Mask.png',
-                                              01,
-                                              'Intro to history',
-                                              'Alexender',
-                                              'Topic - 15',
-                                              2,
-                                              '12 june 2021',
-                                              "Buy now"),card(
-                                              'assets/png/Mask.png',
-                                              01,
-                                              'Intro to history',
-                                              'Alexender',
-                                              'Topic - 15',
-                                              2,
-                                              '12 june 2021',
-                                              "Buy now"),
-                                        ],
-                                        ),
+                                          ),
+                              ),
+                            ),
+                                
                             ),
                           ),
-                              
-                          ),
-                        ),
-                        
-                      ],
+                          
+                        ],
+                      ),
                     ),
                   ),
                 ),
