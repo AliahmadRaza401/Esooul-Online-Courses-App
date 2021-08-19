@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Courses/MCQs.dart';
 import 'package:esooul/Screens/Courses/Topics.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -62,9 +63,17 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                         ElevatedButton(onPressed: (){
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                           children: [
+                             ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Mcqs()));
+                             }, child: Text("MCQs")),
+                                ElevatedButton(onPressed: (){
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Topics()));
-                         }, child: Text("Topics"))    
+                         }, child: Text("Topics")),
+                           ],
+                         ),    
                       ],
                     ),
                   )
