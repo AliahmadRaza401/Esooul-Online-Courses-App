@@ -73,7 +73,7 @@ class _TopicsState extends State<Topics> {
                     left: MediaQuery.of(context).size.width * .05,
                     right: MediaQuery.of(context).size.width * .05,
                   ),
-                  height: MediaQuery.of(context).size.height * .62,
+                  height: MediaQuery.of(context).size.height * .64,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -118,7 +118,7 @@ class _TopicsState extends State<Topics> {
                       bullets('assets/png/Ellipse 6.png', 'Tap on options to select the correct answer'),
                       bullets('assets/png/Ellipse 6.png', 'Tap on the bookmark icon to save interestingquestions'),
                       bullets('assets/png/Ellipse 6.png', 'Click submit if you are sure you want to complete all the quizzes'),
-                      SizedBox(height: MediaQuery.of(context).size.height *.02,),
+                      SizedBox(height: MediaQuery.of(context).size.height *.04,),
                       ElevatedButton(onPressed: (){
 
                       }, style: ElevatedButton.styleFrom(
@@ -146,7 +146,7 @@ class _TopicsState extends State<Topics> {
                                           borderRadius:
                                               BorderRadius.circular(100),
                                         ),
-                                      ),child: Text("Start Quiz"))
+                                      ),child: Text("Start Quiz",style: TextStyle(fontSize: 10),))
                     ],
                   ),
                 ),
