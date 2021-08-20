@@ -12,16 +12,14 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.30,
-        width: double.infinity,
         padding: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
             colors: [
-              Color(0xff72C6EF),
-              Color(0xff004E8F),
+              Colors.white,
+              Colors.white10,
             ],
           ),
           color: Colors.blue,

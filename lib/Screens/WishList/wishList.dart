@@ -1,3 +1,6 @@
+import 'package:esooul/Screens/Courses/MCQs.dart';
+import 'package:esooul/Screens/Courses/Report.dart';
+import 'package:esooul/Screens/Courses/Topics.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -40,10 +43,7 @@ class _WishlistState extends State<Wishlist> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        BackButtonWidget(iconPath: "assets/png/hearticon.png"),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.020,
-                        ),
+                       
                         _courseContainer(
                             "assets/png/candageography.png",
                             "Issues in Canadian Geography",
@@ -64,12 +64,29 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
+                         Row(
+                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                           children: [
+                             ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Mcqs()));
+                             }, child: Text("MCQs")),
+                                ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Topics()));
+                         }, child: Text("Topics")),
+                         ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Report()));
+                         }, child: Text("Report")),
+                           ],
+                         ),    
                       ],
                     ),
-                  )),
+                  )
+                  ),
+             
             ],
           ),
         ),
+
       ),
     );
   }
@@ -77,104 +94,104 @@ class _WishlistState extends State<Wishlist> {
   _courseContainer(String imgPath, String subject, String author,
       String category, String discountPrice, String price) {
     return Container(
-      padding: EdgeInsets.all(5.0),
-      height: MediaQuery.of(context).size.height * 0.17,
+      padding: EdgeInsets.only(top: 20),
+      height: MediaQuery.of(context).size.height * 0.18,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xff3D3D3D),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Container(
-        child: Column(
-          children: [
-            //1st Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Image.asset(
-                      imgPath,
-                      height: MediaQuery.of(context).size.height * 0.090,
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(subject),
-                    Text(
-                      author,
-                      style: TextStyle(color: Color(0xffFFD643)),
-                    ),
-                    Row(
-                      children: [
-                        Text(category),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Text(
-                          discountPrice,
-                          style: TextStyle(color: Color(0xff00B0D7)),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.015,
-                        ),
-                        Text(
-                          price,
-                          style: TextStyle(
-                              color: Color(0xff949494),
-                              decoration: TextDecoration.lineThrough),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            Row(
-                              children: [
-                                ElevatedButton.icon(
-                                    style: ElevatedButton.styleFrom(
-                                      fixedSize: Size(150, 10),
-                                      primary: Color(0xff646464),
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20))),
-                                    ),
-                                    onPressed: () {},
-                                    icon: Icon(Icons.add),
-                                    label: Text("Add to cart")),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.10,
-                                ),
-                                ElevatedButton.icon(
-                                    style: ElevatedButton.styleFrom(
-                                      fixedSize: Size(150, 10),
-                                      primary: Color(0xff646464),
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20))),
-                                    ),
-                                    onPressed: () {},
-                                    icon: Icon(Icons.close),
-                                    label: Text("Remove")),
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          //1st Row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Image.asset(
+                    imgPath,
+                    height: MediaQuery.of(context).size.height * 0.090,
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(subject),
+                  Text(
+                    author,
+                    style: TextStyle(color: Color(0xffFFD643)),
+                  ),
+                  Row(
+                    children: [
+                      Text(category),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.020,
+                      ),
+                      Text(
+                        discountPrice,
+                        style: TextStyle(color: Color(0xff00B0D7)),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.015,
+                      ),
+                      Text(
+                        price,
+                        style: TextStyle(
+                            color: Color(0xff949494),
+                            decoration: TextDecoration.lineThrough),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+                                    
+                                    primary: Color(0xff646464),
+                                    shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  ),
+                                  onPressed: () {},
+                                  icon: Icon(Icons.add),
+                                  label: Text("Add to cart")),
+                              SizedBox(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.01,
+                              ),
+                              ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+
+                                    primary: Color(0xff646464),
+                                    shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20))),
+                                  ),
+                                  onPressed: () {},
+                                  icon: Icon(Icons.close),
+                                  label: Text("Remove")),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
