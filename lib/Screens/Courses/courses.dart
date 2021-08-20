@@ -2,6 +2,11 @@ import 'package:esooul/Screens/Authentication/forget_password.dart';
 import 'package:esooul/Screens/Authentication/login.dart';
 import 'package:esooul/Screens/Authentication/pin_code.dart';
 import 'package:esooul/Screens/Authentication/signup.dart';
+import 'package:esooul/Screens/Paper/objective_subjective.dart';
+import 'package:esooul/Screens/Paper/start_paper.dart';
+import 'package:esooul/Screens/Paper/subjective_papers.dart';
+import 'package:esooul/Screens/Paper/topic_list.dart';
+import 'package:esooul/Screens/Paper/view_instructions.dart';
 import 'package:esooul/Screens/WishList/wishList.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -106,48 +111,50 @@ class _CoursesState extends State<Courses> {
                     height: MediaQuery.of(context).size.height * 0.020,
                   ),
                   ElevatedButton(
-                    child: Text('Sign in'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LogIn()),
-                      );
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Sign Up'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUp()),
-                      );
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Forget PAssword'),
+                    child: Text('Objective Subjective'),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgetPassword()),
+                            builder: (context) => ObjectiveSubjective()),
                       );
                     },
                   ),
                   ElevatedButton(
-                    child: Text('OTP'),
+                    child: Text('Subjective Papers'),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => EnterPinCode()),
+                        MaterialPageRoute(
+                            builder: (context) => SubjectivePapers()),
                       );
                     },
                   ),
                   ElevatedButton(
-                    child: Text('WishList'),
+                    child: Text('View Instructions'),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Wishlist()),
+                        MaterialPageRoute(
+                            builder: (context) => ViewInstructions()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Topic List'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TopicList()),
+                      );
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Start paper'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StartPaper()),
                       );
                     },
                   ),

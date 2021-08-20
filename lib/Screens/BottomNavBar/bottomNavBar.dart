@@ -1,12 +1,11 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
-<<<<<<< HEAD
-=======
+
 import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/Screens/WishList/wishList.dart';
->>>>>>> 4460a2e877452e59355f184d179cd20f357cbacb
+
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 

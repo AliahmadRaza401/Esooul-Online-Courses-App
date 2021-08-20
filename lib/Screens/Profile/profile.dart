@@ -236,9 +236,9 @@ class _ProfileState extends State<Profile> {
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Contact Us"),
                                   onPressed: () {
-                                     
-                                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Units()));
-
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Units()));
                                   },
                                 ),
                                 ElevatedButton(
@@ -258,17 +258,15 @@ class _ProfileState extends State<Profile> {
                                       primary: Color(0xff00B0D7)),
                                   child: Text("Settings"),
                                   onPressed: () {
-<<<<<<< HEAD
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
                                             builder: (context) => Settings()));
-=======
+
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(
                                             builder: (context) => BottomNavBar(
                                                   activeIndex: 4,
                                                 )));
->>>>>>> 4460a2e877452e59355f184d179cd20f357cbacb
                                   },
                                 ),
                               ],

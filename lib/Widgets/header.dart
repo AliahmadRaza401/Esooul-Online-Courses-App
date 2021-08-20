@@ -12,7 +12,24 @@ class _HeaderState extends State<Header> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
+        height: MediaQuery.of(context).size.height * 0.30,
+        width: double.infinity,
         padding: EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xff72C6EF),
+              Color(0xff004E8F),
+            ],
+          ),
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
+            topRight: Radius.circular(MediaQuery.of(context).size.width * .08),
+          ),
+        ),
         child: Column(
           children: <Widget>[
             Row(
