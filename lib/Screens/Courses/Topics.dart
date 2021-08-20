@@ -90,7 +90,7 @@ class _TopicsState extends State<Topics> {
                               MediaQuery.of(context).size.width * .08),
                           topRight: Radius.circular(
                               MediaQuery.of(context).size.width * .08))),
-                  padding: EdgeInsets.all(30),
+                  padding: EdgeInsets.all(30).copyWith(top: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -98,7 +98,7 @@ class _TopicsState extends State<Topics> {
                         children: [
                           Text(
                             "Brief explanation about this quiz",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 18),
                           )
                         ],
                       ),
@@ -108,6 +108,7 @@ class _TopicsState extends State<Topics> {
                           'Total duration of the quiz'),
                       desc('assets/png/winstar.png', 'Win 10 star',
                           'Answer all questions correctly'),
+                          SizedBox(height:MediaQuery.of(context).size.height *.01),
                       Wrap(
                         children: [
                           Text(
@@ -146,7 +147,8 @@ class _TopicsState extends State<Topics> {
                                           borderRadius:
                                               BorderRadius.circular(100),
                                         ),
-                                      ),child: Text("Start Quiz",style: TextStyle(fontSize: 10),))
+                                      ),
+                                      child: Text("Start Quiz",style: TextStyle(fontSize: 10),))
                     ],
                   ),
                 ),
@@ -169,7 +171,7 @@ class _TopicsState extends State<Topics> {
         SizedBox(
           width: MediaQuery.of(context).size.width * .04,
         ),
-       Expanded(child: Text("$txt"))
+       Expanded(child: Text("$txt",style: TextStyle(fontSize: 12),))
       ],
     );
   }
@@ -191,12 +193,12 @@ class _TopicsState extends State<Topics> {
               children: [
                 Text(
                   "$def",
-                  style: TextStyle(color: Color(0xffACA1A1), fontSize: 20),
+                  style: TextStyle(color: Color(0xffACA1A1), fontSize: 15),
                 )
               ],
             ),
             Row(
-              children: [Text('$description')],
+              children: [Text('$description',style: TextStyle(fontSize: 12),)],
             )
           ],
         )

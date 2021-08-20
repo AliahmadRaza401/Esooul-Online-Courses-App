@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Courses/MCQs.dart';
+import 'package:esooul/Screens/Courses/Report.dart';
 import 'package:esooul/Screens/Courses/Topics.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -72,6 +73,9 @@ class _WishlistState extends State<Wishlist> {
                                 ElevatedButton(onPressed: (){
                         Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Topics()));
                          }, child: Text("Topics")),
+                         ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Report()));
+                         }, child: Text("Report")),
                            ],
                          ),    
                       ],

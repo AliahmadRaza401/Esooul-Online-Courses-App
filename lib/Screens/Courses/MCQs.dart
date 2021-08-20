@@ -68,21 +68,24 @@ class _McqsState extends State<Mcqs> {
                           padding: EdgeInsets.all(30).copyWith(top: 10),
                           child: Column(
                             children: [
-                              DefaultTabController(
-                                
-                                  length: 8,
-                                  child: TabBar(
-                                    tabs: [
-                                      tabs(1),
-                                      tabs(2),
-                                      tabs(3),
-                                      tabs(4),
-                                      tabs(6),
-                                      tabs(7),
-                                      tabs(8),
-                                      tabs(9),
-                                    ],
-                                  )),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 20),
+                                child: DefaultTabController(
+                                  
+                                    length: 8,
+                                    child: TabBar(
+                                      tabs: [
+                                        tabs(1),
+                                        tabs(2),
+                                        tabs(3),
+                                        tabs(4),
+                                        tabs(6),
+                                        tabs(7),
+                                        tabs(8),
+                                        tabs(9),
+                                      ],
+                                    )),
+                              ),
                               // Divider(
                               //   color: Colors.black,
                               // ),
