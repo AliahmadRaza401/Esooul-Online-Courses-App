@@ -14,6 +14,7 @@ class _McqsState extends State<Mcqs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.white,
           child: Column(
         children: [
           Header(),
@@ -44,7 +45,7 @@ class _McqsState extends State<Mcqs> {
                   left: MediaQuery.of(context).size.width * .015,
                   right: MediaQuery.of(context).size.width * .015,
                 ),
-                height: MediaQuery.of(context).size.height * .72,
+                height: MediaQuery.of(context).size.height * .74,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Color(0xff3D3D3D),
@@ -126,9 +127,8 @@ class _McqsState extends State<Mcqs> {
                                                     .size
                                                     .height *
                                                 .015),
-                                        primary: Colors.white,
-                                        side: BorderSide(
-                                            width: 1, color: Colors.black),
+                                        primary: Colors.blue,
+                                        
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(100),
@@ -137,7 +137,7 @@ class _McqsState extends State<Mcqs> {
                                       child: Text(
                                         'Submit Quiz',
                                         style:
-                                            TextStyle(color: Color(0xff3550DC)),
+                                            TextStyle(color: Colors.white),
                                       )),
                                   CircleAvatar(
                                     backgroundColor: Color(0xffD4D4D4),
@@ -209,7 +209,7 @@ class _McqsState extends State<Mcqs> {
   }
 
   Widget tabs(int number) {
-    return Text("$number");
+    return Text("$number",style: TextStyle(color: Colors.black),);
   }
 
   Widget mcq(
@@ -239,7 +239,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$A")
+              Text("$A",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -254,7 +254,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$B")
+              Text("$B",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -269,7 +269,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$C")
+              Text("$C",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(

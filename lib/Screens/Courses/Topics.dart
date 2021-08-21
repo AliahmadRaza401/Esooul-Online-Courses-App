@@ -17,47 +17,26 @@ class _TopicsState extends State<Topics> {
         child: Column(
           children: [
             Header(),
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * .01,
-                    right: MediaQuery.of(context).size.width * .01,
+           
+            Container(
+              // margin: EdgeInsets.only(
+              //   // top: MediaQuery.of(context).size.height * .08,
+              //   left: MediaQuery.of(context).size.width * .05,
+              //   right: MediaQuery.of(context).size.width * .05,
+              // ),
+              height: MediaQuery.of(context).size.height * .75,
+              // width: double.infinity,
+              decoration: BoxDecoration(
+                  color: Colors.white
                   ),
-                  height: MediaQuery.of(context).size.height * .72,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Colors.white,
-                          Colors.black,
-                        ],
-                      ),
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .003,
-                    left: MediaQuery.of(context).size.width * .015,
-                    right: MediaQuery.of(context).size.width * .015,
-                  ),
-                  height: MediaQuery.of(context).size.height * .72,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
-                  child: Column(
+              padding: EdgeInsets.all(30).copyWith(top: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(children: [
+                    Text("Quiz Guide",style: TextStyle(color: Colors.black),)
+                  ],),
+                  Row(
                     children: [
                       // Padding(
                       //   padding: const EdgeInsets.all(7.0),
@@ -66,33 +45,14 @@ class _TopicsState extends State<Topics> {
                       // )
                     ],
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .082,
-                    left: MediaQuery.of(context).size.width * .05,
-                    right: MediaQuery.of(context).size.width * .05,
-                  ),
-                  height: MediaQuery.of(context).size.height * .64,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Color(0xff444444),
-                          Color(0xff444444),
-                          Colors.black,
-                        ],
-                      ),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
-                  padding: EdgeInsets.all(30).copyWith(top: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  desc('assets/png/question.png', '10 Question',
+                      '10 point for a correct answer'),
+                  desc('assets/png/timer.png', '1 hour 15 min',
+                      'Total duration of the quiz'),
+                  desc('assets/png/winstar.png', 'Win 10 star',
+                      'Answer all questions correctly'),
+                      SizedBox(height:MediaQuery.of(context).size.height *.01),
+                  Wrap(
                     children: [
                       Row(
                         children: [
@@ -148,8 +108,41 @@ class _TopicsState extends State<Topics> {
                           ))
                     ],
                   ),
-                ),
-              ],
+                  bullets('assets/png/Ellipse 6.png', '10 point awarded for a correct answer and nomarks for a incorrect answer'),
+                  bullets('assets/png/Ellipse 6.png', 'Tap on options to select the correct answer'),
+                  bullets('assets/png/Ellipse 6.png', 'Tap on the bookmark icon to save interestingquestions'),
+                  bullets('assets/png/Ellipse 6.png', 'Click submit if you are sure you want to complete all the quizzes'),
+                  SizedBox(height: MediaQuery.of(context).size.height *.04,),
+                  ElevatedButton(onPressed: (){
+
+                  }, style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.only(
+                                        left: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            .35,
+                                        right: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            .35,
+                                        top: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            .015,
+                                        bottom: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            .015),
+                                    primary: Color(0xff00B0D7),
+                                    
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(100),
+                                    ),
+                                  ),
+                                  child: Text("Start Quiz",style: TextStyle(fontSize: 15),))
+                ],
+              ),
             ),
           ],
         ),
@@ -162,7 +155,7 @@ class _TopicsState extends State<Topics> {
       children: [
         Column(
           children: [
-            Image.asset("$imag"),
+            Image.asset("$imag",),
           ],
         ),
         SizedBox(
@@ -194,7 +187,7 @@ class _TopicsState extends State<Topics> {
               children: [
                 Text(
                   "$def",
-                  style: TextStyle(color: Color(0xffACA1A1), fontSize: 15),
+                  style: TextStyle(color: Colors.black, fontSize: 15),
                 )
               ],
             ),

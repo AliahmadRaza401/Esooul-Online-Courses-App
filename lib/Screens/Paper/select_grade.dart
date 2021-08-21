@@ -1,5 +1,5 @@
-import 'package:esooul/Widgets/back_button.dart';
-import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Screens/Paper/select_subject.dart';
+
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
@@ -18,44 +18,46 @@ class _SelectGradeState extends State<SelectGrade> {
         color: Color(0xff2F2F2F),
         child: Column(children: [
           Header2(),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Select Your Grade",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Grade 09"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Grade 10"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Grade 11"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Grade 12"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("A Levels"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("O Levels"),
-                ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Select Your Grade",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Grade 09"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Grade 10"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Grade 11"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Grade 12"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("A Levels"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("O Levels"),
+                  ],
+                ),
               ),
             ),
           )
@@ -66,6 +68,12 @@ class _SelectGradeState extends State<SelectGrade> {
 
   _myContainer(String grade) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SelectSubject()),
+        );
+      },
       child: Container(
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
@@ -85,7 +93,7 @@ class _SelectGradeState extends State<SelectGrade> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.0600,
+              height: MediaQuery.of(context).size.height * 0.050,
               width: MediaQuery.of(context).size.width * 0.035,
               decoration: BoxDecoration(
                 color: Color(0xff00B0D7),

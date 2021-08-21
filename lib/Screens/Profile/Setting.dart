@@ -16,9 +16,10 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
-          Header(),
+          
           Container(
             margin: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * .01,
@@ -28,12 +29,7 @@ class _SettingsState extends State<Settings> {
                   image: AssetImage("assets/png/stting back.png"),
                 ),
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                      MediaQuery.of(context).size.width * .1,
-                    ),
-                    topRight: Radius.circular(
-                        MediaQuery.of(context).size.width * .1))),
+                        ),
             padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .02,
               right: MediaQuery.of(context).size.width * .02,

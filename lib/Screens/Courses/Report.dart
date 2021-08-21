@@ -134,7 +134,7 @@ class _ReportState extends State<Report> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 175),
+                                  padding: const EdgeInsets.only(top: 165),
                                   child: stacks(
                                     10,
                                     10,
@@ -236,6 +236,13 @@ class _ReportState extends State<Report> {
       width: MediaQuery.of(context).size.width * .82,
       decoration: BoxDecoration(
         color: Color(0xff434343),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black,
+              spreadRadius: 0,
+              blurRadius: 10,
+              offset: Offset(0, -2))
+        ],
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.elliptical(200, 400),
             bottomRight: Radius.elliptical(200, 400),
