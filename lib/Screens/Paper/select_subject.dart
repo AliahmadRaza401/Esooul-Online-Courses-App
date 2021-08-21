@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Paper/select_paper.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
@@ -16,52 +17,58 @@ class _SelectSubjectState extends State<SelectSubject> {
         color: Color(0xff2F2F2F),
         child: Column(children: [
           Header2(),
-          SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Select Subject",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Maths"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("English"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Science"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Urdu"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Islamiat"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Pak Studies"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("Computer Science"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.010,
-                  ),
-                  _myContainer("General Knowledge"),
-                ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "Select Subject",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Maths"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("English"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Science"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Urdu"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Islamiat"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Pak Studies"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("Computer Science"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("General Knowledge"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    _myContainer("General Knowledge"),
+                  ],
+                ),
               ),
             ),
           )
@@ -72,6 +79,12 @@ class _SelectSubjectState extends State<SelectSubject> {
 
   _myContainer(String grade) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SelectPaper()),
+        );
+      },
       child: Container(
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
@@ -91,7 +104,7 @@ class _SelectSubjectState extends State<SelectSubject> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.0600,
+              height: MediaQuery.of(context).size.height * 0.050,
               width: MediaQuery.of(context).size.width * 0.035,
               decoration: BoxDecoration(
                 color: Color(0xff00B0D7),

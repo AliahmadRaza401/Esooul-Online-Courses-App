@@ -32,6 +32,7 @@ dependencies:
   flutter_image_slideshow: ^0.1.1
   after_layout: ^1.1.0
   percent_indicator: ^3.0.1
+  flutter_polygon: ^0.2.0
 
 dev_dependencies:
   flutter_test:
