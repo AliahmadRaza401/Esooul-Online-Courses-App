@@ -16,9 +16,10 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
-          Header(),
+          
           Container(
             margin: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * .01,
@@ -29,12 +30,7 @@ class _SettingsState extends State<Settings> {
             
           ),
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                      MediaQuery.of(context).size.width * .1,
-                    ),
-                    topRight: Radius.circular(
-                        MediaQuery.of(context).size.width * .1))),
+                        ),
             padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .02,
               right: MediaQuery.of(context).size.width * .02,
@@ -45,7 +41,7 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BackButtonWidget(iconPath:'assets/png/presentation4.png' ),
+                 
                   setting("assets/png/sliders2.png", "Settings", .05),
                   setting("assets/png/user-alt.png", 'Edit Profile', .05),
                   setting("assets/png/Vector.png", 'Pay to unlock pack', .04),

@@ -14,32 +14,13 @@ class _McqsState extends State<Mcqs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.white,
           child: Column(
         children: [
           Header(),
           Stack(
             children: [
-              Container(
-                margin: EdgeInsets.only(
-                  
-                  left: MediaQuery.of(context).size.width * .01,
-                  right: MediaQuery.of(context).size.width * .01,
-                ),
-                height: MediaQuery.of(context).size.height * .71,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Colors.white,
-                        Colors.black,
-                      ],
-                    ),
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(35)
-                            ),
-              ),
+              
               Container(
                 
                 margin: EdgeInsets.only(
@@ -47,23 +28,19 @@ class _McqsState extends State<Mcqs> {
                   left: MediaQuery.of(context).size.width * .015,
                   right: MediaQuery.of(context).size.width * .015,
                 ),
-                height: MediaQuery.of(context).size.height * .72,
+                height: MediaQuery.of(context).size.height * .74,
                 width: double.infinity,
                 decoration: BoxDecoration(
                
-                  color: Color(0xff3D3D3D),
-                  borderRadius: BorderRadius.circular(35),
+                  color: Colors.white,
+                 
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(35),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child:
-                              BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                        ),
+                        
                         Container(
                           padding: EdgeInsets.all(30).copyWith(top: 10),
                           child: Column(
@@ -129,9 +106,8 @@ class _McqsState extends State<Mcqs> {
                                                     .size
                                                     .height *
                                                 .015),
-                                        primary: Colors.white,
-                                        side: BorderSide(
-                                            width: 1, color: Colors.black),
+                                        primary: Colors.blue,
+                                        
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(100),
@@ -140,7 +116,7 @@ class _McqsState extends State<Mcqs> {
                                       child: Text(
                                         'Submit Quiz',
                                         style:
-                                            TextStyle(color: Color(0xff3550DC)),
+                                            TextStyle(color: Colors.white),
                                       )),
                                   CircleAvatar(
                                     backgroundColor: Color(0xffD4D4D4),
@@ -171,7 +147,7 @@ Widget videoContainer(){
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Colors.white,
+                                            color: Colors.grey[600],
                                             borderRadius:
                                                 BorderRadius.circular(15)),
                                         height:
@@ -214,7 +190,7 @@ Widget videoContainer(){
                                       SizedBox(height: MediaQuery.of(context).size.height *.01,),
                                       Text(
                                         "Skip and go to next question",
-                                       
+                                       style: TextStyle(color: Colors.black),
                                       ),
                                     ],
                                   )
@@ -222,7 +198,7 @@ Widget videoContainer(){
                               );
 }
   Widget tabs(int number) {
-    return Text("$number");
+    return Text("$number",style: TextStyle(color: Colors.black),);
   }
 
   Widget mcq(
@@ -236,7 +212,7 @@ Widget videoContainer(){
             children: [
               Text(
                 "$question",
-                style: TextStyle( fontSize: 17),
+                style: TextStyle( fontSize: 17,color: Colors.black),
               )
             ],
           ),
@@ -252,7 +228,7 @@ Widget videoContainer(){
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$A")
+              Text("$A",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -267,7 +243,7 @@ Widget videoContainer(){
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$B")
+              Text("$B",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -282,7 +258,7 @@ Widget videoContainer(){
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$C")
+              Text("$C",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
