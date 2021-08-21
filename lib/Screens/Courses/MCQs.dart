@@ -14,11 +14,15 @@ class _McqsState extends State<Mcqs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.white,
           child: Column(
         children: [
           Header(),
           Stack(
             children: [
+<<<<<<< HEAD
+              
+=======
               Container(
                 margin: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * .01,
@@ -38,28 +42,39 @@ class _McqsState extends State<Mcqs> {
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(35)),
               ),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
               Container(
                 margin: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * .002,
                   left: MediaQuery.of(context).size.width * .015,
                   right: MediaQuery.of(context).size.width * .015,
                 ),
-                height: MediaQuery.of(context).size.height * .72,
+                height: MediaQuery.of(context).size.height * .74,
                 width: double.infinity,
                 decoration: BoxDecoration(
+<<<<<<< HEAD
+               
+                  color: Colors.white,
+                 
+=======
                   color: Color(0xff3D3D3D),
                   borderRadius: BorderRadius.circular(35),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(35),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+<<<<<<< HEAD
+                        
+=======
                         // Padding(
                         //   padding: const EdgeInsets.all(5.0),
                         //   child:
                         //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
                         // ),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                         Container(
                           padding: EdgeInsets.all(30).copyWith(top: 10),
                           child: Column(
@@ -126,9 +141,8 @@ class _McqsState extends State<Mcqs> {
                                                     .size
                                                     .height *
                                                 .015),
-                                        primary: Colors.white,
-                                        side: BorderSide(
-                                            width: 1, color: Colors.black),
+                                        primary: Colors.blue,
+                                        
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(100),
@@ -137,7 +151,7 @@ class _McqsState extends State<Mcqs> {
                                       child: Text(
                                         'Submit Quiz',
                                         style:
-                                            TextStyle(color: Color(0xff3550DC)),
+                                            TextStyle(color: Colors.white),
                                       )),
                                   CircleAvatar(
                                     backgroundColor: Color(0xffD4D4D4),
@@ -160,6 +174,66 @@ class _McqsState extends State<Mcqs> {
       )),
     );
   }
+<<<<<<< HEAD
+Widget videoContainer(){
+  return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey[600],
+                                            borderRadius:
+                                                BorderRadius.circular(15)),
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .2,
+                                        width: MediaQuery.of(context).size.width *
+                                            .42,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                             
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  .13,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .38,
+                                              decoration: BoxDecoration(
+                                                
+                                                borderRadius:
+                                                BorderRadius.circular(15),
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/png/video.png"),
+                                                          fit: BoxFit.cover
+                                                          )
+                                                          ),
+                                                          child: Image.asset("assets/png/play.png"),
+                                            ),
+                                            Text("topic no",
+                                        style: TextStyle(color: Colors.black),),
+                                            Text("Watch video here",
+                                        style: TextStyle(color: Colors.black),)
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(height: MediaQuery.of(context).size.height *.01,),
+                                      Text(
+                                        "Skip and go to next question",
+                                       style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+}
+=======
 
   Widget videoContainer() {
     return Row(
@@ -208,8 +282,9 @@ class _McqsState extends State<Mcqs> {
     );
   }
 
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
   Widget tabs(int number) {
-    return Text("$number");
+    return Text("$number",style: TextStyle(color: Colors.black),);
   }
 
   Widget mcq(
@@ -223,7 +298,11 @@ class _McqsState extends State<Mcqs> {
             children: [
               Text(
                 "$question",
+<<<<<<< HEAD
+                style: TextStyle( fontSize: 17,color: Colors.black),
+=======
                 style: TextStyle(fontSize: 17),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
               )
             ],
           ),
@@ -239,7 +318,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$A")
+              Text("$A",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -254,7 +333,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$B")
+              Text("$B",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -269,7 +348,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$C")
+              Text("$C",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
