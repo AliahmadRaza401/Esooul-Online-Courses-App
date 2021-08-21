@@ -5,7 +5,6 @@ import 'package:esooul/Screens/Profile/Privacy.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
-
 import 'Terms and privacy.dart';
 
 class Profile extends StatefulWidget {
@@ -46,13 +45,13 @@ class _ProfileState extends State<Profile> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.topRight,
-                              colors: [
-                                Colors.blue,
-                                Colors.blueAccent,
-                              ],
-                            ),
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xff72C6EF),
+                      Color(0xff004E8F),
+                    ],
+                  ),
                             borderRadius: BorderRadius.circular(30)),
                       ),
                       
@@ -83,16 +82,19 @@ class _ProfileState extends State<Profile> {
                           left: MediaQuery.of(context).size.width * .02,
                           right: MediaQuery.of(context).size.width * .02,
                         ),
-                        height: MediaQuery.of(context).size.height * .25,
+                        height: MediaQuery.of(context).size.height * .26,
                         width: double.infinity,
-                        decoration: BoxDecoration(gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.topRight,
-                              colors: [
-                                Colors.blue,
-                                Colors.blueAccent,
-                              ],
-                            ),),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                                            Color(0xff004E8F),
+
+                      Color(0xff72C6EF),
+                    ],
+                  ),
+                        ),
                         child: Column(
                           children: [
                             Text(
@@ -108,12 +110,11 @@ class _ProfileState extends State<Profile> {
                               style: TextStyle(color: Colors.white, fontSize: 10),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * .02,
+                              height: MediaQuery.of(context).size.height * .01,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-
                                 Column(
                                   children: [
                                     Text(
@@ -140,58 +141,7 @@ class _ProfileState extends State<Profile> {
                                       "Photos",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                  
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .07,
-                                          right: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .07),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0)),
-                                      primary: Color(0xff00B0D7)),
-                                  child: Text("Contact Us"),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) => Units()));
-                                  },
-                                ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      padding: EdgeInsets.only(
-                                          left: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .09,
-                                          right: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              .09),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0)),
-                                      primary: Color(0xff00B0D7)),
-                                  child: Text("Settings"),
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) => Settings()));
-
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                            builder: (context) => BottomNavBar(
-                                                  activeIndex: 4,
-                                                )));
-                                  },
-
-                                ),
+                                  ]),
                                 Column(
                                   children: [
                                     Text(
@@ -206,7 +156,7 @@ class _ProfileState extends State<Profile> {
                                     )
                                   ],
                                 )
-                              ])],
+                              ],
                             )
                           ],
                         ),
