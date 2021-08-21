@@ -1,7 +1,7 @@
 import 'package:esooul/Screens/Authentication/forget_password.dart';
-import 'package:esooul/Screens/Authentication/login.dart';
+import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/pin_code.dart';
-import 'package:esooul/Screens/Authentication/signup.dart';
+import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/Paper/select_grade.dart';
 import 'package:esooul/Screens/Paper/select_subject.dart';
 import 'package:esooul/Screens/Paper/subjective_papers.dart';
