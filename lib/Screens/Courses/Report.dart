@@ -73,7 +73,7 @@ class _ReportState extends State<Report> {
                   padding: EdgeInsets.all(5),
                   child: Column(
                     children: [
-                      BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
+                      //BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
                       Padding(
                         padding: const EdgeInsets.all(30),
                         child: Row(
@@ -149,29 +149,44 @@ class _ReportState extends State<Report> {
                                       MediaQuery.of(context).size.height * .11,
                                   width:
                                       MediaQuery.of(context).size.width * .82,
-                                decoration: BoxDecoration(color: Color(0xff434343),
-                                borderRadius: BorderRadius.circular(20),
-                                
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                  Column(children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                      Icon(Icons.watch_later_outlined,size: 40,),
-                                      SizedBox(width: MediaQuery.of(context).size.width *.03,),
-                                      Text("Time")
-                                    ],)
-                                  ],),
-                                  Row(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff434343),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Text("1 min"),
+                                      Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Icon(
+                                                Icons.watch_later_outlined,
+                                                size: 40,
+                                              ),
+                                              SizedBox(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    .03,
+                                              ),
+                                              Text("Time")
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("1 min"),
+                                        ],
+                                      )
                                     ],
-                                  )
-                                ],),
+                                  ),
                                 )
                               ],
                             )
@@ -252,11 +267,8 @@ class _ReportState extends State<Report> {
             top: MediaQuery.of(context).size.height * .06,
             left: MediaQuery.of(context).size.width * .1,
             child: LinearPercentIndicator(
-            
               width: MediaQuery.of(context).size.width * .5,
-              
               percent: percent,
-              
               progressColor: Colors.green,
             ),
           )

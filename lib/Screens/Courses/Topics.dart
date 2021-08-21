@@ -59,11 +59,11 @@ class _TopicsState extends State<Topics> {
                               MediaQuery.of(context).size.width * .08))),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(7.0),
-                        child:
-                            BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                      )
+                      // Padding(
+                      //   padding: const EdgeInsets.all(7.0),
+                      //   child:
+                      //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
+                      // )
                     ],
                   ),
                 ),
@@ -108,47 +108,44 @@ class _TopicsState extends State<Topics> {
                           'Total duration of the quiz'),
                       desc('assets/png/winstar.png', 'Win 10 star',
                           'Answer all questions correctly'),
-                          SizedBox(height:MediaQuery.of(context).size.height *.01),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * .01),
                       Wrap(
                         children: [
                           Text(
                               "Please read the text below carefully so you can understand it"),
                         ],
                       ),
-                      bullets('assets/png/Ellipse 6.png', '10 point awarded for a correct answer and nomarks for a incorrect answer'),
-                      bullets('assets/png/Ellipse 6.png', 'Tap on options to select the correct answer'),
-                      bullets('assets/png/Ellipse 6.png', 'Tap on the bookmark icon to save interestingquestions'),
-                      bullets('assets/png/Ellipse 6.png', 'Click submit if you are sure you want to complete all the quizzes'),
-                      SizedBox(height: MediaQuery.of(context).size.height *.04,),
-                      ElevatedButton(onPressed: (){
-
-                      }, style: ElevatedButton.styleFrom(
-                                        padding: EdgeInsets.only(
-                                            left: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                .3,
-                                            right: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                .3,
-                                            top: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                .02,
-                                            bottom: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                .02),
-                                        primary: Color(0xff00B0D7),
-                                        side: BorderSide(
-                                            width: 1, color: Colors.black),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                      ),
-                                      child: Text("Start Quiz",style: TextStyle(fontSize: 10),))
+                      bullets('assets/png/Ellipse 6.png',
+                          '10 point awarded for a correct answer and nomarks for a incorrect answer'),
+                      bullets('assets/png/Ellipse 6.png',
+                          'Tap on options to select the correct answer'),
+                      bullets('assets/png/Ellipse 6.png',
+                          'Tap on the bookmark icon to save interestingquestions'),
+                      bullets('assets/png/Ellipse 6.png',
+                          'Click submit if you are sure you want to complete all the quizzes'),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * .3,
+                                right: MediaQuery.of(context).size.width * .3,
+                                top: MediaQuery.of(context).size.height * .02,
+                                bottom:
+                                    MediaQuery.of(context).size.height * .02),
+                            primary: Color(0xff00B0D7),
+                            side: BorderSide(width: 1, color: Colors.black),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
+                          child: Text(
+                            "Start Quiz",
+                            style: TextStyle(fontSize: 10),
+                          ))
                     ],
                   ),
                 ),
@@ -171,7 +168,11 @@ class _TopicsState extends State<Topics> {
         SizedBox(
           width: MediaQuery.of(context).size.width * .04,
         ),
-       Expanded(child: Text("$txt",style: TextStyle(fontSize: 12),))
+        Expanded(
+            child: Text(
+          "$txt",
+          style: TextStyle(fontSize: 12),
+        ))
       ],
     );
   }
@@ -198,7 +199,12 @@ class _TopicsState extends State<Topics> {
               ],
             ),
             Row(
-              children: [Text('$description',style: TextStyle(fontSize: 12),)],
+              children: [
+                Text(
+                  '$description',
+                  style: TextStyle(fontSize: 12),
+                )
+              ],
             )
           ],
         )

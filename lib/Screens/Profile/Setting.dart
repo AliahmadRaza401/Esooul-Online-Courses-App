@@ -24,10 +24,9 @@ class _SettingsState extends State<Settings> {
                 left: MediaQuery.of(context).size.width * .01,
                 right: MediaQuery.of(context).size.width * .01),
             decoration: BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage("assets/png/stting back.png"),
-            
-          ),
+                image: DecorationImage(
+                  image: AssetImage("assets/png/stting back.png"),
+                ),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(
@@ -45,7 +44,8 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BackButtonWidget(iconPath:'assets/png/presentation4.png' ),
+                  BackButtonWidget(
+                      buttontext: "", iconPath: 'assets/png/presentation4.png'),
                   setting("assets/png/sliders2.png", "Settings", .05),
                   setting("assets/png/user-alt.png", 'Edit Profile', .05),
                   setting("assets/png/Vector.png", 'Pay to unlock pack', .04),
@@ -53,16 +53,21 @@ class _SettingsState extends State<Settings> {
                   setting("assets/png/arrow.png", 'Change Class', .05),
                   setting("assets/png/arrow.png", 'Change Board', .05),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Terms()));
-                    },
-                    child: setting("assets/png/terms.png", 'Terms and Services', .05)),
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Terms()));
+                      },
+                      child: setting(
+                          "assets/png/terms.png", 'Terms and Services', .05)),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Privacy()));
-                    },
-                    child: setting("assets/png/privacy.png", 'Privacy Policy', .05)),
-                  setting("assets/png/help.png", 'Frequently asked questions', .05),
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Privacy()));
+                      },
+                      child: setting(
+                          "assets/png/privacy.png", 'Privacy Policy', .05)),
+                  setting(
+                      "assets/png/help.png", 'Frequently asked questions', .05),
                   setting("assets/png/update.png", 'Updates', .05),
                   setting("assets/png/about.png", 'About us', .05),
                   setting("assets/png/report-card.png", 'Report Card', .05),

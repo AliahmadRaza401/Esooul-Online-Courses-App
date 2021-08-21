@@ -63,6 +63,7 @@ class _TopicListState extends State<TopicList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     BackButtonWidget(
+                        buttontext: "",
                         iconPath: "assets/png/backbuttonimage.png"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.10,
