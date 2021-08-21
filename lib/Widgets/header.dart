@@ -13,6 +13,21 @@ class _HeaderState extends State<Header> {
     return SafeArea(
       child: Container(
         padding: EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              Colors.white10,
+            ],
+          ),
+          color: Colors.blue,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(MediaQuery.of(context).size.width * .08),
+            topRight: Radius.circular(MediaQuery.of(context).size.width * .08),
+          ),
+        ),
         child: Column(
           children: <Widget>[
             Row(

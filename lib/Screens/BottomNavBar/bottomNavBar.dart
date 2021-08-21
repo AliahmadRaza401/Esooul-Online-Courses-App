@@ -46,7 +46,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Icons.home,
             size: 30,
           ),
-         Image.asset('assets/png/courses.png'),
+          Image.asset('assets/png/courses.png'),
           Icon(Icons.favorite, size: 30),
           Icon(Icons.perm_identity, size: 30),
         ],

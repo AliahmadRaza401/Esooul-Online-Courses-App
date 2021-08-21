@@ -113,6 +113,7 @@ class _ProfileState extends State<Profile> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
+
                                 Column(
                                   children: [
                                     Text(
@@ -138,8 +139,58 @@ class _ProfileState extends State<Profile> {
                                     Text(
                                       "Photos",
                                       style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
+                                    ),
+                                  
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .07,
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .07),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0)),
+                                      primary: Color(0xff00B0D7)),
+                                  child: Text("Contact Us"),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Units()));
+                                  },
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .09,
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .09),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0)),
+                                      primary: Color(0xff00B0D7)),
+                                  child: Text("Settings"),
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Settings()));
+
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                            builder: (context) => BottomNavBar(
+                                                  activeIndex: 4,
+                                                )));
+                                  },
+
                                 ),
                                 Column(
                                   children: [
@@ -155,7 +206,7 @@ class _ProfileState extends State<Profile> {
                                     )
                                   ],
                                 )
-                              ],
+                              ])],
                             )
                           ],
                         ),
