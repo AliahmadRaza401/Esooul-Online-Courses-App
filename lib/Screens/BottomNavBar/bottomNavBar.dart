@@ -1,9 +1,17 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
 import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/Screens/WishList/wishList.dart';
+<<<<<<< HEAD
+=======
+
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 

@@ -73,7 +73,7 @@ class _ReportState extends State<Report> {
                   padding: EdgeInsets.all(5),
                   child: Column(
                     children: [
-                      BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
+                      //BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
                       Padding(
                         padding: const EdgeInsets.all(30),
                         child: Row(
@@ -142,6 +142,7 @@ class _ReportState extends State<Report> {
                                     'Attempted',
                                   ),
                                 ),
+<<<<<<< HEAD
                                 // ClipPath(
           //   clipper: TriangleClipper(),
           //   child: Container(
@@ -202,6 +203,54 @@ class _ReportState extends State<Report> {
                                 //     ],
                                 //   ),
                                 // )
+=======
+                                Container(
+                                  padding: EdgeInsets.all(30),
+                                  margin: EdgeInsets.only(top: 260),
+                                  height:
+                                      MediaQuery.of(context).size.height * .11,
+                                  width:
+                                      MediaQuery.of(context).size.width * .82,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff434343),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Icon(
+                                                Icons.watch_later_outlined,
+                                                size: 40,
+                                              ),
+                                              SizedBox(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    .03,
+                                              ),
+                                              Text("Time")
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("1 min"),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                               ],
                             )
                           ],

@@ -2,8 +2,8 @@ import 'package:esooul/Screens/Authentication/forget_password.dart';
 import 'package:esooul/Screens/Authentication/login.dart';
 import 'package:esooul/Screens/Authentication/pin_code.dart';
 import 'package:esooul/Screens/Authentication/signup.dart';
-import 'package:esooul/Screens/Paper/objective_subjective.dart';
-import 'package:esooul/Screens/Paper/start_paper.dart';
+import 'package:esooul/Screens/Paper/select_grade.dart';
+import 'package:esooul/Screens/Paper/select_subject.dart';
 import 'package:esooul/Screens/Paper/subjective_papers.dart';
 import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Screens/Paper/view_instructions.dart';
@@ -50,7 +50,9 @@ class _CoursesState extends State<Courses> {
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
-                  BackButtonWidget(iconPath: "assets/png/backbuttonimage.png"),
+                  BackButtonWidget(
+                      buttontext: "",
+                      iconPath: "assets/png/backbuttonimage.png"),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -111,22 +113,21 @@ class _CoursesState extends State<Courses> {
                     height: MediaQuery.of(context).size.height * 0.020,
                   ),
                   ElevatedButton(
-                    child: Text('Objective Subjective'),
+                    child: Text('Select Grade'),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => ObjectiveSubjective()),
+                        MaterialPageRoute(builder: (context) => SelectGrade()),
                       );
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Subjective Papers'),
+                    child: Text('Select Subject'),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SubjectivePapers()),
+                            builder: (context) => SelectSubject()),
                       );
                     },
                   ),
@@ -146,15 +147,6 @@ class _CoursesState extends State<Courses> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => TopicList()),
-                      );
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Start paper'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => StartPaper()),
                       );
                     },
                   ),

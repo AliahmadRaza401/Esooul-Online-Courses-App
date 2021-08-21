@@ -3,7 +3,7 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
 class Mcqs extends StatefulWidget {
-  const Mcqs({ Key? key }) : super(key: key);
+  const Mcqs({Key? key}) : super(key: key);
 
   @override
   _McqsState createState() => _McqsState();
@@ -20,27 +20,61 @@ class _McqsState extends State<Mcqs> {
           Header(),
           Stack(
             children: [
+<<<<<<< HEAD
               
+=======
               Container(
-                
                 margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height *.002,
+                  left: MediaQuery.of(context).size.width * .01,
+                  right: MediaQuery.of(context).size.width * .01,
+                ),
+                height: MediaQuery.of(context).size.height * .71,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.white,
+                        Colors.black,
+                      ],
+                    ),
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(35)),
+              ),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
+              Container(
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .002,
                   left: MediaQuery.of(context).size.width * .015,
                   right: MediaQuery.of(context).size.width * .015,
                 ),
                 height: MediaQuery.of(context).size.height * .74,
                 width: double.infinity,
                 decoration: BoxDecoration(
+<<<<<<< HEAD
                
                   color: Colors.white,
                  
+=======
+                  color: Color(0xff3D3D3D),
+                  borderRadius: BorderRadius.circular(35),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(35),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+<<<<<<< HEAD
                         
+=======
+                        // Padding(
+                        //   padding: const EdgeInsets.all(5.0),
+                        //   child:
+                        //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
+                        // ),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                         Container(
                           padding: EdgeInsets.all(30).copyWith(top: 10),
                           child: Column(
@@ -48,7 +82,6 @@ class _McqsState extends State<Mcqs> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 20),
                                 child: DefaultTabController(
-                                  
                                     length: 8,
                                     child: TabBar(
                                       tabs: [
@@ -76,10 +109,12 @@ class _McqsState extends State<Mcqs> {
                               ),
                               videoContainer(),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * .03,
+                                height:
+                                    MediaQuery.of(context).size.height * .03,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   CircleAvatar(
                                     backgroundColor: Color(0xff677A8F),
@@ -139,6 +174,7 @@ class _McqsState extends State<Mcqs> {
       )),
     );
   }
+<<<<<<< HEAD
 Widget videoContainer(){
   return Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -197,6 +233,56 @@ Widget videoContainer(){
                                 ],
                               );
 }
+=======
+
+  Widget videoContainer() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
+              height: MediaQuery.of(context).size.height * .2,
+              width: MediaQuery.of(context).size.width * .42,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * .13,
+                    width: MediaQuery.of(context).size.width * .38,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            image: AssetImage("assets/png/video.png"),
+                            fit: BoxFit.cover)),
+                    child: Image.asset("assets/png/play.png"),
+                  ),
+                  Text(
+                    "topic no",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  Text(
+                    "Watch video here",
+                    style: TextStyle(color: Colors.black),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .01,
+            ),
+            Text(
+              "Skip and go to next question",
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
   Widget tabs(int number) {
     return Text("$number",style: TextStyle(color: Colors.black),);
   }
@@ -212,7 +298,11 @@ Widget videoContainer(){
             children: [
               Text(
                 "$question",
+<<<<<<< HEAD
                 style: TextStyle( fontSize: 17,color: Colors.black),
+=======
+                style: TextStyle(fontSize: 17),
+>>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
               )
             ],
           ),
@@ -236,7 +326,7 @@ Widget videoContainer(){
               CircleAvatar(
                 child: Text(
                   'B',
-                   style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black),
                 ),
                 backgroundColor: Color(0xffD4D4D4),
               ),
@@ -250,8 +340,8 @@ Widget videoContainer(){
             children: [
               CircleAvatar(
                 child: Text(
-                  'C' ,style: TextStyle(color: Colors.black),
-                 
+                  'C',
+                  style: TextStyle(color: Colors.black),
                 ),
                 backgroundColor: Color(0xffD4D4D4),
               ),

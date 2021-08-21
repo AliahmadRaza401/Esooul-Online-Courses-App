@@ -1,14 +1,13 @@
-import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
 
-class Header extends StatefulWidget {
-  Header({Key? key}) : super(key: key);
+class Header2 extends StatefulWidget {
+  Header2({Key? key}) : super(key: key);
 
   @override
-  _HeaderState createState() => _HeaderState();
+  _Header2State createState() => _Header2State();
 }
 
-class _HeaderState extends State<Header> {
+class _Header2State extends State<Header2> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,27 +18,30 @@ class _HeaderState extends State<Header> {
             right: MediaQuery.of(context).size.width * .017,
             bottom: MediaQuery.of(context).size.height * 0.0),
         padding: EdgeInsets.all(12.0),
-        height: MediaQuery.of(context).size.height * 0.26,
+        height: MediaQuery.of(context).size.height * 0.225,
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xff72C6EF),
-              Color(0xff004E8F),
-            ],
-          ),
-          color: Colors.blue,
-          borderRadius: BorderRadius.circular(20.0),
-        ),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xff72C6EF),
+                Color(0xff004E8F),
+              ],
+            ),
+            color: Colors.blue,
+            borderRadius: BorderRadius.only(
+                topLeft:
+                    Radius.circular(MediaQuery.of(context).size.width * .07),
+                topRight:
+                    Radius.circular(MediaQuery.of(context).size.width * .07))),
         child: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Image.asset(
-                  "assets/png/headerlogo (2).png",
+                  "assets/png/esooulheader2.png",
                   // height: MediaQuery.of(context).size.height * 0.1,
                   // width: MediaQuery.of(context).size.width * 0.1
                 ),
@@ -65,12 +67,6 @@ class _HeaderState extends State<Header> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: [_myConatiner("assets/png/search (2).png")],
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Column(
                           children: [
                             _myConatiner("assets/png/notification.png")
                           ],
@@ -87,29 +83,7 @@ class _HeaderState extends State<Header> {
                 )
               ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.020,
-            ),
-            Row(
-              children: [
-                Text(
-                  "Invite Friend",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 21.0),
-                ),
-                Container(
-                  // height: MediaQuery.of(context).size.height * 0.1,
-                  // width: MediaQuery.of(context).size.width * 0.1,
-                  child: Image.asset(
-                    "assets/png/share-2 (1).png",
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.020,
-            ),
-            BackButtonWidget(
-                iconPath: "assets/png/settings.png", buttontext: "Settings")
+            _searchWidget()
           ],
         ),
       ),
@@ -137,6 +111,45 @@ class _HeaderState extends State<Header> {
         child: Center(
           child: Image.asset(imgPath),
         ),
+      ),
+    );
+  }
+
+  _searchWidget() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.050,
+            width: MediaQuery.of(context).size.width * 0.75,
+            child: TextFormField(
+              cursorColor: Colors.white,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(20, 20, 0, 0),
+                fillColor: Colors.white,
+                filled: true,
+                hintText: 'Search',
+                hintStyle: TextStyle(color: Colors.grey),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                ),
+              ),
+              style: TextStyle(color: Colors.white, fontSize: 12.0),
+            ),
+          ),
+          GestureDetector(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.10,
+              width: MediaQuery.of(context).size.width * 0.10,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Color(0xff2B5876)),
+              child: Center(
+                child: Image.asset("assets/png/sliders.png"),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

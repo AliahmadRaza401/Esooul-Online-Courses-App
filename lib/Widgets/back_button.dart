@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class BackButtonWidget extends StatelessWidget {
   final String iconPath;
+  final String buttontext;
   BackButtonWidget({
     Key? key,
     required this.iconPath,
+    required this.buttontext,
   }) : super(key: key);
 
   @override
@@ -13,39 +15,40 @@ class BackButtonWidget extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(30.0)),
       child: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [0.0, 1.0],
-            colors: [
-              Color(0xff3A6073),
-              Color(0xff16222A),
-            ],
-          ),
-          border: Border(
-            top: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            left: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-            right: BorderSide(
-              color: Colors.black,
-              width: 1.5,
-            ),
-          ),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: Colors.black,
-              offset: Offset(20.0, 20.0),
-              blurRadius: 20.0,
-              spreadRadius: 40.0,
-            ),
-          ],
-        ),
+        color: Colors.white,
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment.topLeft,
+        //     end: Alignment.bottomRight,
+        //     stops: [0.0, 1.0],
+        //     colors: [
+        //       Color(0xff3A6073),
+        //       Color(0xff16222A),
+        //     ],
+        //   ),
+        //   border: Border(
+        //     top: BorderSide(
+        //       color: Colors.black,
+        //       width: 1.5,
+        //     ),
+        //     left: BorderSide(
+        //       color: Colors.black,
+        //       width: 1.5,
+        //     ),
+        //     right: BorderSide(
+        //       color: Colors.black,
+        //       width: 1.5,
+        //     ),
+        //   ),
+        //   boxShadow: <BoxShadow>[
+        //     BoxShadow(
+        //       color: Colors.black,
+        //       offset: Offset(20.0, 20.0),
+        //       blurRadius: 20.0,
+        //       spreadRadius: 40.0,
+        //     ),
+        //   ],
+        // ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8.0, 0, 15.0, 0),
           child: Row(
@@ -75,13 +78,23 @@ class BackButtonWidget extends StatelessWidget {
                   child: Text(
                     "< Back",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                       // fontWeight: FontWeight.w700,
-                      color: Colors.white,
+                      color: Color(0xff2575AE),
                     ),
                   ),
                 ),
               ),
+              Text(
+                buttontext,
+                style: TextStyle(
+                    color: Color(0xff100F0F),
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18.0),
+              ),
+              SizedBox(
+                  // width: MediaQuery.of(context).size.width * 0.009,
+                  ),
               Image.asset(
                 iconPath,
                 height: MediaQuery.of(context).size.height * 0.050,
