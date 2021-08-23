@@ -45,17 +45,15 @@ class _ProfileState extends State<Profile> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xff72C6EF),
-                      Color(0xff004E8F),
-                    ],
-                  ),
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xff72C6EF),
+                                Color(0xff004E8F),
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(30)),
                       ),
-                      
-                      
                       Container(
                         margin: EdgeInsets.only(
                           top: MediaQuery.of(context).size.height * .001,
@@ -86,28 +84,30 @@ class _ProfileState extends State<Profile> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                                            Color(0xff004E8F),
-
-                      Color(0xff72C6EF),
-                    ],
-                  ),
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xff004E8F),
+                              Color(0xff72C6EF),
+                            ],
+                          ),
                         ),
                         child: Column(
                           children: [
                             Text(
                               "John Doe, 27",
-                              style: TextStyle(color: Colors.white, fontSize: 25),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25),
                             ),
                             Text(
                               'San Francisco, USA',
-                              style: TextStyle(color: Colors.white, fontSize: 14),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 14),
                             ),
                             Text(
                               "john Doe@gmail.com",
-                              style: TextStyle(color: Colors.white, fontSize: 10),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 10),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .01,
@@ -129,19 +129,18 @@ class _ProfileState extends State<Profile> {
                                     )
                                   ],
                                 ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      "10",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "Photos",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ]),
+                                Column(children: [
+                                  Text(
+                                    "10",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    "Photos",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ]),
                                 Column(
                                   children: [
                                     Text(
@@ -188,49 +187,44 @@ class _ProfileState extends State<Profile> {
                               data('Gender', 'Select'),
                               data('Grade', 'Select'),
                               data('Contact Number', 'Type here')
-
                             ],
                           ),
                         ),
                       ),
                       Positioned(
-                        left: MediaQuery.of(context).size.width *.04,
-                        top: MediaQuery.of(context).size.height *.85,
+                        left: MediaQuery.of(context).size.width * .04,
+                        top: MediaQuery.of(context).size.height * .85,
                         child: Row(
-                                  children: [
-                                    
-                                    ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          padding: EdgeInsets.only(
-                                              left: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  .4,
-                                                  top: MediaQuery.of(context).size.height *.015,
-                                                  bottom: MediaQuery.of(context).size.height *.015,
-                                              right: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  .4),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(100)),
-                                          primary: Colors.white),
-                                      child: Text("Settings",style: TextStyle(color: Colors.black),),
-                                      onPressed: (){
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) => Settings()));
-                      
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                                builder: (context) => BottomNavBar(
-                                                      activeIndex: 4,
-                                                    )));
-                                      },
-                                    ),
-                                  ],
-                                ),
+                          children: [
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.only(
+                                      left: MediaQuery.of(context).size.width *
+                                          .4,
+                                      top: MediaQuery.of(context).size.height *
+                                          .015,
+                                      bottom:
+                                          MediaQuery.of(context).size.height *
+                                              .015,
+                                      right: MediaQuery.of(context).size.width *
+                                          .4),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(100)),
+                                  primary: Colors.white),
+                              child: Text(
+                                "Settings",
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Settings()));
+
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => BottomNavBar()));
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                       Positioned(
                         top: MediaQuery.of(context).size.height * .1,
@@ -246,7 +240,6 @@ class _ProfileState extends State<Profile> {
                       )
                     ],
                   ),
-                  
                 ],
               ),
             ),
