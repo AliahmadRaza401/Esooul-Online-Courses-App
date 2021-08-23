@@ -43,7 +43,7 @@ class _LogInState extends State<LogIn> {
     Navigator.of(context).pushReplacement(
         new MaterialPageRoute(
             builder: (context) =>
-                new BottomNavBar(activeIndex: 0,)));
+                new BottomNavBar()));
   }
 
   Widget build(BuildContext context) {

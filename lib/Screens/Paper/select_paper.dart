@@ -3,7 +3,6 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
-
 class SelectPaper extends StatefulWidget {
   SelectPaper({Key? key}) : super(key: key);
 
@@ -27,7 +26,6 @@ class _SelectPaperState extends State<SelectPaper> {
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   //crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                  
                     // ClipPolygon(
                     //   sides: 3,
                     //   borderRadius: 10.0, // Defaults to 0.0 degrees

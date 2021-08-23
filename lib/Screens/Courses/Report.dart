@@ -179,7 +179,7 @@ class _ReportState extends State<Report> {
       decoration: BoxDecoration(
         // color: Colors.black,
           image:
-              DecorationImage(image: AssetImage("assets/png/triangle2.png")
+              DecorationImage(image: AssetImage("assets/png/Polygon 3.png")
                ,fit: BoxFit.cover
               )),
       child: Stack(
