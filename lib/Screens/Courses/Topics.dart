@@ -17,7 +17,6 @@ class _TopicsState extends State<Topics> {
         child: Column(
           children: [
             Header(),
-           
             Container(
               // margin: EdgeInsets.only(
               //   // top: MediaQuery.of(context).size.height * .08,
@@ -26,30 +25,32 @@ class _TopicsState extends State<Topics> {
               // ),
               height: MediaQuery.of(context).size.height * .75,
               // width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.white
-                  ),
+              decoration: BoxDecoration(color: Colors.white),
               padding: EdgeInsets.all(30).copyWith(top: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(children: [
-                    Text("Quiz Guide",style: TextStyle(color: Colors.black),)
-                  ],),
                   Row(
                     children: [
-<<<<<<< HEAD
+                      Text(
+                        "Quiz Guide",
+                        style: TextStyle(color: Colors.black),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
                       Text(
                         "Brief explanation about this quiz",
-                        style: TextStyle(fontSize: 18,color: Colors.blueAccent),
+                        style:
+                            TextStyle(fontSize: 18, color: Colors.blueAccent),
                       )
-=======
+
                       // Padding(
                       //   padding: const EdgeInsets.all(7.0),
                       //   child:
                       //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
                       // )
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                     ],
                   ),
                   desc('assets/png/question.png', '10 Question',
@@ -58,13 +59,13 @@ class _TopicsState extends State<Topics> {
                       'Total duration of the quiz'),
                   desc('assets/png/winstar.png', 'Win 10 star',
                       'Answer all questions correctly'),
-                      SizedBox(height:MediaQuery.of(context).size.height *.01),
+                  SizedBox(height: MediaQuery.of(context).size.height * .01),
                   Wrap(
                     children: [
-<<<<<<< HEAD
                       Text(
-                          "Please read the text below carefully so you can understand it",style: TextStyle(color: Colors.blueAccent),),
-=======
+                        "Please read the text below carefully so you can understand it",
+                        style: TextStyle(color: Colors.blueAccent),
+                      ),
                       Row(
                         children: [
                           Text(
@@ -117,42 +118,36 @@ class _TopicsState extends State<Topics> {
                             "Start Quiz",
                             style: TextStyle(fontSize: 10),
                           ))
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                     ],
                   ),
-                  bullets('assets/png/Ellipse 6.png', '10 point awarded for a correct answer and nomarks for a incorrect answer'),
-                  bullets('assets/png/Ellipse 6.png', 'Tap on options to select the correct answer'),
-                  bullets('assets/png/Ellipse 6.png', 'Tap on the bookmark icon to save interestingquestions'),
-                  bullets('assets/png/Ellipse 6.png', 'Click submit if you are sure you want to complete all the quizzes'),
-                  SizedBox(height: MediaQuery.of(context).size.height *.04,),
-                  ElevatedButton(onPressed: (){
-
-                  }, style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.only(
-                                        left: MediaQuery.of(context)
-                                                .size
-                                                .width *
-                                            .35,
-                                        right: MediaQuery.of(context)
-                                                .size
-                                                .width *
-                                            .35,
-                                        top: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            .015,
-                                        bottom: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            .015),
-                                    primary: Color(0xff00B0D7),
-                                    
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  child: Text("Start Quiz",style: TextStyle(fontSize: 15),))
+                  bullets('assets/png/Ellipse 6.png',
+                      '10 point awarded for a correct answer and nomarks for a incorrect answer'),
+                  bullets('assets/png/Ellipse 6.png',
+                      'Tap on options to select the correct answer'),
+                  bullets('assets/png/Ellipse 6.png',
+                      'Tap on the bookmark icon to save interestingquestions'),
+                  bullets('assets/png/Ellipse 6.png',
+                      'Click submit if you are sure you want to complete all the quizzes'),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .04,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * .35,
+                            right: MediaQuery.of(context).size.width * .35,
+                            top: MediaQuery.of(context).size.height * .015,
+                            bottom: MediaQuery.of(context).size.height * .015),
+                        primary: Color(0xff00B0D7),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      child: Text(
+                        "Start Quiz",
+                        style: TextStyle(fontSize: 15),
+                      ))
                 ],
               ),
             ),
@@ -167,21 +162,24 @@ class _TopicsState extends State<Topics> {
       children: [
         Column(
           children: [
-            Image.asset("$imag",),
+            Image.asset(
+              "$imag",
+            ),
           ],
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width * .04,
         ),
-<<<<<<< HEAD
-       Expanded(child: Text("$txt",style: TextStyle(fontSize: 12,color: Colors.black),))
-=======
+        Expanded(
+            child: Text(
+          "$txt",
+          style: TextStyle(fontSize: 12, color: Colors.black),
+        )),
         Expanded(
             child: Text(
           "$txt",
           style: TextStyle(fontSize: 12),
         ))
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
       ],
     );
   }
@@ -208,16 +206,12 @@ class _TopicsState extends State<Topics> {
               ],
             ),
             Row(
-<<<<<<< HEAD
-              children: [Text('$description',style: TextStyle(fontSize: 12,color: Colors.black),)],
-=======
               children: [
                 Text(
                   '$description',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12, color: Colors.black),
                 )
               ],
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
             )
           ],
         )

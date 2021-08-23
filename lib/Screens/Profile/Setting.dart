@@ -19,17 +19,16 @@ class _SettingsState extends State<Settings> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          
           Container(
             margin: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * .01,
                 right: MediaQuery.of(context).size.width * .01),
             decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/png/stting back.png"),
-                ),
-                color: Colors.white,
-                        ),
+              image: DecorationImage(
+                image: AssetImage("assets/png/stting back.png"),
+              ),
+              color: Colors.white,
+            ),
             padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .02,
               right: MediaQuery.of(context).size.width * .02,
@@ -40,12 +39,8 @@ class _SettingsState extends State<Settings> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-<<<<<<< HEAD
-                 
-=======
                   BackButtonWidget(
                       buttontext: "", iconPath: 'assets/png/presentation4.png'),
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                   setting("assets/png/sliders2.png", "Settings", .05),
                   setting("assets/png/user-alt.png", 'Edit Profile', .05),
                   setting("assets/png/Vector.png", 'Pay to unlock pack', .04),

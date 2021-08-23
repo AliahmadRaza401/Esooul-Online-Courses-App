@@ -142,16 +142,16 @@ class _ReportState extends State<Report> {
                                     'Attempted',
                                   ),
                                 ),
-<<<<<<< HEAD
+
                                 // ClipPath(
-          //   clipper: TriangleClipper(),
-          //   child: Container(
-          //     height: 100,
-          //     color: Colors.deepOrange,
-          //     child: Center(child: Text("TriangleClipper()")),
-          //   ),
-          // ),
-          //                       // Container(
+                                //   clipper: TriangleClipper(),
+                                //   child: Container(
+                                //     height: 100,
+                                //     color: Colors.deepOrange,
+                                //     child: Center(child: Text("TriangleClipper()")),
+                                //   ),
+                                // ),
+                                //                       // Container(
                                 //   padding: EdgeInsets.all(30),
                                 //   margin: EdgeInsets.only(top: 250),
                                 //   height:
@@ -203,7 +203,7 @@ class _ReportState extends State<Report> {
                                 //     ],
                                 //   ),
                                 // )
-=======
+
                                 Container(
                                   padding: EdgeInsets.all(30),
                                   margin: EdgeInsets.only(top: 260),
@@ -250,7 +250,6 @@ class _ReportState extends State<Report> {
                                     ],
                                   ),
                                 )
->>>>>>> f83d03f5228d89e81bfa4882276aa35cfd79bae4
                               ],
                             )
                           ],
