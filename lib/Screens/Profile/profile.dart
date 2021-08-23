@@ -220,7 +220,7 @@ class _ProfileState extends State<Profile> {
                                     builder: (context) => Settings()));
 
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => BottomNavBar()));
+                                    builder: (context) => BottomNavBar(activeIndex: 0,)));
                               },
                             ),
                           ],
