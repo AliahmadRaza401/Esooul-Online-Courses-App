@@ -14,234 +14,174 @@ class _McqsState extends State<Mcqs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          color: Colors.white,
-          child: Column(children: [
-            Container(
-              margin: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * .01,
-                right: MediaQuery.of(context).size.width * .01,
+        color: Colors.white,
+          child: Column(
+        children: [
+          Header(),
+          Stack(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .01,
+                  right: MediaQuery.of(context).size.width * .01,
+                ),
+                height: MediaQuery.of(context).size.height * .71,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.white,
+                        Colors.black,
+                      ],
+                    ),
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(35)),
               ),
-              height: MediaQuery.of(context).size.height * .71,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Colors.white,
-                      Colors.black,
-                    ],
-                  ),
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(35)),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .002,
-                left: MediaQuery.of(context).size.width * .015,
-                right: MediaQuery.of(context).size.width * .015,
-              ),
-              height: MediaQuery.of(context).size.height * .74,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Color(0xff3D3D3D),
-                borderRadius: BorderRadius.circular(35),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(35),
-                child: SingleChildScrollView(
+              Container(
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .002,
+                  left: MediaQuery.of(context).size.width * .015,
+                  right: MediaQuery.of(context).size.width * .015,
+                ),
+                height: MediaQuery.of(context).size.height * .74,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color(0xff3D3D3D),
+                  borderRadius: BorderRadius.circular(35),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(35),
+                  child: SingleChildScrollView(
                     child: Column(
-                  children: [
-                    // Padding(
-                    //   padding: const EdgeInsets.all(5.0),
-                    //   child:
-                    //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                    // ),
-                    Container(
-                      padding: EdgeInsets.all(30).copyWith(top: 10),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
-                            child: DefaultTabController(
-                                length: 8,
-                                child: TabBar(
-                                  tabs: [
-                                    tabs(1),
-                                    tabs(2),
-                                    tabs(3),
-                                    tabs(4),
-                                    tabs(6),
-                                    tabs(7),
-                                    tabs(8),
-                                    tabs(9),
-                                  ],
-                                )),
-                          ),
-                          // Divider(
-                          //   color: Colors.black,
-                          // ),
-                          mcq(
-                            'What is the meaning of UI UX Design ?',
-                            'User Introface and User Experience',
-                            'User Introface and User Experience',
-                            'User Interfice and Using Experience',
-                            'User Interface and User Experience',
-                            'Using Interface and Using Experience',
-                          ),
-                          videoContainer(),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * .03,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Padding(
+                        //   padding: const EdgeInsets.all(5.0),
+                        //   child:
+                        //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
+                        // ),
+                        Container(
+                          padding: EdgeInsets.all(30).copyWith(top: 10),
+                          child: Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 20),
-                                child: DefaultTabController(
-                                    length: 8,
-                                    child: TabBar(
-                                      tabs: [
-                                        tabs(1),
-                                        tabs(2),
-                                        tabs(3),
-                                        tabs(4),
-                                        tabs(6),
-                                        tabs(7),
-                                        tabs(8),
-                                        tabs(9),
-                                      ],
-                                    )),
+                              CircleAvatar(
+                                backgroundColor: Color(0xff677A8F),
+                                radius: 25,
+                                child: Icon(Icons.arrow_back_ios_sharp),
                               ),
-                              // Divider(
-                              //   color: Colors.black,
-                              // ),
-                              mcq(
-                                'What is the meaning of UI UX Design ?',
-                                'User Introface and User Experience',
-                                'User Introface and User Experience',
-                                'User Interfice and Using Experience',
-                                'User Interface and User Experience',
-                                'Using Interface and Using Experience',
-                              ),
-                              videoContainer(),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * .03,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Color(0xff677A8F),
-                                    radius: 25,
-                                    child: Icon(Icons.arrow_back_ios_sharp),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.only(
+                                        left: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            .14,
+                                        right: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            .15,
+                                        top: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            .015,
+                                        bottom: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            .015),
+                                    primary: Colors.blue,
+                                    
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(100),
+                                    ),
                                   ),
-                                  ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                        padding: EdgeInsets.only(
-                                            left: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                .14,
-                                            right: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                .15,
-                                            top: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                .015,
-                                            bottom: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                .015),
-                                        primary: Colors.blue,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        'Submit Quiz',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                  CircleAvatar(
-                                    backgroundColor: Color(0xffD4D4D4),
-                                    radius: 25,
-                                    child: Icon(Icons.arrow_forward_ios_sharp),
-                                  )
-                                ],
+                                  child: Text(
+                                    'Submit Quiz',
+                                    style:
+                                        TextStyle(color: Colors.white),
+                                  )),
+                              CircleAvatar(
+                                backgroundColor: Color(0xffD4D4D4),
+                                radius: 25,
+                                child: Icon(Icons.arrow_forward_ios_sharp),
                               )
                             ],
-                          ),
-                        ],
+                          )
+                    )]),
                       ),
-                    ),
-                  ],
-                )),
-              ),
+                    )
+              )],
+                ),
+        ]),
             ),
-          ])),
-    );
+          );
   }
+Widget videoContainer(){
+  return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffF4F3F2),
+                                            borderRadius:
+                                                BorderRadius.circular(15)),
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .2,
+                                        width: MediaQuery.of(context).size.width *
+                                            .42,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                             
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  .13,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .38,
+                                              decoration: BoxDecoration(
+                                                
+                                                borderRadius:
+                                                BorderRadius.circular(15),
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          "assets/png/video.png"),
+                                                          fit: BoxFit.cover
+                                                          )
+                                                          ),
+                                                          child: Image.asset("assets/png/play.png"),
+                                            ),
+                                            Text("topic no",
+                                        style: TextStyle(color: Colors.black),),
+                                            Text("Watch video here",
+                                        style: TextStyle(color: Colors.black),)
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(height: MediaQuery.of(context).size.height *.01,),
+                                      Text(
+                                        "Skip and go to next question",
+                                       style: TextStyle(color: Colors.black),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+}
 
-  Widget videoContainer() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.grey[600],
-                  borderRadius: BorderRadius.circular(15)),
-              height: MediaQuery.of(context).size.height * .2,
-              width: MediaQuery.of(context).size.width * .42,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height * .13,
-                    width: MediaQuery.of(context).size.width * .38,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                            image: AssetImage("assets/png/video.png"),
-                            fit: BoxFit.cover)),
-                    child: Image.asset("assets/png/play.png"),
-                  ),
-                  Text(
-                    "topic no",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    "Watch video here",
-                    style: TextStyle(color: Colors.black),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .01,
-            ),
-            Text(
-              "Skip and go to next question",
-              style: TextStyle(color: Colors.black),
-            ),
-          ],
-        )
-      ],
-    );
-  }
+ 
+
 
   Widget tabs(int number) {
-    return Text(
-      "$number",
-      style: TextStyle(color: Colors.black),
-    );
+    return Text("$number",style: TextStyle(color: Colors.black),);
   }
 
   Widget mcq(
@@ -255,7 +195,8 @@ class _McqsState extends State<Mcqs> {
             children: [
               Text(
                 "$question",
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(color: Colors.black),
+
               )
             ],
           ),
@@ -271,10 +212,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text(
-                "$A",
-                style: TextStyle(color: Colors.black),
-              )
+              Text("$A",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -289,10 +227,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text(
-                "$B",
-                style: TextStyle(color: Colors.black),
-              )
+              Text("$B",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(
@@ -307,10 +242,7 @@ class _McqsState extends State<Mcqs> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text(
-                "$C",
-                style: TextStyle(color: Colors.black),
-              )
+              Text("$C",style: TextStyle(color: Colors.black),)
             ],
           ),
           Row(

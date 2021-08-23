@@ -19,16 +19,17 @@ class _SettingsState extends State<Settings> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          
           Container(
             margin: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * .01,
                 right: MediaQuery.of(context).size.width * .01),
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/png/stting back.png"),
-              ),
-              color: Colors.white,
-            ),
+                image: DecorationImage(
+                  image: AssetImage("assets/png/stting back.png"),
+                ),
+                color: Colors.white,
+                        ),
             padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .02,
               right: MediaQuery.of(context).size.width * .02,

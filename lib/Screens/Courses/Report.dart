@@ -1,5 +1,6 @@
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -14,324 +15,258 @@ class _ReportState extends State<Report> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
           children: [
             Header(),
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * .01,
-                    right: MediaQuery.of(context).size.width * .01,
-                  ),
-                  height: MediaQuery.of(context).size.height * .74,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Colors.white,
-                          Colors.black,
-                        ],
-                      ),
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
+            Container(
+                height: MediaQuery.of(context).size.height * .7,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                 ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .003,
-                    left: MediaQuery.of(context).size.width * .015,
-                    right: MediaQuery.of(context).size.width * .015,
-                  ),
-                  height: MediaQuery.of(context).size.height * .74,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .01,
-                    left: MediaQuery.of(context).size.width * .03,
-                    right: MediaQuery.of(context).size.width * .03,
-                  ),
-                  height: MediaQuery.of(context).size.height * .73,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30)),
-                  padding: EdgeInsets.all(5),
-                  child: Column(
-                    children: [
-                      //BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                      Padding(
-                        padding: const EdgeInsets.all(30),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Hey John",
-                                  style: TextStyle(
-                                      color: Color(0xff00B0D7), fontSize: 20),
-                                ),
-                                Text(
-                                  "Keep trying for better we belive in try again",
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20)
-                            .copyWith(top: 0, bottom: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Report",
-                              style: TextStyle(color: Color(0xff00B0D7)),
-                            ),
-                            Text(
-                              "Recent Quiz attempted",
-                              style: TextStyle(color: Colors.black),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Row(
-                          children: [
-                            Stack(
-                              children: [
-                                stacks(
-                                  1,
-                                  5,
-                                  'assets/png/correct.PNG',
-                                  'Correct answered',
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 85),
-                                  child: stacks(
-                                    2,
-                                    10,
-                                    'assets/png/correct.PNG',
-                                    'Marks',
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 165),
-                                  child: stacks(
-                                    10,
-                                    10,
-                                    'assets/png/correct.PNG',
-                                    'Attempted',
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(30),
-                                  margin: EdgeInsets.only(top: 260),
-                                  height:
-                                      MediaQuery.of(context).size.height * .11,
-                                  width:
-                                      MediaQuery.of(context).size.width * .82,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xff434343),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Icon(
-                                                Icons.watch_later_outlined,
-                                                size: 40,
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    .03,
-                                              ),
-                                              Text("Time")
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text("1 min"),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                padding: EdgeInsets.all(5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Row(
                         children: [
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.only(
-                                    left:
-                                        MediaQuery.of(context).size.width * .3,
-                                    right:
-                                        MediaQuery.of(context).size.width * .3,
-                                    top: MediaQuery.of(context).size.height *
-                                        .02,
-                                    bottom: MediaQuery.of(context).size.height *
-                                        .02),
-                                primary: Color(0xff00B0D7),
-                                side: BorderSide(width: 1, color: Colors.black),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Hey John",
+                                style: TextStyle(
+                                    color: Color(0xff00B0D7), fontSize: 20),
                               ),
-                              child: Text("Next Topic"))
+                              Text(
+                                "Keep trying for better we belive in try again",
+                                style: TextStyle(color: Colors.black),
+                              )
+                            ],
+                          )
                         ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.all(20).copyWith(top: 0, bottom: 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Report",
+                            style: TextStyle(color: Color(0xff00B0D7)),
+                          ),
+                          Text(
+                            "Recent Quiz attempted",
+                            style: TextStyle(color: Colors.black),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 80),
+                      child: Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width *.9,
+
+                          child: Stack(
+                            
+                            children: [
+                              Container(
+                                  margin: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.height *.085),
+                                  child: triangel(1, 5, 'Accepted')),
+                              Container(
+                                  margin: EdgeInsets.only(
+                                    left: MediaQuery.of(context).size.width *.17
+                                    ),
+                                  child: triangel2(2, 5, "Correct Answered")),
+                              Container(
+                                  margin: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width *.38, 
+                                  top: MediaQuery.of(context).size.height *.085
+                                  ),
+                                  child: triangel3(10, 10, 'Marks'))
+                            ],
+                          ),
+                       ),
+                      ),
+                ),
+                Row(children: [
+                   ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * .3,
+                                  right: MediaQuery.of(context).size.width * .3,
+                                  top: MediaQuery.of(context).size.height * .02,
+                                  bottom:
+                                      MediaQuery.of(context).size.height * .02),
+                              primary: Color(0xff00B0D7),
+                              // side: BorderSide(width: 1, color: Colors.black),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                            ),
+                            child: Text("Next Topic")),
+                      ],)          
+            ]
+            ),
+        )])));
   }
 
-  Widget stacks(int obtained, int total, String img, String title) {
-    double percent = obtained / total;
-    double percentage = percent * 100;
+  Widget triangel(int obtained, int total, String title) {
+    double value = obtained / total;
+    double percentage = value * 100;
     return Container(
-      height: MediaQuery.of(context).size.height * .1,
-      width: MediaQuery.of(context).size.width * .82,
+      height: MediaQuery.of(context).size.height * .13,
+      width: MediaQuery.of(context).size.width * .29,
+      // margin: EdgeInsets.only(top: 140),
       decoration: BoxDecoration(
-        color: Color(0xff434343),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black,
-              spreadRadius: 0,
-              blurRadius: 10,
-              offset: Offset(0, -2))
-        ],
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.elliptical(200, 400),
-            bottomRight: Radius.elliptical(200, 400),
-            topLeft: Radius.circular(MediaQuery.of(context).size.height * .07),
-            topRight:
-                Radius.circular(MediaQuery.of(context).size.height * .07)),
-      ),
+        // color: Colors.black,
+          image:
+              DecorationImage(image: AssetImage("assets/png/Polygon 2.png")
+              ,fit: BoxFit.cover)
+              
+              ),
       child: Stack(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Image.asset("$img"),
-              Text("$title"),
-              Text("$obtained/$total"),
-              CircularPercentIndicator(
-                radius: MediaQuery.of(context).size.height * .08,
-                percent: percent,
+          Positioned(
+              top: MediaQuery.of(context).size.height * .025,
+              left: MediaQuery.of(context).size.width * .08,
+              child: CircularPercentIndicator(
+                radius: 55,
+                percent: value,
                 arcType: ArcType.HALF,
                 arcBackgroundColor: Colors.white,
                 lineWidth: 7,
                 progressColor: Colors.green,
                 animation: true,
-                center: Text("$percentage%"),
-              )
-            ],
-          ),
+                center: Text(
+                  "$percentage%",
+                  style: TextStyle(fontSize: 12),
+                ),
+              )),
           Positioned(
-            top: MediaQuery.of(context).size.height * .06,
-            left: MediaQuery.of(context).size.width * .1,
-            child: LinearPercentIndicator(
-              width: MediaQuery.of(context).size.width * .5,
-              percent: percent,
-              progressColor: Colors.green,
-            ),
-          )
+              top: MediaQuery.of(context).size.height * .09,
+              left: MediaQuery.of(context).size.width * .02,
+              child: Image.asset("assets/png/accepted.png")),
+          Positioned(
+               top: MediaQuery.of(context).size.height * .095,
+              left: MediaQuery.of(context).size.width * .1,
+              child: Text("$title")),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .07,
+              left: MediaQuery.of(context).size.width * .13,
+              child: Text("$obtained/$total")),
+        ],
+      ),
+    );
+  }
+
+  Widget triangel2(int obtained, int total, String title) {
+    double value = obtained / total;
+    double percentage = value * 100;
+    return Container(
+       height: MediaQuery.of(context).size.height * .18,
+      width: MediaQuery.of(context).size.width * .35,
+      // margin: EdgeInsets.only(top: 140),
+      decoration: BoxDecoration(
+        // color: Colors.black,
+          image:
+              DecorationImage(image: AssetImage("assets/png/Polygon 3.png")
+               ,fit: BoxFit.cover
+              )),
+      child: Stack(
+        children: [
+          Positioned(
+              top: MediaQuery.of(context).size.height * .1,
+              left: MediaQuery.of(context).size.width * .105,
+              child: CircularPercentIndicator(
+                radius: 50,
+                percent: value,
+                arcType: ArcType.HALF,
+                arcBackgroundColor: Colors.white,
+                lineWidth: 7,
+                progressColor: Colors.green,
+                animation: true,
+                center: Text(
+                  "$percentage%",
+                  style: TextStyle(fontSize: 12),
+                ),
+              )),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .055,
+              left: MediaQuery.of(context).size.width * .04,
+              child: Image.asset("assets/png/check-circle.png")),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .05,
+              left: MediaQuery.of(context).size.width * .1,
+              child: Container(
+                  width: MediaQuery.of(context).size.height * .09,
+                  child: Text(
+                    "$title",
+                    style: TextStyle(fontSize: 9),
+                  ))),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .05,
+              left: MediaQuery.of(context).size.width * .215,
+              child: Text("$obtained/$total",style: TextStyle(fontSize: 10),)),
+        ],
+      ),
+    );
+  }
+
+  Widget triangel3(int obtained, int total, String title) {
+    double value = obtained / total;
+    double percentage = value * 100;
+    return Container(
+     height: MediaQuery.of(context).size.height * .13,
+      width: MediaQuery.of(context).size.width * .29,
+      // margin: EdgeInsets.only(top: 140),
+      decoration: BoxDecoration(
+        // color: Colors.black,
+          image:
+              DecorationImage(image: AssetImage("assets/png/Polygon 2.png")
+               ,fit: BoxFit.cover
+              )),
+      child: Stack(
+        children: [
+          Positioned(
+             top: MediaQuery.of(context).size.height * .025,
+              left: MediaQuery.of(context).size.width * .08,
+              child: CircularPercentIndicator(
+                radius: 55,
+                percent: value,
+                arcType: ArcType.HALF,
+                arcBackgroundColor: Colors.white,
+                lineWidth: 7,
+                progressColor: Colors.green,
+                animation: true,
+                center: Text(
+                  "$percentage%",
+                  style: TextStyle(fontSize: 12),
+                ),
+              )),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .09,
+              left: MediaQuery.of(context).size.width * .02,
+              child: Image.asset("assets/png/graph.png")),
+          Positioned(
+              top: MediaQuery.of(context).size.height * .095,
+              left: MediaQuery.of(context).size.width * .1,
+              child: Text("$title")),
+          Positioned(
+               top: MediaQuery.of(context).size.height * .07,
+              left: MediaQuery.of(context).size.width * .13,
+              child: Text("$obtained/$total")),
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Container(
-//                 width: 70,
-//                 height: 70,
-//                 child: Stack(
-//                   children: [
-//                     ShaderMask(
-//                         shaderCallback: (Rect) {
-//                           return SweepGradient(
-//                             colors: [Colors.blue,Colors.white, ],
-//                             startAngle: 0.0,
-//                             endAngle: 3.14 * 2,
-//                             stops: [0.3, 0.5],
-//                             center: Alignment.center,
-//                           ).createShader(Rect);
-//                         },
-//                         child: Container(
-//                           width: 70,
-//                           height: 70,
-//                           decoration: BoxDecoration(
-//                               shape: BoxShape.circle, color: Colors.white),
-//                         )),
-//                     Center(
-//                         child: Container(
-//                       height: 70,
-//                       width: 50,
-//                       decoration: BoxDecoration(
-//                        color: Colors.white, shape: BoxShape.circle),
-//                    child: Center(child: Text("$pecentage %",style: TextStyle(color: Colors.black,),)),
-//                     ))
-//                   ],
-//                 ),
-//               )

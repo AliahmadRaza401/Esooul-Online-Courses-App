@@ -82,7 +82,13 @@ class _ProfileState extends State<Profile> {
                         ),
                         height: MediaQuery.of(context).size.height * .26,
                         width: double.infinity,
+<<<<<<< HEAD
                         decoration: BoxDecoration(),
+=======
+                        decoration: BoxDecoration(
+                          
+                        ),
+>>>>>>> 4493201231d9ee8367555c532150b65d3b1cf7c7
                         child: Column(
                           children: [
                             Text(
@@ -172,8 +178,7 @@ class _ProfileState extends State<Profile> {
                           child: Column(
                             children: [
                               data(
-                                'Institute',
-                                'School Optional',
+                                'Institute','School Optional',
                               ),
                               data('Gender', 'Select'),
                               data('Grade', 'Select'),
@@ -209,9 +214,6 @@ class _ProfileState extends State<Profile> {
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => Settings()));
-
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => BottomNavBar()));
                               },
                             ),
                           ],
