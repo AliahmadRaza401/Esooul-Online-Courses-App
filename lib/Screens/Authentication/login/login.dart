@@ -1,9 +1,11 @@
 import 'package:esooul/Screens/Authentication/forget_password.dart';
-import 'package:esooul/Screens/Authentication/signup.dart';
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class LogIn extends StatefulWidget {
   LogIn({Key? key}) : super(key: key);
@@ -24,19 +26,25 @@ class _LogInState extends State<LogIn> {
 
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
-
+  late LoginProvider _loginProvider;
   @override
-  // void initState() {
-  //   emailNode = FocusNode();
-  //   passwordNode = FocusNode();
-  //   super.initState();
-  // }
+  void initState() {
+    super.initState();
+    _loginProvider = Provider.of<LoginProvider>(context, listen: false);
+  }
 
-  // void dispose() {
-  //   emailNode.dispose();
-  //   passwordNode.dispose();
-  //   super.dispose();
-  // }
+  signIn() {
+    // if (_formKey.currentState!.validate()) {
+    //   _loginProvider.signIn(
+    //       email: _emailController.text.toString(),
+    //       password: _passwordController.text.toString());
+    // }
+
+    Navigator.of(context).pushReplacement(
+        new MaterialPageRoute(
+            builder: (context) =>
+                new BottomNavBar(activeIndex: 0)));
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,12 +173,7 @@ class _LogInState extends State<LogIn> {
                             ),
                             ElevatedButton(
                               child: Text('LogIn'),
-                              onPressed: () {
-                                Navigator.of(context).pushReplacement(
-                                    new MaterialPageRoute(
-                                        builder: (context) =>
-                                            new BottomNavBar(activeIndex: 0)));
-                              },
+                              onPressed: signIn,
                             ),
                             SizedBox(
                               height:

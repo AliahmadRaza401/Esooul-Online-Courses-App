@@ -142,68 +142,6 @@ class _ReportState extends State<Report> {
                                     'Attempted',
                                   ),
                                 ),
-
-                                // ClipPath(
-                                //   clipper: TriangleClipper(),
-                                //   child: Container(
-                                //     height: 100,
-                                //     color: Colors.deepOrange,
-                                //     child: Center(child: Text("TriangleClipper()")),
-                                //   ),
-                                // ),
-                                //                       // Container(
-                                //   padding: EdgeInsets.all(30),
-                                //   margin: EdgeInsets.only(top: 250),
-                                //   height:
-                                //       MediaQuery.of(context).size.height * .11,
-                                //   width:
-                                //       MediaQuery.of(context).size.width * .82,
-                                //   decoration: BoxDecoration(
-                                //       color: Color(0xff434343),
-                                //       borderRadius: BorderRadius.circular(20),
-                                //       boxShadow: [
-                                //         BoxShadow(
-                                //             color: Colors.black,
-                                //             spreadRadius: 0,
-                                //             blurRadius: 10,
-                                //             offset: Offset(0, -2))
-                                //       ]),
-                                //   child: Row(
-                                //     mainAxisAlignment:
-                                //         MainAxisAlignment.spaceBetween,
-                                //     crossAxisAlignment:
-                                //         CrossAxisAlignment.center,
-                                //     children: [
-                                //       Column(
-                                //         children: [
-                                //           Row(
-                                //             mainAxisAlignment:
-                                //                 MainAxisAlignment.spaceEvenly,
-                                //             children: [
-                                //               Icon(
-                                //                 Icons.watch_later_outlined,
-                                //                 size: 40,
-                                //               ),
-                                //               SizedBox(
-                                //                 width: MediaQuery.of(context)
-                                //                         .size
-                                //                         .width *
-                                //                     .03,
-                                //               ),
-                                //               Text("Time")
-                                //             ],
-                                //           )
-                                //         ],
-                                //       ),
-                                //       Row(
-                                //         children: [
-                                //           Text("1 min"),
-                                //         ],
-                                //       )
-                                //     ],
-                                //   ),
-                                // )
-
                                 Container(
                                   padding: EdgeInsets.all(30),
                                   margin: EdgeInsets.only(top: 260),

@@ -32,20 +32,6 @@ class _TopicsState extends State<Topics> {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        "Quiz Guide",
-                        style: TextStyle(color: Colors.black),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Brief explanation about this quiz",
-                        style:
-                            TextStyle(fontSize: 18, color: Colors.blueAccent),
-                      )
-
                       // Padding(
                       //   padding: const EdgeInsets.all(7.0),
                       //   child:
@@ -62,10 +48,6 @@ class _TopicsState extends State<Topics> {
                   SizedBox(height: MediaQuery.of(context).size.height * .01),
                   Wrap(
                     children: [
-                      Text(
-                        "Please read the text below carefully so you can understand it",
-                        style: TextStyle(color: Colors.blueAccent),
-                      ),
                       Row(
                         children: [
                           Text(
@@ -170,11 +152,6 @@ class _TopicsState extends State<Topics> {
         SizedBox(
           width: MediaQuery.of(context).size.width * .04,
         ),
-        Expanded(
-            child: Text(
-          "$txt",
-          style: TextStyle(fontSize: 12, color: Colors.black),
-        )),
         Expanded(
             child: Text(
           "$txt",

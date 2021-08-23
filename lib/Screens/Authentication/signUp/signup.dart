@@ -1,6 +1,9 @@
-import 'package:esooul/Screens/Authentication/login.dart';
+import 'package:esooul/Screens/Authentication/login/login.dart';
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key? key}) : super(key: key);
@@ -11,30 +14,38 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
-  String name = "";
+
+  String fname = "";
+  String lname = "";
   String email = "";
   String password = "";
   String confirmpassword = "";
   String error = "";
 
+  late SignUpProvider _signUpProvider;
+
   // late FocusNode emailNode;
   // late FocusNode passwordNode;
-  final _nameController = TextEditingController();
+  final _firstnameController = TextEditingController();
+  final _lastnameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
   @override
-  // void initState() {
-  //   emailNode = FocusNode();
-  //   passwordNode = FocusNode();
-  //   super.initState();
-  // }
+  void initState() {
+    super.initState();
+    _signUpProvider = Provider.of<SignUpProvider>(context, listen: false);
+  }
 
-  // void dispose() {
-  //   emailNode.dispose();
-  //   passwordNode.dispose();
-  //   super.dispose();
-  // }
+  signUp() {
+    if (_formKey.currentState!.validate()) {
+      _signUpProvider.signUp(
+          fName: _firstnameController.text.toString(),
+          lName: _lastnameController.text.toString(),
+          email: _emailController.text.toString(),
+          password: _passwordController.text.toString());
+    }
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,7 +131,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                               TextFormFieldWidget(
                                 label: 'Name',
-                                controller: _nameController,
+                                controller: _firstnameController,
                                 //node: emailNode,
                                 formvalidator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -128,7 +139,26 @@ class _SignUpState extends State<SignUp> {
                                   }
                                 },
                                 onChange: (value) {
-                                  setState(() => name = value);
+                                  setState(() => fname = value);
+                                },
+
+                                textInputtype: TextInputType.name,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
+                              TextFormFieldWidget(
+                                label: 'Last Name',
+                                controller: _lastnameController,
+                                //node: emailNode,
+                                formvalidator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Enter your last name';
+                                  }
+                                },
+                                onChange: (value) {
+                                  setState(() => lname = value);
                                 },
 
                                 textInputtype: TextInputType.name,
@@ -178,7 +208,7 @@ class _SignUpState extends State<SignUp> {
                                     MediaQuery.of(context).size.height * 0.020,
                               ),
                               TextFormFieldWidget(
-                                label: 'Password',
+                                label: 'Confirm Password',
                                 controller: _confirmpasswordController,
                                 //node: emailNode,
                                 formvalidator: (value) {
@@ -193,6 +223,14 @@ class _SignUpState extends State<SignUp> {
                                 },
                                 isSecure: true,
                                 textInputtype: TextInputType.visiblePassword,
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.020,
+                              ),
+                              ElevatedButton(
+                                child: Text('Sign Up'),
+                                onPressed: signUp,
                               ),
                               SizedBox(
                                 height:
