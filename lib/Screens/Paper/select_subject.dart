@@ -14,7 +14,7 @@ class _SelectSubjectState extends State<SelectSubject> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xff2F2F2F),
+        color: Colors.white,
         child: Column(children: [
           Header2(),
           Expanded(
@@ -93,8 +93,8 @@ class _SelectSubjectState extends State<SelectSubject> {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                spreadRadius: 5,
+                color: Colors.black.withOpacity(0.3),
+                spreadRadius: 2,
                 blurRadius: 7,
                 offset: Offset(0, 3), // changes position of shadow
               ),
