@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   String fname = "";
   String lname = "";
@@ -23,6 +25,9 @@ class _SignUpState extends State<SignUp> {
   String error = "";
 
   late SignUpProvider _signUpProvider;
+  var result;
+  bool _loading = false;
+  var uniqueID;
 
   // late FocusNode emailNode;
   // late FocusNode passwordNode;
@@ -34,21 +39,48 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
+    // configLoading();
     _signUpProvider = Provider.of<SignUpProvider>(context, listen: false);
   }
 
-  signUp() {
+  signUp() async {
     if (_formKey.currentState!.validate()) {
-      _signUpProvider.signUp(
+      setState(() {
+        _loading = true;
+      });
+      result = await _signUpProvider.signUp(
           fName: _firstnameController.text.toString(),
           lName: _lastnameController.text.toString(),
           email: _emailController.text.toString(),
           password: _passwordController.text.toString());
+
+      print('result: ${result}');
+      expHandler();
+    }
+  }
+
+  expHandler() {
+    if (result['message'] == "Success.") {
+      print("SignUp True");
+      uniqueID = result['data']['uniqueId'];
+      print('uniqueId: $uniqueID');
+      alertDialog(context, "SignUp Successfully!",
+          "Click Continue to verify the OTP which send on your given Email");
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
+    } else if (result['message'] != "Success.") {
+      print("SignUp false");
+      alertDialog(context, result['message'].toString(),
+          "Please Enter Correct data to Continue");
+    } else {
+      alertDialog(
+          context, "SignUp Fail", "Please check your Network connection");
     }
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -229,7 +261,11 @@ class _SignUpState extends State<SignUp> {
                                     MediaQuery.of(context).size.height * 0.020,
                               ),
                               ElevatedButton(
-                                child: Text('Sign Up'),
+                                child: _loading == false
+                                    ? Text('Sign Up')
+                                    : CircularProgressIndicator(
+                                        color: Colors.white,
+                                      ),
                                 onPressed: signUp,
                               ),
                               SizedBox(
@@ -249,6 +285,16 @@ class _SignUpState extends State<SignUp> {
                                     MaterialPageRoute(
                                         builder: (context) => LogIn()),
                                   );
+                                },
+                              ),
+
+                              ElevatedButton(
+                                child: Text('Otp'),
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                      new MaterialPageRoute(
+                                          builder: (context) => OtpVerifivation(
+                                              uniqueID: uniqueID)));
                                 },
                               ),
 
@@ -293,6 +339,48 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
       ),
+    );
+  }
+
+  alertDialog(BuildContext context, String title, String subTitle) {
+    setState(() {
+      _loading = false;
+    });
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed: () {
+        Navigator.pop(context);
+        // Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> UserLogin()));
+      },
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Continue"),
+      onPressed: result['message'] != "Success."
+          ? null
+          : () {
+              Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                  builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
+            },
+    );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(title),
+      content: Text(
+        subTitle,
+        // style: TextStyle(fontSize: 18,fontFamily: Variable.fontStyle),
+      ),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

@@ -12,12 +12,16 @@ class SignUpProvider extends ChangeNotifier {
     this.context = context;
   }
 
-  signUp(
+  var userEmail;
+  var result;
+
+  Future signUp(
       {@required fName,
       @required lName,
       @required email,
       @required password}) async {
     try {
+      userEmail = email;
       print("Sign Up ---------------------------");
       final _response = await http.post(
         Uri.parse(signUpApi),
@@ -29,13 +33,9 @@ class SignUpProvider extends ChangeNotifier {
           'password': password
         }),
       );
-      var result = jsonDecode(_response.body);
-      print('result: $result');
-
-      if (result.status == 200) {
-        
-      } else {
-      }
+      result = jsonDecode(_response.body);
+      // print('result: $result');
+      return result;
     } catch (e) {
       return e.toString();
     }

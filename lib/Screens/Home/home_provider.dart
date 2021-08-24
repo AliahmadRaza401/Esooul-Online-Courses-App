@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';
 
-class LoginProvider extends ChangeNotifier {
+class HomeProvider extends ChangeNotifier {
   late BuildContext context;
 
   init({required BuildContext context}) {
@@ -13,14 +13,12 @@ class LoginProvider extends ChangeNotifier {
 
   var result;
 
-  Future signIn({@required email, @required password}) async {
+  Future boardsArea() async {
     try {
-      print(email);
-      print("Sign In ---------------------------");
-      final _response = await http.post(
-        Uri.parse(signInApi),
+      print("-----------Boards Area----------------");
+      final _response = await http.get(
+        Uri.parse(boardAreasApi),
         headers: headers,
-        body: jsonEncode({'email': email, 'password': password}),
       );
 
       result = jsonDecode(_response.body);

@@ -1,11 +1,10 @@
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:flutter/material.dart';
 
 class BackButtonWidget extends StatelessWidget {
-  final String iconPath;
   final String buttontext;
   BackButtonWidget({
     Key? key,
-    required this.iconPath,
     required this.buttontext,
   }) : super(key: key);
 
@@ -95,10 +94,21 @@ class BackButtonWidget extends StatelessWidget {
               SizedBox(
                   // width: MediaQuery.of(context).size.width * 0.009,
                   ),
-              Image.asset(
-                iconPath,
-                height: MediaQuery.of(context).size.height * 0.050,
-                width: MediaQuery.of(context).size.width * 0.080,
+              // Image.asset(
+              //   iconPath,
+              //   height: MediaQuery.of(context).size.height * 0.050,
+              //   width: MediaQuery.of(context).size.width * 0.080,
+              // )
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => BottomNavBar()));
+                },
+                child: Icon(
+                  Icons.home,
+                  size: 25,
+                  color: Color(0xff2575AE),
+                ),
               )
             ],
           ),

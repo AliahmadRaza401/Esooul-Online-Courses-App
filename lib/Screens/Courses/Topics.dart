@@ -18,7 +18,8 @@ class _TopicsState extends State<Topics> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Header(),
+              Header(btntext: '',
+          ),
               Container(
                 height: MediaQuery.of(context).size.height * .7,
                 // width: double.infinity,
@@ -62,30 +63,43 @@ class _TopicsState extends State<Topics> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .2,
                       ),
-                      Row(
+                     Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.only(
-                                    left: MediaQuery.of(context).size.width * .3,
-                                    right: MediaQuery.of(context).size.width * .3,
-                                    top: MediaQuery.of(context).size.height * .02,
-                                    bottom:
-                                        MediaQuery.of(context).size.height * .02),
-                                primary: Color(0xff00B0D7),
-                                // side: BorderSide(width: 1, color: Colors.black),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              boxShadow: [BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 5,
+                              spreadRadius: 2,
+                              offset: Offset(3,1)
+                              
+                            )]),
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.grey,
+                                  
+                                  padding: EdgeInsets.only(
+                                      left: MediaQuery.of(context).size.width * .3,
+                                      right: MediaQuery.of(context).size.width * .3,
+                                      top: MediaQuery.of(context).size.height * .015,
+                                      bottom:
+                                          MediaQuery.of(context).size.height * .015),
+                                  primary: Color(0xff00B0D7),
+                                  // side: BorderSide(width: 1, color: Colors.black),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
                                 ),
-                              ),
-                              child: Text(
-                                "Start Quiz",
-                                style: TextStyle(fontSize: 10),
-                              )),
+                                child: Text("Take Quiz")),
+                          ),
                         ],
                       ),
+                    )
                     ]),
                   ],
                 ),

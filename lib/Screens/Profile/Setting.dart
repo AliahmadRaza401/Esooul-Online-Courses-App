@@ -19,29 +19,24 @@ class _SettingsState extends State<Settings> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          
           Container(
-            margin: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * .01,
-                right: MediaQuery.of(context).size.width * .01),
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/png/stting back.png"),
-                ),
-                color: Colors.white,
-                        ),
+              image: DecorationImage(
+                image: AssetImage("assets/png/stting back.png"),
+              ),
+              color: Colors.white,
+            ),
             padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * .02,
-              right: MediaQuery.of(context).size.width * .02,
+              // // left: MediaQuery.of(context).size.width * .02,
+              // right: MediaQuery.of(context).size.width * .02,
               top: MediaQuery.of(context).size.height * .01,
             ),
-            height: MediaQuery.of(context).size.height * .818,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BackButtonWidget(
-                      buttontext: "", iconPath: 'assets/png/presentation4.png'),
+                  Header(btntext: "Setting"),
                   setting("assets/png/sliders2.png", "Settings", .05),
                   setting("assets/png/user-alt.png", 'Edit Profile', .05),
                   setting("assets/png/Vector.png", 'Pay to unlock pack', .04),
@@ -68,6 +63,9 @@ class _SettingsState extends State<Settings> {
                   setting("assets/png/about.png", 'About us', .05),
                   setting("assets/png/report-card.png", 'Report Card', .05),
                   setting("assets/png/log-out.png", 'Logout', .05),
+                  SizedBox(
+                    height: 100,
+                  ),
                 ],
               ),
             ),

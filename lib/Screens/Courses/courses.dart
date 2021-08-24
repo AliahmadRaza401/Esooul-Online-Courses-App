@@ -22,7 +22,9 @@ class _CoursesState extends State<Courses> {
         child: Container(
           color: Color(0xFFF0F0F0),
           child: Column(children: [
-            Header(),
+            Header(
+              btntext: 'Courses',
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(

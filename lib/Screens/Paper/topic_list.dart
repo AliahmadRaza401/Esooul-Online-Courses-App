@@ -18,7 +18,9 @@ class _TopicListState extends State<TopicList> {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Header(),
+              Header(
+                btntext: 'Topic',
+              ),
               Container(
                 padding: EdgeInsets.fromLTRB(
                     MediaQuery.of(context).size.width * 0.04,

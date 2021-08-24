@@ -2,11 +2,9 @@ import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatefulWidget {
-  // final String btntext;
-  // final String icon;
-  Header({
-    Key? key,
-  }) : super(key: key);
+  String btntext;
+
+  Header({required this.btntext, });
 
   @override
   _HeaderState createState() => _HeaderState();
@@ -22,8 +20,8 @@ class _HeaderState extends State<Header> {
             left: MediaQuery.of(context).size.width * .017,
             right: MediaQuery.of(context).size.width * .017,
             bottom: MediaQuery.of(context).size.height * 0.0),
-        padding: EdgeInsets.all(12.0),
-        height: MediaQuery.of(context).size.height * 0.26,
+        padding: EdgeInsets.all(12.0).copyWith(bottom: 0),
+        height: MediaQuery.of(context).size.height * 0.22,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -115,7 +113,9 @@ class _HeaderState extends State<Header> {
             //  BackButtonWidget(
             //     iconPath: $icon, buttontext: "Settings")
             BackButtonWidget(
-                iconPath: "assets/png/settings.png", buttontext: "Settings")
+                // iconPath: widget.icon.toString(),
+                buttontext: widget.btntext.toString()
+                )
           ],
         ),
       ),

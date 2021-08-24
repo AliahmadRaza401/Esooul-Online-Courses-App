@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Paper/select_subject.dart';
+import 'package:esooul/Widgets/header.dart';
 
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,9 @@ class _SelectGradeState extends State<SelectGrade> {
       body: Container(
         color: Colors.white,
         child: Column(children: [
-          Header2(),
+          Header(
+            btntext: 'Grades',
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(

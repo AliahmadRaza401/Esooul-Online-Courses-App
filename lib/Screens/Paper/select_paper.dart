@@ -20,9 +20,12 @@ class _SelectPaperState extends State<SelectPaper> {
           children: [
             Stack(
               children: [
-                Header(),
+                Header(
+                  btntext: 'Paper',
+                ),
                 GestureDetector(
                   onTap: () {
+                    print("Custom-------");
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => TopicList()),

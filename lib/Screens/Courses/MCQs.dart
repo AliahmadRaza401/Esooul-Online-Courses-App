@@ -10,194 +10,221 @@ class Mcqs extends StatefulWidget {
 }
 
 class _McqsState extends State<Mcqs> {
+  final red = Colors.red;
+  final green = Colors.green;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: Colors.white,
-          child: Column(
-        children: [
-          Header(),
-          Stack(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * .01,
-                  right: MediaQuery.of(context).size.width * .01,
-                ),
-                height: MediaQuery.of(context).size.height * .71,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Colors.white,
-                        Colors.black,
-                      ],
-                    ),
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(35)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+          Header(btntext: '',
+      ),
+          Container(
+              margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .002,
+                left: MediaQuery.of(context).size.width * .015,
+                right: MediaQuery.of(context).size.width * .015,
               ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * .002,
-                  left: MediaQuery.of(context).size.width * .015,
-                  right: MediaQuery.of(context).size.width * .015,
-                ),
-                height: MediaQuery.of(context).size.height * .74,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Color(0xff3D3D3D),
-                  borderRadius: BorderRadius.circular(35),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(35),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        // Padding(
-                        //   padding: const EdgeInsets.all(5.0),
-                        //   child:
-                        //       BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                        // ),
-                        Container(
-                          padding: EdgeInsets.all(30).copyWith(top: 10),
-                          child: Column(
+              // height: MediaQuery.of(context).size.height * .7,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  Container(
+                      padding: EdgeInsets.all(30).copyWith(top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: DefaultTabController(
+                                length: 8,
+                                child: TabBar(tabs: [
+                                  tabs(1),
+                                  tabs(2),
+                                  tabs(3),
+                                  tabs(4),
+                                  tabs(6),
+                                  tabs(7),
+                                  tabs(8),
+                                  tabs(9),
+                                ])),
+                          ),
+                          mcq(
+                              '01)  The water of crystallization is responsible for the',
+                              'Melting points of crystals',
+                              'Boiling points of crystals',
+                              'Transition point of crystal',
+                              'Shapes of crystals'),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * .07,
+                          ),
+                          videoContainer(),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * .03,
+                          ),
+                          Column(
                             children: [
-                              CircleAvatar(
-                                backgroundColor: Color(0xff677A8F),
-                                radius: 25,
-                                child: Icon(Icons.arrow_back_ios_sharp),
+                              Text(
+                                "Skip and go to next question",
+                                style: TextStyle(color: Colors.black),
                               ),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.only(
-                                        left: MediaQuery.of(context)
-                                                .size
-                                                .width *
-                                            .14,
-                                        right: MediaQuery.of(context)
-                                                .size
-                                                .width *
-                                            .15,
-                                        top: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            .015,
-                                        bottom: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            .015),
-                                    primary: Colors.blue,
-                                    
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(100),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'Submit Quiz',
-                                    style:
-                                        TextStyle(color: Colors.white),
-                                  )),
-                              CircleAvatar(
-                                backgroundColor: Color(0xffD4D4D4),
-                                radius: 25,
-                                child: Icon(Icons.arrow_forward_ios_sharp),
-                              )
-                            ],
-                          )
-                    )]),
-                      ),
-                    )
-              )],
-                ),
-        ]),
-            ),
-          );
-  }
-Widget videoContainer(){
-  return Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * .01,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Column(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            color: Color(0xffF4F3F2),
-                                            borderRadius:
-                                                BorderRadius.circular(15)),
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                .2,
-                                        width: MediaQuery.of(context).size.width *
-                                            .42,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Container(
-                                             
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  .13,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  .38,
-                                              decoration: BoxDecoration(
-                                                
-                                                borderRadius:
-                                                BorderRadius.circular(15),
-                                                  image: DecorationImage(
-                                                      image: AssetImage(
-                                                          "assets/png/video.png"),
-                                                          fit: BoxFit.cover
-                                                          )
-                                                          ),
-                                                          child: Image.asset("assets/png/play.png"),
-                                            ),
-                                            Text("topic no",
-                                        style: TextStyle(color: Colors.black),),
-                                            Text("Watch video here",
-                                        style: TextStyle(color: Colors.black),)
-                                          ],
+                                  CircleAvatar(
+                                    backgroundColor: Color(0xff677A8F),
+                                    radius: 25,
+                                    child: Icon(Icons.arrow_back_ios_sharp),
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        padding: EdgeInsets.only(
+                                            left: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                .14,
+                                            right: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                .15,
+                                            top: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                .015,
+                                            bottom: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                .015),
+                                        primary: Colors.blue,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
                                         ),
                                       ),
-                                      SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                                      Text(
-                                        "Skip and go to next question",
-                                       style: TextStyle(color: Colors.black),
-                                      ),
-                                    ],
+                                      child: Text(
+                                        'Submit Quiz',
+                                        style: TextStyle(color: Colors.white),
+                                      )),
+                                  CircleAvatar(
+                                    backgroundColor: Color(0xffD4D4D4),
+                                    radius: 25,
+                                    child: Icon(Icons.arrow_forward_ios_sharp),
                                   )
                                 ],
-                              );
-}
+                              ),
+                            ],
+                          )
+                        ],
+                      ))
+                ]),
+              )),
+        ]),
+      ),
+    );
+  }
 
- 
-
+  Widget videoContainer() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10).copyWith(right: MediaQuery.of(context).size.width *.1),
+              decoration: BoxDecoration(
+                  color: Color(0xffFFFFFF),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 5,
+                        spreadRadius: 1,
+                        offset: Offset(0, 3))
+                  ],
+                  borderRadius: BorderRadius.circular(15)),
+              height: MediaQuery.of(context).size.height * .12,
+              width: MediaQuery.of(context).size.width * .8,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * .09,
+                        width: MediaQuery.of(context).size.width * .2,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                                image: AssetImage("assets/png/video.png"),
+                                fit: BoxFit.cover)),
+                        child: Image.asset("assets/png/play.png"),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Topic 01-lorem isum",
+                            style: TextStyle(color: Colors.black, fontSize: 12),
+                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height *.008,),
+                          Text(
+                            "Click here for video",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          
+                          
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
+      ],
+    );
+  }
 
   Widget tabs(int number) {
-    return Text("$number",style: TextStyle(color: Colors.black),);
+    return Text(
+      "$number",
+      style: TextStyle(color: Colors.black),
+    );
   }
 
   Widget mcq(
-      String question, String A, String B, String C, String D, String E) {
+    String question,
+    String A,
+    String B,
+    String C,
+    String D,
+  ) {
     return Container(
-      height: MediaQuery.of(context).size.height * .35,
+      height: MediaQuery.of(context).size.height * .3,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Row(
             children: [
-              Text(
+              Expanded(
+                  child: Text(
                 "$question",
                 style: TextStyle(color: Colors.black),
-
-              )
+              ))
             ],
           ),
           Row(
@@ -212,7 +239,10 @@ Widget videoContainer(){
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$A",style: TextStyle(color: Colors.black),)
+              Text(
+                "$A",
+                style: TextStyle(color: Colors.black),
+              )
             ],
           ),
           Row(
@@ -227,7 +257,10 @@ Widget videoContainer(){
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$B",style: TextStyle(color: Colors.black),)
+              Text(
+                "$B",
+                style: TextStyle(color: Colors.black),
+              )
             ],
           ),
           Row(
@@ -237,12 +270,15 @@ Widget videoContainer(){
                   'C',
                   style: TextStyle(color: Colors.black),
                 ),
-                backgroundColor: Color(0xffD4D4D4),
+                backgroundColor: red,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$C",style: TextStyle(color: Colors.black),)
+              Text(
+                "$C",
+                style: TextStyle(color: red),
+              )
             ],
           ),
           Row(
@@ -252,27 +288,12 @@ Widget videoContainer(){
                   'D',
                   style: TextStyle(color: Colors.black),
                 ),
-                backgroundColor: Colors.green,
+                backgroundColor: green,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .03,
               ),
-              Text("$D", style: TextStyle(color: Colors.green))
-            ],
-          ),
-          Row(
-            children: [
-              CircleAvatar(
-                child: Text(
-                  'E',
-                  style: TextStyle(color: Colors.black),
-                ),
-                backgroundColor: Colors.red,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .03,
-              ),
-              Text("$E", style: TextStyle(color: Colors.red))
+              Text("$D", style: TextStyle(color: green))
             ],
           ),
         ],

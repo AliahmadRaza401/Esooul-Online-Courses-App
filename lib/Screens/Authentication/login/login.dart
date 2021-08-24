@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Widgets/textfield.dart';
+import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -27,24 +28,29 @@ class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   late LoginProvider _loginProvider;
+  var result;
+
   @override
   void initState() {
     super.initState();
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
   }
 
-  signIn() {
+  signIn() async {
     // if (_formKey.currentState!.validate()) {
-    //   _loginProvider.signIn(
+    //   result = await _loginProvider.signIn(
     //       email: _emailController.text.toString(),
     //       password: _passwordController.text.toString());
+    //   print('result: $result');
+
+    //   expHandler();
     // }
 
     Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(
-            builder: (context) =>
-                new BottomNavBar()));
+        new MaterialPageRoute(builder: (context) => new BottomNavBar()));
   }
+
+  expHandler() {}
 
   Widget build(BuildContext context) {
     return Scaffold(

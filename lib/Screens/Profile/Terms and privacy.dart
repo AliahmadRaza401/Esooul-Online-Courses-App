@@ -15,7 +15,8 @@ class _TermsState extends State<Terms> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Header(),
+          Header(btntext: '',
+            ),
           Container(
             
             height: MediaQuery.of(context).size.height * .7,

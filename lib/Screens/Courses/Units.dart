@@ -16,7 +16,8 @@ class _UnitsState extends State<Units> {
       body: Container(
         child: Column(
           children: [
-            Header(),
+            Header(btntext: '',
+           ),
             Stack(
               children: [
                 Container(
