@@ -15,7 +15,8 @@ class _ViewInstructionsState extends State<ViewInstructions> {
       body: Container(
         color: Color(0xff2F2F2F),
         child: ListView(children: [
-          Header(),
+          Header(btntext: '',
+      ),
           Stack(children: [
             Container(
               margin: EdgeInsets.only(

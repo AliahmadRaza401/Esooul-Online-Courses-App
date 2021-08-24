@@ -17,7 +17,8 @@ class _PrivacyState extends State<Privacy> {
      
       body: Column(
         children: [
-          Header(),
+          Header(btntext: '',
+  ),
           Container(
             
             height: MediaQuery.of(context).size.height * .75,

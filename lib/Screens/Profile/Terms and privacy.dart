@@ -12,12 +12,14 @@ class _TermsState extends State<Terms> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
-          Header(),
+          Header(btntext: '',
+            ),
           Container(
             
-            height: MediaQuery.of(context).size.height * .75,
+            height: MediaQuery.of(context).size.height * .7,
             width: double.infinity,
             decoration: BoxDecoration(
             

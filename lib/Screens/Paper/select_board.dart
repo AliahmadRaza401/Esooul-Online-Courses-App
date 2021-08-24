@@ -1,17 +1,16 @@
-import 'package:esooul/Screens/Paper/select_subject.dart';
+import 'package:esooul/Screens/Paper/select_grade.dart';
 import 'package:esooul/Widgets/header.dart';
-
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
-class SelectGrade extends StatefulWidget {
-  SelectGrade({Key? key}) : super(key: key);
+class SelectBoard extends StatefulWidget {
+  SelectBoard({Key? key}) : super(key: key);
 
   @override
-  _SelectGradeState createState() => _SelectGradeState();
+  _SelectBoardState createState() => _SelectBoardState();
 }
 
-class _SelectGradeState extends State<SelectGrade> {
+class _SelectBoardState extends State<SelectBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +18,7 @@ class _SelectGradeState extends State<SelectGrade> {
         color: Colors.white,
         child: Column(children: [
           Header(
-            btntext: 'Grades',
+            btntext: 'Boards',
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -29,36 +28,42 @@ class _SelectGradeState extends State<SelectGrade> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Select Your Grade",
+                      "Punjab Board List",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 16.0,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: FontWeight.w700),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Grade 09"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) Lahore"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Grade 10"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) Rawalpindi"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Grade 11"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) Faisalabad"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Grade 12"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) Multan"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("A Levels"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) DG Khan"),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("O Levels"),
+                    _myContainer(
+                        "Board of Intermediate and\nSecondary Education (BISE) Gujranwala"),
                   ],
                 ),
               ),
@@ -74,7 +79,7 @@ class _SelectGradeState extends State<SelectGrade> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectSubject()),
+          MaterialPageRoute(builder: (context) => SelectGrade()),
         );
       },
       child: Container(
@@ -86,7 +91,7 @@ class _SelectGradeState extends State<SelectGrade> {
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.3),
-                spreadRadius: 2,
+                spreadRadius: 1,
                 blurRadius: 7,
                 offset: Offset(0, 3), // changes position of shadow
               ),
@@ -96,19 +101,21 @@ class _SelectGradeState extends State<SelectGrade> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.050,
-              width: MediaQuery.of(context).size.width * 0.035,
-              decoration: BoxDecoration(
-                color: Color(0xff00B0D7),
-                borderRadius: BorderRadius.circular(50),
-              ),
-            ),
+                height: MediaQuery.of(context).size.height * 0.050,
+                width: MediaQuery.of(context).size.width * 0.035,
+                decoration: BoxDecoration(
+                  color: Color(0xff00B0D7),
+                  borderRadius: BorderRadius.circular(50),
+                )),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.20,
+              width: MediaQuery.of(context).size.width * 0.05,
             ),
             Text(
               grade,
-              style: TextStyle(color: Colors.black, fontSize: 18.0),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w600),
             ),
           ],
         ),

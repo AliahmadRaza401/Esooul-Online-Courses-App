@@ -293,8 +293,8 @@ class _SignUpState extends State<SignUp> {
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
                                       new MaterialPageRoute(
-                                          builder: (context) =>
-                                              OtpVerifivation()));
+                                          builder: (context) => OtpVerifivation(
+                                              uniqueID: uniqueID)));
                                 },
                               ),
 
@@ -360,7 +360,7 @@ class _SignUpState extends State<SignUp> {
           ? null
           : () {
               Navigator.of(context).pushReplacement(new MaterialPageRoute(
-                  builder: (context) => OtpVerifivation()));
+                  builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
             },
     );
     // set up the AlertDialog

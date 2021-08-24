@@ -13,23 +13,41 @@ class OtpVerificationProvider extends ChangeNotifier {
   }
 
   var result;
-  var uuniqueID;
 
-  Future otpVerification(
-      {@required otp,
-      }) async {
+  Future otpVerification({
+    @required otp,
+    @required uniqueID,
+  }) async {
     try {
-      print("Sign Up ---------------------------");
+      print("---------Otp Varification------------------");
       final _response = await http.post(
         Uri.parse(otpVerificationApi),
         headers: headers,
         body: jsonEncode({
-          'uniqueId': uuniqueID,
+          'uniqueId': uniqueID,
           'otp': otp,
         }),
       );
       result = jsonDecode(_response.body);
-      // print('result: $result');
+      print('result: $result');
+      return result;
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+  Future resendOTP({@required email}) async {
+    try {
+      print("--------- Resend Otp Varification------------------");
+      final _response = await http.post(
+        Uri.parse(boardAreasApi),
+        headers: headers,
+        body: jsonEncode({
+          'email': email,
+        }),
+      );
+      result = jsonDecode(_response.body);
+      print('Resend OTp result: $result');
       return result;
     } catch (e) {
       return e.toString();

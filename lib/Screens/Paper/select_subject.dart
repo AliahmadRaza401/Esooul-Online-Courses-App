@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Paper/select_paper.dart';
+import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _SelectSubjectState extends State<SelectSubject> {
       body: Container(
         color: Colors.white,
         child: Column(children: [
-          Header2(),
+          Header(btntext: "Subjects"),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
@@ -80,10 +81,10 @@ class _SelectSubjectState extends State<SelectSubject> {
   _myContainer(String grade) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SelectPaper()),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => SelectPaper()),
+        // );
       },
       child: Container(
         padding: EdgeInsets.only(left: 10),

@@ -20,7 +20,9 @@ class _WishlistState extends State<Wishlist> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Header(),
+              Header(
+                btntext: 'Wishlist',
+              ),
               Container(
                   padding: EdgeInsets.all(8.0),
                   margin: EdgeInsets.only(
@@ -43,7 +45,6 @@ class _WishlistState extends State<Wishlist> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                       
                         _courseContainer(
                             "assets/png/candageography.png",
                             "Issues in Canadian Geography",
@@ -64,29 +65,35 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                         Row(
-                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                           children: [
-                             ElevatedButton(onPressed: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Mcqs()));
-                             }, child: Text("MCQs")),
-                                ElevatedButton(onPressed: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Topics()));
-                         }, child: Text("Topics")),
-                         ElevatedButton(onPressed: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Report()));
-                         }, child: Text("Report")),
-                           ],
-                         ),    
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Mcqs()));
+                                },
+                                child: Text("MCQs")),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Topics()));
+                                },
+                                child: Text("Topics")),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Report()));
+                                },
+                                child: Text("Report")),
+                          ],
+                        ),
                       ],
                     ),
-                  )
-                  ),
-             
+                  )),
             ],
           ),
         ),
-
       ),
     );
   }
@@ -157,7 +164,6 @@ class _WishlistState extends State<Wishlist> {
                             children: [
                               ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-                                    
                                     primary: Color(0xff646464),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
@@ -167,12 +173,10 @@ class _WishlistState extends State<Wishlist> {
                                   icon: Icon(Icons.add),
                                   label: Text("Add to cart")),
                               SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.01,
+                                width: MediaQuery.of(context).size.width * 0.01,
                               ),
                               ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-
                                     primary: Color(0xff646464),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(

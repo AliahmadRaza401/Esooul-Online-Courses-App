@@ -12,6 +12,7 @@ class SignUpProvider extends ChangeNotifier {
     this.context = context;
   }
 
+  var userEmail;
   var result;
 
   Future signUp(
@@ -20,6 +21,7 @@ class SignUpProvider extends ChangeNotifier {
       @required email,
       @required password}) async {
     try {
+      userEmail = email;
       print("Sign Up ---------------------------");
       final _response = await http.post(
         Uri.parse(signUpApi),
@@ -39,5 +41,3 @@ class SignUpProvider extends ChangeNotifier {
     }
   }
 }
-
-

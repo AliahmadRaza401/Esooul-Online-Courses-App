@@ -82,16 +82,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         height: MediaQuery.of(context).size.height * .26,
                         width: double.infinity,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xff004E8F),
-                              Color(0xff72C6EF),
-                            ],
-                          ),
-                        ),
+                        decoration: BoxDecoration(),
                         child: Column(
                           children: [
                             Text(
@@ -218,9 +209,6 @@ class _ProfileState extends State<Profile> {
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => Settings()));
-
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => BottomNavBar()));
                               },
                             ),
                           ],

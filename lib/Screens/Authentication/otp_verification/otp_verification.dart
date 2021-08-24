@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:esooul/Screens/Authentication/login/login.dart';
+import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 
 class OtpVerifivation extends StatefulWidget {
   // OtpVerifivation({Key? key}) : super(key: key);
@@ -26,10 +29,15 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   var error;
   bool loading = false;
   final formKey = GlobalKey<FormState>();
+  late OtpVerificationProvider _otpVerificationProvider;
+  late SignUpProvider _signUpProvider;
 
   @override
   void initState() {
     errorController = StreamController<ErrorAnimationType>();
+    _otpVerificationProvider =
+        Provider.of<OtpVerificationProvider>(context, listen: false);
+    _signUpProvider = Provider.of<SignUpProvider>(context, listen: false);
     super.initState();
   }
 
@@ -42,6 +50,15 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
 
   tokenConfirm() {
     print(currentText);
+    _otpVerificationProvider.otpVerification(
+        otp: currentText, uniqueID: widget.uniqueID);
+  }
+
+  resendOTP() async {
+    snackBar("OTP resend!!");
+    var resendResult = await _otpVerificationProvider.resendOTP(
+        email: _signUpProvider.userEmail);
+    print('resendResult: $resendResult');
   }
 
   @override
@@ -185,7 +202,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                                       color: Colors.white54, fontSize: 15),
                                 ),
                                 TextButton(
-                                    onPressed: () => snackBar("OTP resend!!"),
+                                    onPressed: resendOTP,
                                     child: Text(
                                       "RESEND",
                                       style: TextStyle(

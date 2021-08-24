@@ -1,5 +1,7 @@
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/main.dart';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -14,324 +16,270 @@ class _ReportState extends State<Report> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            Header(),
-            Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * .01,
-                    right: MediaQuery.of(context).size.width * .01,
-                  ),
-                  height: MediaQuery.of(context).size.height * .74,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Colors.white,
-                          Colors.black,
-                        ],
-                      ),
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
+        backgroundColor: Colors.white,
+        body: Container(
+            height: MediaQuery.of(context).size.height * 1,
+            child: SingleChildScrollView(
+              child: Column(children: [
+                Header(
+                  btntext: '',
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .003,
-                    left: MediaQuery.of(context).size.width * .015,
-                    right: MediaQuery.of(context).size.width * .015,
-                  ),
-                  height: MediaQuery.of(context).size.height * .74,
+                  // height: MediaQuery.of(context).size.height * .7,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                              MediaQuery.of(context).size.width * .08),
-                          topRight: Radius.circular(
-                              MediaQuery.of(context).size.width * .08))),
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .01,
-                    left: MediaQuery.of(context).size.width * .03,
-                    right: MediaQuery.of(context).size.width * .03,
+                    color: Colors.white,
                   ),
-                  height: MediaQuery.of(context).size.height * .73,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30)),
                   padding: EdgeInsets.all(5),
                   child: Column(
-                    children: [
-                      //BackButtonWidget(iconPath: 'assets/png/fvrt.png'),
-                      Padding(
-                        padding: const EdgeInsets.all(30),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Hey John",
-                                  style: TextStyle(
-                                      color: Color(0xff00B0D7), fontSize: 20),
-                                ),
-                                Text(
-                                  "Keep trying for better we belive in try again",
-                                  style: TextStyle(color: Colors.black),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20)
-                            .copyWith(top: 0, bottom: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Report",
-                              style: TextStyle(color: Color(0xff00B0D7)),
-                            ),
-                            Text(
-                              "Recent Quiz attempted",
-                              style: TextStyle(color: Colors.black),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Row(
-                          children: [
-                            Stack(
-                              children: [
-                                stacks(
-                                  1,
-                                  5,
-                                  'assets/png/correct.PNG',
-                                  'Correct answered',
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 85),
-                                  child: stacks(
-                                    2,
-                                    10,
-                                    'assets/png/correct.PNG',
-                                    'Marks',
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(30),
+                          child: Row(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Hey John",
+                                    style: TextStyle(
+                                        color: Color(0xff00B0D7), fontSize: 20),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 165),
-                                  child: stacks(
-                                    10,
-                                    10,
-                                    'assets/png/correct.PNG',
-                                    'Attempted',
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        .01,
                                   ),
-                                ),
+                                  Text(
+                                    "Good luck! Don't stress. You can totally ace it.",
+                                    style: TextStyle(color: Colors.black),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20)
+                              .copyWith(top: 0, bottom: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Report",
+                                style: TextStyle(color: Color(0xff00B0D7)),
+                              ),
+                              Text(
+                                "Recent Quiz attempted",
+                                style: TextStyle(color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
+                        Divider(
+                          color: Color(0xffECECEC),
+                        ),
+                        Container(
+                          // color: Colors.blue,
+                          width: MediaQuery.of(context).size.width * .9,
+                          // height: MediaQuery.of(context).size.height * .44,
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                card(Icons.task_alt_outlined, 'Attempted', 7,
+                                    10, Colors.grey),
+                                card(Icons.task_alt_outlined,
+                                    'Correct answered', 6, 10, Colors.green),
+                                card(Icons.task_alt_outlined, 'Wrong answered',
+                                    1, 10, Colors.red),
+                                card(
+                                    Icons
+                                        .do_not_disturb_on_total_silence_outlined,
+                                    'Not attempted',
+                                    3,
+                                    10,
+                                    Colors.grey),
                                 Container(
-                                  padding: EdgeInsets.all(30),
-                                  margin: EdgeInsets.only(top: 260),
+                                  width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * .11,
-                                  width:
-                                      MediaQuery.of(context).size.width * .82,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xff434343),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
+                                      MediaQuery.of(context).size.height * .07,
+                                  // color: Colors.black,
+                                  padding: EdgeInsets.only(right: 95),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
                                     children: [
                                       Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Icon(
-                                                Icons.watch_later_outlined,
-                                                size: 40,
-                                              ),
+                                              Icon(Icons.access_time_outlined,
+                                                  size: 35,
+                                                  color: Color(0xff00B0D7)),
                                               SizedBox(
                                                 width: MediaQuery.of(context)
                                                         .size
                                                         .width *
-                                                    .03,
+                                                    .04,
                                               ),
-                                              Text("Time")
+                                              Text(
+                                                "Time",
+                                                style: TextStyle(
+                                                    color: Color(0xff00B0D7)),
+                                              ),
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
-                                      Row(
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          Text("1 min"),
+                                          Text(
+                                            "1 min",
+                                            style: TextStyle(
+                                                color: Color(0xff00B0D7)),
+                                          ),
                                         ],
-                                      )
+                                      ),
                                     ],
                                   ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.only(
-                                    left:
-                                        MediaQuery.of(context).size.width * .3,
-                                    right:
-                                        MediaQuery.of(context).size.width * .3,
-                                    top: MediaQuery.of(context).size.height *
-                                        .02,
-                                    bottom: MediaQuery.of(context).size.height *
-                                        .02),
-                                primary: Color(0xff00B0D7),
-                                side: BorderSide(width: 1, color: Colors.black),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100),
                                 ),
+                                Divider(
+                                  color: Color(0xffECECEC),
+                                ),
+                                card(Icons.bar_chart_outlined, 'Marks', 14, 20,
+                                    Color(0xffCE9D00)),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey,
+                                          blurRadius: 5,
+                                          spreadRadius: 2,
+                                          offset: Offset(3, 1))
+                                    ]),
+                                child: ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Colors.grey,
+
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .3,
+                                          right:
+                                              MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .3,
+                                          top: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .015,
+                                          bottom: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .015),
+                                      primary: Color(0xff00B0D7),
+                                      // side: BorderSide(width: 1, color: Colors.black),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                      ),
+                                    ),
+                                    child: Text("Next Topic")),
                               ),
-                              child: Text("Next Topic"))
-                        ],
-                      )
-                    ],
-                  ),
+                            ],
+                          ),
+                        ),
+                      ]),
                 )
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+              ]),
+            )));
   }
 
-  Widget stacks(int obtained, int total, String img, String title) {
-    double percent = obtained / total;
-    double percentage = percent * 100;
+  Widget card(icon, String title, int obtained, int total, final colortype) {
+    double value = obtained / total;
+    double percentage = value * 100;
     return Container(
-      height: MediaQuery.of(context).size.height * .1,
-      width: MediaQuery.of(context).size.width * .82,
+      // height: MediaQuery.of(context).size.height * .09,
+      width: MediaQuery.of(context).size.width * .9,
+      // margin: EdgeInsets.only(top: 140),
       decoration: BoxDecoration(
-        color: Color(0xff434343),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black,
-              spreadRadius: 0,
-              blurRadius: 10,
-              offset: Offset(0, -2))
-        ],
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.elliptical(200, 400),
-            bottomRight: Radius.elliptical(200, 400),
-            topLeft: Radius.circular(MediaQuery.of(context).size.height * .07),
-            topRight:
-                Radius.circular(MediaQuery.of(context).size.height * .07)),
-      ),
-      child: Stack(
+          // color: Colors.red,
+          ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("$img"),
-              Text("$title"),
-              Text("$obtained/$total"),
-              CircularPercentIndicator(
-                radius: MediaQuery.of(context).size.height * .08,
-                percent: percent,
-                arcType: ArcType.HALF,
-                arcBackgroundColor: Colors.white,
-                lineWidth: 7,
-                progressColor: Colors.green,
-                animation: true,
-                center: Text("$percentage%"),
-              )
+              Row(
+                children: [
+                  Icon(
+                    icon,
+                    color: colortype,
+                    size: 35,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .04,
+                  ),
+                  Text(
+                    "$title",
+                    style: TextStyle(color: colortype),
+                  ),
+                ],
+              ),
             ],
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * .06,
-            left: MediaQuery.of(context).size.width * .1,
-            child: LinearPercentIndicator(
-              width: MediaQuery.of(context).size.width * .5,
-              percent: percent,
-              progressColor: Colors.green,
-            ),
-          )
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "$obtained/$total",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .08,
+                  ),
+                  CircularPercentIndicator(
+                    radius: 65,
+                    percent: value,
+                    arcType: ArcType.HALF,
+                    arcBackgroundColor: Colors.white,
+                    lineWidth: 7,
+                    progressColor: colortype,
+                    animation: true,
+                    center: Text(
+                      "$percentage%",
+                      style: TextStyle(fontSize: 12, color: colortype),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Container(
-//                 width: 70,
-//                 height: 70,
-//                 child: Stack(
-//                   children: [
-//                     ShaderMask(
-//                         shaderCallback: (Rect) {
-//                           return SweepGradient(
-//                             colors: [Colors.blue,Colors.white, ],
-//                             startAngle: 0.0,
-//                             endAngle: 3.14 * 2,
-//                             stops: [0.3, 0.5],
-//                             center: Alignment.center,
-//                           ).createShader(Rect);
-//                         },
-//                         child: Container(
-//                           width: 70,
-//                           height: 70,
-//                           decoration: BoxDecoration(
-//                               shape: BoxShape.circle, color: Colors.white),
-//                         )),
-//                     Center(
-//                         child: Container(
-//                       height: 70,
-//                       width: 50,
-//                       decoration: BoxDecoration(
-//                        color: Colors.white, shape: BoxShape.circle),
-//                    child: Center(child: Text("$pecentage %",style: TextStyle(color: Colors.black,),)),
-//                     ))
-//                   ],
-//                 ),
-//               )

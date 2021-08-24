@@ -1,4 +1,4 @@
-import 'package:esooul/Widgets/back_button.dart';
+import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
@@ -14,127 +14,104 @@ class _SelectPaperState extends State<SelectPaper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: Column(
-            children: [
-              Header2(),
-              Padding(
-                padding: EdgeInsets.fromLTRB(15, 10, 15, 2),
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // ClipPolygon(
-                    //   sides: 3,
-                    //   borderRadius: 10.0, // Defaults to 0.0 degrees
-                    //   rotate: 90.0, // Defaults to 0.0 degrees
-                    //   boxShadows: [
-                    //     PolygonBoxShadow(color: Colors.black, elevation: 10.0),
-                    //     PolygonBoxShadow(color: Colors.grey, elevation: 5.0)
-                    //   ],
-                    //   child: Container(color: Colors.black),
-                    // ),
-                    //                   Positioned(
-                    //                     //  left: 20,
-                    //                     // right: 10,
-                    //                     // top: 20,
-                    // //bottom: MediaQuery.of(context).size.height * 0.70,
-                    //                     child: GestureDetector(
-                    //                       child: Container(
-                    //                         decoration: BoxDecoration(
-                    //                             image: DecorationImage(
-                    //                               image: AssetImage("assets/png/Polygon 1.png"),
-                    //                             ),
-                    //                             color: Colors.white),
-                    //                         child: Stack(
-                    //                           children: [
-                    //                             Positioned(
-                    //                               top: 10,
-                    //                               left: 30,
-                    //                               right: 30,
-                    //                               child: Column(
-                    //                                 // crossAxisAlignment: CrossAxisAlignment.start,
-                    //                                 // mainAxisAlignment: MainAxisAlignment.center,
-                    //                                 children: <Widget>[
-                    //                                   Image.asset("assets/png/calendar 1.png"),
-                    //                                   Text(
-                    //                                     "Past Papers",
-                    //                                     style: TextStyle(
-                    //                                         color: Colors.white,
-                    //                                         fontSize: 28.0,
-                    //                                         fontWeight: FontWeight.w400),
-                    //                                   ),
-                    //                                   Text(
-                    //                                     "Download and attempt\n yearly papers",
-                    //                                     style: TextStyle(
-                    //                                         color: Colors.white,
-                    //                                         fontSize: 15.0,
-                    //                                         fontWeight: FontWeight.w200),
-                    //                                   )
-                    //                                 ],
-                    //                               ),
-                    //                             ),
-                    //                           ],
-                    //                         ),
-                    //                       ),
-                    //                     ),
-                    //                   ),
-                    //                   Stack(
-                    //                     children: [
-                    //                       Positioned(
-                    //                         left: 100,
-                    //                         right: 10,
-                    //                         top: 200,
-                    //                         bottom: 20,
-                    //                         child: GestureDetector(
-                    //                           child: Container(
-                    //                             height: MediaQuery.of(context).size.height * 0.40,
-                    //                             width: MediaQuery.of(context).size.width * 0.80,
-                    //                             decoration: BoxDecoration(
-                    //                               image: DecorationImage(
-                    //                                 image: AssetImage("assets/png/Polygon2.png"),
-                    //                               ),
-                    //                             ),
-                    //                             child: Center(
-                    //                               // left: 20,
-                    //                               //   right: 20,
-                    //                               //   bottom: 20,
-                    //                               //   top: 50,
-                    //                               child: Column(
-                    //                                 // crossAxisAlignment: CrossAxisAlignment.start,
-                    //                                 // mainAxisAlignment: MainAxisAlignment.center,
-                    //                                 children: <Widget>[
-                    //                                   Image.asset("assets/png/pen 1.png"),
-                    //                                   Text(
-                    //                                     "Custom Papers",
-                    //                                     style: TextStyle(
-                    //                                         color: Colors.white,
-                    //                                         fontSize: 28.0,
-                    //                                         fontWeight: FontWeight.w400),
-                    //                                   ),
-                    //                                   Text(
-                    //                                     "Enter topics and generate\nyour own paper",
-                    //                                     style: TextStyle(
-                    //                                         color: Colors.white,
-                    //                                         fontSize: 15.0,
-                    //                                         fontWeight: FontWeight.w200),
-                    //                                   )
-                    //                                 ],
-                    //                               ),
-                    //                             ),
-                    //                           ),
-                    //                         ),
-                    //                       ),
-                    //                     ],
-                    //                   ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Header2(),
+            SizedBox(
+              child: Stack(
+                children: <Widget>[
+                  //Container
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TopicList()),
+                      );
+                    },
+                    child: Container(
+                      height: 500,
+                      width: 1000,
+                      decoration: BoxDecoration(
+                        color: Colors.amberAccent,
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/png/custompapercontainer.png") //NetworkImage
+                            ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 20,
+                    right: 50,
+                    top: 500,
+                    bottom: 50,
+                    child: Container(
+                      width: 1000,
+                      height: 500,
+
+                      // padding: EdgeInsets.all(15.0),
+                      //  alignment: Alignment.bottomLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "assets/png/pastpapercontainer.png")),
+                      ),
+                    ),
+                  ), //Container
+                ],
+              ),
+            ),
+          ],
+        ), //SizedBox
+        // child: Stack(
+        //   children: [
+        //     Container(
+        //       color: Colors.white,
+        //     ),
+        //     Positioned(
+        //       top: MediaQuery.of(context).size.height * 0.002,
+        //       right: MediaQuery.of(context).size.width * 0,
+        //       left: MediaQuery.of(context).size.width * 0.06,
+        //       bottom: MediaQuery.of(context).size.height * 0.25,
+        //       child: Container(
+        //         // height: MediaQuery.of(context).size.height * 0.20,
+        //         // width: MediaQuery.of(context).size.width * 0.50,
+        //         decoration: BoxDecoration(
+        //           color: Colors.amber,
+        //           // image: DecorationImage(
+        //           //     image: AssetImage("assets/png/custompapercontainer.png")),
+        //         ),
+        //         child: Image.asset(
+        //           "assets/png/custompapercontainer.png",
+        //           // height: MediaQuery.of(context).size.height * 1,
+        //           // width: MediaQuery.of(context).size.width * 2,
+        //         ),
+        //       ),
+        //     ),
+        //     Positioned(
+        //       top: MediaQuery.of(context).size.height * 0.25,
+        //       left: MediaQuery.of(context).size.width * 0.28,
+        //       child: Container(
+        //         height: double.infinity,
+        //         width: double.infinity,
+        //         //height: MediaQuery.of(context).size.height * 0.20,
+        //         //width: MediaQuery.of(context).size.width * 0.90,
+        //         decoration: BoxDecoration(
+        //           color: Colors.black,
+        //           // image: DecorationImage(
+        //           //     fit: BoxFit.cover,
+        //           //     image: AssetImage(
+        //           //       "assets/png/pastpapercontainer.png",
+        //           //     )),
+        //         ),
+        //       ),
+        //     ),
+        //     Header2(),
+        //   ],
+        // ),
       ),
     );
   }
