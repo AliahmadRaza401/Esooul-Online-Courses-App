@@ -1,4 +1,4 @@
-import 'package:esooul/Screens/Authentication/pin_code.dart';
+import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -140,7 +140,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => EnterPinCode()),
+                                        builder: (context) =>
+                                            OtpVerifivation()),
                                   );
                                 },
                               ),

@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:esooul/api/api.dart';
 import 'package:esooul/config/config.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
-class SignUpProvider extends ChangeNotifier {
+class OtpVerificationProvider extends ChangeNotifier {
   late BuildContext context;
 
   init({required BuildContext context}) {
@@ -13,22 +13,19 @@ class SignUpProvider extends ChangeNotifier {
   }
 
   var result;
+  var uuniqueID;
 
-  Future signUp(
-      {@required fName,
-      @required lName,
-      @required email,
-      @required password}) async {
+  Future otpVerification(
+      {@required otp,
+      }) async {
     try {
       print("Sign Up ---------------------------");
       final _response = await http.post(
-        Uri.parse(signUpApi),
+        Uri.parse(otpVerificationApi),
         headers: headers,
         body: jsonEncode({
-          'first_name': fName,
-          'last_name': lName,
-          'email': email,
-          'password': password
+          'uniqueId': uuniqueID,
+          'otp': otp,
         }),
       );
       result = jsonDecode(_response.body);
@@ -39,5 +36,3 @@ class SignUpProvider extends ChangeNotifier {
     }
   }
 }
-
-
