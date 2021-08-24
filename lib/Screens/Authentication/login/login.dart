@@ -37,17 +37,17 @@ class _LogInState extends State<LogIn> {
   }
 
   signIn() async {
-    if (_formKey.currentState!.validate()) {
-      result = await _loginProvider.signIn(
-          email: _emailController.text.toString(),
-          password: _passwordController.text.toString());
-      print('result: $result');
+    // if (_formKey.currentState!.validate()) {
+    //   result = await _loginProvider.signIn(
+    //       email: _emailController.text.toString(),
+    //       password: _passwordController.text.toString());
+    //   print('result: $result');
 
-      expHandler();
-    }
+    //   expHandler();
+    // }
 
-    // Navigator.of(context).pushReplacement(
-    //     new MaterialPageRoute(builder: (context) => new BottomNavBar()));
+    Navigator.of(context).pushReplacement(
+        new MaterialPageRoute(builder: (context) => new BottomNavBar()));
   }
 
   expHandler() {}

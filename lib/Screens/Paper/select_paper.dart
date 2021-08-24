@@ -18,100 +18,48 @@ class _SelectPaperState extends State<SelectPaper> {
         color: Colors.white,
         child: Column(
           children: [
-            Header2(),
-            SizedBox(
-              child: Stack(
-                children: <Widget>[
-                  //Container
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TopicList()),
-                      );
-                    },
-                    child: Container(
-                      height: 500,
-                      width: 1000,
-                      decoration: BoxDecoration(
-                        color: Colors.amberAccent,
+            Stack(
+              children: [
+                Header(
+                  btntext: 'Paper',
+                ),
+                GestureDetector(
+                  onTap: () {
+                    print("Custom-------");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TopicList()),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * .1),
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height * .65,
+                    decoration: BoxDecoration(
+                        // color: Colors.blue,
                         image: DecorationImage(
                             image: AssetImage(
-                                "assets/png/custompapercontainer.png") //NetworkImage
-                            ),
-                      ),
-                    ),
+                                'assets/png/custompapercontainer.png'),
+                            fit: BoxFit.contain)),
                   ),
-                  Positioned(
-                    left: 20,
-                    right: 50,
-                    top: 500,
-                    bottom: 50,
-                    child: Container(
-                      width: 1000,
-                      height: 500,
-
-                      // padding: EdgeInsets.all(15.0),
-                      //  alignment: Alignment.bottomLeft,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        image: DecorationImage(
-                            image: AssetImage(
-                                "assets/png/pastpapercontainer.png")),
-                      ),
-                    ),
-                  ), //Container
-                ],
-              ),
-            ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * .35),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * .65,
+                  decoration: BoxDecoration(
+                      // color: Colors.green,
+                      image: DecorationImage(
+                          image:
+                              AssetImage('assets/png/pastpapercontainer.png'),
+                          fit: BoxFit.contain)),
+                ),
+              ],
+            )
           ],
-        ), //SizedBox
-        // child: Stack(
-        //   children: [
-        //     Container(
-        //       color: Colors.white,
-        //     ),
-        //     Positioned(
-        //       top: MediaQuery.of(context).size.height * 0.002,
-        //       right: MediaQuery.of(context).size.width * 0,
-        //       left: MediaQuery.of(context).size.width * 0.06,
-        //       bottom: MediaQuery.of(context).size.height * 0.25,
-        //       child: Container(
-        //         // height: MediaQuery.of(context).size.height * 0.20,
-        //         // width: MediaQuery.of(context).size.width * 0.50,
-        //         decoration: BoxDecoration(
-        //           color: Colors.amber,
-        //           // image: DecorationImage(
-        //           //     image: AssetImage("assets/png/custompapercontainer.png")),
-        //         ),
-        //         child: Image.asset(
-        //           "assets/png/custompapercontainer.png",
-        //           // height: MediaQuery.of(context).size.height * 1,
-        //           // width: MediaQuery.of(context).size.width * 2,
-        //         ),
-        //       ),
-        //     ),
-        //     Positioned(
-        //       top: MediaQuery.of(context).size.height * 0.25,
-        //       left: MediaQuery.of(context).size.width * 0.28,
-        //       child: Container(
-        //         height: double.infinity,
-        //         width: double.infinity,
-        //         //height: MediaQuery.of(context).size.height * 0.20,
-        //         //width: MediaQuery.of(context).size.width * 0.90,
-        //         decoration: BoxDecoration(
-        //           color: Colors.black,
-        //           // image: DecorationImage(
-        //           //     fit: BoxFit.cover,
-        //           //     image: AssetImage(
-        //           //       "assets/png/pastpapercontainer.png",
-        //           //     )),
-        //         ),
-        //       ),
-        //     ),
-        //     Header2(),
-        //   ],
-        // ),
+        ),
       ),
     );
   }
