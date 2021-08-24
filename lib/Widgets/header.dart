@@ -2,7 +2,11 @@ import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatefulWidget {
-  Header({Key? key}) : super(key: key);
+  // final String btntext;
+  // final String icon;
+  Header({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _HeaderState createState() => _HeaderState();
@@ -108,6 +112,8 @@ class _HeaderState extends State<Header> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.020,
             ),
+            //  BackButtonWidget(
+            //     iconPath: $icon, buttontext: "Settings")
             BackButtonWidget(
                 iconPath: "assets/png/settings.png", buttontext: "Settings")
           ],
