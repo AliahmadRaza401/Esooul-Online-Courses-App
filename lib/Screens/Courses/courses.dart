@@ -210,7 +210,7 @@ class LoadingButtonState extends State<LoadingButton>
     super.initState();
 
     controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     controller.addListener(() {
       setState(() {});
     });
@@ -241,7 +241,7 @@ class LoadingButtonState extends State<LoadingButton>
             decoration: BoxDecoration(shape: BoxShape.circle),
             child: CircularProgressIndicator(
               value: controller.value,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff0038FF)),
             ),
           ),
           Center(
