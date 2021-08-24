@@ -80,10 +80,10 @@ class _SelectSubjectState extends State<SelectSubject> {
   _myContainer(String grade) {
     return GestureDetector(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => SelectPaper()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SelectPaper()),
+        );
       },
       child: Container(
         padding: EdgeInsets.only(left: 10),

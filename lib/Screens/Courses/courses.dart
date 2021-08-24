@@ -26,7 +26,7 @@ class _CoursesState extends State<Courses> {
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -65,6 +65,10 @@ class _CoursesState extends State<Courses> {
                           "History",
                           "2K",
                           "12 jan 2021"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.018,
+                      ),
+                      Center(child: LoadingButton()),
                     ],
                   ),
                 ),
@@ -88,7 +92,8 @@ class _CoursesState extends State<Courses> {
       child: Container(
         padding: EdgeInsets.fromLTRB(1, 8.0, 1, 8.0),
         height: MediaQuery.of(context).size.height * 0.145,
-        width: MediaQuery.of(context).size.width * 0.88,
+        width: double.infinity,
+        //width: MediaQuery.of(context).size.width * 0.88,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -186,6 +191,66 @@ class _CoursesState extends State<Courses> {
             // )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LoadingButton extends StatefulWidget {
+  @override
+  LoadingButtonState createState() => LoadingButtonState();
+}
+
+class LoadingButtonState extends State<LoadingButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+    controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) => controller.forward(),
+      onTapUp: (_) {
+        if (controller.status == AnimationStatus.forward) {
+          controller.reverse();
+        }
+      },
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(shape: BoxShape.circle),
+            child: CircularProgressIndicator(
+              value: 1.0,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+            ),
+          ),
+          Container(
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(shape: BoxShape.circle),
+            child: CircularProgressIndicator(
+              value: controller.value,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+            ),
+          ),
+          Center(
+            child: Text(
+              "Press and Hold to create",
+              style: TextStyle(color: Colors.black),
+            ),
+          )
+        ],
       ),
     );
   }
