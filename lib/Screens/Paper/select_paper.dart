@@ -25,7 +25,7 @@ class _SelectPaperState extends State<SelectPaper> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    print("Custom-------");
+                    print("asdzfgadsf");
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => TopicList()),
