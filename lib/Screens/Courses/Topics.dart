@@ -18,7 +18,7 @@ class _TopicsState extends State<Topics> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Header(btntext: '',
+              Header(btntext: 'Topics',
           ),
               Container(
                 height: MediaQuery.of(context).size.height * .7,

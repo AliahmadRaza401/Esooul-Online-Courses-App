@@ -20,7 +20,7 @@ class _McqsState extends State<Mcqs> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-          Header(btntext: '',
+          Header(btntext: 'MCQs',
       ),
           Container(
               margin: EdgeInsets.only(
