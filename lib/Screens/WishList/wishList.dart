@@ -69,6 +69,7 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
+<<<<<<< HEAD
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -98,6 +99,8 @@ class _WishlistState extends State<Wishlist> {
                           Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PastPapersDropDown()));
                         }, child: Text("Past papers"))
                          
+=======
+>>>>>>> 337e5b42c8c9c909e8f168e2d04ab0cdfbe25278
                       ],
                     ),
                   )),
@@ -112,7 +115,7 @@ class _WishlistState extends State<Wishlist> {
       String category, String discountPrice, String price) {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 15),
-      height: MediaQuery.of(context).size.height * 0.18,
+      height: MediaQuery.of(context).size.height * 0.13,
       width: double.infinity,
       decoration: BoxDecoration(
         boxShadow: [
@@ -132,7 +135,7 @@ class _WishlistState extends State<Wishlist> {
                 children: <Widget>[
                   Image.asset(
                     imgPath,
-                    height: MediaQuery.of(context).size.height * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.1,
                   ),
                 ],
               ),

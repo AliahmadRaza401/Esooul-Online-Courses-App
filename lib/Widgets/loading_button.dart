@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Widgets/innerShadow.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class LoadingButtonState extends State<LoadingButton>
     super.initState();
 
     controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 900));
     controller.addListener(() {
       setState(() {});
     });
@@ -28,6 +29,11 @@ class LoadingButtonState extends State<LoadingButton>
       onTapUp: (_) {
         if (controller.status == AnimationStatus.forward) {
           controller.reverse();
+        } else if (controller.status == AnimationStatus.completed) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SignUp()),
+          );
         }
       },
       child: Stack(
@@ -59,7 +65,7 @@ class LoadingButtonState extends State<LoadingButton>
                 shape: BoxShape.circle, color: Colors.transparent),
             child: CircularProgressIndicator(
               value: controller.value,
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff0038FF)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff00B0D7)),
             ),
           ),
           Center(

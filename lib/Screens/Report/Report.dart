@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+>>>>>>> 337e5b42c8c9c909e8f168e2d04ab0cdfbe25278
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -176,7 +180,14 @@ class _ReportState extends State<Report> {
                                     ]),
                                 child: ElevatedButton(
                                     onPressed: () {
+<<<<<<< HEAD
                                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()));
+=======
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  BottomNavBar()));
+>>>>>>> 337e5b42c8c9c909e8f168e2d04ab0cdfbe25278
                                     },
                                     style: ElevatedButton.styleFrom(
                                       shadowColor: Colors.grey,

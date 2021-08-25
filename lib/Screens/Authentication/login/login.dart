@@ -5,6 +5,8 @@ import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/check_internet/check_internet.dart';
+import 'package:esooul/Widgets/loading_button.dart';
+import 'package:esooul/Widgets/my_slide_button.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +43,6 @@ class _LogInState extends State<LogIn> {
     super.initState();
     CheckInternet().checkConnection(context);
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
-    
   }
 
   @override
@@ -230,6 +231,7 @@ class _LogInState extends State<LogIn> {
                                   : Text('LogIn'),
                               onPressed: signIn,
                             ),
+                            // swipeButton(),
                             SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.020,
@@ -245,16 +247,18 @@ class _LogInState extends State<LogIn> {
                               height:
                                   MediaQuery.of(context).size.height * 0.020,
                             ),
-                            ElevatedButton(
-                              child: Text('Register'),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignUp()),
-                                );
-                              },
-                            ),
+                            // ElevatedButton(
+                            //   child: Text('Register'),
+                            //   onPressed: () {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => SignUp()),
+                            //     );
+                            //   },
+                            // ),
+
+                            LoadingButton(),
 
                             SizedBox(
                               height:
