@@ -31,6 +31,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   final formKey = GlobalKey<FormState>();
   late OtpVerificationProvider _otpVerificationProvider;
   late SignUpProvider _signUpProvider;
+  var result;
 
   @override
   void initState() {
@@ -49,8 +50,9 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   }
 
   tokenConfirm() {
+    // loading = true;
     print(currentText);
-    _otpVerificationProvider.otpVerification(
+    result = _otpVerificationProvider.otpVerification(
         otp: currentText, uniqueID: widget.uniqueID);
   }
 
@@ -171,7 +173,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                                 onPressed: () {
                                   formKey.currentState!.validate();
                                   // conditions for validating
-                                  if (currentText.length != 6) {
+                                  if (currentText.length != 4) {
                                     errorController.add(ErrorAnimationType
                                         .shake); // Triggering error shake animation
                                     setState(() {
@@ -265,7 +267,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             blinkWhenObscuring: true,
             animationType: AnimationType.fade,
             validator: (v) {
-              if (v!.length < 5) {
+              if (v!.length < 4) {
                 return "I'm from validator";
               } else {
                 return null;
