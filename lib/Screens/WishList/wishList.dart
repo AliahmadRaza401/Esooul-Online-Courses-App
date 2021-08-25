@@ -16,6 +16,7 @@ class _WishlistState extends State<Wishlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -33,13 +34,13 @@ class _WishlistState extends State<Wishlist> {
                   height: MediaQuery.of(context).size.height * .9,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey, width: 5),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(
-                          MediaQuery.of(context).size.width * .08),
-                      topRight: Radius.circular(
-                          MediaQuery.of(context).size.width * .08),
-                    ),
+                    // border: Border.all(color: Colors.grey, width: 5),
+                    // borderRadius: BorderRadius.only(
+                    //   topLeft: Radius.circular(
+                    //       MediaQuery.of(context).size.width * .08),
+                    //   topRight: Radius.circular(
+                    //       MediaQuery.of(context).size.width * .08),
+                    // ),
                   ),
                   child: SingleChildScrollView(
                     child: Column(
@@ -101,11 +102,15 @@ class _WishlistState extends State<Wishlist> {
   _courseContainer(String imgPath, String subject, String author,
       String category, String discountPrice, String price) {
     return Container(
-      padding: EdgeInsets.only(top: 20),
+      padding: EdgeInsets.only(left: 10,right: 15),
       height: MediaQuery.of(context).size.height * 0.18,
       width: double.infinity,
+      
       decoration: BoxDecoration(
-        color: Color(0xff3D3D3D),
+        boxShadow: [BoxShadow(blurRadius: 5,
+        color: Colors.grey,
+        spreadRadius:1)],
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -113,13 +118,13 @@ class _WishlistState extends State<Wishlist> {
         children: [
           //1st Row
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Column(
                 children: <Widget>[
                   Image.asset(
                     imgPath,
-                    height: MediaQuery.of(context).size.height * 0.090,
+                    height: MediaQuery.of(context).size.height * 0.15,
                   ),
                 ],
               ),
@@ -127,14 +132,14 @@ class _WishlistState extends State<Wishlist> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(subject),
+                  Text(subject,style: TextStyle(color: Colors.black),),
                   Text(
                     author,
-                    style: TextStyle(color: Color(0xffFFD643)),
+                    style: TextStyle(color: Colors.black),
                   ),
                   Row(
                     children: [
-                      Text(category),
+                      Text(category,style: TextStyle(color: Colors.black),),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.020,
                       ),
@@ -164,7 +169,7 @@ class _WishlistState extends State<Wishlist> {
                             children: [
                               ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-                                    primary: Color(0xff646464),
+                                    primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),
@@ -177,7 +182,7 @@ class _WishlistState extends State<Wishlist> {
                               ),
                               ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-                                    primary: Color(0xff646464),
+                                    primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),

@@ -21,7 +21,7 @@ class _HeaderState extends State<Header> {
             right: MediaQuery.of(context).size.width * .017,
             bottom: MediaQuery.of(context).size.height * 0.0),
         padding: EdgeInsets.all(12.0).copyWith(bottom: 0),
-        height: MediaQuery.of(context).size.height * 0.22,
+        height: MediaQuery.of(context).size.height * 0.23,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -96,13 +96,14 @@ class _HeaderState extends State<Header> {
               children: [
                 Text(
                   "Invite Friend",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 21.0),
+                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                 ),
+                SizedBox(width: MediaQuery.of(context).size.width*.02,),
                 Container(
                   // height: MediaQuery.of(context).size.height * 0.1,
                   // width: MediaQuery.of(context).size.width * 0.1,
                   child: Image.asset(
-                    "assets/png/share-2 (1).png",
+                    "assets/png/share-2 (1).png",width: MediaQuery.of(context).size.width*.04,
                   ),
                 )
               ],

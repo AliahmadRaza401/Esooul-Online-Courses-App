@@ -3,11 +3,14 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Home/home.dart';
+import 'package:esooul/Widgets/check_internet/check_internet.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LogIn extends StatefulWidget {
   LogIn({Key? key}) : super(key: key);
@@ -36,34 +39,62 @@ class _LogInState extends State<LogIn> {
   @override
   void initState() {
     super.initState();
+    CheckInternet().checkConnection(context);
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
+    
+  }
+
+  @override
+  void dispose() {
+    CheckInternet().listener.cancel();
+    super.dispose();
   }
 
   signIn() async {
     if (_formKey.currentState!.validate()) {
-      _loading = true;
+      setState(() {
+        _loading = true;
+      });
       result = await _loginProvider.signIn(
           email: _emailController.text.toString(),
           password: _passwordController.text.toString());
-      print('result: $result');
+      print('resultLogin: $result');
 
       expHandler();
     }
-
-    // Navigator.of(context).pushReplacement(
-    //     new MaterialPageRoute(builder: (context) => new BottomNavBar()));
   }
 
   expHandler() {
     if (result['status'] == 200) {
-      uniqueID = result['data']['uniqueId'];
-      alertDialog(context, result['message'],
-          "Your account is not validate, Click Continue to Validate your account");
+      print("responce Success");
+      if (result['message'] == "Success.") {
+        print("user Not Authenticate ");
+        uniqueID = result['data']['uniqueId'];
+        alertDialog(context, result['message'],
+            "Your account is not validate, Click Continue to Validate your account");
+      } else if (result['message']['token'] != null) {
+        print("user Authenticate");
+        addTokenToSF();
+        setState(() {
+          _loading = false;
+        });
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
+        _loginProvider.loginTrue();
+      } else {
+        alertDialog(context, "Login UnSuccessfull",
+            "Please check your Email and make sure its Authenticate");
+      }
     } else {
       print("Not Found");
       alertDialog(context, result['message'],
-          "Something went wrong please try again or check internet connection");
+          "Something went wrong please check your Email and Password");
     }
+  }
+
+  addTokenToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', result['message']['token']);
   }
 
   Widget build(BuildContext context) {

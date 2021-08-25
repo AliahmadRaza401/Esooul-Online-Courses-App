@@ -37,7 +37,7 @@ class SignUpProvider extends ChangeNotifier {
       // print('result: $result');
       return result;
     } catch (e) {
-      return e.toString();
+      return e;
     }
   }
 }

@@ -1,7 +1,10 @@
+import 'package:esooul/Screens/Authentication/login/login.dart';
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Profile/Terms%20and%20privacy.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Privacy.dart';
 
@@ -13,6 +16,14 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  late LoginProvider _loginProvider;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loginProvider = Provider.of<LoginProvider>(context, listen: false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +73,13 @@ class _SettingsState extends State<Settings> {
                   setting("assets/png/update.png", 'Updates', .05),
                   setting("assets/png/about.png", 'About us', .05),
                   setting("assets/png/report-card.png", 'Report Card', .05),
-                  setting("assets/png/log-out.png", 'Logout', .05),
+                  GestureDetector(
+                      onTap: () {
+                        _loginProvider.loginFalse();
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => LogIn()));
+                      },
+                      child: setting("assets/png/log-out.png", 'Logout', .05)),
                   SizedBox(
                     height: 100,
                   ),

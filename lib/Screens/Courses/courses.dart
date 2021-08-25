@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Paper/select_paper.dart';
 import 'package:esooul/Widgets/header.dart';
 
 import 'package:esooul/Widgets/header2.dart';
+import 'package:esooul/Widgets/innerShadow.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -212,7 +213,7 @@ class LoadingButtonState extends State<LoadingButton>
     super.initState();
 
     controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     controller.addListener(() {
       setState(() {});
     });
@@ -230,26 +231,40 @@ class LoadingButtonState extends State<LoadingButton>
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(shape: BoxShape.circle),
-            child: CircularProgressIndicator(
-              value: 1.0,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+          InnerShadow(
+            color: Colors.black.withOpacity(0.5),
+            blur: 10,
+            offset: Offset(20, 15),
+            child: Container(
+              height: 199,
+              width: 199,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [Color(0xff214966), Color(0xff046696)],
+                ),
+              ),
+              child: CircularProgressIndicator(
+                value: 1.0,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
             ),
           ),
           Container(
             height: 200,
             width: 200,
-            decoration: BoxDecoration(shape: BoxShape.circle),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: Colors.transparent),
             child: CircularProgressIndicator(
               value: controller.value,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff0038FF)),
             ),
           ),
           Center(
             child: Text(
-              "Press and Hold to create",
-              style: TextStyle(color: Colors.black),
+              "Press and\nHold to create",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
             ),
           )
         ],

@@ -22,7 +22,7 @@ class _ReportState extends State<Report> {
             child: SingleChildScrollView(
               child: Column(children: [
                 Header(
-                  btntext: '',
+                  btntext: 'Report',
                 ),
                 Container(
                   // height: MediaQuery.of(context).size.height * .7,
@@ -35,7 +35,7 @@ class _ReportState extends State<Report> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(30),
+                          padding: const EdgeInsets.all(30).copyWith(top: 2),
                           child: Row(
                             children: [
                               Column(

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:esooul/Screens/Authentication/login/login.dart';
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
+import 'package:provider/provider.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -15,10 +17,22 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     Timer(Duration(seconds: 3), checkFirstSeen);
   }
 
+  late LoginProvider _loginProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    _loginProvider = Provider.of<LoginProvider>(context, listen: false);
+
+    nextScreen();
+  }
+
   Future checkFirstSeen() async {
-    Navigator.of(context).pushReplacement(new MaterialPageRoute(
-      builder: (context) => new LogIn()
-    ));
+    _loginProvider.checkUserAlreadyLogin(context);
+    // Navigator.of(context).pushReplacement(new MaterialPageRoute(
+    //   builder: (context) => new LogIn()
+    // ));
+
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     // bool _seen = (prefs.getBool('seen') ?? false);
 
@@ -30,12 +44,6 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     //   Navigator.of(context).pushReplacement(
     //       new MaterialPageRoute(builder: (context) => new OnBoarding()));
     // }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    nextScreen();
   }
 
   @override

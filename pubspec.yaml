@@ -36,6 +36,7 @@ dependencies:
   provider: ^6.0.0
   shared_preferences: ^2.0.6
   pin_code_fields: ^7.2.0
+  data_connection_checker: ^0.3.4
 
   fluttertoastalert: ^1.0.3
   

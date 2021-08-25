@@ -15,7 +15,7 @@ Widget boardsCard(
     child: Container(
       margin: EdgeInsets.only(
         top: MediaQuery.of(context).size.height * .001,
-        left: MediaQuery.of(context).size.width * .005,
+        left: MediaQuery.of(context).size.width * .01,
       ),
       decoration: BoxDecoration(
           boxShadow: [
