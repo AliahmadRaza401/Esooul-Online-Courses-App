@@ -66,15 +66,13 @@ class _SignUpState extends State<SignUp> {
       print('uniqueId: $uniqueID');
       alertDialog(context, "SignUp Successfully!",
           "Click Continue to verify the OTP which send on your given Email");
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
     } else if (result['message'] != "Success.") {
       print("SignUp false");
       alertDialog(context, result['message'].toString(),
           "Please Enter Correct data to Continue");
     } else {
-      alertDialog(
-          context, "SignUp Fail", "Please check your Network connection");
+      alertDialog(context, "SignUp Fail",
+          "Please check your Network connection or try again");
     }
   }
 
@@ -289,12 +287,11 @@ class _SignUpState extends State<SignUp> {
                               ),
 
                               ElevatedButton(
-                                child: Text('Otp'),
+                                child: Text('alert Dialog'),
                                 onPressed: () {
-                                  Navigator.of(context).pushReplacement(
-                                      new MaterialPageRoute(
-                                          builder: (context) => OtpVerifivation(
-                                              uniqueID: uniqueID)));
+                                  alertDialog(context, "alert Dialog",
+                                      "just for testing");
+                                  print("btn click");
                                 },
                               ),
 

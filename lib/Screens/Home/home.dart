@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 var boardAreaData;
+var data;
 
 class _HomeState extends State<Home> {
   late HomeProvider _homeProvider;
@@ -20,6 +21,13 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
     _homeProvider = Provider.of(context, listen: false);
+    // getboards();
+  }
+
+  getboards() async {
+    var result = await _homeProvider.boardsArea();
+    boardAreaData = result['data'];
+    print('boardAreaData: $boardAreaData');
   }
 
   @override
@@ -59,110 +67,21 @@ class _HomeState extends State<Home> {
                     width: double.infinity,
                     child: Column(
                       children: [
-                        Row(
-                          children: [Image.asset("assets/png/homelogo.png")],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Hi, John ",
-                                      style: TextStyle(fontSize: 17),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          .02,
-                                    ),
-                                    Image.asset("assets/png/hi.png")
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Lets start Learning",
-                                        style: TextStyle(fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Image.asset("assets/png/search.png"),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          .02,
-                                    ),
-                                    Image.asset(
-                                      "assets/png/notification.png",
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              .04,
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          .02,
-                                    ),
-                                    Image.asset(
-                                      "assets/png/cart.png",
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              .04,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * .015,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Invite Friend",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * .02,
-                              ),
-                              Image.asset('assets/png/share.png')
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * .01,
-                        ),
-                        TextField(
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(
-                                  top:
-                                      MediaQuery.of(context).size.height * .01),
-                              suffixIcon:
-                                  Image.asset('assets/png/chevron-down.png'),
-                              prefixIcon: Image.asset('assets/png/airplay.png'),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              filled: true,
-                              hintStyle: TextStyle(color: Color(0xffC3C5C9)),
-                              hintText: 'Select your board',
-                              fillColor: Colors.white),
-                        ),
+                        homeHeader(context),
+                        // ListView.builder(
+                        //     physics: ClampingScrollPhysics(),
+                        //     shrinkWrap: true,
+                        //     itemCount: boardAreaData.length == null
+                        //         ? 0
+                        //         : boardAreaData.length,
+                        //     itemBuilder: (context, i) {
+                        //       return Text(boardAreaData[i]['title']);
+                        //       // boardsCard(
+                        //       //     context,
+                        //       //     'assets/png/federal.png',
+                        //       //     boardAreaData[i]['title'],
+                        //       //     boardAreaData[i]['description']);
+                        //     }),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(
@@ -186,6 +105,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
+
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(

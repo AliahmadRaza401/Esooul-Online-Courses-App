@@ -20,6 +20,8 @@ class OtpVerificationProvider extends ChangeNotifier {
   }) async {
     try {
       print("---------Otp Varification------------------");
+      print(otp);
+      print(uniqueID);
       final _response = await http.post(
         Uri.parse(otpVerificationApi),
         headers: headers,
@@ -29,10 +31,9 @@ class OtpVerificationProvider extends ChangeNotifier {
         }),
       );
       result = jsonDecode(_response.body);
-      print('result: $result');
       return result;
     } catch (e) {
-      return e.toString();
+      return e;
     }
   }
 

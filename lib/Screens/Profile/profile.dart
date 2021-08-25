@@ -1,6 +1,6 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-import 'package:esooul/Screens/Courses/Units.dart';
+
 import 'package:esooul/Screens/Profile/Privacy.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';

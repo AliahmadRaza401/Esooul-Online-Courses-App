@@ -87,7 +87,7 @@ class BackButtonWidget extends StatelessWidget {
               Text(
                 buttontext,
                 style: TextStyle(
-                    color: Color(0xff100F0F),
+                    color: Color(0xFF2575AE),
                     fontWeight: FontWeight.w700,
                     fontSize: 18.0),
               ),

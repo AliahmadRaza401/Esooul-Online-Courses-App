@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OtpVerifivation extends StatefulWidget {
   // OtpVerifivation({Key? key}) : super(key: key);
@@ -27,10 +30,11 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   bool hasError = false;
   String currentText = "";
   var error;
-  bool loading = false;
+  bool _loading = false;
   final formKey = GlobalKey<FormState>();
   late OtpVerificationProvider _otpVerificationProvider;
   late SignUpProvider _signUpProvider;
+  var result;
 
   @override
   void initState() {
@@ -49,9 +53,31 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   }
 
   tokenConfirm() {
+    _loading = true;
     print(currentText);
-    _otpVerificationProvider.otpVerification(
+    result = _otpVerificationProvider.otpVerification(
         otp: currentText, uniqueID: widget.uniqueID);
+    print('result: $result');
+  }
+
+  expHandler() {
+    if (result['status'] == 200) {
+      print("user Authenticate");
+      setState(() {
+        _loading = false;
+      });
+      addTokenToSF();
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
+    } else {
+      alertDialog(context, result['message'],
+          "Please check your verification Code Or click on Resend");
+    }
+  }
+
+  addTokenToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', result['message']['token']);
   }
 
   resendOTP() async {
@@ -160,7 +186,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                               margin: EdgeInsets.only(bottom: 10),
                               width: MediaQuery.of(context).size.width * 0.8,
                               child: FlatButton(
-                                child: loading == true
+                                child: _loading == true
                                     ? CircularProgressIndicator(
                                         color: Colors.white,
                                       )
@@ -171,7 +197,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                                 onPressed: () {
                                   formKey.currentState!.validate();
                                   // conditions for validating
-                                  if (currentText.length != 6) {
+                                  if (currentText.length != 4) {
                                     errorController.add(ErrorAnimationType
                                         .shake); // Triggering error shake animation
                                     setState(() {
@@ -265,7 +291,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             blinkWhenObscuring: true,
             animationType: AnimationType.fade,
             validator: (v) {
-              if (v!.length < 5) {
+              if (v!.length < 4) {
                 return "I'm from validator";
               } else {
                 return null;
@@ -311,6 +337,48 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
               return true;
             },
           )),
+    );
+  }
+
+  alertDialog(BuildContext context, String title, String subTitle) {
+    setState(() {
+      _loading = false;
+    });
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("Okay"),
+      onPressed: () {
+        Navigator.pop(context);
+        // Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> UserLogin()));
+      },
+    );
+    // Widget continueButton = FlatButton(
+    //   child: Text("Continue"),
+    //   onPressed: result['message'] != "Success."
+    //       ? null
+    //       : () {
+    //           Navigator.of(context).pushReplacement(new MaterialPageRoute(
+    //               builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
+    //         },
+    // );
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text(title),
+      content: Text(
+        subTitle,
+        // style: TextStyle(fontSize: 18,fontFamily: Variable.fontStyle),
+      ),
+      actions: [
+        cancelButton,
+        // continueButton,
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

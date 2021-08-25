@@ -1,8 +1,9 @@
-import 'package:esooul/Screens/Courses/MCQs.dart';
-import 'package:esooul/Screens/Courses/Report.dart';
-import 'package:esooul/Screens/Courses/Topics.dart';
+
 import 'package:esooul/Screens/paper_type/past_paper.dart';
 import 'package:esooul/Widgets/back_button.dart';
+import 'package:esooul/Screens/MCQs/MCQs.dart';
+import 'package:esooul/Screens/Report/Report.dart';
+import 'package:esooul/Screens/Topics/Topics.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -36,14 +37,14 @@ class _WishlistState extends State<Wishlist> {
                   height: MediaQuery.of(context).size.height * .9,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    // border: Border.all(color: Colors.grey, width: 5),
-                    // borderRadius: BorderRadius.only(
-                    //   topLeft: Radius.circular(
-                    //       MediaQuery.of(context).size.width * .08),
-                    //   topRight: Radius.circular(
-                    //       MediaQuery.of(context).size.width * .08),
-                    // ),
-                  ),
+                      // border: Border.all(color: Colors.grey, width: 5),
+                      // borderRadius: BorderRadius.only(
+                      //   topLeft: Radius.circular(
+                      //       MediaQuery.of(context).size.width * .08),
+                      //   topRight: Radius.circular(
+                      //       MediaQuery.of(context).size.width * .08),
+                      // ),
+                      ),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -110,14 +111,13 @@ class _WishlistState extends State<Wishlist> {
   _courseContainer(String imgPath, String subject, String author,
       String category, String discountPrice, String price) {
     return Container(
-      padding: EdgeInsets.only(left: 10,right: 15),
+      padding: EdgeInsets.only(left: 10, right: 15),
       height: MediaQuery.of(context).size.height * 0.18,
       width: double.infinity,
-      
       decoration: BoxDecoration(
-        boxShadow: [BoxShadow(blurRadius: 5,
-        color: Colors.grey,
-        spreadRadius:1)],
+        boxShadow: [
+          BoxShadow(blurRadius: 5, color: Colors.grey, spreadRadius: 1)
+        ],
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
@@ -140,14 +140,20 @@ class _WishlistState extends State<Wishlist> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(subject,style: TextStyle(color: Colors.black),),
+                  Text(
+                    subject,
+                    style: TextStyle(color: Colors.black),
+                  ),
                   Text(
                     author,
                     style: TextStyle(color: Colors.black),
                   ),
                   Row(
                     children: [
-                      Text(category,style: TextStyle(color: Colors.black),),
+                      Text(
+                        category,
+                        style: TextStyle(color: Colors.black),
+                      ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.020,
                       ),
