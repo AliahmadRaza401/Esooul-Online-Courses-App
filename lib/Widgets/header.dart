@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class Header extends StatefulWidget {
   String btntext;
 
-  Header({required this.btntext, });
+  Header({
+    required this.btntext,
+  });
 
   @override
   _HeaderState createState() => _HeaderState();
@@ -92,21 +94,29 @@ class _HeaderState extends State<Header> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.020,
             ),
-            Row(
-              children: [
-                Text(
-                  "Invite Friend",
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width*.02,),
-                Container(
-                  // height: MediaQuery.of(context).size.height * 0.1,
-                  // width: MediaQuery.of(context).size.width * 0.1,
-                  child: Image.asset(
-                    "assets/png/share-2 (1).png",width: MediaQuery.of(context).size.width*.04,
+            GestureDetector(
+              onTap: () {
+                return _myAlert();
+              },
+              child: Row(
+                children: [
+                  Text(
+                    "Invite Friend",
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                   ),
-                )
-              ],
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .02,
+                  ),
+                  Container(
+                    // height: MediaQuery.of(context).size.height * 0.1,
+                    // width: MediaQuery.of(context).size.width * 0.1,
+                    child: Image.asset(
+                      "assets/png/share-2 (1).png",
+                      width: MediaQuery.of(context).size.width * .04,
+                    ),
+                  )
+                ],
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.020,
@@ -115,8 +125,7 @@ class _HeaderState extends State<Header> {
             //     iconPath: $icon, buttontext: "Settings")
             BackButtonWidget(
                 // iconPath: widget.icon.toString(),
-                buttontext: widget.btntext.toString()
-                )
+                buttontext: widget.btntext.toString())
           ],
         ),
       ),
@@ -144,6 +153,56 @@ class _HeaderState extends State<Header> {
         child: Center(
           child: Image.asset(imgPath),
         ),
+      ),
+    );
+  }
+
+  _myAlert() {
+    return showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        backgroundColor: Colors.white,
+        contentPadding: EdgeInsets.fromLTRB(0, 60, 0, 10),
+        actionsPadding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+        // actionPadding:
+        content: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              GestureDetector(
+                child: Image.asset(
+                  "assets/png/Instagram.png",
+                ),
+              ),
+              GestureDetector(child: Image.asset("assets/png/Twitter.png")),
+              GestureDetector(child: Image.asset("assets/png/Linkedin.png")),
+              GestureDetector(child: Image.asset("assets/png/Facebook.png")),
+              GestureDetector(child: Image.asset("assets/png/YouTube.png")),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                fixedSize: Size(MediaQuery.of(context).size.width * 0.60,
+                    MediaQuery.of(context).size.height * 0.050),
+                primary: Color(0xffEBEBEB),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // <-- Radius
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true)
+                    .pop(); // dismisses only the dialog and returns nothing
+              },
+              child: new Text(
+                'Invite with Referal Code',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

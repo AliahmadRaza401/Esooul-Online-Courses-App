@@ -1,9 +1,7 @@
-import 'package:esooul/Screens/Paper/select_grade.dart';
-import 'package:esooul/Screens/Paper/select_paper.dart';
+import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Widgets/header.dart';
 
-import 'package:esooul/Widgets/header2.dart';
-import 'package:esooul/Widgets/innerShadow.dart';
+import 'package:esooul/Widgets/my_slide_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +19,7 @@ class _CoursesState extends State<Courses> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Color(0xFFF0F0F0),
+          color: Colors.white,
           child: Column(children: [
             Header(
               btntext: 'Courses',
@@ -29,7 +27,7 @@ class _CoursesState extends State<Courses> {
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -41,37 +39,75 @@ class _CoursesState extends State<Courses> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.010,
                       ),
-                      _courseContainer(
-                          "assets/png/candageography (2).png",
-                          "Issues in Canadian Geography",
-                          "Ponum Ghazzanfar",
-                          "History",
-                          "2K",
-                          "12 jan 2021"),
+                      CoursesWidget(
+                          imgPath: "assets/png/physics9th.png",
+                          subject: "Physics class 9th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 5K",
+                          date: "Created 21 jun 2021"),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.018,
                       ),
-                      _courseContainer(
-                          "assets/png/book.png",
-                          "Issues in Canadian Geography",
-                          "Ponum Ghazzanfar",
-                          "History",
-                          "2K",
-                          "12 jan 2021"),
+                      CoursesWidget(
+                          imgPath: "assets/png/maths10th.png",
+                          subject: "Maths class 10th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 3K",
+                          date: "Created 21 jun 2021"),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.018,
                       ),
-                      _courseContainer(
-                          "assets/png/laptop.png",
-                          "Issues in Canadian Geography",
-                          "Ponum Ghazzanfar",
-                          "History",
-                          "2K",
-                          "12 jan 2021"),
+                      CoursesWidget(
+                          imgPath: "assets/png/chemistry10.png",
+                          subject: "Chemistry class 10th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 4K",
+                          date: "Created 21 jun 2021"),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.018,
                       ),
-                      Center(child: LoadingButton()),
+                      CoursesWidget(
+                          imgPath: "assets/png/physics9th.png",
+                          subject: "Physics class 9th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 5K",
+                          date: "Created 21 jun 2021"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.018,
+                      ),
+                      CoursesWidget(
+                          imgPath: "assets/png/maths10th.png",
+                          subject: "Maths class 10th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 3K",
+                          date: "Created 21 jun 2021"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.018,
+                      ),
+                      CoursesWidget(
+                          imgPath: "assets/png/chemistry10.png",
+                          subject: "Chemistry class 10th",
+                          board:
+                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
+                          likes: "Likes 4K",
+                          date: "Created 21 jun 2021"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.018,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MySlideButton()),
+                            );
+                          },
+                          child: Text("press me"))
                     ],
                   ),
                 ),
@@ -79,195 +115,6 @@ class _CoursesState extends State<Courses> {
             ),
           ]),
         ),
-      ),
-    );
-  }
-
-  _courseContainer(String imgPath, String subject, String author,
-      String catergory, String likes, String date) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SelectPaper()),
-        );
-      },
-      child: Container(
-        padding: EdgeInsets.fromLTRB(1, 8.0, 1, 8.0),
-        height: MediaQuery.of(context).size.height * 0.145,
-        width: double.infinity,
-        //width: MediaQuery.of(context).size.width * 0.88,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            //1st Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image.asset(
-                      imgPath,
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      subject,
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      author,
-                      style: TextStyle(color: Color(0xffC4C4C4)),
-                    ),
-                    Text(
-                      "Catergory $catergory",
-                      style: TextStyle(color: Color(0xffC4C4C4)),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.020,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Likes $likes",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Text(
-                          "Created $date",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
-            ),
-            //2nd row
-            // Row(
-            //   children: <Widget>[
-            //     Container(
-            //       width: double.infinity,
-            //       height: MediaQuery.of(context).size.height * 0.20,
-            //       decoration: BoxDecoration(
-            //         color: Color(0xff646464),
-            //         borderRadius: BorderRadius.circular(30),
-            //       ),
-            //       child: Row(
-            //         children: <Widget>[
-            //           Column(
-            //             children: <Widget>[
-            //               Container(
-            //                 decoration: BoxDecoration(
-            //                   shape: BoxShape.circle,
-            //                   color: Color(0xff464646),
-            //                 ),
-            //                 child: Center(
-            //                   child: Text("01"),
-            //                 ),
-            //               ),
-            //             ],
-            //           )
-            //         ],
-            //       ),
-            //     ),
-            //   ],
-            // )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class LoadingButton extends StatefulWidget {
-  @override
-  LoadingButtonState createState() => LoadingButtonState();
-}
-
-class LoadingButtonState extends State<LoadingButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-
-  @override
-  void initState() {
-    super.initState();
-
-    controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    controller.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: (_) => controller.forward(),
-      onTapUp: (_) {
-        if (controller.status == AnimationStatus.forward) {
-          controller.reverse();
-        }
-      },
-      child: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          InnerShadow(
-            color: Colors.black.withOpacity(0.5),
-            blur: 10,
-            offset: Offset(20, 15),
-            child: Container(
-              height: 199,
-              width: 199,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [Color(0xff214966), Color(0xff046696)],
-                ),
-              ),
-              child: CircularProgressIndicator(
-                value: 1.0,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ),
-          ),
-          Container(
-            height: 200,
-            width: 200,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.transparent),
-            child: CircularProgressIndicator(
-              value: controller.value,
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff0038FF)),
-            ),
-          ),
-          Center(
-            child: Text(
-              "Press and\nHold to create",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-            ),
-          )
-        ],
       ),
     );
   }

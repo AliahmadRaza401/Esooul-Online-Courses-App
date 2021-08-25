@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Splash/splash.dart';
 import 'package:esooul/providers/multi_provider.dart';
@@ -27,5 +28,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
