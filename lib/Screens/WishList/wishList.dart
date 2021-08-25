@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/Courses/MCQs.dart';
 import 'package:esooul/Screens/Courses/Report.dart';
 import 'package:esooul/Screens/Courses/Topics.dart';
+import 'package:esooul/Screens/paper_type/past_paper.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,6 +91,12 @@ class _WishlistState extends State<Wishlist> {
                                 child: Text("Report")),
                           ],
                         ),
+                        
+                         
+                        ElevatedButton(onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PastPapersDropDown()));
+                        }, child: Text("Past papers"))
+                         
                       ],
                     ),
                   )),
@@ -204,4 +212,11 @@ class _WishlistState extends State<Wishlist> {
       ),
     );
   }
+
+
+
+
+
+
+
 }

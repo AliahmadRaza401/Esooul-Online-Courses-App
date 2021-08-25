@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/main.dart';
@@ -174,7 +175,9 @@ class _ReportState extends State<Report> {
                                           offset: Offset(3, 1))
                                     ]),
                                 child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Home()));
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       shadowColor: Colors.grey,
 
@@ -203,7 +206,7 @@ class _ReportState extends State<Report> {
                                             BorderRadius.circular(100),
                                       ),
                                     ),
-                                    child: Text("Next Topic")),
+                                    child: Text("Go to Home")),
                               ),
                             ],
                           ),

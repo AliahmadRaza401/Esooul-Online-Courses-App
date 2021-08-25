@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Courses/MCQs.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,9 @@ class _TopicsState extends State<Topics> {
                               
                             )]),
                             child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Mcqs()));
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shadowColor: Colors.grey,
                                   
