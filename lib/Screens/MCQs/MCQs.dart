@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,11 @@ class _McqsState extends State<Mcqs> {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-          Header(btntext: 'MCQs',
-      ),
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Header(
+            btntext: 'MCQs',
+          ),
           Container(
               margin: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * .002,
@@ -88,7 +89,12 @@ class _McqsState extends State<Mcqs> {
                                     child: Icon(Icons.arrow_back_ios_sharp),
                                   ),
                                   ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Report()));
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         padding: EdgeInsets.only(
                                             left: MediaQuery.of(context)
@@ -142,7 +148,8 @@ class _McqsState extends State<Mcqs> {
         Column(
           children: [
             Container(
-              padding: EdgeInsets.all(10).copyWith(right: MediaQuery.of(context).size.width *.1),
+              padding: EdgeInsets.all(10)
+                  .copyWith(right: MediaQuery.of(context).size.width * .1),
               decoration: BoxDecoration(
                   color: Color(0xffFFFFFF),
                   boxShadow: [
@@ -179,13 +186,13 @@ class _McqsState extends State<Mcqs> {
                             "Topic 01-lorem isum",
                             style: TextStyle(color: Colors.black, fontSize: 12),
                           ),
-                          SizedBox(height: MediaQuery.of(context).size.height *.008,),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * .008,
+                          ),
                           Text(
                             "Click here for video",
                             style: TextStyle(color: Colors.black),
                           ),
-                          
-                          
                         ],
                       )
                     ],

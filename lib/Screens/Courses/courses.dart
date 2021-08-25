@@ -99,15 +99,15 @@ class _CoursesState extends State<Courses> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.018,
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MySlideButton()),
-                            );
-                          },
-                          child: Text("press me"))
+                      // ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => MySlideButton()),
+                      //       );
+                      //     },
+                      //     child: Text("press me"))
                     ],
                   ),
                 ),

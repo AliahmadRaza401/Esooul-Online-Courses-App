@@ -65,29 +65,6 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Mcqs()));
-                                },
-                                child: Text("MCQs")),
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Topics()));
-                                },
-                                child: Text("Topics")),
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Report()));
-                                },
-                                child: Text("Report")),
-                          ],
-                        ),
                       ],
                     ),
                   )),
@@ -102,7 +79,7 @@ class _WishlistState extends State<Wishlist> {
       String category, String discountPrice, String price) {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 15),
-      height: MediaQuery.of(context).size.height * 0.18,
+      height: MediaQuery.of(context).size.height * 0.13,
       width: double.infinity,
       decoration: BoxDecoration(
         boxShadow: [
@@ -122,7 +99,7 @@ class _WishlistState extends State<Wishlist> {
                 children: <Widget>[
                   Image.asset(
                     imgPath,
-                    height: MediaQuery.of(context).size.height * 0.15,
+                    height: MediaQuery.of(context).size.height * 0.1,
                   ),
                 ],
               ),

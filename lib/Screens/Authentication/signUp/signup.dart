@@ -286,15 +286,6 @@ class _SignUpState extends State<SignUp> {
                                 },
                               ),
 
-                              ElevatedButton(
-                                child: Text('alert Dialog'),
-                                onPressed: () {
-                                  alertDialog(context, "alert Dialog",
-                                      "just for testing");
-                                  print("btn click");
-                                },
-                              ),
-
                               Expanded(
                                 child: Align(
                                   alignment: Alignment.bottomCenter,

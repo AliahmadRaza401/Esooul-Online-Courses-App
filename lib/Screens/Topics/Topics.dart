@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/MCQs/MCQs.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,9 @@ class _TopicsState extends State<Topics> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Header(btntext: 'Topics',
-          ),
+              Header(
+                btntext: 'Topics',
+              ),
               Container(
                 height: MediaQuery.of(context).size.height * .7,
                 // width: double.infinity,
@@ -57,49 +59,61 @@ class _TopicsState extends State<Topics> {
                         "Please read the text below carefully so you can understand it",
                         style: TextStyle(color: Color(0xff1D6CA7)),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * .06),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * .06),
                       bullets("",
                           'Instructions : Four possible answers A, B, C and D to each question are given. The choice which you think is correct, fill that circle in front of that question with Marker or Pen ink in the answer-book.Cutting or filling two or more circles will result in zero mark in that question.'),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .2,
                       ),
-                     Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              boxShadow: [BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 5,
-                              spreadRadius: 2,
-                              offset: Offset(3,1)
-                              
-                            )]),
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  shadowColor: Colors.grey,
-                                  
-                                  padding: EdgeInsets.only(
-                                      left: MediaQuery.of(context).size.width * .3,
-                                      right: MediaQuery.of(context).size.width * .3,
-                                      top: MediaQuery.of(context).size.height * .015,
-                                      bottom:
-                                          MediaQuery.of(context).size.height * .015),
-                                  primary: Color(0xff00B0D7),
-                                  // side: BorderSide(width: 1, color: Colors.black),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(100),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey,
+                                        blurRadius: 5,
+                                        spreadRadius: 2,
+                                        offset: Offset(3, 1))
+                                  ]),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => Mcqs()));
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    shadowColor: Colors.grey,
+
+                                    padding: EdgeInsets.only(
+                                        left:
+                                            MediaQuery.of(context).size.width *
+                                                .3,
+                                        right:
+                                            MediaQuery.of(context).size.width *
+                                                .3,
+                                        top:
+                                            MediaQuery.of(context).size.height *
+                                                .015,
+                                        bottom:
+                                            MediaQuery.of(context).size.height *
+                                                .015),
+                                    primary: Color(0xff00B0D7),
+                                    // side: BorderSide(width: 1, color: Colors.black),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
                                   ),
-                                ),
-                                child: Text("Take Quiz")),
-                          ),
-                        ],
-                      ),
-                    )
+                                  child: Text("Take Quiz")),
+                            ),
+                          ],
+                        ),
+                      )
                     ]),
                   ],
                 ),
