@@ -31,204 +31,206 @@ class _ProfileState extends State<Profile> {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(top: 5),
-              child: Column(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .006,
-                          left: MediaQuery.of(context).size.width * .01,
-                          right: MediaQuery.of(context).size.width * .01,
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .006,
+                            left: MediaQuery.of(context).size.width * .01,
+                            right: MediaQuery.of(context).size.width * .01,
+                          ),
+                          height: MediaQuery.of(context).size.height * .91,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff72C6EF),
+                                  Color(0xff004E8F),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.circular(30)),
                         ),
-                        height: MediaQuery.of(context).size.height * .91,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color(0xff72C6EF),
-                                Color(0xff004E8F),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(30)),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .001,
-                          left: MediaQuery.of(context).size.width * .01,
-                          right: MediaQuery.of(context).size.width * .01,
+                        Container(
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .001,
+                            left: MediaQuery.of(context).size.width * .01,
+                            right: MediaQuery.of(context).size.width * .01,
+                          ),
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage('assets/png/image 8.png'),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(
+                                      MediaQuery.of(context).size.width * .078),
+                                  topRight: Radius.circular(
+                                      MediaQuery.of(context).size.width * .078))),
+                          height: MediaQuery.of(context).size.height * .15,
+                          width: double.infinity,
                         ),
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('assets/png/image 8.png'),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                    MediaQuery.of(context).size.width * .078),
-                                topRight: Radius.circular(
-                                    MediaQuery.of(context).size.width * .078))),
-                        height: MediaQuery.of(context).size.height * .15,
-                        width: double.infinity,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * .06),
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .16,
-                          left: MediaQuery.of(context).size.width * .02,
-                          right: MediaQuery.of(context).size.width * .02,
-                        ),
-                        height: MediaQuery.of(context).size.height * .26,
-                        width: double.infinity,
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          children: [
-                            Text(
-                              "John Doe, 27",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 25),
-                            ),
-                            Text(
-                              'San Francisco, USA',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 14),
-                            ),
-                            Text(
-                              "john Doe@gmail.com",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 10),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * .01,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      "2k",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "Likes",
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
-                                ),
-                                Column(children: [
-                                  Text(
-                                    "10",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "Photos",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ]),
-                                Column(
-                                  children: [
-                                    Text(
-                                      "89",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "Comments",
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/png/image 6.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * .08,
-                            right: MediaQuery.of(context).size.width * .08,
-                            top: MediaQuery.of(context).size.height * .02),
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .37,
-                          left: MediaQuery.of(context).size.width * .02,
-                          right: MediaQuery.of(context).size.width * .02,
-                        ),
-                        height: MediaQuery.of(context).size.height * .55,
-                        width: double.infinity,
-                        child: SingleChildScrollView(
+                        Container(
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * .06),
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .16,
+                            left: MediaQuery.of(context).size.width * .02,
+                            right: MediaQuery.of(context).size.width * .02,
+                          ),
+                          height: MediaQuery.of(context).size.height * .26,
+                          width: double.infinity,
+                          decoration: BoxDecoration(),
                           child: Column(
                             children: [
-                              data(
-                                'Institute',
-                                'School Optional',
+                              Text(
+                                "John Doe, 27",
+                                style:
+                                    TextStyle(color: Colors.white, fontSize: 25),
                               ),
-                              data('Gender', 'Select'),
-                              data('Grade', 'Select'),
-                              data('Contact Number', 'Type here')
+                              Text(
+                                'San Francisco, USA',
+                                style:
+                                    TextStyle(color: Colors.white, fontSize: 14),
+                              ),
+                              Text(
+                                "john Doe@gmail.com",
+                                style:
+                                    TextStyle(color: Colors.white, fontSize: 10),
+                              ),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height * .01,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "2k",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Likes",
+                                        style: TextStyle(color: Colors.white),
+                                      )
+                                    ],
+                                  ),
+                                  Column(children: [
+                                    Text(
+                                      "10",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "Photos",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ]),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "89",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Comments",
+                                        style: TextStyle(color: Colors.white),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              )
                             ],
                           ),
                         ),
-                      ),
-                      Positioned(
-                        left: MediaQuery.of(context).size.width * .04,
-                        top: MediaQuery.of(context).size.height * .85,
-                        child: Row(
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.only(
-                                      left: MediaQuery.of(context).size.width *
-                                          .4,
-                                      top: MediaQuery.of(context).size.height *
-                                          .015,
-                                      bottom:
-                                          MediaQuery.of(context).size.height *
-                                              .015,
-                                      right: MediaQuery.of(context).size.width *
-                                          .4),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100)),
-                                  primary: Colors.white),
-                              child: Text(
-                                "Settings",
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Settings()));
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        top: MediaQuery.of(context).size.height * .1,
-                        left: 0,
-                        right: 0,
-                        child: CircleAvatar(
-                          child: ClipOval(
-                            child: Image.asset('assets/png/Mask Group.png'),
+                        Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/png/image 6.png'),
+                                fit: BoxFit.cover),
                           ),
-                          backgroundColor: Colors.blueAccent,
-                          radius: MediaQuery.of(context).size.height * .06,
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * .08,
+                              right: MediaQuery.of(context).size.width * .08,
+                              top: MediaQuery.of(context).size.height * .02),
+                          margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .37,
+                            left: MediaQuery.of(context).size.width * .02,
+                            right: MediaQuery.of(context).size.width * .02,
+                          ),
+                          height: MediaQuery.of(context).size.height * .55,
+                          width: double.infinity,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                data(
+                                  'Institute',
+                                  'School Optional',
+                                ),
+                                data('Gender', 'Select'),
+                                data('Grade', 'Select'),
+                                data('Contact Number', 'Type here')
+                              ],
+                            ),
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                ],
+                        Positioned(
+                          left: MediaQuery.of(context).size.width * .04,
+                          top: MediaQuery.of(context).size.height * .85,
+                          child: Row(
+                            children: [
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.only(
+                                        left: MediaQuery.of(context).size.width *
+                                            .4,
+                                        top: MediaQuery.of(context).size.height *
+                                            .015,
+                                        bottom:
+                                            MediaQuery.of(context).size.height *
+                                                .015,
+                                        right: MediaQuery.of(context).size.width *
+                                            .4),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(100)),
+                                    primary: Colors.white),
+                                child: Text(
+                                  "Settings",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Settings()));
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          top: MediaQuery.of(context).size.height * .1,
+                          left: 0,
+                          right: 0,
+                          child: CircleAvatar(
+                            child: ClipOval(
+                              child: Image.asset('assets/png/Mask Group.png'),
+                            ),
+                            backgroundColor: Colors.blueAccent,
+                            radius: MediaQuery.of(context).size.height * .06,
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           )),

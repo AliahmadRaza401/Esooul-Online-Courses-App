@@ -1,4 +1,3 @@
-
 import 'package:esooul/Screens/paper_type/past_paper.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Screens/MCQs/MCQs.dart';
@@ -21,59 +20,59 @@ class _WishlistState extends State<Wishlist> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Header(
-                btntext: 'Wishlist',
-              ),
-              Container(
-                  padding: EdgeInsets.all(8.0),
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .0,
-                    left: MediaQuery.of(context).size.width * .01,
-                    right: MediaQuery.of(context).size.width * .01,
-                  ),
-                  height: MediaQuery.of(context).size.height * .9,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      // border: Border.all(color: Colors.grey, width: 5),
-                      // borderRadius: BorderRadius.only(
-                      //   topLeft: Radius.circular(
-                      //       MediaQuery.of(context).size.width * .08),
-                      //   topRight: Radius.circular(
-                      //       MediaQuery.of(context).size.width * .08),
-                      // ),
-                      ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        _courseContainer(
-                            "assets/png/candageography.png",
-                            "Issues in Canadian Geography",
-                            "Ponam Ghazanfar",
-                            "Category - History",
-                            "1000",
-                            "1500"),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.020,
-                        ),
-                        _courseContainer(
-                            "assets/png/candageography.png",
-                            "Issues in Canadian Geography",
-                            "Ponam Ghazanfar",
-                            "Category - History",
-                            "1000",
-                            "1500"),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.020,
-                        ),
-                      ],
+        
+        child: Column(
+          children: <Widget>[
+            Header(
+              btntext: 'Wishlist',
+            ),
+            Container(
+                padding: EdgeInsets.all(8.0),
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .0,
+                  left: MediaQuery.of(context).size.width * .01,
+                  right: MediaQuery.of(context).size.width * .01,
+                ),
+                height: MediaQuery.of(context).size.height * .6,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    // border: Border.all(color: Colors.grey, width: 5),
+                    // borderRadius: BorderRadius.only(
+                    //   topLeft: Radius.circular(
+                    //       MediaQuery.of(context).size.width * .08),
+                    //   topRight: Radius.circular(
+                    //       MediaQuery.of(context).size.width * .08),
+                    // ),
                     ),
-                  )),
-            ],
-          ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      _courseContainer(
+                          "assets/png/candageography.png",
+                          "Issues in Canadian Geography",
+                          "Ponam Ghazanfar",
+                          "Category - History",
+                          "1000",
+                          "1500"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                      _courseContainer(
+                          "assets/png/candageography.png",
+                          "Issues in Canadian Geography",
+                          "Ponam Ghazanfar",
+                          "Category - History",
+                          "1000",
+                          "1500"),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                    
+                    ],
+                  ),
+                )),
+          ],
         ),
       ),
     );

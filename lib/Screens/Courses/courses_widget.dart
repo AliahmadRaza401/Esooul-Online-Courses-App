@@ -38,7 +38,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
         width: double.infinity,
         //width: MediaQuery.of(context).size.width * 0.88,
         decoration: BoxDecoration(
-          color: Color(0xFFF2F2F2),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(5),
           boxShadow: [
             BoxShadow(
