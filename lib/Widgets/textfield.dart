@@ -7,6 +7,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final FormFieldValidator<String> formvalidator;
   final TextInputType textInputtype;
   final bool isSecure;
+
   // Widget suffix;
   // final FocusNode node;
   // final Function focus;
@@ -15,6 +16,7 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.onChange,
     required this.label,
     required this.formvalidator,
+
     //required this.node,
     this.isSecure = false,
     //required this.suffix,
@@ -30,7 +32,7 @@ class TextFormFieldWidget extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.060,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-            color: Colors.white54,
+            color: Color(0xff5098C8),
             borderRadius: BorderRadius.circular(35),
             boxShadow: [
               BoxShadow(
@@ -42,16 +44,16 @@ class TextFormFieldWidget extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(left: 10.0),
           child: TextFormField(
-            style: TextStyle(fontSize: 14, color: Colors.black),
+            style: TextStyle(fontSize: 14, color: Colors.black54),
             obscureText: isSecure,
             decoration: InputDecoration(
               border: InputBorder.none,
-              labelText: label, labelStyle: TextStyle(color: Colors.black54),
+              labelText: label, labelStyle: TextStyle(color: Colors.white),
 
               // suffix: suffix == null ? SizedBox() : suffix,
               hintStyle: TextStyle(
                   color: Colors.red,
-                  fontSize: 14.0,
+                  fontSize: 8.0,
                   fontWeight: FontWeight.w100),
             ),
 

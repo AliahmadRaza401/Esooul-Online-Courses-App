@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Widgets/innerShadow.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +29,12 @@ class LoadingButtonState extends State<LoadingButton>
       onTapUp: (_) {
         if (controller.status == AnimationStatus.forward) {
           controller.reverse();
+        } else if (controller.status == AnimationStatus.completed) {
+          setState(() {});
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SignUp()),
+          );
         }
       },
       child: Stack(
