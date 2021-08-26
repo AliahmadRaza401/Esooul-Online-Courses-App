@@ -2,13 +2,8 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-<<<<<<< HEAD
-
-import 'package:esooul/Widgets/check_internet/check_internet.dart';
-=======
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/check_internet.dart';
->>>>>>> 56bc3f5619bcd42338a1ad6a5937e7417407c793
 import 'package:esooul/Widgets/loading_button.dart';
 
 import 'package:esooul/Widgets/textfield.dart';
