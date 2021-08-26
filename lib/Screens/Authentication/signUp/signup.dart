@@ -64,6 +64,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   expHandler() {
+    print("Error Result ${result['errors']}");
     if (result['message'] == "Success.") {
       print("SignUp True");
       uniqueID = result['data']['uniqueId'];

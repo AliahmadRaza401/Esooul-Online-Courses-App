@@ -1,7 +1,11 @@
-import 'package:esooul/Screens/Paper/select_grade.dart';
+import 'package:esooul/Screens/Home/home.dart';
+import 'package:esooul/Screens/grade_list/grade_list.dart';
+import 'package:esooul/Screens/boards_list/board_list_provider.dart';
 import 'package:esooul/Widgets/header.dart';
-import 'package:esooul/Widgets/header2.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SelectBoard extends StatefulWidget {
   SelectBoard({Key? key}) : super(key: key);
@@ -11,6 +15,27 @@ class SelectBoard extends StatefulWidget {
 }
 
 class _SelectBoardState extends State<SelectBoard> {
+  late BoardListProvider _boardListProvider;
+  var result;
+  bool _loader = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _boardListProvider = Provider.of<BoardListProvider>(context, listen: false);
+    // _boardListProvider.getBoardList();
+    // result = _boardListProvider.boardListData;
+    getBoardList();
+  }
+
+  getBoardList() async {
+    result = await _boardListProvider.getBoardList();
+    setState(() {
+      _loader = false;
+    });
+    print('result: $result');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,33 +62,28 @@ class _SelectBoardState extends State<SelectBoard> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) Lahore"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) Rawalpindi"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) Faisalabad"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) Multan"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) DG Khan"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer(
-                        "Board of Intermediate and\nSecondary Education (BISE) Gujranwala"),
+                    _loader == true
+                        ? Center(child: LoadingBounceAnimation(context))
+                        : _boardListProvider.boardListData.isEmpty
+                            ? noDataMsg(context)
+                            : ListView(
+                                shrinkWrap: true,
+                                physics: ClampingScrollPhysics(),
+                                children: [
+                                  result == null
+                                      ? noDataMsg(context)
+                                      : ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: ClampingScrollPhysics(),
+                                          itemCount: result.length == null
+                                              ? 0
+                                              : result.length,
+                                          itemBuilder: (context, i) {
+                                            return _myContainer(
+                                                result[i].title, result[i].id);
+                                          })
+                                ],
+                              ),
                   ],
                 ),
               ),
@@ -74,15 +94,19 @@ class _SelectBoardState extends State<SelectBoard> {
     );
   }
 
-  _myContainer(String grade) {
+  _myContainer(String grade, boardsID) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectGrade()),
+          MaterialPageRoute(
+              builder: (context) => GradeList(
+                    educationalBoardsId: boardsID,
+                  )),
         );
       },
       child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,
@@ -113,9 +137,9 @@ class _SelectBoardState extends State<SelectBoard> {
             Text(
               grade,
               style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w600),
+                color: Colors.black,
+                fontSize: 18.0,
+              ),
             ),
           ],
         ),
