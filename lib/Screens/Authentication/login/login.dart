@@ -2,7 +2,11 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+<<<<<<< HEAD
 import 'package:esooul/Screens/Home/home.dart';
+=======
+
+>>>>>>> 364f5642bfdb3f1378926e56b6185054862c9c8f
 import 'package:esooul/Widgets/check_internet.dart';
 import 'package:esooul/Widgets/loading_button.dart';
 
@@ -51,6 +55,7 @@ class _LogInState extends State<LogIn> {
   }
 
   signIn() async {
+    _loginProvider.getUserFName();
     if (_formKey.currentState!.validate()) {
       setState(() {
         _loading = true;
@@ -75,6 +80,8 @@ class _LogInState extends State<LogIn> {
       } else if (result['message']['token'] != null) {
         print("user Authenticate");
         addTokenToSF();
+        _loginProvider.userFName(result['data']['first_name']);
+        _loginProvider.userLName(result['data']['last_name']);
         setState(() {
           _loading = false;
         });

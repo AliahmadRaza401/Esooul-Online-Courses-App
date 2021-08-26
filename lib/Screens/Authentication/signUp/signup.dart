@@ -175,11 +175,12 @@ class _SignUpState extends State<SignUp> {
                       label: 'Last Name',
                       controller: _lastnameController,
                       //node: emailNode,
-                      formvalidator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Enter your last name';
-                        }
-                      },
+                      formvalidator: RequiredValidator(errorText: "Required"),
+                      // (value) {
+                      //   if (value == null || value.isEmpty) {
+                      //     return 'Enter your last name';
+                      //   }
+                      // },
                       onChange: (value) {
                         setState(() => lname = value);
                       },
