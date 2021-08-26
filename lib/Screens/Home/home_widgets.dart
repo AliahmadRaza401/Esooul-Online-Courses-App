@@ -306,10 +306,12 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
 
 Widget sapratedWidgets(BuildContext context, String title, String desc) {
   return Padding(
-    padding: const EdgeInsets.all(10,).copyWith(top: 20),
+    padding: const EdgeInsets.all(
+      10,
+    ).copyWith(top: 20),
     child: Container(
       color: Color(0xffF1F1F1),
-      width:MediaQuery.of(context).size.width *.92,
+      width: MediaQuery.of(context).size.width * .92,
       height: MediaQuery.of(context).size.height * .05,
       child: Padding(
         padding: const EdgeInsets.only(right: 10),
@@ -325,7 +327,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                       height: MediaQuery.of(context).size.height * .05,
                       width: MediaQuery.of(context).size.width * .015,
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width *.03,),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .03,
+                    ),
                     Text(
                       "$title",
                       style: TextStyle(color: Color(0xff00B0D7)),
@@ -334,7 +338,6 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                 )
               ],
             ),
-            
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
