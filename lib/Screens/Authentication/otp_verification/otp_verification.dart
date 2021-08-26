@@ -90,172 +90,152 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .1,
-              left: MediaQuery.of(context).size.width * .01,
-              right: MediaQuery.of(context).size.width * .01,
+      body: Container(
+        decoration: BoxDecoration(
+            // color: Color(0xff5098C8),
+            gradient: RadialGradient(
+          center: Alignment(0, -0.5),
+          radius: 1,
+          colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
+        )),
+
+        // margin: EdgeInsets.only(
+        //   top: MediaQuery.of(context).size.height * .1,
+        //   left: MediaQuery.of(context).size.width * .01,
+        //   right: MediaQuery.of(context).size.width * .01,
+        // ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.111,
             ),
-            child: Column(
-              children: [
-                Image.asset("assets/png/elogo.png"),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.060,
-                ),
-                Text(
-                  "Don't worry! we're here for rescue",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
-                ),
-                Container(
-                  child: Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .0080,
-                          left: MediaQuery.of(context).size.width * .017,
-                          right: MediaQuery.of(context).size.width * .017,
-                        ),
-                        height: MediaQuery.of(context).size.height * .73,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                                Color(0xff00B0D7),
-                                Colors.white,
-                              ],
+            Image.asset("assets/png/elogo.png"),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.060,
+            ),
+            Text(
+              "Don't worry! it's all under control.",
+              style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff5A5A5A)),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .01,
+                left: MediaQuery.of(context).size.width * .02,
+                right: MediaQuery.of(context).size.width * .02,
+              ),
+              height: MediaQuery.of(context).size.height * .719,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFFFFFFFF),
+                        Color(0xffBBE0E8),
+                        Color(0xFF02B1D7)
+                      ]),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(
+                          MediaQuery.of(context).size.width * .08),
+                      topRight: Radius.circular(
+                          MediaQuery.of(context).size.width * .08))),
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.020,
+                  ),
+                  Text(
+                    "Enter 4-digit code to verify login credentials",
+                    style: TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.060,
+                  ),
+                  otpField(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Text(
+                      hasError ? "*Please fill up all the cells properly" : "",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                  Container(
+                    height: 60,
+                    margin: EdgeInsets.only(bottom: 10),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: FlatButton(
+                      child: _loading == true
+                          ? CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "Confirm",
+                              style: TextStyle(fontSize: 18),
                             ),
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                    MediaQuery.of(context).size.width * .08),
-                                topRight: Radius.circular(
-                                    MediaQuery.of(context).size.width * .08))),
+                      onPressed: () {
+                        formKey.currentState!.validate();
+                        // conditions for validating
+                        if (currentText.length != 4) {
+                          errorController.add(ErrorAnimationType
+                              .shake); // Triggering error shake animation
+                          setState(() {
+                            hasError = true;
+                          });
+                        } else {
+                          setState(
+                            () {
+                              hasError = false;
+                            },
+                          );
+                          tokenConfirm();
+                        }
+                      },
+                      color: Color(0xff5098C8),
+                      textColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .01,
-                          left: MediaQuery.of(context).size.width * .02,
-                          right: MediaQuery.of(context).size.width * .02,
-                        ),
-                        height: MediaQuery.of(context).size.height * .73,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('assets/png/loginbg.png'),
-                                fit: BoxFit.cover),
-                            color: Color(0xff404040),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                    MediaQuery.of(context).size.width * .07),
-                                topRight: Radius.circular(
-                                    MediaQuery.of(context).size.width * .07))),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.040,
-                            ),
-                            Text(
-                              "Enter Code",
-                              style: TextStyle(fontSize: 18.0),
-                            ),
-                            SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.060,
-                            ),
-                            otpField(),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 30.0),
-                              child: Text(
-                                hasError
-                                    ? "*Please fill up all the cells properly"
-                                    : "",
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                            Container(
-                              height: 60,
-                              margin: EdgeInsets.only(bottom: 10),
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              child: FlatButton(
-                                child: _loading == true
-                                    ? CircularProgressIndicator(
-                                        color: Colors.white,
-                                      )
-                                    : Text(
-                                        "Confirm",
-                                        style: TextStyle(fontSize: 18),
-                                      ),
-                                onPressed: () {
-                                  formKey.currentState!.validate();
-                                  // conditions for validating
-                                  if (currentText.length != 4) {
-                                    errorController.add(ErrorAnimationType
-                                        .shake); // Triggering error shake animation
-                                    setState(() {
-                                      hasError = true;
-                                    });
-                                  } else {
-                                    setState(
-                                      () {
-                                        hasError = false;
-                                      },
-                                    );
-                                    tokenConfirm();
-                                  }
-                                },
-                                color: Color(0xffFF5018),
-                                textColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Didn't receive the code? ",
-                                  style: TextStyle(
-                                      color: Colors.white54, fontSize: 15),
-                                ),
-                                TextButton(
-                                    onPressed: resendOTP,
-                                    child: Text(
-                                      "RESEND",
-                                      style: TextStyle(
-                                          color: Color(0xffff5018),
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ))
-                              ],
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: EdgeInsets.only(bottom: 10.0),
-                                  child: Text("Copyright Reserved@Esooul"),
-                                ),
-                              ),
-                            ),
-                          ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Didn't receive yet?",
+                        style: TextStyle(
+                          color: Color(0xff393939),
+                          fontSize: 15,
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 15.0),
+                        child: Text("Copyright Reserved@Esooul"),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -272,6 +252,10 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   }
 
   Widget otpField() {
+    Theme.of(context).textTheme.apply(
+          bodyColor: Colors.pink,
+          displayColor: Colors.pink,
+        );
     return Form(
       key: formKey,
       child: Padding(
@@ -279,11 +263,11 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
           child: PinCodeTextField(
             appContext: context,
             pastedTextStyle: TextStyle(
-              color: Color(0xff00B0D7),
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
             length: 4,
-            // obscureText: true,
+            obscureText: true,
             obscuringCharacter: '*',
             // obscuringWidget: FlutterLogo(
             //   size: 24,
@@ -292,19 +276,19 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             animationType: AnimationType.fade,
             validator: (v) {
               if (v!.length < 4) {
-                return "I'm from validator";
+                return "Enter pin code";
               } else {
                 return null;
               }
             },
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(60),
               fieldHeight: 50,
-              fieldWidth: 40,
-              activeFillColor: hasError ? Colors.blue.shade100 : Colors.black,
+              fieldWidth: 60,
+              activeFillColor: hasError ? Colors.white : Color(0xff5098C8),
             ),
-            cursorColor: Color(0xff00B0D7),
+            cursorColor: Colors.white,
             animationDuration: Duration(milliseconds: 300),
             enableActiveFill: true,
             errorAnimationController: errorController,

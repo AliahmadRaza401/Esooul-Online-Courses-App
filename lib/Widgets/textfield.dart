@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TextFormFieldWidget extends StatelessWidget {
+class TextFormFieldWidget extends StatefulWidget {
   final TextEditingController controller;
   final FormFieldSetter onChange;
   final String label;
   final FormFieldValidator<String> formvalidator;
   final TextInputType textInputtype;
   final bool isSecure;
+
+  final bool suffixcall;
 
   // Widget suffix;
   // final FocusNode node;
@@ -19,36 +21,51 @@ class TextFormFieldWidget extends StatelessWidget {
 
     //required this.node,
     this.isSecure = false,
+
     //required this.suffix,
     required this.textInputtype,
+    this.suffixcall = false,
     //required this.focus
   });
 
   @override
+  _TextFormFieldWidgetState createState() => _TextFormFieldWidgetState();
+}
+
+class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
+  @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.70,
-        height: MediaQuery.of(context).size.height * 0.060,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-            color: Color(0xff5098C8),
-            borderRadius: BorderRadius.circular(35),
-            boxShadow: [
-              BoxShadow(
-                  offset: Offset(0, 4),
-                  color: Colors.black.withOpacity(0.15),
-                  spreadRadius: 4,
-                  blurRadius: 15)
-            ]),
-        child: Padding(
-          padding: EdgeInsets.only(left: 10.0),
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.70,
+      height: MediaQuery.of(context).size.height * 0.060,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 12,
+      ),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(35),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 4),
+                color: Colors.black.withOpacity(0.15),
+                spreadRadius: 4,
+                blurRadius: 15)
+          ]),
+      child: Padding(
+        padding: EdgeInsets.only(left: 10.0),
+        child: ConstrainedBox(
+          constraints: BoxConstraints.tight(const Size(200, 50)),
           child: TextFormField(
-            style: TextStyle(fontSize: 14, color: Colors.black54),
-            obscureText: isSecure,
+            cursorColor: Colors.black,
+            style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+
             decoration: InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              isDense: true,
               border: InputBorder.none,
-              labelText: label, labelStyle: TextStyle(color: Colors.white),
+              labelText: widget.label,
+
+              labelStyle: TextStyle(color: Color(0xff2575AE)),
 
               // suffix: suffix == null ? SizedBox() : suffix,
               hintStyle: TextStyle(
@@ -57,10 +74,10 @@ class TextFormFieldWidget extends StatelessWidget {
                   fontWeight: FontWeight.w100),
             ),
 
-            validator: formvalidator,
-            onChanged: onChange,
+            validator: widget.formvalidator,
+            onChanged: widget.onChange,
             // focusNode: node,
-            controller: controller,
+            controller: widget.controller,
             //  onFieldSubmitted: focus,
           ),
         ),
@@ -94,6 +111,7 @@ class TextFieldOTP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var widget;
     return FittedBox(
       child: Container(
         width: MediaQuery.of(context).size.width * 0.16,
@@ -111,7 +129,7 @@ class TextFieldOTP extends StatelessWidget {
         child: TextFormField(
           style: TextStyle(fontSize: 18, color: Colors.black),
           textAlign: TextAlign.center,
-          obscureText: isSecure,
+          obscureText: widget._obscureText,
           decoration: InputDecoration(
             border: InputBorder.none,
             labelText: label, labelStyle: TextStyle(color: Colors.black54),
@@ -127,6 +145,109 @@ class TextFieldOTP extends StatelessWidget {
           // onFieldSubmitted: focus,
           keyboardType: TextInputType.number,
           maxLength: 1,
+        ),
+      ),
+    );
+  }
+}
+
+class PasswordTextField extends StatefulWidget {
+  final TextEditingController controller;
+  final FormFieldSetter onChange;
+  final String label;
+  final FormFieldValidator<String> formvalidator;
+  final TextInputType textInputtype;
+  final bool isSecure;
+  bool obscuretext;
+  final bool suffixcall;
+  PasswordTextField({
+    required this.controller,
+    required this.onChange,
+    required this.label,
+    required this.formvalidator,
+
+    //required this.node,
+    this.isSecure = false,
+    this.obscuretext = false,
+    //required this.suffix,
+    required this.textInputtype,
+    this.suffixcall = false,
+    //required this.focus
+  });
+
+  @override
+  _PasswordTextFieldState createState() => _PasswordTextFieldState();
+}
+
+class _PasswordTextFieldState extends State<PasswordTextField> {
+  void toggle() {
+    setState(() {
+      widget.obscuretext = !widget.obscuretext;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.70,
+      height: MediaQuery.of(context).size.height * 0.060,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 12,
+      ),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(35),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 4),
+                color: Colors.black.withOpacity(0.15),
+                spreadRadius: 4,
+                blurRadius: 15)
+          ]),
+      child: Padding(
+        padding: EdgeInsets.only(left: 10.0),
+        child: ConstrainedBox(
+          constraints: BoxConstraints.tight(const Size(200, 50)),
+          child: TextFormField(
+            cursorColor: Colors.black,
+            style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+            obscureText: widget.obscuretext,
+
+            decoration: InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              isDense: true,
+              border: InputBorder.none,
+              labelText: widget.label,
+
+              labelStyle: TextStyle(color: Color(0xff2575AE)),
+
+              // suffix: suffix == null ? SizedBox() : suffix,
+              hintStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: 8.0,
+                  fontWeight: FontWeight.w100),
+
+              suffixIcon: IconButton(
+                icon: Icon(
+                  // Based on passwordVisible state choose the icon
+                  widget.obscuretext ? Icons.visibility_off : Icons.visibility,
+                  color: Theme.of(context).primaryColorDark,
+                ),
+                onPressed: () {
+                  // Update the state i.e. toogle the state of passwordVisible variable
+                  setState(() {
+                    widget.obscuretext = !widget.obscuretext;
+                  });
+                },
+              ),
+            ),
+
+            validator: widget.formvalidator,
+            onChanged: widget.onChange,
+            // focusNode: node,
+            controller: widget.controller,
+            //  onFieldSubmitted: focus,
+          ),
         ),
       ),
     );

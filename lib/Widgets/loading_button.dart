@@ -39,30 +39,40 @@ class LoadingButtonState extends State<LoadingButton>
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          InnerShadow(
-            color: Colors.black.withOpacity(0.5),
-            blur: 10,
-            offset: Offset(20, 15),
-            child: Container(
-              height: 199,
-              width: 199,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [Color(0xff214966), Color(0xff046696)],
-                ),
-              ),
-              child: CircularProgressIndicator(
-                value: 1.0,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
+          // InnerShadow(
+          //   color: Colors.black.withOpacity(0.3),
+          //   blur: 5,
+          //   offset: Offset(20, 15),
+          Container(
+            height: 199,
+            width: 199,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFFE0D7D7),
+                    // Color(0xff6EC2EB),
+                    Colors.white
+                  ]),
+
+              // gradient: RadialGradient(
+              //   colors: [Color(0xff214966), Color(0xff046696)],
+              // ),
+            ),
+            child: CircularProgressIndicator(
+              value: 1.0,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
             ),
           ),
           Container(
             height: 200,
             width: 200,
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.transparent),
+                border: Border.all(color: Colors.white, width: 4),
+                shape: BoxShape.circle,
+                color: Colors.transparent),
             child: CircularProgressIndicator(
               value: controller.value,
               valueColor: AlwaysStoppedAnimation<Color>(Color(0xff00B0D7)),
@@ -71,8 +81,8 @@ class LoadingButtonState extends State<LoadingButton>
           Center(
             child: Text(
               "Press and\nHold to create",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  color: Color(0xff2575AE), fontWeight: FontWeight.w600),
             ),
           )
         ],

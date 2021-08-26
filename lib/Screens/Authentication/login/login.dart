@@ -1,18 +1,16 @@
-import 'package:esooul/Screens/Authentication/forget_password.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
-import 'package:esooul/Screens/Authentication/signUp/signup.dart';
+
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-import 'package:esooul/Screens/Home/home.dart';
+
 import 'package:esooul/Widgets/check_internet/check_internet.dart';
 import 'package:esooul/Widgets/loading_button.dart';
-import 'package:esooul/Widgets/my_slide_button.dart';
+
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
-import 'package:esooul/api/api.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +25,6 @@ class _LogInState extends State<LogIn> {
   String email = "";
   String error = "";
   String password = "";
-  Color _containerColor = Colors.blue;
 
   // late FocusNode emailNode;
   // late FocusNode passwordNode;
@@ -102,175 +99,227 @@ class _LogInState extends State<LogIn> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Color(0xff5098C8),
-          // margin: EdgeInsets.only(
-          // top: MediaQuery.of(context).size.height * .09,
-          // left: MediaQuery.of(context).size.width * .01,
-          // right: MediaQuery.of(context).size.width * .01,
-          // bottom: MediaQuery.of(context).size.height * 0.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.060,
-              ),
-              Image.asset("assets/png/elogo.png"),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.040,
-              ),
-              Text(
-                "Hello",
-                style: TextStyle(fontSize: 18.0),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .01,
-                    left: MediaQuery.of(context).size.width * .02,
-                    right: MediaQuery.of(context).size.width * .02,
-                    bottom: MediaQuery.of(context).size.height * 0.0),
-                height: MediaQuery.of(context).size.height * .75,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/png/loginbg.png'),
-                      fit: BoxFit.cover),
-                  color: Color(0xff5098C8),
-                  borderRadius: BorderRadius.circular(30),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            // color: Color(0xff5098C8),
+            gradient: RadialGradient(
+          center: Alignment(0, -0.5),
+          radius: 1,
+          colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
+        )),
+        // margin: EdgeInsets.only(
+        // top: MediaQuery.of(context).size.height * .09,
+        // left: MediaQuery.of(context).size.width * .01,
+        // right: MediaQuery.of(context).size.width * .01,
+        // bottom: MediaQuery.of(context).size.height * 0.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.091,
+            ),
+            Image.asset("assets/png/elogo.png"),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.040,
+            ),
+            Text(
+              "Welcome to the future of learning",
+              style: TextStyle(
+                  fontSize: 18.0,
+                  color: Color(0xff5A5A5A),
+                  fontWeight: FontWeight.w600),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .01,
+                  left: MediaQuery.of(context).size.width * .02,
+                  right: MediaQuery.of(context).size.width * .02,
+                  bottom: MediaQuery.of(context).size.height * 0.0),
+              height: MediaQuery.of(context).size.height * .755,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFFFFFFF),
+                      Color(0xffBBE0E8),
+                      Color(0xFF02B1D7)
+                    ]),
+
+                // image: DecorationImage(
+                //     image: AssetImage('assets/png/loginbg.png'),
+                //     fit: BoxFit.cover),
+                color: Color(0xff5098C8),
+                borderRadius: BorderRadius.only(
+                  topLeft:
+                      Radius.circular(MediaQuery.of(context).size.width * .08),
+                  topRight:
+                      Radius.circular(MediaQuery.of(context).size.width * .08),
                 ),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
-                      ),
-                      Text(
-                        "Login to your account",
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.030,
-                      ),
-                      TextFormFieldWidget(
-                        label: 'Email',
-                        controller: _emailController,
-                        //node: emailNode,
-                        formvalidator: emailValidator,
-                        // formvalidator: (value) {
-                        //   if (value == null || value.isEmpty) {
-                        //     return 'Email is empty';
-                        //   }
-                        // },
-                        onChange: (value) {
-                          setState(() => email = value);
-                        },
+              ),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    Text(
+                      "Login to your account",
+                      style:
+                          TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.030,
+                    ),
+                    TextFormFieldWidget(
+                      label: 'Email',
+                      controller: _emailController,
+                      //node: emailNode,
+                      formvalidator: emailValidator,
+                      // formvalidator: (value) {
+                      //   if (value == null || value.isEmpty) {
+                      //     return 'Email is empty';
+                      //   }
+                      // },
+                      onChange: (value) {
+                        setState(() => email = value);
+                      },
 
-                        textInputtype: TextInputType.emailAddress,
+                      textInputtype: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    PasswordTextField(
+                      label: 'Password',
+                      controller: _passwordController,
+                      //node: emailNode,
+                      formvalidator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 6) {
+                          return 'Password is too short';
+                        }
+                      },
+                      onChange: (value) {
+                        setState(() => password = value);
+                      },
+                      obscuretext: true,
+                      textInputtype: TextInputType.visiblePassword,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    GestureDetector(
+                        child: Text(
+                      "Forget Passsword?",
+                      style: TextStyle(
+                        color: Color(0xff5A5A5A),
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
+                    )),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    ElevatedButton(
+                      child: _loading == true
+                          ? CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : Text('LogIn'),
+                      onPressed: signIn,
+                    ),
+                    // swipeButton(),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    Text(
+                      "Or",
+                      style: TextStyle(
+                        color: Color(0xff5A5A5A),
                       ),
-                      TextFormFieldWidget(
-                        label: 'Password',
-                        controller: _passwordController,
-                        //node: emailNode,
-                        formvalidator: (value) {
-                          if (value == null ||
-                              value.isEmpty ||
-                              value.length < 6) {
-                            return 'Password is too short';
-                          }
-                        },
-                        onChange: (value) {
-                          setState(() => password = value);
-                        },
-                        isSecure: true,
-                        textInputtype: TextInputType.visiblePassword,
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
-                      ),
-                      GestureDetector(child: Text("Forget Passsword?")),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
-                      ),
-                      ElevatedButton(
-                        child: _loading == true
-                            ? CircularProgressIndicator(
-                                color: Colors.white,
-                              )
-                            : Text('LogIn'),
-                        onPressed: signIn,
-                      ),
-                      // swipeButton(),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
-                      ),
-                      Text("Or"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
-                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
 
-                      Text("Don't Have an account?"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.020,
+                    Text(
+                      "Don't Have an account?",
+                      style: TextStyle(
+                        color: Color(0xff5A5A5A),
                       ),
-                      // ElevatedButton(
-                      //   child: Text('Register'),
-                      //   onPressed: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => SignUp()),
-                      //     );
-                      //   },
-                      // ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    // ElevatedButton(
+                    //   child: Text('Register'),
+                    //   onPressed: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => SignUp()),
+                    //     );
+                    //   },
+                    // ),
 
-                      LoadingButton(),
+                    LoadingButton(),
 
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.010,
-                      ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
 
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text("Copyright Reserved@Esooul"),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "Copyright Reserved@Esooul",
+                            style: TextStyle(
+                              color: Color(0xff5A5A5A),
+                            ),
                           ),
                         ),
-                      )
+                      ),
+                    )
 
-                      // SliderButton(
-                      //   action: () {
-                      //     ///Do something here
-                      //     Navigator.of(context).pop();
-                      //   },
-                      //   label: Text(
-                      //     "Slide to cancel Event",
-                      //     style: TextStyle(
-                      //         color: Color(0xff4a4a4a),
-                      //         fontWeight: FontWeight.w500,
-                      //         fontSize: 17),
-                      //   ),
+                    // SliderButton(
+                    //   action: () {
+                    //     ///Do something here
+                    //     Navigator.of(context).pop();
+                    //   },
+                    //   label: Text(
+                    //     "Slide to cancel Event",
+                    //     style: TextStyle(
+                    //         color: Color(0xff4a4a4a),
+                    //         fontWeight: FontWeight.w500,
+                    //         fontSize: 17),
+                    //   ),
 
-                      //   icon: Text(
-                      //     "x",
-                      //     style: TextStyle(
-                      //       color: Colors.black,
-                      //       fontWeight: FontWeight.w400,
-                      //       fontSize: 44,
-                      //     ),
-                      //   ),
-                      // )
-                    ],
-                  ),
+                    //   icon: Text(
+                    //     "x",
+                    //     style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 44,
+                    //     ),
+                    //   ),
+                    // )
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

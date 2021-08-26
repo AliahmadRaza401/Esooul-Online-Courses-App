@@ -7,8 +7,7 @@ final emailValidator = MultiValidator([
 
 final passwordValidator = MultiValidator([
   RequiredValidator(errorText: 'password is required'),
-  MinLengthValidator(8, errorText: 'password must be at least 8 digits long'),
+  MinLengthValidator(10, errorText: 'password must be at least 10 digits long'),
   PatternValidator(r'(?=.*?[#?!@$%^&*-])(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])',
-      errorText:
-          'passwords must have at least one\nspecial character and Upper case letter')
+      errorText: 'Enter one Upper and Special case letter')
 ]);
