@@ -6,6 +6,7 @@ import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/check_internet/check_internet.dart';
 import 'package:esooul/Widgets/loading_button.dart';
+import 'package:esooul/Widgets/my_slide_button.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
 import 'package:esooul/api/api.dart';
@@ -174,14 +175,13 @@ class _LogInState extends State<LogIn> {
                         label: 'Password',
                         controller: _passwordController,
                         //node: emailNode,
-                        formvalidator: passwordValidator,
-                        // formvalidator: (value) {
-                        //   if (value == null ||
-                        //       value.isEmpty ||
-                        //       value.length < 6) {
-                        //     return 'Password is too short';
-                        //   }
-                        // },
+                        formvalidator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 6) {
+                            return 'Password is too short';
+                          }
+                        },
                         onChange: (value) {
                           setState(() => password = value);
                         },
@@ -203,6 +203,7 @@ class _LogInState extends State<LogIn> {
                             : Text('LogIn'),
                         onPressed: signIn,
                       ),
+                      // swipeButton(),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.020,
                       ),
@@ -215,15 +216,17 @@ class _LogInState extends State<LogIn> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.020,
                       ),
-                      ElevatedButton(
-                        child: Text('Register'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => SignUp()),
-                          );
-                        },
-                      ),
+                      // ElevatedButton(
+                      //   child: Text('Register'),
+                      //   onPressed: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => SignUp()),
+                      //     );
+                      //   },
+                      // ),
+
                       LoadingButton(),
 
                       SizedBox(
