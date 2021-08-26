@@ -4,7 +4,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.
 import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
-import 'package:esooul/Widgets/check_internet/check_internet.dart';
+import 'package:esooul/Widgets/check_internet.dart';
 import 'package:esooul/Widgets/loading_button.dart';
 import 'package:esooul/Widgets/my_slide_button.dart';
 import 'package:esooul/Widgets/textfield.dart';

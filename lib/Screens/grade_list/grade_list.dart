@@ -1,17 +1,43 @@
-import 'package:esooul/Screens/Paper/select_subject.dart';
+import 'package:esooul/Screens/grade_list/grade_list_provider.dart';
+import 'package:esooul/Screens/subject_list/subject_list.dart';
+import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 
 import 'package:esooul/Widgets/header2.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class SelectGrade extends StatefulWidget {
-  SelectGrade({Key? key}) : super(key: key);
+class GradeList extends StatefulWidget {
+  var educationalBoardsId;
+  GradeList({Key? key, @required this.educationalBoardsId}) : super(key: key);
 
   @override
-  _SelectGradeState createState() => _SelectGradeState();
+  _GradeListState createState() => _GradeListState();
 }
 
-class _SelectGradeState extends State<SelectGrade> {
+class _GradeListState extends State<GradeList> {
+  late GradeListProvider _gradeListProvider;
+  var result;
+  bool _loader = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _gradeListProvider = Provider.of<GradeListProvider>(context, listen: false);
+    getGradeList();
+  }
+
+  getGradeList() async {
+    result = await _gradeListProvider.getGradeList(widget.educationalBoardsId);
+    setState(() {
+      _loader = false;
+    });
+    print('gradesList: $result');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,27 +64,26 @@ class _SelectGradeState extends State<SelectGrade> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Grade 09"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Grade 10"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Grade 11"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Grade 12"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("A Levels"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("O Levels"),
+                    _loader == true
+                        ? LoadingBounceAnimation(context)
+                        : _gradeListProvider.gradeListData.isEmpty
+                            ? noDataMsg(context)
+                            : ListView(
+                                shrinkWrap: true,
+                                physics: ClampingScrollPhysics(),
+                                children: [
+                                  ListView.builder(
+                                      shrinkWrap: true,
+                                      physics: ClampingScrollPhysics(),
+                                      itemCount: result.length == null
+                                          ? 0
+                                          : result.length,
+                                      itemBuilder: (context, i) {
+                                        return _myContainer(
+                                            result[i].title, result[i].id);
+                                      })
+                                ],
+                              ),
                   ],
                 ),
               ),
@@ -69,15 +94,20 @@ class _SelectGradeState extends State<SelectGrade> {
     );
   }
 
-  _myContainer(String grade) {
+  _myContainer(String grade, gradeID) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectSubject()),
+          MaterialPageRoute(
+              builder: (context) => SubjectList(
+                    gradeID: gradeID,
+                  )),
         );
+        _gradeListProvider.selectedGradeID = gradeID;
       },
       child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,

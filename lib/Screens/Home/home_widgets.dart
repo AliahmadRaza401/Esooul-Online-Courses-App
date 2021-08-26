@@ -1,4 +1,4 @@
-import 'package:esooul/Screens/Paper/select_board.dart';
+import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:flutter/material.dart';
 
 Widget boardsCard(

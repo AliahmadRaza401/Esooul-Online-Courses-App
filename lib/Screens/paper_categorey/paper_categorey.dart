@@ -6,14 +6,14 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
-class SelectPaper extends StatefulWidget {
-  SelectPaper({Key? key}) : super(key: key);
+class PaperCategorey extends StatefulWidget {
+  PaperCategorey({Key? key}) : super(key: key);
 
   @override
-  _SelectPaperState createState() => _SelectPaperState();
+  _PaperCategoreyState createState() => _PaperCategoreyState();
 }
 
-class _SelectPaperState extends State<SelectPaper> {
+class _PaperCategoreyState extends State<PaperCategorey> {
   bool _show = false;
   @override
   Widget build(BuildContext context) {
