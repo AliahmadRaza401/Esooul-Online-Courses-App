@@ -68,12 +68,13 @@ class _HomeState extends State<Home> {
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(20).copyWith(top: 0,bottom: 10),
+                            padding:
+                                EdgeInsets.all(20).copyWith(top: 0, bottom: 10),
                             child: homeHeader(context),
                           ),
                           Container(
                             height: MediaQuery.of(context).size.height * .67,
-                            width:double.infinity,
+                            width: double.infinity,
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
@@ -92,7 +93,8 @@ class _HomeState extends State<Home> {
                                   //       //     boardAreaData[i]['description']);
                                   //     }),
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 10,right: 20,left: 15),
+                                    padding: const EdgeInsets.only(
+                                        top: 10, right: 20, left: 15),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
@@ -117,7 +119,8 @@ class _HomeState extends State<Home> {
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 10,right: 20,left: 15),
+                                    padding: const EdgeInsets.only(
+                                        top: 10, right: 20, left: 15),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
@@ -141,18 +144,31 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
 
-                                  sapratedWidgets(context,'Important', ''),
+                                  sapratedWidgets(context, 'Important', ''),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 15,right: 15),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, right: 15),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
-                                      guessPaper(context,'assets/png/guesspaper.png','Guess Paper'),
-                                      guessPaper(context,'assets/png/ppscpapers.png','Model Papers'),
-                                      guessPaper(context, 'assets/png/tipspaper.png','Tips Papers')
-                                    ],),
+                                        guessPaper(
+                                            context,
+                                            'assets/png/guesspaper.png',
+                                            'Guess Paper'),
+                                        guessPaper(
+                                            context,
+                                            'assets/png/ppscpapers.png',
+                                            'Model Papers'),
+                                        guessPaper(
+                                            context,
+                                            'assets/png/tipspaper.png',
+                                            'Tips Papers')
+                                      ],
+                                    ),
                                   ),
-                                sapratedWidgets(context,'Recommended for you','Show all'),
+                                  sapratedWidgets(context,
+                                      'Recommended for you', 'Show all'),
                                   Container(
                                     margin: EdgeInsets.only(
                                         top:
@@ -166,34 +182,30 @@ class _HomeState extends State<Home> {
                                         children: [
                                           recommendedCard(
                                               context,
-                                              'assets/png/geography.png',
-                                              'Issues in Canadian Geography,',
-                                              'Ponum Ghazanfar',
-                                              'History',
+                                              'assets/png/physics9th.png',
+                                              'Physics class 09 th',
+                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
-                                              'assets/png/geography2.png',
-                                              'Issues in Canadian Geography,',
-                                              'Ponum Ghazanfar',
-                                              'History',
+                                              'assets/png/maths10th.png',
+                                              'Maths class 10 th',
+                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
-                                              'assets/png/geography.png',
-                                              'Issues in Canadian Geography,',
-                                              'Ponum Ghazanfar',
-                                              'History',
+                                              'assets/png/chemistry10.png',
+                                              'Physics class 09 th',
+                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
-                                              'assets/png/geography2.png',
-                                              'Issues in Canadian Geography,',
-                                              'Ponum Ghazanfar',
-                                              'History',
+                                              'assets/png/physics9th.png',
+                                              'Physics class 09 th',
+                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                         ],
