@@ -117,7 +117,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
           ],
         ),
         padding: EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width * .9,
+        width: MediaQuery.of(context).size.width * .92,
         height: MediaQuery.of(context).size.height * .15,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -249,7 +249,10 @@ homeHeader(BuildContext context) {
           decoration: InputDecoration(
               contentPadding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * .01),
-              suffixIcon: Image.asset('assets/png/chevron-down.png'),
+              suffixIcon: Icon(
+                Icons.search_outlined,
+                color: Colors.black,
+              ),
               prefixIcon: Image.asset('assets/png/airplay.png'),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(100),
@@ -260,6 +263,87 @@ homeHeader(BuildContext context) {
               fillColor: Colors.white),
         ),
       ],
+    ),
+  );
+}
+
+Widget guessPaper(BuildContext context, String bgImg, String name) {
+  return Padding(
+    padding: const EdgeInsets.only(top: 5),
+    child: Container(
+      decoration: BoxDecoration(
+          color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
+      height: MediaQuery.of(context).size.height * .1,
+      width: MediaQuery.of(context).size.width * .29,
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(18),
+                image: DecorationImage(
+                  image: AssetImage("$bgImg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              height: MediaQuery.of(context).size.height * .06,
+              width: MediaQuery.of(context).size.width * .28,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * .005),
+            Text(
+              "$name",
+              style: TextStyle(fontSize: 12, color: Colors.black),
+            )
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget sapratedWidgets(BuildContext context, String title, String desc) {
+  return Padding(
+    padding: const EdgeInsets.all(10,).copyWith(top: 20),
+    child: Container(
+      color: Color(0xffF1F1F1),
+      width:MediaQuery.of(context).size.width *.92,
+      height: MediaQuery.of(context).size.height * .05,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      color: Color(0xff00B0D7),
+                      height: MediaQuery.of(context).size.height * .05,
+                      width: MediaQuery.of(context).size.width * .015,
+                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width *.03,),
+                    Text(
+                      "$title",
+                      style: TextStyle(color: Color(0xff00B0D7)),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("$desc", style: TextStyle(color: Color(0xff004E8F))),
+              ],
+            )
+          ],
+        ),
+      ),
     ),
   );
 }

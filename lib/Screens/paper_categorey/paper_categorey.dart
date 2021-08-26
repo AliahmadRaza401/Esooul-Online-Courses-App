@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:esooul/Screens/Paper/topic_list.dart';
+import 'package:esooul/Screens/Paper/year_papers.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
 
 import 'package:esooul/Widgets/header.dart';
@@ -75,77 +76,82 @@ class _PaperCategoreyState extends State<PaperCategorey> {
 
   Widget pastpaper(BuildContext context) {
     DateTime currentdate = new DateTime.now();
-    return Center(
-      child: Container(
-        height: MediaQuery.of(context).size.height * .65,
-        width: MediaQuery.of(context).size.width * .9,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(color: Colors.grey, spreadRadius: 70, blurRadius: 200)
-          ],
-          gradient: LinearGradient(colors: [
-            Color(0xff72C6EF),
-            Color(0xff004E8F),
-          ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        padding: EdgeInsets.all(30).copyWith(left: 5, right: 5),
-        child: Center(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Select year",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .25,
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _show = false;
-                        });
-                      },
-                      child: Icon(
-                        Icons.close,
-                        size: 30,
-                      ))
-                ],
-              ),
-              ListView.builder(
-                  shrinkWrap: true,
-                  // scrollDirection:Axis.horizontal ,
-                  itemCount: 9,
-                  itemBuilder: (context, i) {
-                    return GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Topics()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5),
-                            child: Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xffEBEBEB).withOpacity(.21),
-                                ),
-                                height: MediaQuery.of(context).size.height * .05,
-                                width: MediaQuery.of(context).size.width * .86,
-                                child: Center(
-                                    child: Text(
-                                  "${currentdate.year - i}",
-                                  style: TextStyle(fontSize: 20),
-                                ))),
-                          )
-                        ],
-                      ),
-                    );
-                  })
-            ],
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      color: Colors.white.withOpacity(.5),
+      child: Center(
+        child: Container(
+          height: MediaQuery.of(context).size.height * .65,
+          width: MediaQuery.of(context).size.width * .9,
+          decoration: BoxDecoration(
+            // boxShadow: [
+            //   BoxShadow(color: Colors.grey, spreadRadius: 70, blurRadius: 200)
+            // ],
+            gradient: LinearGradient(colors: [
+              Color(0xff72C6EF),
+              Color(0xff004E8F),
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          padding: EdgeInsets.all(30).copyWith(left: 5, right: 5),
+          child: Center(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Select year",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .25,
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _show = false;
+                          });
+                        },
+                        child: Icon(
+                          Icons.close,
+                          size: 30,
+                        ))
+                  ],
+                ),
+                ListView.builder(
+                    shrinkWrap: true,
+                    // scrollDirection:Axis.horizontal ,
+                    itemCount: 9,
+                    itemBuilder: (context, i) {
+                      return GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>YearPaperSelection()));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffEBEBEB).withOpacity(.21),
+                                  ),
+                                  height: MediaQuery.of(context).size.height * .05,
+                                  width: MediaQuery.of(context).size.width * .86,
+                                  child: Center(
+                                      child: Text(
+                                    "${currentdate.year - i}",
+                                    style: TextStyle(fontSize: 20),
+                                  ))),
+                            )
+                          ],
+                        ),
+                      );
+                    })
+              ],
+            ),
           ),
         ),
       ),

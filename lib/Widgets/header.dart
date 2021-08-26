@@ -35,7 +35,7 @@ class _HeaderState extends State<Header> {
             ],
           ),
           color: Colors.blue,
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(30),
         ),
         child: Column(
           children: <Widget>[

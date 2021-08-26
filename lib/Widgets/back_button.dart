@@ -74,13 +74,18 @@ class BackButtonWidget extends StatelessWidget {
                     top: 10,
                     bottom: 10,
                   ),
-                  child: Text(
-                    "< Back",
-                    style: TextStyle(
-                      fontSize: 14,
-                      // fontWeight: FontWeight.w700,
-                      color: Color(0xff2575AE),
-                    ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.arrow_back_ios_new_outlined,size: 18,color: Color(0xff2575AE),),
+                      Text(
+                        " Back",
+                        style: TextStyle(
+                          fontSize: 17,
+                          // fontWeight: FontWeight.w700,
+                          color: Color(0xff2575AE),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -105,7 +110,7 @@ class BackButtonWidget extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => BottomNavBar()));
                 },
                 child: Icon(
-                  Icons.home,
+                  Icons.home_outlined,
                   size: 25,
                   color: Color(0xff2575AE),
                 ),
