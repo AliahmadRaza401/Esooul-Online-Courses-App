@@ -1,3 +1,4 @@
+
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -92,8 +93,7 @@ class _McqsState extends State<Mcqs> {
                                       onPressed: () {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
-                                                builder: (context) =>
-                                                    Report()));
+                                                builder: (context) => Report()));
                                       },
                                       style: ElevatedButton.styleFrom(
                                         padding: EdgeInsets.only(

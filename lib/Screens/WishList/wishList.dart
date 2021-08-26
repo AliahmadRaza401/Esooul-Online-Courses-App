@@ -1,3 +1,6 @@
+
+import 'package:esooul/Screens/paper_type/past_paper.dart';
+import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Screens/MCQs/MCQs.dart';
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
@@ -12,6 +15,7 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -185,4 +189,11 @@ class _WishlistState extends State<Wishlist> {
       ),
     );
   }
+
+
+
+
+
+
+
 }

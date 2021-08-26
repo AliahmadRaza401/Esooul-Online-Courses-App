@@ -210,7 +210,7 @@ class _ReportState extends State<Report> {
                                             BorderRadius.circular(100),
                                       ),
                                     ),
-                                    child: Text("Next Topic")),
+                                    child: Text("Go to Home")),
                               ),
                             ],
                           ),

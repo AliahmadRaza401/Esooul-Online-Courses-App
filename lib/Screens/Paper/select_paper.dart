@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
+
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
@@ -47,9 +47,8 @@ class _SelectPaperState extends State<SelectPaper> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TopicList()));
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TopicList()));
                     },
                     child: papercard(
                       context,
@@ -122,9 +121,8 @@ class _SelectPaperState extends State<SelectPaper> {
                   itemCount: 9,
                   itemBuilder: (context, i) {
                     return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Topics()));
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Topics()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -135,8 +133,7 @@ class _SelectPaperState extends State<SelectPaper> {
                                 decoration: BoxDecoration(
                                   color: Color(0xffEBEBEB).withOpacity(.21),
                                 ),
-                                height:
-                                    MediaQuery.of(context).size.height * .05,
+                                height: MediaQuery.of(context).size.height * .05,
                                 width: MediaQuery.of(context).size.width * .86,
                                 child: Center(
                                     child: Text(
