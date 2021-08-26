@@ -136,7 +136,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
           ),
         ],
-        color: Color(0xff00B0D7),
+        color: Color(0xff4091C5),
         buttonBackgroundColor: Colors.transparent,
         backgroundColor: Colors.white,
         animationCurve: Curves.easeInOut,

@@ -101,26 +101,27 @@ Widget boardsCard(
 }
 
 Widget recommendedCard(BuildContext context, String img, String name,
-    String techr, String category, double likes, String date) {
+    String board, double likes, String date) {
   return Padding(
     padding: const EdgeInsets.only(top: 15),
     child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
+              spreadRadius:5,
               blurRadius: 6,
               offset: Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(right:15),
         width: MediaQuery.of(context).size.width * .92,
-        height: MediaQuery.of(context).size.height * .15,
+        height: MediaQuery.of(context).size.height * .12,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -128,33 +129,45 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 Image.asset(
                   "$img",
                   height: MediaQuery.of(context).size.height * .12,
-                  width: MediaQuery.of(context).size.width * .33,
+                  // width: MediaQuery.of(context).size.width * .,
                 ),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "$name",
-                  style: TextStyle(color: Colors.black),
-                ),
-                Text('$techr', style: TextStyle(color: Color(0xff2F2F2F))),
-                Text(
-                  "Category - $category",
-                  style: TextStyle(color: Color(0xffC4C4C4)),
-                ),
-                Row(
-                  children: [
-                    Text("Likes $likes K    ",
-                        style: TextStyle(color: Colors.black, fontSize: 12)),
-                    Text("Created $date",
-                        style: TextStyle(color: Colors.black, fontSize: 12))
-                  ],
-                )
-              ],
-            )
+            SizedBox(width: MediaQuery.of(context).size.width *.02,),
+            Container(
+              // color: Colors.amber,
+              height: MediaQuery.of(context).size.height *.1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "$name",
+                    style: TextStyle(color: Colors.black,fontSize: 13),
+                  ),
+                  Container(
+                    // color: Colors.black,
+                    width: MediaQuery.of(context).size.width *.53,
+                    child: 
+                  
+                  Expanded(child: Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)))),
+                  
+                  Row(
+                    children: [
+                      Text("Likes $likes K    ",
+                          style: TextStyle(color: Color(0xff72C6EF), fontSize: 10)),
+                      Text("Created $date",
+                          style: TextStyle(color: Color(0xff999999), fontSize: 10))
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height *.07,
+              left: MediaQuery.of(context).size.width *.035,
+              ),
+              child: Icon(Icons.favorite,color: Colors.red,size: 30,),)
           ],
         )),
   );
