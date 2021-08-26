@@ -33,6 +33,33 @@ class LoginProvider extends ChangeNotifier {
     }
   }
 
+  // Save User Data
+
+  userFName(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('userFName', value);
+  }
+
+  userLName(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('userLName', value);
+  }
+
+  getUserFName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var user = prefs.getString('userFName');
+    print('userFname: $user');
+
+    return user;
+  }
+
+  getUserLName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var user = prefs.getString('userLName');
+    return user;
+  }
+
+  // Check Uer Login or Not
   checkUserAlreadyLogin(BuildContext context) async {
     bool loginUser = await getloginUser();
     print('loginUser: $loginUser');

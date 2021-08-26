@@ -51,6 +51,7 @@ class _LogInState extends State<LogIn> {
   }
 
   signIn() async {
+    _loginProvider.getUserFName();
     if (_formKey.currentState!.validate()) {
       setState(() {
         _loading = true;
@@ -75,6 +76,8 @@ class _LogInState extends State<LogIn> {
       } else if (result['message']['token'] != null) {
         print("user Authenticate");
         addTokenToSF();
+        _loginProvider.userFName(result['data']['first_name']);
+        _loginProvider.userLName(result['data']['last_name']);
         setState(() {
           _loading = false;
         });

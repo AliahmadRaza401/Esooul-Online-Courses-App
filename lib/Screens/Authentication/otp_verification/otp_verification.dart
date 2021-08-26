@@ -52,12 +52,13 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
     super.dispose();
   }
 
-  tokenConfirm() {
+  Future tokenConfirm() async {
     _loading = true;
     print(currentText);
-    result = _otpVerificationProvider.otpVerification(
+    result = await _otpVerificationProvider.otpVerification(
         otp: currentText, uniqueID: widget.uniqueID);
     print('result: $result');
+    expHandler();
   }
 
   expHandler() {
@@ -156,7 +157,11 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                     height: MediaQuery.of(context).size.height * 0.020,
                   ),
                   Text(
-                    "Enter 4-digit code to verify login credentials",
+                    "Enter 4-digit code to verify",
+                    style: TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                  ),
+                  Text(
+                    "your credentials",
                     style: TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
                   ),
                   SizedBox(
