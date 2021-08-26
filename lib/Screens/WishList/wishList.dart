@@ -69,38 +69,6 @@ class _WishlistState extends State<Wishlist> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-<<<<<<< HEAD
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Mcqs()));
-                                },
-                                child: Text("MCQs")),
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Topics()));
-                                },
-                                child: Text("Topics")),
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Report()));
-                                },
-                                child: Text("Report")),
-                          ],
-                        ),
-                        
-                         
-                        ElevatedButton(onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PastPapersDropDown()));
-                        }, child: Text("Past papers"))
-                         
-=======
->>>>>>> 337e5b42c8c9c909e8f168e2d04ab0cdfbe25278
                       ],
                     ),
                   )),
