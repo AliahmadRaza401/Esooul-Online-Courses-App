@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Widgets/textfield.dart';
+import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -36,158 +37,148 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * .090,
-              left: MediaQuery.of(context).size.width * .01,
-              right: MediaQuery.of(context).size.width * .01,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            // color: Color(0xff5098C8),
+            gradient: RadialGradient(
+          center: Alignment(0, -0.6),
+          radius: 1.2,
+          colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
+        )),
+        // margin: EdgeInsets.only(
+        //   top: MediaQuery.of(context).size.height * .090,
+        //   left: MediaQuery.of(context).size.width * .01,
+        //   right: MediaQuery.of(context).size.width * .01,
+        // ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.11,
             ),
-            child: Column(
-              children: [
-                Image.asset("assets/png/elogo.png"),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.080,
-                ),
-                Text(
-                  "Don't worry! we're here for rescue",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
-                ),
-                Container(
-                  child: Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .0080,
-                          left: MediaQuery.of(context).size.width * .017,
-                          right: MediaQuery.of(context).size.width * .017,
-                        ),
-                        height: MediaQuery.of(context).size.height * .68,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [
-                                Color(0xff00B0D7),
-                                Colors.white,
-                              ],
+            Image.asset("assets/png/elogo.png"),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.060,
+            ),
+            Text(
+              "Don't worry! it's all under control",
+              style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff5A5A5A)),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * .01,
+                left: MediaQuery.of(context).size.width * .02,
+                right: MediaQuery.of(context).size.width * .02,
+              ),
+              height: MediaQuery.of(context).size.height * .72,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFFFFFFFF),
+                        Color(0xffBBE0E8),
+                        Color(0xFF02B1D7)
+                      ]),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(
+                          MediaQuery.of(context).size.width * .08),
+                      topRight: Radius.circular(
+                          MediaQuery.of(context).size.width * .08))),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Forget Password",
+                      style:
+                          TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.060,
+                    ),
+                    TextFormFieldWidget(
+                      label: 'Email',
+                      controller: _emailController,
+                      //node: emailNode,
+                      formvalidator: emailValidator,
+                      onChange: (value) {
+                        setState(() => email = value);
+                      },
+
+                      textInputtype: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.020,
+                    ),
+                    ElevatedButton(
+                        child: Text('Get Code'),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => OtpVerifivation()),
+                            );
+                          }
+                        }),
+
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 15.0),
+                          child: Text(
+                            "Copyright Reserved@Esooul",
+                            style: TextStyle(
+                              color: Color(0xff5A5A5A),
                             ),
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                    MediaQuery.of(context).size.width * .08),
-                                topRight: Radius.circular(
-                                    MediaQuery.of(context).size.width * .08))),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * .01,
-                          left: MediaQuery.of(context).size.width * .02,
-                          right: MediaQuery.of(context).size.width * .02,
-                        ),
-                        height: MediaQuery.of(context).size.height * .68,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage('assets/png/loginbg.png'),
-                                fit: BoxFit.cover),
-                            color: Color(0xff404040),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                    MediaQuery.of(context).size.width * .07),
-                                topRight: Radius.circular(
-                                    MediaQuery.of(context).size.width * .07))),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            children: <Widget>[
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.040,
-                              ),
-                              Text(
-                                "Forget Password",
-                                style: TextStyle(fontSize: 18.0),
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.060,
-                              ),
-                              TextFormFieldWidget(
-                                label: 'Email',
-                                controller: _emailController,
-                                //node: emailNode,
-                                formvalidator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Email is empty';
-                                  }
-                                },
-                                onChange: (value) {
-                                  setState(() => email = value);
-                                },
-
-                                textInputtype: TextInputType.emailAddress,
-                              ),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.020,
-                              ),
-                              ElevatedButton(
-                                child: Text('Get Code'),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => OtpVerifivation(
-                                              uniqueID: null,
-                                            )),
-                                  );
-                                },
-                              ),
-
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(bottom: 10.0),
-                                    child: Text("Copyright Reserved@Esooul"),
-                                  ),
-                                ),
-                              ),
-                              // SliderButton(
-                              //   action: () {
-                              //     ///Do something here
-                              //     Navigator.of(context).pop();
-                              //   },
-                              //   label: Text(
-                              //     "Slide to cancel Event",
-                              //     style: TextStyle(
-                              //         color: Color(0xff4a4a4a),
-                              //         fontWeight: FontWeight.w500,
-                              //         fontSize: 17),
-                              //   ),
-
-                              //   icon: Text(
-                              //     "x",
-                              //     style: TextStyle(
-                              //       color: Colors.black,
-                              //       fontWeight: FontWeight.w400,
-                              //       fontSize: 44,
-                              //     ),
-                              //   ),
-                              // )
-                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    // SliderButton(
+                    //   action: () {
+                    //     ///Do something here
+                    //     Navigator.of(context).pop();
+                    //   },
+                    //   label: Text(
+                    //     "Slide to cancel Event",
+                    //     style: TextStyle(
+                    //         color: Color(0xff4a4a4a),
+                    //         fontWeight: FontWeight.w500,
+                    //         fontSize: 17),
+                    //   ),
+
+                    //   icon: Text(
+                    //     "x",
+                    //     style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 44,
+                    //     ),
+                    //   ),
+                    // )
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

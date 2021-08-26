@@ -39,6 +39,7 @@ dependencies:
   data_connection_checker: ^0.3.4
   fluttertoastalert: ^1.0.3
   slide_button: ^0.2.9
+  form_field_validator: ^1.1.0
   loading_animations: ^2.2.0
 
 dev_dependencies:

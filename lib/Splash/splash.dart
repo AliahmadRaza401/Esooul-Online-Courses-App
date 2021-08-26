@@ -57,8 +57,8 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
           gradient: RadialGradient(
             center: Alignment.bottomCenter,
             colors: [
-              Color(0xff3F3F3F),
-              Colors.black,
+              Color(0xFFBDBDBD),
+              Colors.blue,
             ],
             radius: 1.0,
           ),
