@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Profile/Terms%20and%20privacy.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -72,7 +73,8 @@ class _SettingsState extends State<Settings> {
                       "assets/png/help.png", 'Frequently asked questions', .05),
                   setting("assets/png/update.png", 'Updates', .05),
                   setting("assets/png/about.png", 'About us', .05),
-                  setting("assets/png/report-card.png", 'Report Card', .05),
+                  setting(
+                      "assets/png/report-card.png", 'Report Card', .05),
                   GestureDetector(
                       onTap: () {
                         _loginProvider.loginFalse();

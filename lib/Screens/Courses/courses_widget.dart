@@ -1,4 +1,4 @@
-import 'package:esooul/Screens/Paper/select_paper.dart';
+import 'package:esooul/Screens/paper_categorey/paper_categorey.dart';
 import 'package:flutter/material.dart';
 
 class CoursesWidget extends StatefulWidget {
@@ -29,7 +29,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectPaper()),
+          MaterialPageRoute(builder: (context) => PaperCategorey()),
         );
       },
       child: Container(

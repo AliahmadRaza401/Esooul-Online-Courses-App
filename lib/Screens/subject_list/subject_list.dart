@@ -1,16 +1,41 @@
-import 'package:esooul/Screens/Paper/select_paper.dart';
+import 'package:esooul/Screens/paper_categorey/paper_categorey.dart';
+import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class SelectSubject extends StatefulWidget {
-  SelectSubject({Key? key}) : super(key: key);
+class SubjectList extends StatefulWidget {
+  var gradeID;
+  SubjectList({Key? key, @required this.gradeID}) : super(key: key);
 
   @override
-  _SelectSubjectState createState() => _SelectSubjectState();
+  _SubjectListState createState() => _SubjectListState();
 }
 
-class _SelectSubjectState extends State<SelectSubject> {
+class _SubjectListState extends State<SubjectList> {
+  var result;
+  bool _loader = true;
+  late SubjectListProvider _subjectListProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    _subjectListProvider =
+        Provider.of<SubjectListProvider>(context, listen: false);
+    getSubjectList();
+  }
+
+  getSubjectList() async {
+    result = await _subjectListProvider.getsubjectList(widget.gradeID);
+    setState(() {
+      _loader = false;
+    });
+    print('SubjectList: $result');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,39 +60,25 @@ class _SelectSubjectState extends State<SelectSubject> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.010,
                     ),
-                    _myContainer("Maths"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("English"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Science"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Urdu"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Islamiat"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Pak Studies"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("Computer Science"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("General Knowledge"),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.010,
-                    ),
-                    _myContainer("General Knowledge"),
+                    _loader == true
+                        ? LoadingBounceAnimation(context)
+                        : _subjectListProvider.courseListData.isEmpty
+                            ? noDataMsg(context)
+                            : ListView(
+                                shrinkWrap: true,
+                                physics: ClampingScrollPhysics(),
+                                children: [
+                                  ListView.builder(
+                                      shrinkWrap: true,
+                                      physics: ClampingScrollPhysics(),
+                                      itemCount: result.length == null
+                                          ? 0
+                                          : result.length,
+                                      itemBuilder: (context, i) {
+                                        return _myContainer(result[i].title);
+                                      })
+                                ],
+                              ),
                   ],
                 ),
               ),
@@ -78,15 +89,18 @@ class _SelectSubjectState extends State<SelectSubject> {
     );
   }
 
-  _myContainer(String grade) {
+  _myContainer(
+    String grade,
+  ) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SelectPaper()),
+          MaterialPageRoute(builder: (context) => PaperCategorey()),
         );
       },
       child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,

@@ -1,23 +1,20 @@
 import 'dart:ui';
 import 'package:esooul/Screens/Paper/topic_list.dart';
+import 'package:esooul/Screens/Paper/year_papers.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
 
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
 
-import 'year_papers.dart';
-
-
-
-class SelectPaper extends StatefulWidget {
-  SelectPaper({Key? key}) : super(key: key);
+class PaperCategorey extends StatefulWidget {
+  PaperCategorey({Key? key}) : super(key: key);
 
   @override
-  _SelectPaperState createState() => _SelectPaperState();
+  _PaperCategoreyState createState() => _PaperCategoreyState();
 }
 
-class _SelectPaperState extends State<SelectPaper> {
+class _PaperCategoreyState extends State<PaperCategorey> {
   bool _show = false;
   @override
   Widget build(BuildContext context) {
