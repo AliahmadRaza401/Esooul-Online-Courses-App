@@ -14,6 +14,7 @@ class SubjectListProvider extends ChangeNotifier {
   }
 
   var courseListData = [];
+  var selectedcourse;
 
   Future getsubjectList(gradeID) async {
     try {
@@ -30,16 +31,16 @@ class SubjectListProvider extends ChangeNotifier {
         print('data: $data');
 
         for (var i in data) {
-                    CourseListModel gradeData = CourseListModel(
+          CourseListModel gradeData = CourseListModel(
             id: i['id'],
             title: i['title'],
             image: i['image'],
-             category: i['category'],
-              description: i['description'],
-              grade: i['grade'],
-              original_price: i['original_price'], 
-              price_to_show: i['price_to_show'],
-               status: i['status'],
+            category: i['category'],
+            description: i['description'],
+            grade: i['grade'],
+            original_price: i['original_price'],
+            price_to_show: i['price_to_show'],
+            status: i['status'],
           );
           courseListData.add(gradeData);
         }
@@ -53,4 +54,3 @@ class SubjectListProvider extends ChangeNotifier {
     }
   }
 }
-

@@ -32,3 +32,5 @@ gradeCourses(gradeID) {
 categoryCourses(categoreyID) {
   return BaseUrl + "/api/v1/category-courses/$categoreyID";
 }
+
+String pastPaperListing = BaseUrl + "/api/v1/past-papers-listing";

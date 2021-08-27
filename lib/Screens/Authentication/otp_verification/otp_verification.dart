@@ -288,7 +288,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             },
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(60),
+              borderRadius: BorderRadius.circular(40),
               fieldHeight: 50,
               fieldWidth: 60,
               activeFillColor: hasError ? Colors.white : Color(0xff5098C8),

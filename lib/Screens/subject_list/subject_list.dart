@@ -75,7 +75,8 @@ class _SubjectListState extends State<SubjectList> {
                                           ? 0
                                           : result.length,
                                       itemBuilder: (context, i) {
-                                        return _myContainer(result[i].title);
+                                        return _myContainer(
+                                            result[i].title, result[i].id);
                                       })
                                 ],
                               ),
@@ -89,11 +90,13 @@ class _SubjectListState extends State<SubjectList> {
     );
   }
 
-  _myContainer(
-    String grade,
-  ) {
+  _myContainer(String grade, selectedCourse) {
     return GestureDetector(
       onTap: () {
+        setState(() {
+          _subjectListProvider.selectedcourse = selectedCourse;
+        });
+
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => PaperCategorey()),
