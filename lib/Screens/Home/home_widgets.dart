@@ -61,7 +61,9 @@ Widget boardsCard(
                         ),
                       ],
                     ),
-                    SizedBox(height: 2,),
+                    SizedBox(
+                      height: 2,
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width * .24,
                       height: MediaQuery.of(context).size.height * .05,
@@ -186,74 +188,87 @@ homeHeader(BuildContext context, fName) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Image.asset(
-              "assets/png/EsoulLogo.png",
-              width: MediaQuery.of(context).size.width * .32,
-            )
-          ],
+        Container(
+          // color: Colors.amber,
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/png/EsoulLogo.png",
+                width: MediaQuery.of(context).size.width * .32,
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Hi, ${fName == null ? "Mr" : fName} ",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset("assets/png/hi.png")
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Row(
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Row(
                     children: [
                       Text(
-                        "Lets start Learning",
-                        style: TextStyle(fontSize: 12),
-                      )
+                        "Hi, ${fName == null ? "Mr" : fName} ",
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset("assets/png/hi.png")
                     ],
                   ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Image.asset("assets/png/search.png"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset(
-                      "assets/png/notification.png",
-                      height: MediaQuery.of(context).size.height * .04,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset(
-                      "assets/png/cart.png",
-                      height: MediaQuery.of(context).size.height * .04,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Image.asset("assets/png/search.png"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset(
+                        "assets/png/notification.png",
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset(
+                        "assets/png/cart.png",
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+
+          // color: Colors.green,
+          child: Row(
+            children: [
+              Text(
+                "Lets start Learning",
+                style: TextStyle(fontSize: 12),
+              )
+            ],
+          ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * .015,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 20),
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+
+          // color: Colors.blueGrey,
           child: Row(
             children: [
               Text(
@@ -359,7 +374,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                     ),
                     Text(
                       "$title",
-                      style: TextStyle(color: Color(0xff00B0D7),fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff00B0D7),
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 )
