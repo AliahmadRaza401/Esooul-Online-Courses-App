@@ -187,7 +187,7 @@ Widget papercard(BuildContext context, String icon, String title, String desc,
                   blurRadius: 5,
                   spreadRadius: 5,
                   color: Color(0xffD7E0E4),
-                  offset: Offset(1, 2))
+                  offset: Offset(2, 2))
             ],
             gradient: new LinearGradient(
               colors: [

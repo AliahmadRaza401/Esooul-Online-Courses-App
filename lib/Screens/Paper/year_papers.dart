@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class YearPaperSelection extends StatefulWidget {
 }
 
 class _YearPaperSelectionState extends State<YearPaperSelection> {
-  bool show =false;
+  bool show = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
             color: Colors.white,
             child: Column(children: [
               Header(
-                btntext: '',
+                btntext: 'Paper',
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -39,10 +40,14 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.010,
                         ),
-                        _yearPapers('Maths-Paper-01', 'assets/png/yearpaper.png'),
-                        _yearPapers('Maths-Paper-02', 'assets/png/yearpaper.png'),
-                        _yearPapers('Maths-Paper-03', 'assets/png/yearpaper.png'),
-                        _yearPapers('Maths-Paper-04', 'assets/png/yearpaper.png'),
+                        _yearPapers(context, 'Maths-Paper-01',
+                            'assets/png/yearpaper.png'),
+                        _yearPapers(context, 'Maths-Paper-02',
+                            'assets/png/yearpaper.png'),
+                        _yearPapers(context, 'Maths-Paper-03',
+                            'assets/png/yearpaper.png'),
+                        _yearPapers(context, 'Maths-Paper-04',
+                            'assets/png/yearpaper.png'),
                       ],
                     ),
                   ),
@@ -50,49 +55,53 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
               )
             ]),
           ),
-           
-          
-        Visibility(
-          visible: show,
-          child: Container(
-            color: Colors.white.withOpacity(.5),
-            height: double.infinity,
-            width: double.infinity,
-            child: 
-          Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(height:150),
-          papertype('assets/png/Objective.png', 'Objective','Online MCQs',Color(0xff004E8F)),
-          papertype('assets/png/Subjective.png', "Subjective","Readable pdf",Color(0xff72C6EF))
-          , SizedBox(height:150),
-              ],)  
-              
-          ,),
-        )
+          Visibility(
+            visible: show,
+            child: Container(
+              color: Colors.white.withOpacity(.5),
+              height: double.infinity,
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(height: 150),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Topics()));
+                      },
+                      child: papertype(context, 'assets/png/Objective.png',
+                          'Objective', 'Online MCQs', Color(0xff004E8F))),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => TopicList()));
+                      },
+                      child: papertype(context, 'assets/png/Subjective.png',
+                          "Subjective", "Readable pdf", Color(0xff72C6EF))),
+                  SizedBox(height: 150),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
   }
 
-
-
-
-
-
-  _yearPapers(String grade, String img) {
+  _yearPapers(BuildContext context, String grade, String img) {
     return Stack(
       children: [
         GestureDetector(
           onTap: () {
-           setState(() {
-            show=!show; 
-           });
-            
+            setState(() {
+              show = !show;
+            });
           },
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 15),
               padding: EdgeInsets.only(left: 10),
               height: MediaQuery.of(context).size.height * 0.075,
               width: double.infinity,
@@ -127,74 +136,82 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
     );
   }
 
-
-
-
-
-
-  
-  Widget papertype(String icon,String title,String desc,color){
-  return Center(
-        child: GestureDetector(
-          onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Topics()));
-          },
-          child: Container(
-          width: MediaQuery.of(context).size.width *.8,
-          height: MediaQuery.of(context).size.height *.21,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
-          boxShadow: [BoxShadow(blurRadius:10,spreadRadius:1,color: Colors.grey,offset: Offset(2,3))],
-          color: Colors.white
-          ),
+  Widget papertype(
+      BuildContext context, String icon, String title, String desc, color) {
+    return Center(
+      child: Container(
+          width: MediaQuery.of(context).size.width * .8,
+          height: MediaQuery.of(context).size.height * .21,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: 10,
+                    spreadRadius: 1,
+                    color: Colors.grey,
+                    offset: Offset(2, 3))
+              ],
+              color: Colors.white),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),
-          color: color,
-          ),
-                 width: MediaQuery.of(context).size.width *.75,
-              height: MediaQuery.of(context).size.height *.18,
-              child: Column(
-                
-                children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 10,top: 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                  GestureDetector(
-                    onTap: (){
-                      setState(() {
-                        show=!show;
-                      });
-                    },
-                    child: Icon(Icons.close,size: 35,))
-                  ],),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: color,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                width: MediaQuery.of(context).size.width * .75,
+                height: MediaQuery.of(context).size.height * .18,
+                child: Column(
                   children: [
-                  // SizedBox(width:MediaQuery.of(context).size.width*.07),
-                  Column(children: [
-                    Image.asset("$icon",
-                    height: MediaQuery.of(context).size.height*.1,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10, top: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  show = !show;
+                                });
+                              },
+                              child: Icon(
+                                Icons.close,
+                                size: 35,
+                              ))
+                        ],
+                      ),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // SizedBox(width:MediaQuery.of(context).size.width*.07),
+                        Column(
+                          children: [
+                            Image.asset(
+                              "$icon",
+                              height: MediaQuery.of(context).size.height * .1,
+                            )
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "$title",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            Text("$desc", style: TextStyle(fontSize: 15))
+                          ],
+                        )
+                      ],
                     )
-                  ],),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    Text("$title",style: TextStyle(fontSize: 25),),
-                    Text("$desc",style: TextStyle(fontSize: 15))
-                  ],)
-                ],)
-              ],),
-               ),
+                  ],
+                ),
+              ),
             ],
-          )
-            ),
-        ),
-      );
+          )),
+    );
   }
 }

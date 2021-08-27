@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
@@ -14,15 +15,27 @@ class Home extends StatefulWidget {
 
 var boardAreaData;
 var data;
+var userFName;
+var userLName;
 
 class _HomeState extends State<Home> {
   late HomeProvider _homeProvider;
+  late LoginProvider _loginProvider;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _homeProvider = Provider.of(context, listen: false);
+    _loginProvider = Provider.of(context, listen: false);
+    getName();
     // getboards();
+  }
+
+  getName() async {
+    userFName = await _loginProvider.getUserFName();
+    print('userFName: $userFName');
+    userLName = await _loginProvider.getUserLName();
+    print('userLName: $userLName');
   }
 
   getboards() async {
@@ -71,7 +84,7 @@ class _HomeState extends State<Home> {
                           Container(
                             padding:
                                 EdgeInsets.all(20).copyWith(top: 0, bottom: 10),
-                            child: homeHeader(context),
+                            child: homeHeader(context, userFName),
                           ),
                           Container(
                             height: MediaQuery.of(context).size.height * .65,
@@ -231,10 +244,6 @@ class _HomeState extends State<Home> {
                                   sapratedWidgets(context,
                                       'Recommended for you', 'Show all'),
                                   Container(
-                                    margin: EdgeInsets.only(
-                                        top:
-                                            MediaQuery.of(context).size.height *
-                                                .01),
                                     width:
                                         MediaQuery.of(context).size.width * .99,
                                     // height: MediaQuery.of(context).size.height * .25,
@@ -244,28 +253,28 @@ class _HomeState extends State<Home> {
                                           recommendedCard(
                                               context,
                                               'assets/png/physics9th.png',
-                                              'Physics class 09 th',
+                                              'Physics class 09th',
                                               'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
                                               'assets/png/maths10th.png',
-                                              'Maths class 10 th',
+                                              'Maths class 10th',
                                               'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
                                               'assets/png/chemistry10.png',
-                                              'Physics class 09 th',
+                                              'Chemistry class 10th',
                                               'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
                                           recommendedCard(
                                               context,
                                               'assets/png/physics9th.png',
-                                              'Physics class 09 th',
+                                              'Physics class 09th',
                                               'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),

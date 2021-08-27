@@ -144,10 +144,13 @@ Widget recommendedCard(BuildContext context, String img, String name,
                   Container(
                       // color: Colors.black,
                       width: MediaQuery.of(context).size.width * .53,
-                      child: Expanded(
-                          child: Text('$board',
+                      child: Wrap(
+                        children: [
+                          Text('$board',
                               style: TextStyle(
-                                  color: Color(0xff8C8585), fontSize: 12)))),
+                                  color: Color(0xff8C8585), fontSize: 12))
+                        ],
+                      )),
                   Row(
                     children: [
                       Text("Likes $likes K    ",
@@ -177,7 +180,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
   );
 }
 
-homeHeader(BuildContext context) {
+homeHeader(BuildContext context, fName) {
   return Container(
     child: Column(
       children: [
@@ -197,7 +200,7 @@ homeHeader(BuildContext context) {
                 Row(
                   children: [
                     Text(
-                      "Hi, John ",
+                      "Hi, ${fName == null ? "Mr" : fName} ",
                       style: TextStyle(fontSize: 17),
                     ),
                     SizedBox(

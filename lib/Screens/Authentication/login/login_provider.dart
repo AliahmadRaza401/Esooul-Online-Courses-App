@@ -45,7 +45,7 @@ class LoginProvider extends ChangeNotifier {
     prefs.setString('userLName', value);
   }
 
-  getUserFName() async {
+ Future getUserFName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var user = prefs.getString('userFName');
     print('userFname: $user');
@@ -53,7 +53,7 @@ class LoginProvider extends ChangeNotifier {
     return user;
   }
 
-  getUserLName() async {
+ Future getUserLName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var user = prefs.getString('userLName');
     return user;
