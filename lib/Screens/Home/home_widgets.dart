@@ -61,7 +61,9 @@ Widget boardsCard(
                         ),
                       ],
                     ),
-                    SizedBox(height: 2,),
+                    SizedBox(
+                      height: 2,
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width * .24,
                       height: MediaQuery.of(context).size.height * .05,
@@ -202,7 +204,7 @@ homeHeader(BuildContext context, fName) {
                 Row(
                   children: [
                     Text(
-                      "Hi, ${fName == null ? "Mr" : fName} ",
+                      "Hi, $fName",
                       style: TextStyle(fontSize: 17),
                     ),
                     SizedBox(
@@ -359,7 +361,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                     ),
                     Text(
                       "$title",
-                      style: TextStyle(color: Color(0xff00B0D7),fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Color(0xff00B0D7),
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 )

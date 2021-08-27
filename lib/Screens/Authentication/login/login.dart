@@ -43,15 +43,15 @@ class _LogInState extends State<LogIn> {
   @override
   void initState() {
     super.initState();
-    CheckInternet().checkConnection(context);
+    // CheckInternet().checkConnection(context);
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
   }
 
-  @override
-  void dispose() {
-    CheckInternet().listener.cancel();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   CheckInternet().listener.cancel();
+  //   super.dispose();
+  // }
 
   signIn() async {
     _loginProvider.getUserFName();
@@ -81,6 +81,7 @@ class _LogInState extends State<LogIn> {
         addTokenToSF();
         _loginProvider.userFName(result['data']['first_name']);
         _loginProvider.userLName(result['data']['last_name']);
+        _loginProvider.userEmailSave(result['data']['email']);
         setState(() {
           _loading = false;
         });

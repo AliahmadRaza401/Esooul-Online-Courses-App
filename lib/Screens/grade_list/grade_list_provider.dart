@@ -27,7 +27,7 @@ class GradeListProvider extends ChangeNotifier {
       if (result['status'] == 200) {
         var data = result['data'];
         print('data: $data');
-
+        gradeListData.clear();
         for (var i in data) {
           GradeListModel gradeData = GradeListModel(
             id: i['id'],

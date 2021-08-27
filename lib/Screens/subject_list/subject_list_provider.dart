@@ -29,7 +29,7 @@ class SubjectListProvider extends ChangeNotifier {
       if (result['status'] == 200) {
         var data = result['data'];
         print('data: $data');
-
+        courseListData.clear();
         for (var i in data) {
           CourseListModel gradeData = CourseListModel(
             id: i['id'],
