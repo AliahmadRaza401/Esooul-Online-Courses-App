@@ -108,9 +108,9 @@ class _SignUpState extends State<SignUp> {
           child: Column(
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.085,
+                height: MediaQuery.of(context).size.height * 0.068,
               ),
-              Image.asset("assets/png/elogo.png"),
+              Image.asset("assets/png/esoullogoauth.png"),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.040,
               ),
@@ -150,12 +150,12 @@ class _SignUpState extends State<SignUp> {
                   key: _formKey,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                    child: ListView(
-                      shrinkWrap: true,
-                      physics: ClampingScrollPhysics(),
+                    child: Column(
+                      // shrinkWrap: true,
+                      // physics: ClampingScrollPhysics(),
                       children: <Widget>[
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.020,
+                          height: MediaQuery.of(context).size.height * 0.015,
                         ),
                         Center(
                           child: Text(
@@ -165,7 +165,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.030,
+                          height: MediaQuery.of(context).size.height * 0.020,
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
@@ -188,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.030,
+                          height: MediaQuery.of(context).size.height * 0.020,
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
@@ -325,7 +325,7 @@ class _SignUpState extends State<SignUp> {
                           height: 80,
                         ),
                         SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.060),
+                            height: MediaQuery.of(context).size.height * 0.045),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 0.0),
                           child: Align(

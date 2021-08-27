@@ -57,9 +57,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.11,
+                  height: MediaQuery.of(context).size.height * 0.093,
                 ),
-                Image.asset("assets/png/elogo.png"),
+                Image.asset("assets/png/esoullogoauth.png"),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.060,
                 ),
