@@ -59,7 +59,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(right: 20,left: 5),
+                  padding: const EdgeInsets.only(right: 15,left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -70,47 +70,49 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                   ),
                 ),
              
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      widget.subject,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13),
-                    ),
-                    // SizedBox(
-                    //   height: MediaQuery.of(context).size.height * 0.01,
-                    // ),
-                    Text(
-                      widget.board,
-                      style: TextStyle(color: Color(0xffC4C4C4), fontSize: 12),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.005,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          widget.likes,
-                          style: TextStyle(
-                              color: Color(0xff72C6EF), fontSize: 10),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Text(
-                          widget.date,
-                          style: TextStyle(
-                              color: Color(0xff999999), fontSize: 10),
-                        ),
-                      ],
-                    ),
-                  ],
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.subject,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13),
+                      ),
+                      // SizedBox(
+                      //   height: MediaQuery.of(context).size.height * 0.01,
+                      // ),
+                      Text(
+                        widget.board,
+                        style: TextStyle(color: Color(0xffC4C4C4), fontSize: 12),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.005,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            widget.likes,
+                            style: TextStyle(
+                                color: Color(0xff72C6EF), fontSize: 10),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.020,
+                          ),
+                          Text(
+                            widget.date,
+                            style: TextStyle(
+                                color: Color(0xff999999), fontSize: 10),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(width: 20,),
+                // SizedBox(width: 10,),
                 Column(
                   children: [
                     Icon(

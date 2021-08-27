@@ -26,11 +26,10 @@ class _HomeState extends State<Home> {
     super.initState();
     _homeProvider = Provider.of(context, listen: false);
     _loginProvider = Provider.of(context, listen: false);
-    userFName = _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
+    userFName =
+        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
     // getboards();
   }
-
-
 
   // getboards() async {
   //   var result = await _homeProvider.boardsArea();

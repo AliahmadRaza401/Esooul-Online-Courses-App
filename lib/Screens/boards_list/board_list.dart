@@ -112,6 +112,7 @@ class _SelectBoardState extends State<SelectBoard> {
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
