@@ -24,7 +24,7 @@ Widget boardsCard(
         borderRadius:
             BorderRadius.circular(MediaQuery.of(context).size.height * .02),
         color: Color(0xffFFFFFF)),
-    height: MediaQuery.of(context).size.height * .18,
+    height: MediaQuery.of(context).size.height * .19,
     width: MediaQuery.of(context).size.width * .295,
     child: Padding(
       padding: const EdgeInsets.all(3),
@@ -55,11 +55,14 @@ Widget boardsCard(
                         Text(
                           title,
                           style: TextStyle(
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      height: 2,
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * .24,
@@ -123,7 +126,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 Image.asset(
                   "$img",
                   height: MediaQuery.of(context).size.height * .12,
-                  // width: MediaQuery.of(context).size.width * .,
+                  // width: MediaQuery.of(context).size.width * .2,
                 ),
               ],
             ),
@@ -139,7 +142,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 children: [
                   Text(
                     "$name",
-                    style: TextStyle(color: Colors.black, fontSize: 13),
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   Container(
                       // color: Colors.black,
@@ -183,75 +186,89 @@ Widget recommendedCard(BuildContext context, String img, String name,
 homeHeader(BuildContext context, fName) {
   return Container(
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Image.asset(
-              "assets/png/EsoulLogo.png",
-              width: MediaQuery.of(context).size.width * .32,
-            )
-          ],
+        Container(
+          // color: Colors.amber,
+          child: Row(
+            children: [
+              Image.asset(
+                "assets/png/EsoulLogo.png",
+                width: MediaQuery.of(context).size.width * .32,
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Hi, ${fName == null ? "Mr" : fName} ",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset("assets/png/hi.png")
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Row(
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Row(
                     children: [
                       Text(
-                        "Lets start Learning",
-                        style: TextStyle(fontSize: 12),
-                      )
+                        "Hi, ${fName == null ? "Mr" : fName} ",
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset("assets/png/hi.png")
                     ],
                   ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Image.asset("assets/png/search.png"),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset(
-                      "assets/png/notification.png",
-                      height: MediaQuery.of(context).size.height * .04,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .02,
-                    ),
-                    Image.asset(
-                      "assets/png/cart.png",
-                      height: MediaQuery.of(context).size.height * .04,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Image.asset("assets/png/search.png"),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset(
+                        "assets/png/notification.png",
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset(
+                        "assets/png/cart.png",
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+
+          // color: Colors.green,
+          child: Row(
+            children: [
+              Text(
+                "Lets start Learning",
+                style: TextStyle(fontSize: 12),
+              )
+            ],
+          ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * .015,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+
+          // color: Colors.blueGrey,
           child: Row(
             children: [
               Text(
@@ -320,7 +337,7 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
             SizedBox(height: MediaQuery.of(context).size.height * .005),
             Text(
               "$name",
-              style: TextStyle(fontSize: 12, color: Colors.black),
+              style: TextStyle(fontSize: 14, color: Colors.black),
             )
           ],
         ),
@@ -357,7 +374,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                     ),
                     Text(
                       "$title",
-                      style: TextStyle(color: Color(0xff00B0D7)),
+                      style: TextStyle(
+                          color: Color(0xff00B0D7),
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 )
