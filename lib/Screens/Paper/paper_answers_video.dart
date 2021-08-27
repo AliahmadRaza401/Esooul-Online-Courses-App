@@ -15,16 +15,13 @@ class _PaperAnswerVideoState extends State<PaperAnswerVideo> {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        height: MediaQuery.of(context).size.height * 1,
+        height: MediaQuery.of(context).size.height * .9,
         child: Column(
           children: <Widget>[
-            Header(
-              btntext: ' ',
-            ),
             Padding(
               padding: EdgeInsets.fromLTRB(15, 8, 15, 0),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.64,
+                height: MediaQuery.of(context).size.height * 0.6,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

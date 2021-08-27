@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -41,8 +42,7 @@ class _StackOverState extends State<StackOver>
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
-                  child: MaterialApp(
-                    home: TabBar(
+                  child:  TabBar(
                       controller: _tabController,
                       // indicator: BoxDecoration(color: Colors.cyan[500]),
                       labelColor: Colors.cyan[900],
@@ -58,14 +58,14 @@ class _StackOverState extends State<StackOver>
                       ],
                     ),
                   ),
-                ),
+                
                 // tab bar view here
                 Expanded(
                   child: TabBarView(
                     controller: _tabController,
                     children: [
                     subjectivePaper(),
-                    Text("data")
+                    PaperAnswerVideo(),
                     ],
                   ),
                 ),
