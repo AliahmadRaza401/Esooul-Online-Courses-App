@@ -53,33 +53,28 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           ]),
       child: Padding(
         padding: EdgeInsets.only(left: 10.0),
-        child: ConstrainedBox(
-          constraints: BoxConstraints.tight(const Size(200, 50)),
-          child: TextFormField(
-            cursorColor: Colors.black,
-            style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+        child: TextFormField(
+          cursorColor: Colors.black,
+          style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
 
-            decoration: InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              isDense: true,
-              border: InputBorder.none,
-              labelText: widget.label,
+          decoration: InputDecoration(
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            isDense: true,
+            border: InputBorder.none,
+            labelText: widget.label,
 
-              labelStyle: TextStyle(color: Color(0xff2575AE)),
+            labelStyle: TextStyle(color: Color(0xff2575AE)),
 
-              // suffix: suffix == null ? SizedBox() : suffix,
-              hintStyle: TextStyle(
-                  color: Colors.red,
-                  fontSize: 8.0,
-                  fontWeight: FontWeight.w100),
-            ),
-
-            validator: widget.formvalidator,
-            onChanged: widget.onChange,
-            // focusNode: node,
-            controller: widget.controller,
-            //  onFieldSubmitted: focus,
+            // suffix: suffix == null ? SizedBox() : suffix,
+            hintStyle: TextStyle(
+                color: Colors.red, fontSize: 8.0, fontWeight: FontWeight.w100),
           ),
+
+          validator: widget.formvalidator,
+          onChanged: widget.onChange,
+          // focusNode: node,
+          controller: widget.controller,
+          //  onFieldSubmitted: focus,
         ),
       ),
     );
@@ -206,48 +201,43 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           ]),
       child: Padding(
         padding: EdgeInsets.only(left: 10.0),
-        child: ConstrainedBox(
-          constraints: BoxConstraints.tight(const Size(200, 50)),
-          child: TextFormField(
-            cursorColor: Colors.black,
-            style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
-            obscureText: widget.obscuretext,
+        child: TextFormField(
+          cursorColor: Colors.black,
+          style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+          obscureText: widget.obscuretext,
 
-            decoration: InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              isDense: true,
-              border: InputBorder.none,
-              labelText: widget.label,
+          decoration: InputDecoration(
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            isDense: true,
+            border: InputBorder.none,
+            labelText: widget.label,
 
-              labelStyle: TextStyle(color: Color(0xff2575AE)),
+            labelStyle: TextStyle(color: Color(0xff2575AE)),
 
-              // suffix: suffix == null ? SizedBox() : suffix,
-              hintStyle: TextStyle(
-                  color: Colors.red,
-                  fontSize: 8.0,
-                  fontWeight: FontWeight.w100),
+            // suffix: suffix == null ? SizedBox() : suffix,
+            hintStyle: TextStyle(
+                color: Colors.red, fontSize: 8.0, fontWeight: FontWeight.w100),
 
-              suffixIcon: IconButton(
-                icon: Icon(
-                  // Based on passwordVisible state choose the icon
-                  widget.obscuretext ? Icons.visibility_off : Icons.visibility,
-                  color: Theme.of(context).primaryColorDark,
-                ),
-                onPressed: () {
-                  // Update the state i.e. toogle the state of passwordVisible variable
-                  setState(() {
-                    widget.obscuretext = !widget.obscuretext;
-                  });
-                },
+            suffixIcon: IconButton(
+              icon: Icon(
+                // Based on passwordVisible state choose the icon
+                widget.obscuretext ? Icons.visibility_off : Icons.visibility,
+                color: Theme.of(context).primaryColorDark,
               ),
+              onPressed: () {
+                // Update the state i.e. toogle the state of passwordVisible variable
+                setState(() {
+                  widget.obscuretext = !widget.obscuretext;
+                });
+              },
             ),
-
-            validator: widget.formvalidator,
-            onChanged: widget.onChange,
-            // focusNode: node,
-            controller: widget.controller,
-            //  onFieldSubmitted: focus,
           ),
+
+          validator: widget.formvalidator,
+          onChanged: widget.onChange,
+          // focusNode: node,
+          controller: widget.controller,
+          //  onFieldSubmitted: focus,
         ),
       ),
     );

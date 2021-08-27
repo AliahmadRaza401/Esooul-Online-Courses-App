@@ -34,7 +34,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
       },
       child: Container(
         padding: EdgeInsets.fromLTRB(5, 10.0, 1, 10),
-        height: MediaQuery.of(context).size.height * 0.12,
+        height: MediaQuery.of(context).size.height * 0.13,
         width: double.infinity,
         //width: MediaQuery.of(context).size.width * 0.88,
         decoration: BoxDecoration(
