@@ -150,7 +150,11 @@ Widget recommendedCard(BuildContext context, String img, String name,
                     width: MediaQuery.of(context).size.width *.53,
                     child: 
                   
-                  Expanded(child: Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)))),
+               Wrap(children: [
+                 Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)
+                  )
+               ],)
+                  ),
                   
                   Row(
                     children: [
