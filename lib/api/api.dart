@@ -33,4 +33,6 @@ categoryCourses(categoreyID) {
   return BaseUrl + "/api/v1/category-courses/$categoreyID";
 }
 
-String pastPaperListing = BaseUrl + "/api/v1/past-papers-listing";
+String pastPaperListingApi = BaseUrl + "/api/v1/past-papers-listing";
+String pastObjectiveApi = BaseUrl + "/api/v1/past-paper-objective-questions";
+String pastSubjectiveApi = BaseUrl + "/api/v1/past-paper-subjective-questions";

@@ -1,12 +1,14 @@
 import 'dart:ui';
 import 'package:esooul/Screens/Paper/topic_list.dart';
-import 'package:esooul/Screens/Paper/year_papers.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
+import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
+import 'package:esooul/Screens/yearly_papers/yearly_papers.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PaperCategorey extends StatefulWidget {
   PaperCategorey({Key? key}) : super(key: key);
@@ -16,7 +18,15 @@ class PaperCategorey extends StatefulWidget {
 }
 
 class _PaperCategoreyState extends State<PaperCategorey> {
+  late PaperCategoreyProvider _paperCategoreyProvider;
   bool _show = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _paperCategoreyProvider = Provider.of(context, listen: false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +46,7 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                     onTap: () {
                       setState(() {
                         _show = !_show;
+                        _paperCategoreyProvider.paperType = "past";
                       });
                     },
                     child: papercard(
@@ -52,6 +63,8 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                     onTap: () {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TopicList()));
+                                                  _paperCategoreyProvider.paperType = "custom";
+
                     },
                     child: papercard(
                       context,
@@ -69,14 +82,14 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                 ],
               ),
             ),
-            _show == true ? pastpaper(context) : Text(""),
+            _show == true ? selectYear(context) : Text(""),
           ],
         ),
       ),
     );
   }
 
-  Widget pastpaper(BuildContext context) {
+  Widget selectYear(BuildContext context) {
     DateTime currentdate = new DateTime.now();
     return Container(
       height: double.infinity,
@@ -122,14 +135,14 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                         ))
                   ],
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height *.015),
+                SizedBox(height: MediaQuery.of(context).size.height * .015),
                 Container(
-                  width: MediaQuery.of(context).size.width *.82,
+                  width: MediaQuery.of(context).size.width * .82,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30)),
                   child: ClipRRect(
-                     borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(30),
                     child: SingleChildScrollView(
                       child: ListView.builder(
                           shrinkWrap: true,
@@ -139,7 +152,7 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                             return GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => YearPaperSelection()));
+                                    builder: (context) => YearlyPaper()));
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -147,18 +160,21 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                                   Padding(
                                     padding: const EdgeInsets.only(bottom: 5),
                                     child: Container(
-                                      
                                         decoration: BoxDecoration(
                                           color: Colors.grey.withOpacity(.07),
                                         ),
-                                        height: MediaQuery.of(context).size.height *
-                                            .05,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                .05,
                                         width:
-                                            MediaQuery.of(context).size.width * .82,
+                                            MediaQuery.of(context).size.width *
+                                                .82,
                                         child: Center(
                                             child: Text(
                                           "${currentdate.year - i}",
-                                          style: TextStyle(fontSize: 20,color:Colors.black),
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.black),
                                         ))),
                                   )
                                 ],

@@ -9,8 +9,8 @@ class PaperCategoreyProvider extends ChangeNotifier {
     this.context = context;
   }
 
-  var result;
-
+  var paperType;
+  var year;
   // Future getPaperList(educationalBoardsId) async {
   //   try {
   //     print("-----------Grade List Getting----------------");

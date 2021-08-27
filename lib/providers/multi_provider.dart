@@ -5,7 +5,10 @@ import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
 import 'package:esooul/Screens/grade_list/grade_list_provider.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
+import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
+import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
+import 'package:esooul/Screens/subjective_paper/past_subjective_provider.dart';
 import 'package:provider/provider.dart';
 
 final multiProvider = [
@@ -39,6 +42,18 @@ final multiProvider = [
   ),
   ChangeNotifierProvider<SubjectListProvider>(
     create: (_) => SubjectListProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<YearlyPaperProvider>(
+    create: (_) => YearlyPaperProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<PastObjectiveProvider>(
+    create: (_) => PastObjectiveProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<PastSubjectiveProvider>(
+    create: (_) => PastSubjectiveProvider(),
     lazy: true,
   ),
 ];
