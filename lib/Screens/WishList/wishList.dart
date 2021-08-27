@@ -96,7 +96,7 @@ class _WishlistState extends State<Wishlist> {
         children: [
           //1st Row
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Column(
                 children: <Widget>[
@@ -106,6 +106,7 @@ class _WishlistState extends State<Wishlist> {
                   ),
                 ],
               ),
+              SizedBox(width: MediaQuery.of(context).size.width*.04,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,29 +152,31 @@ class _WishlistState extends State<Wishlist> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              ElevatedButton.icon(
+                              ElevatedButton(
                                   style: ElevatedButton.styleFrom(
+                                                                        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.07),
+
                                     primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),
                                   ),
                                   onPressed: () {},
-                                  icon: Icon(Icons.add),
-                                  label: Text("Add to cart")),
+                                  child: Text("Add to cart",style: TextStyle(fontSize: 13),)),
                               SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.01,
+                                width: MediaQuery.of(context).size.width * 0.03,
                               ),
-                              ElevatedButton.icon(
+                              ElevatedButton(
                                   style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.07),
                                     primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),
                                   ),
                                   onPressed: () {},
-                                  icon: Icon(Icons.close),
-                                  label: Text("Remove")),
+                                
+                                  child: Text("Remove",style: TextStyle(fontSize: 13),)),
                             ],
                           ),
                         ],

@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                                   //     }),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 10, right: 20, left: 15),
+                                        top: 10, right: 15, left: 15),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
@@ -164,7 +164,7 @@ class _HomeState extends State<Home> {
 
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 10, right: 20, left: 15),
+                                        top: 10, right: 15, left: 15),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
