@@ -23,7 +23,7 @@ class _HeaderState extends State<Header> {
             right: MediaQuery.of(context).size.width * .017,
             bottom: MediaQuery.of(context).size.height * 0.0),
         padding: EdgeInsets.all(12.0).copyWith(bottom: 0),
-        height: MediaQuery.of(context).size.height * 0.23,
+        height: MediaQuery.of(context).size.height * 0.24,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -43,7 +43,7 @@ class _HeaderState extends State<Header> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Image.asset(
-                  "assets/png/headerlogo (2).png",
+                  "assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.25
                   // height: MediaQuery.of(context).size.height * 0.1,
                   // width: MediaQuery.of(context).size.width * 0.1
                 ),

@@ -8,10 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
- 
   @override
-  _BottomNavBarState createState() =>
-      _BottomNavBarState();
+  _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
@@ -37,7 +35,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       backgroundColor: Colors.transparent,
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,
-        index: _selectedIndex ,
+        index: _selectedIndex,
         height: 60.0,
         items: <Widget>[
           Container(
@@ -58,35 +56,34 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     ],
                   )
                 : null,
-            child: Icon(
-              Icons.home,
-              size: 30,
+            child: Image.asset(
+              "assets/png/homeIcon.png",
               color: _selectedIndex == 0 ? Color(0xff00B0D7) : Colors.white,
             ),
           ),
           Container(
-            // margin: EdgeInsets.symmetric(horizontal: 50),
-            width: MediaQuery.of(context).size.width * 0.11,
-            height: MediaQuery.of(context).size.height * 0.05,
-            decoration: _selectedIndex == 1
-                ? BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 9,
-                        offset: Offset(-3, -3), // changes position of shadow
-                      ),
-                    ],
-                  )
-                : null,
-            child: Image.asset(
-              'assets/png/courses.png',
-              color: _selectedIndex == 1 ? Color(0xff00B0D7) : Colors.white,
-            ),
-          ),
+              // margin: EdgeInsets.symmetric(horizontal: 50),
+              width: MediaQuery.of(context).size.width * 0.11,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: _selectedIndex == 1
+                  ? BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 9,
+                          offset: Offset(-3, -3), // changes position of shadow
+                        ),
+                      ],
+                    )
+                  : null,
+              child: Icon(
+                Icons.auto_stories_outlined,
+                size: 40,
+                color: _selectedIndex == 1 ? Color(0xff00B0D7) : Colors.white,
+              )),
           Container(
             // margin: EdgeInsets.symmetric(horizontal: 50),
             width: MediaQuery.of(context).size.width * 0.11,
@@ -112,29 +109,28 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
           ),
           Container(
-            // margin: EdgeInsets.symmetric(horizontal: 50),
-            width: MediaQuery.of(context).size.width * 0.11,
-            height: MediaQuery.of(context).size.height * 0.05,
-            decoration: _selectedIndex == 3
-                ? BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 9,
-                        offset: Offset(-3, -3), // changes position of shadow
-                      ),
-                    ],
-                  )
-                : null,
-            child: Icon(
-              Icons.perm_identity,
-              size: 30,
-              color: _selectedIndex == 3 ? Color(0xff00B0D7) : Colors.white,
-            ),
-          ),
+              // margin: EdgeInsets.symmetric(horizontal: 50),
+              width: MediaQuery.of(context).size.width * 0.11,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: _selectedIndex == 3
+                  ? BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 9,
+                          offset: Offset(-3, -3), // changes position of shadow
+                        ),
+                      ],
+                    )
+                  : null,
+              child: Icon(
+                Icons.account_circle_outlined,
+                size: 40,
+                color: _selectedIndex == 3 ? Color(0xff00B0D7) : Colors.white,
+              ))
         ],
         color: Color(0xff4091C5),
         buttonBackgroundColor: Colors.transparent,
@@ -166,7 +162,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           //     activeIndex = 3;
           //   });
           // }
-         
         },
         letIndexChange: (index) => true,
       ),
@@ -175,7 +170,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         // color: Color(0xff212121),
         child: Center(
           // child: PageNavigator(page: currentPage),
-         child: _indexPage.elementAt(_selectedIndex),
+          child: _indexPage.elementAt(_selectedIndex),
         ),
       ),
     );

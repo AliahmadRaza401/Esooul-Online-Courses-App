@@ -7,94 +7,88 @@ Widget boardsCard(
   String title,
   String desc,
 ) {
-  return GestureDetector(
-    onTap: () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => SelectBoard()));
-    },
-    child: Container(
-      margin: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * .001,
-        left: MediaQuery.of(context).size.width * .01,
-      ),
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: Offset(3, 0), // changes position of shadow
-            ),
-          ],
-          borderRadius:
-              BorderRadius.circular(MediaQuery.of(context).size.height * .02),
-          color: Color(0xffFFFFFF)),
-      height: MediaQuery.of(context).size.height * .18,
-      width: MediaQuery.of(context).size.width * .295,
-      child: Padding(
-        padding: const EdgeInsets.all(3),
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    img,
-                  ),
-                  fit: BoxFit.cover,
+  return Container(
+    margin: EdgeInsets.only(
+      top: MediaQuery.of(context).size.height * .001,
+      left: MediaQuery.of(context).size.width * .01,
+    ),
+    decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: Offset(3, 0), // changes position of shadow
+          ),
+        ],
+        borderRadius:
+            BorderRadius.circular(MediaQuery.of(context).size.height * .02),
+        color: Color(0xffFFFFFF)),
+    height: MediaQuery.of(context).size.height * .18,
+    width: MediaQuery.of(context).size.width * .295,
+    child: Padding(
+      padding: const EdgeInsets.all(3),
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  img,
                 ),
-                borderRadius: BorderRadius.circular(
-                    MediaQuery.of(context).size.height * .02),
+                fit: BoxFit.cover,
               ),
-              height: MediaQuery.of(context).size.height * .07,
+              borderRadius: BorderRadius.circular(
+                  MediaQuery.of(context).size.height * .02),
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            title,
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black),
-                          ),
-                        ],
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .24,
-                        height: MediaQuery.of(context).size.height * .05,
-                        child: Wrap(
-                          children: [
-                            Text(
-                              "$desc",
-                              style: TextStyle(
-                                  color: Color(0xff757070), fontSize: 8),
-                            )
-                          ],
+            height: MediaQuery.of(context).size.height * .07,
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          title,
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      ],
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * .24,
+                      height: MediaQuery.of(context).size.height * .05,
+                      child: Wrap(
                         children: [
                           Text(
-                            'see more',
-                            style: TextStyle(color: Colors.black, fontSize: 12),
-                          ),
+                            "$desc",
+                            style: TextStyle(
+                                color: Color(0xff757070), fontSize: 8),
+                          )
                         ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'see more',
+                          style: TextStyle(color: Colors.black, fontSize: 12),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     ),
   );
@@ -150,7 +144,11 @@ Widget recommendedCard(BuildContext context, String img, String name,
                     width: MediaQuery.of(context).size.width *.53,
                     child: 
                   
-                  Expanded(child: Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)))),
+               Wrap(children: [
+                 Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)
+                  )
+               ],)
+                  ),
                   
                   Row(
                     children: [
@@ -165,7 +163,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
             ),
             Container(
               margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height *.07,
-              left: MediaQuery.of(context).size.width *.035,
+              left: MediaQuery.of(context).size.width *.02,
               ),
               child: Icon(Icons.favorite,color: Colors.red,size: 30,),)
           ],
@@ -178,7 +176,7 @@ homeHeader(BuildContext context) {
     child: Column(
       children: [
         Row(
-          children: [Image.asset("assets/png/homelogo.png")],
+          children: [Image.asset("assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.32,)],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

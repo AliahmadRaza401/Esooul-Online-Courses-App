@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
+import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> {
                     height: MediaQuery.of(context).size.height * .52,
                   ),
                   Container(
-                      padding: EdgeInsets.all(0).copyWith(top: 15),
+                      padding: EdgeInsets.all(0).copyWith(top: 5),
                       height: double.infinity,
                       width: double.infinity,
                       child: Column(
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
                             child: homeHeader(context),
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height * .67,
+                            height: MediaQuery.of(context).size.height * .65,
                             width: double.infinity,
                             child: SingleChildScrollView(
                               child: Column(
@@ -99,21 +100,51 @@ class _HomeState extends State<Home> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        boardsCard(
-                                            context,
-                                            'assets/png/federal.png',
-                                            'Federal ',
-                                            'Federal Board of Intermediate and Secondary Education (FBISE), Islamabad'),
-                                        boardsCard(
-                                            context,
-                                            'assets/png/punjab.png',
-                                            'Punjab ',
-                                            'Punjab Board of Technical Education'),
-                                        boardsCard(
-                                            context,
-                                            'assets/png/sindh.png',
-                                            'Sindh ',
-                                            'Intermediate Board of Education Karachi, Bakhtairi Youth Center, North Nazimabad'),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "mO",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/federal.png',
+                                              'Federal ',
+                                              'Federal Board of Intermediate and Secondary Education (FBISE), Islamabad'),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "jR",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/punjab.png',
+                                              'Punjab ',
+                                              'Punjab Board of Technical Education'),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "k5",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/sindh.png',
+                                              'Sindh ',
+                                              'Intermediate Board of Education Karachi, Bakhtairi Youth Center, North Nazimabad'),
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -125,21 +156,51 @@ class _HomeState extends State<Home> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        boardsCard(
-                                            context,
-                                            'assets/png/kpk.png',
-                                            'KPK ',
-                                            'Board of Intermediate and Secondary Education (BISE)'),
-                                        boardsCard(
-                                            context,
-                                            'assets/png/balochistan.png',
-                                            'Balochistan ',
-                                            'Balochistan Board of Intermediate and Secondary Education'),
-                                        boardsCard(
-                                            context,
-                                            'assets/png/kashmir.png',
-                                            'Kashmir',
-                                            'AJK Board of Intermediate and Secondary Education, Islamabad'),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "l5",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/kpk.png',
+                                              'KPK ',
+                                              'Board of Intermediate and Secondary Education (BISE)'),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "nR",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/balochistan.png',
+                                              'Balochistan ',
+                                              'Balochistan Board of Intermediate and Secondary Education'),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "oj",
+                                                        )));
+                                          },
+                                          child: boardsCard(
+                                              context,
+                                              'assets/png/kashmir.png',
+                                              'Kashmir',
+                                              'AJK Board of Intermediate and Secondary Education, Islamabad'),
+                                        ),
                                       ],
                                     ),
                                   ),

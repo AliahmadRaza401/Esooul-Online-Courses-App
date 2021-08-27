@@ -75,7 +75,8 @@ class _SubjectListState extends State<SubjectList> {
                                           ? 0
                                           : result.length,
                                       itemBuilder: (context, i) {
-                                        return _myContainer(result[i].title);
+                                        return _myContainer(
+                                            result[i].title, result[i].id);
                                       })
                                 ],
                               ),
@@ -89,18 +90,20 @@ class _SubjectListState extends State<SubjectList> {
     );
   }
 
-  _myContainer(
-    String grade,
-  ) {
+  _myContainer(String grade, selectedCourse) {
     return GestureDetector(
       onTap: () {
+        setState(() {
+          _subjectListProvider.selectedcourse = selectedCourse;
+        });
+
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => PaperCategorey()),
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,
