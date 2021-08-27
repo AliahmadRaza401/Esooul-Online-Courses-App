@@ -125,7 +125,7 @@ class _HeaderState extends State<Header> {
 
               child: GestureDetector(
                 onTap: () {
-                  return _myAlert();
+                  return _invitefriendAlert();
                 },
                 child: Row(
                   children: [
@@ -187,7 +187,7 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  _myAlert() {
+  _invitefriendAlert() {
     return showDialog(
       context: context,
       builder: (context) => new AlertDialog(
