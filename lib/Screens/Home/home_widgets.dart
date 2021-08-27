@@ -159,7 +159,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
             ),
             Container(
               margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height *.07,
-              left: MediaQuery.of(context).size.width *.035,
+              left: MediaQuery.of(context).size.width *.02,
               ),
               child: Icon(Icons.favorite,color: Colors.red,size: 30,),)
           ],
@@ -172,7 +172,7 @@ homeHeader(BuildContext context) {
     child: Column(
       children: [
         Row(
-          children: [Image.asset("assets/png/homelogo.png")],
+          children: [Image.asset("assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.32,)],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
