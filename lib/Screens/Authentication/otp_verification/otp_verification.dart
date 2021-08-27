@@ -186,41 +186,42 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(bottom: 10),
-
-                        child: SwipingButton(
-                          text: "to enter code",
-                          containerText: "to enter code",
-                          onSwipeCallback: () {
-                            formKey.currentState!.validate();
-                            // conditions for validating
-                            if (currentText.length != 4) {
-                              errorController.add(ErrorAnimationType
-                                  .shake); // Triggering error shake animation
-                              setState(() {
-                                hasError = true;
-                              });
-                            } else {
-                              setState(
-                                () {
-                                  hasError = false;
-                                },
-                              );
-                              tokenConfirm();
-                            }
-                          },
-                          height: 80,
-                        ),
-                        // child: FlatButton(
-                        //   child: _loading == true
-                        //       ? CircularProgressIndicator(
-                        //           color: Colors.white,
-                        //         )
-                        //       : Text(
-                        //           "Confirm",
-                        //           style: TextStyle(fontSize: 18),
-                        //         ),
-                      ),
+                          margin: EdgeInsets.only(bottom: 10),
+                          child: _loading == false
+                              ? SwipingButton(
+                                  text: "Verify code",
+                                  containerText: "to verify code",
+                                  onSwipeCallback: () {
+                                    formKey.currentState!.validate();
+                                    // conditions for validating
+                                    if (currentText.length != 4) {
+                                      errorController.add(ErrorAnimationType
+                                          .shake); // Triggering error shake animation
+                                      setState(() {
+                                        hasError = true;
+                                      });
+                                    } else {
+                                      setState(
+                                        () {
+                                          hasError = false;
+                                        },
+                                      );
+                                      tokenConfirm();
+                                    }
+                                  },
+                                  height: 80,
+                                )
+                              : CircularProgressIndicator()
+                          // child: FlatButton(
+                          //   child: _loading == true
+                          //       ? CircularProgressIndicator(
+                          //           color: Colors.white,
+                          //         )
+                          //       : Text(
+                          //           "Confirm",
+                          //           style: TextStyle(fontSize: 18),
+                          //         ),
+                          ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -234,13 +235,10 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                         ],
                       ),
                       SwipingButton(
-                        text: "to Resend",
+                        text: "Resend OTP",
                         containerText: "to Resend Code",
                         onSwipeCallback: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LogIn()),
-                          );
+                          resendOTP();
                         },
                         height: 80,
                       ),

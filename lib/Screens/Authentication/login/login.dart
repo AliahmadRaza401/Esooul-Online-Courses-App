@@ -263,12 +263,14 @@ class _LogInState extends State<LogIn> {
 
                           // swipeButton(),
 
-                          SwipingButton(
-                            text: "to SignIn",
-                            containerText: "to SignIn",
-                            onSwipeCallback: signIn,
-                            height: 80,
-                          ),
+                          _loading == false
+                              ? SwipingButton(
+                                  text: "SignIn",
+                                  containerText: "to SignIn",
+                                  onSwipeCallback: signIn,
+                                  height: 80,
+                                )
+                              : CircularProgressIndicator(),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),

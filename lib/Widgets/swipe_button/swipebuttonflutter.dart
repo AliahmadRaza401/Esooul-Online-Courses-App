@@ -166,8 +166,8 @@ class StateSwipingButton extends State<SwipingButton> {
     return Padding(
       padding: EdgeInsets.only(left: height / 2),
       child: Text(
-        text.toUpperCase(),
-        style: buttonTextStyle,
+        text,
+        style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
