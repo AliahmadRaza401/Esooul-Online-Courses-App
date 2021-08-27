@@ -62,7 +62,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Image.asset(
-          "assets/png/elogo.png",
+          "assets/png/EsoulLogo.png",
           height: MediaQuery.of(context).size.height / 2,
           width: MediaQuery.of(context).size.width * 0.9,
         ),

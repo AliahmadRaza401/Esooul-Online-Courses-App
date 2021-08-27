@@ -38,9 +38,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.060,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(35),
@@ -55,11 +53,11 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
         padding: EdgeInsets.only(left: 10.0),
         child: TextFormField(
           cursorColor: Colors.black,
-          style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+          style: TextStyle(fontSize: 16, color: Color(0xff2575AE)),
 
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never,
-            isDense: true,
+
             border: InputBorder.none,
             labelText: widget.label,
 
@@ -188,6 +186,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       height: MediaQuery.of(context).size.height * 0.060,
       padding: const EdgeInsets.symmetric(
         horizontal: 12,
+        vertical: 8,
       ),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -203,12 +202,12 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         padding: EdgeInsets.only(left: 10.0),
         child: TextFormField(
           cursorColor: Colors.black,
-          style: TextStyle(fontSize: 14, color: Color(0xff2575AE)),
+          style: TextStyle(fontSize: 16, color: Color(0xff2575AE)),
           obscureText: widget.obscuretext,
 
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never,
-            isDense: true,
+
             border: InputBorder.none,
             labelText: widget.label,
 

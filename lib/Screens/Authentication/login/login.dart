@@ -125,9 +125,9 @@ class _LogInState extends State<LogIn> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.090,
+                    height: MediaQuery.of(context).size.height * 0.073,
                   ),
-                  Image.asset("assets/png/elogo.png"),
+                  Image.asset("assets/png/esoullogoauth.png"),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.040,
                   ),
