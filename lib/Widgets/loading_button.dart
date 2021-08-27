@@ -44,8 +44,8 @@ class LoadingButtonState extends State<LoadingButton>
           //   blur: 5,
           //   offset: Offset(20, 15),
           Container(
-            height: 199,
-            width: 199,
+            height: 149,
+            width: 149,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
@@ -67,8 +67,8 @@ class LoadingButtonState extends State<LoadingButton>
             ),
           ),
           Container(
-            height: 200,
-            width: 200,
+            height: 149,
+            width: 149,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 4),
                 shape: BoxShape.circle,
@@ -78,12 +78,19 @@ class LoadingButtonState extends State<LoadingButton>
               valueColor: AlwaysStoppedAnimation<Color>(Color(0xff00B0D7)),
             ),
           ),
-          Center(
-            child: Text(
-              "Press and\nHold to create",
-              style: TextStyle(
-                  color: Color(0xff2575AE), fontWeight: FontWeight.w600),
-            ),
+          Column(
+            children: [
+              Text(
+                "Press and",
+                style: TextStyle(
+                    color: Color(0xff2575AE), fontWeight: FontWeight.w600),
+              ),
+              Text(
+                "Hold to create",
+                style: TextStyle(
+                    color: Color(0xff2575AE), fontWeight: FontWeight.w600),
+              ),
+            ],
           )
         ],
       ),

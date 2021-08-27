@@ -62,28 +62,28 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
           ),
           Container(
-            // margin: EdgeInsets.symmetric(horizontal: 50),
-            width: MediaQuery.of(context).size.width * 0.11,
-            height: MediaQuery.of(context).size.height * 0.05,
-            decoration: _selectedIndex == 1
-                ? BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 9,
-                        offset: Offset(-3, -3), // changes position of shadow
-                      ),
-                    ],
-                  )
-                : null,
-            child: Image.asset(
-              'assets/png/courses.png',
-              color: _selectedIndex == 1 ? Color(0xff00B0D7) : Colors.white,
-            ),
-          ),
+              // margin: EdgeInsets.symmetric(horizontal: 50),
+              width: MediaQuery.of(context).size.width * 0.11,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: _selectedIndex == 1
+                  ? BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 9,
+                          offset: Offset(-3, -3), // changes position of shadow
+                        ),
+                      ],
+                    )
+                  : null,
+              child: Icon(
+                Icons.auto_stories_outlined,
+                size: 40,
+                color: _selectedIndex == 1 ? Color(0xff00B0D7) : Colors.white,
+              )),
           Container(
             // margin: EdgeInsets.symmetric(horizontal: 50),
             width: MediaQuery.of(context).size.width * 0.11,
@@ -126,10 +126,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
                       ],
                     )
                   : null,
-              child: Image.asset(
-                "assets/png/profileIcon.png",
+              child: Icon(
+                Icons.account_circle_outlined,
+                size: 40,
                 color: _selectedIndex == 3 ? Color(0xff00B0D7) : Colors.white,
-              )),
+              ))
         ],
         color: Color(0xff4091C5),
         buttonBackgroundColor: Colors.transparent,
