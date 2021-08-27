@@ -1,7 +1,9 @@
 import 'dart:ffi';
 
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Privacy extends StatefulWidget {
   const Privacy({Key? key}) : super(key: key);
@@ -11,6 +13,9 @@ class Privacy extends StatefulWidget {
 }
 
 class _PrivacyState extends State<Privacy> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,7 @@
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   String btntext;
@@ -13,6 +15,18 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  late LoginProvider _loginProvider;
+  var userFName;
+  var userLName;
+  @override
+  void initState() {
+    super.initState();
+    _loginProvider = Provider.of(context, listen: false);
+    userFName =
+        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
+    // userLName = _loginProvider.userLname;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +70,7 @@ class _HeaderState extends State<Header> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
-                      children: [_myText("Hi, John")],
+                      children: [_myText("Hi, $userFName")],
                     ),
                     Row(
                       children: [_myText("Let's Start Learning")],

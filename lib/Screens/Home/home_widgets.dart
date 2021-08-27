@@ -210,7 +210,7 @@ homeHeader(BuildContext context, fName) {
                   Row(
                     children: [
                       Text(
-                        "Hi, ${fName == null ? "Mr" : fName} ",
+                        "Hi, ${fName} ",
                         style: TextStyle(fontSize: 17),
                       ),
                       SizedBox(

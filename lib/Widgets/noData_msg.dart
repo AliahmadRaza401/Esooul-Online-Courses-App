@@ -5,7 +5,7 @@ Widget noDataMsg(BuildContext context) {
     alignment: Alignment.center,
     height: MediaQuery.of(context).size.height * 0.5,
     child: Text(
-      "Upps! No Data",
+      "Oops! No Data",
       style: TextStyle(color: Colors.black),
     ),
   );

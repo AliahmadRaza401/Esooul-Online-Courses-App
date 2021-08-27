@@ -23,12 +23,12 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   void initState() {
     super.initState();
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
-
     nextScreen();
   }
 
   Future checkFirstSeen() async {
     _loginProvider.checkUserAlreadyLogin(context);
+    await _loginProvider.saveName();
     // Navigator.of(context).pushReplacement(new MaterialPageRoute(
     //   builder: (context) => new LogIn()
     // ));
