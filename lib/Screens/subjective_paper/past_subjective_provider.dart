@@ -15,15 +15,15 @@ class PastSubjectiveProvider extends ChangeNotifier {
 
   var pastSubjectiveData = [];
 
-  Future pastSubjective(educationalBoardsId) async {
+  Future pastSubjective() async {
     try {
       print("-----------subjective List Getting----------------");
       final _response = await http.post(
         Uri.parse(pastSubjectiveApi),
         headers: headers,
         body: jsonEncode({
-          'past_paper_id': "",
-          'question_type': "",
+          'past_paper_id': "MA",
+          'question_type': "subjective",
         }),
       );
 

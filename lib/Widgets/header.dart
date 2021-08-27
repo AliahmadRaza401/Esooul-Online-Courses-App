@@ -1,7 +1,5 @@
-import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   String btntext;
@@ -15,18 +13,6 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  late LoginProvider _loginProvider;
-  var userFName;
-  var userLName;
-  @override
-  void initState() {
-    super.initState();
-    _loginProvider = Provider.of(context, listen: false);
-    userFName =
-        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
-    // userLName = _loginProvider.userLname;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,7 +34,7 @@ class _HeaderState extends State<Header> {
               Color(0xff004E8F),
             ],
           ),
-          color: Colors.blue,
+          // color: Colors.blue,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Column(
@@ -63,73 +49,89 @@ class _HeaderState extends State<Header> {
                     ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      children: [_myText("Hi, $userFName")],
-                    ),
-                    Row(
-                      children: [_myText("Let's Start Learning")],
-                    ),
-                  ],
-                ),
-                Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [_myConatiner("assets/png/search (2).png")],
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Column(
-                          children: [
-                            _myConatiner("assets/png/notification.png")
-                          ],
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.020,
-                        ),
-                        Column(
-                          children: [_myConatiner("assets/png/addtocart.png")],
-                        ),
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.020,
-            ),
-            GestureDetector(
-              onTap: () {
-                return _myAlert();
-              },
+
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
               child: Row(
-                children: [
-                  Text(
-                    "Invite Friend",
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: [_myText("Hi, John")],
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .02,
-                  ),
-                  Container(
-                    // height: MediaQuery.of(context).size.height * 0.1,
-                    // width: MediaQuery.of(context).size.width * 0.1,
-                    child: Image.asset(
-                      "assets/png/share-2 (1).png",
-                      width: MediaQuery.of(context).size.width * .04,
-                    ),
+                  Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              _myConatiner("assets/png/search (2).png")
+                            ],
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.020,
+                          ),
+                          Column(
+                            children: [
+                              _myConatiner("assets/png/notification.png")
+                            ],
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.020,
+                          ),
+                          Column(
+                            children: [
+                              _myConatiner("assets/png/addtocart.png")
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
                   )
                 ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
+              child: Row(
+                children: [_myText("Let's Start Learning")],
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
+              child: GestureDetector(
+                onTap: () {
+                  return invitefriendAlert();
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      "Invite Friend",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .02,
+                    ),
+                    Container(
+                      // height: MediaQuery.of(context).size.height * 0.1,
+                      // width: MediaQuery.of(context).size.width * 0.1,
+                      child: Image.asset(
+                        "assets/png/share-2 (1).png",
+                        width: MediaQuery.of(context).size.width * .04,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -171,7 +173,7 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  _myAlert() {
+  invitefriendAlert() {
     return showDialog(
       context: context,
       builder: (context) => new AlertDialog(

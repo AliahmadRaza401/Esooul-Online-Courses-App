@@ -8,7 +8,7 @@ import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
-import 'package:esooul/modeles/past_subjective_provider.dart';
+import 'package:esooul/Screens/subjective_paper/past_subjective_provider.dart';
 import 'package:provider/provider.dart';
 
 final multiProvider = [

@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Topics/Topics.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
+import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
@@ -124,7 +125,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TopicList()));
+                            builder: (context) => StackOver()));
                         _yearlyPaperProvider.questionType = "subjective";
                       },
                       child: papertype(context, 'assets/png/Subjective.png',

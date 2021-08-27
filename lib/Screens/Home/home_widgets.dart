@@ -1,4 +1,6 @@
 import 'package:esooul/Screens/boards_list/board_list.dart';
+import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
+import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
 
 Widget boardsCard(
@@ -269,17 +271,22 @@ homeHeader(BuildContext context, fName) {
               EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
 
           // color: Colors.blueGrey,
-          child: Row(
-            children: [
-              Text(
-                "Invite Friend",
-                style: TextStyle(fontSize: 15),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .02,
-              ),
-              Image.asset('assets/png/share.png')
-            ],
+          child: GestureDetector(
+            onTap: () {
+              return invitefriendAlert(context);
+            },
+            child: Row(
+              children: [
+                Text(
+                  "Invite Friend",
+                  style: TextStyle(fontSize: 15),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .02,
+                ),
+                Image.asset('assets/png/share.png')
+              ],
+            ),
           ),
         ),
         SizedBox(
@@ -309,37 +316,93 @@ homeHeader(BuildContext context, fName) {
   );
 }
 
+invitefriendAlert(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (context) => new AlertDialog(
+      backgroundColor: Colors.white,
+      contentPadding: EdgeInsets.fromLTRB(0, 60, 0, 10),
+      actionsPadding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+      // actionPadding:
+      content: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            GestureDetector(
+              child: Image.asset(
+                "assets/png/Instagram.png",
+              ),
+            ),
+            GestureDetector(child: Image.asset("assets/png/Twitter.png")),
+            GestureDetector(child: Image.asset("assets/png/Linkedin.png")),
+            GestureDetector(child: Image.asset("assets/png/Facebook.png")),
+            GestureDetector(child: Image.asset("assets/png/YouTube.png")),
+          ],
+        ),
+      ),
+      actions: <Widget>[
+        Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(MediaQuery.of(context).size.width * 0.60,
+                  MediaQuery.of(context).size.height * 0.050),
+              primary: Color(0xffEBEBEB),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30), // <-- Radius
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context, rootNavigator: true)
+                  .pop(); // dismisses only the dialog and returns nothing
+            },
+            child: new Text(
+              'Invite with Referal Code',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 Widget guessPaper(BuildContext context, String bgImg, String name) {
   return Padding(
     padding: const EdgeInsets.only(top: 5),
-    child: Container(
-      decoration: BoxDecoration(
-          color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
-      height: MediaQuery.of(context).size.height * .1,
-      width: MediaQuery.of(context).size.width * .29,
-      child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
-                image: DecorationImage(
-                  image: AssetImage("$bgImg"),
-                  fit: BoxFit.cover,
+    child: GestureDetector(
+      onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NodataMessage()));
+
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
+        height: MediaQuery.of(context).size.height * .1,
+        width: MediaQuery.of(context).size.width * .29,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  image: DecorationImage(
+                    image: AssetImage("$bgImg"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                height: MediaQuery.of(context).size.height * .06,
+                width: MediaQuery.of(context).size.width * .28,
               ),
-              height: MediaQuery.of(context).size.height * .06,
-              width: MediaQuery.of(context).size.width * .28,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * .005),
-            Text(
-              "$name",
-              style: TextStyle(fontSize: 14, color: Colors.black),
-            )
-          ],
+              SizedBox(height: MediaQuery.of(context).size.height * .005),
+              Text(
+                "$name",
+                style: TextStyle(fontSize: 14, color: Colors.black),
+              )
+            ],
+          ),
         ),
       ),
     ),
@@ -351,44 +414,50 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
     padding: const EdgeInsets.all(
       10,
     ).copyWith(top: 20),
-    child: Container(
-      color: Color(0xffF1F1F1),
-      width: MediaQuery.of(context).size.width * .92,
-      height: MediaQuery.of(context).size.height * .05,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      color: Color(0xff00B0D7),
-                      height: MediaQuery.of(context).size.height * .05,
-                      width: MediaQuery.of(context).size.width * .015,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .03,
-                    ),
-                    Text(
-                      "$title",
-                      style: TextStyle(
-                          color: Color(0xff00B0D7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("$desc", style: TextStyle(color: Color(0xff004E8F))),
-              ],
-            )
-          ],
+    child: GestureDetector(
+      onTap: (){
+         Navigator.of(context).push(MaterialPageRoute(
+         builder: (context) => StackOver()));
+      },
+      child: Container(
+        color: Color(0xffF1F1F1),
+        width: MediaQuery.of(context).size.width * .92,
+        height: MediaQuery.of(context).size.height * .05,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        color: Color(0xff00B0D7),
+                        height: MediaQuery.of(context).size.height * .05,
+                        width: MediaQuery.of(context).size.width * .015,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .03,
+                      ),
+                      Text(
+                        "$title",
+                        style: TextStyle(
+                            color: Color(0xff00B0D7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("$desc", style: TextStyle(color: Color(0xff004E8F))),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     ),
