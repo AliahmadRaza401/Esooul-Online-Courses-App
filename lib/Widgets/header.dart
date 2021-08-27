@@ -1,7 +1,5 @@
-import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   String btntext;
@@ -15,18 +13,6 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  late LoginProvider _loginProvider;
-  var userFName;
-  var userLName;
-  @override
-  void initState() {
-    super.initState();
-    _loginProvider = Provider.of(context, listen: false);
-    userFName =
-        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
-    // userLName = _loginProvider.userLname;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -63,12 +49,10 @@ class _HeaderState extends State<Header> {
                     ),
               ],
             ),
-            
-           
-            Container(
-              margin:
-            EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
 
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -78,7 +62,6 @@ class _HeaderState extends State<Header> {
                       Row(
                         children: [_myText("Hi, John")],
                       ),
-                     
                     ],
                   ),
                   Column(
@@ -87,7 +70,9 @@ class _HeaderState extends State<Header> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            children: [_myConatiner("assets/png/search (2).png")],
+                            children: [
+                              _myConatiner("assets/png/search (2).png")
+                            ],
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.020,
@@ -101,7 +86,9 @@ class _HeaderState extends State<Header> {
                             width: MediaQuery.of(context).size.width * 0.020,
                           ),
                           Column(
-                            children: [_myConatiner("assets/png/addtocart.png")],
+                            children: [
+                              _myConatiner("assets/png/addtocart.png")
+                            ],
                           ),
                         ],
                       )
@@ -110,28 +97,27 @@ class _HeaderState extends State<Header> {
                 ],
               ),
             ),
-             Container(
-                margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
-
-               child: Row(
-                        children: [_myText("Let's Start Learning")],
-                      ),
-             ),
-            
             Container(
-               margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
+              child: Row(
+                children: [_myText("Let's Start Learning")],
+              ),
+            ),
 
+            Container(
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * .02),
               child: GestureDetector(
                 onTap: () {
-                  return _invitefriendAlert();
+                  return invitefriendAlert();
                 },
                 child: Row(
                   children: [
                     Text(
                       "Invite Friend",
-                      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .02,
@@ -187,7 +173,7 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  _invitefriendAlert() {
+  invitefriendAlert() {
     return showDialog(
       context: context,
       builder: (context) => new AlertDialog(
