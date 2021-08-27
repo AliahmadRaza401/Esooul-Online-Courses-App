@@ -2,6 +2,7 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
+import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

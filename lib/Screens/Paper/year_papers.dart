@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
+import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -75,7 +76,7 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TopicList()));
+                            builder: (context) => SubjectivePaper()));
                       },
                       child: papertype(context, 'assets/png/Subjective.png',
                           "Subjective", "Readable pdf", Color(0xff72C6EF))),
