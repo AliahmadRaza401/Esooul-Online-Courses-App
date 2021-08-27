@@ -24,7 +24,7 @@ Widget boardsCard(
         borderRadius:
             BorderRadius.circular(MediaQuery.of(context).size.height * .02),
         color: Color(0xffFFFFFF)),
-    height: MediaQuery.of(context).size.height * .18,
+    height: MediaQuery.of(context).size.height * .19,
     width: MediaQuery.of(context).size.width * .295,
     child: Padding(
       padding: const EdgeInsets.all(3),
@@ -55,12 +55,13 @@ Widget boardsCard(
                         Text(
                           title,
                           style: TextStyle(
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                       ],
                     ),
+                    SizedBox(height: 2,),
                     Container(
                       width: MediaQuery.of(context).size.width * .24,
                       height: MediaQuery.of(context).size.height * .05,
@@ -123,7 +124,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 Image.asset(
                   "$img",
                   height: MediaQuery.of(context).size.height * .12,
-                  // width: MediaQuery.of(context).size.width * .,
+                  // width: MediaQuery.of(context).size.width * .2,
                 ),
               ],
             ),
@@ -139,7 +140,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 children: [
                   Text(
                     "$name",
-                    style: TextStyle(color: Colors.black, fontSize: 13),
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   Container(
                       // color: Colors.black,
@@ -183,6 +184,7 @@ Widget recommendedCard(BuildContext context, String img, String name,
 homeHeader(BuildContext context, fName) {
   return Container(
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -210,7 +212,7 @@ homeHeader(BuildContext context, fName) {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 20),
                   child: Row(
                     children: [
                       Text(
@@ -251,7 +253,7 @@ homeHeader(BuildContext context, fName) {
           height: MediaQuery.of(context).size.height * .015,
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 20),
           child: Row(
             children: [
               Text(
@@ -320,7 +322,7 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
             SizedBox(height: MediaQuery.of(context).size.height * .005),
             Text(
               "$name",
-              style: TextStyle(fontSize: 12, color: Colors.black),
+              style: TextStyle(fontSize: 14, color: Colors.black),
             )
           ],
         ),
@@ -357,7 +359,7 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                     ),
                     Text(
                       "$title",
-                      style: TextStyle(color: Color(0xff00B0D7)),
+                      style: TextStyle(color: Color(0xff00B0D7),fontWeight: FontWeight.bold),
                     ),
                   ],
                 )

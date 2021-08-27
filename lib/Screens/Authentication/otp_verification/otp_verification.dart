@@ -113,7 +113,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.111,
                 ),
-                Image.asset("assets/png/elogo.png"),
+                Image.asset("assets/png/esoullogoauth.png"),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.060,
                 ),
@@ -125,6 +125,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                       color: Color(0xff5A5A5A)),
                 ),
                 Container(
+                  padding: EdgeInsets.only(bottom: 8.0),
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * .01,
                     left: MediaQuery.of(context).size.width * .02,
@@ -247,7 +248,10 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                           alignment: Alignment.bottomCenter,
                           child: Padding(
                             padding: EdgeInsets.only(bottom: 15.0),
-                            child: Text("Copyright Reserved@Esooul"),
+                            child: Text(
+                              "Copyright Reserved@Esooul",
+                              style: TextStyle(color: Color(0xff5A5A5A)),
+                            ),
                           ),
                         ),
                       ),
