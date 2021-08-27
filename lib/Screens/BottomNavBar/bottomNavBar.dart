@@ -81,7 +81,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   : null,
               child: Icon(
                 Icons.auto_stories_outlined,
-                size: 40,
+                size: 30,
                 color: _selectedIndex == 1 ? Color(0xff00B0D7) : Colors.white,
               )),
           Container(
@@ -128,7 +128,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   : null,
               child: Icon(
                 Icons.account_circle_outlined,
-                size: 40,
+                size: 30,
                 color: _selectedIndex == 3 ? Color(0xff00B0D7) : Colors.white,
               ))
         ],
