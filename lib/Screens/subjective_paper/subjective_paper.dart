@@ -1,114 +1,205 @@
+import 'package:esooul/Screens/Paper/paper_answers_video.dart';
+import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
+import 'package:esooul/Screens/subjective_paper/past_subjective_provider.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class SubjectivePaper extends StatefulWidget {
-  const SubjectivePaper({Key? key}) : super(key: key);
-
+class StackOver extends StatefulWidget {
   @override
-  _SubjectivePaperState createState() => _SubjectivePaperState();
+  _StackOverState createState() => _StackOverState();
 }
 
-class _SubjectivePaperState extends State<SubjectivePaper> {
+class _StackOverState extends State<StackOver>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  late PastSubjectiveProvider _pastSubjectiveProvider;
+  var result;
+  bool _loader = true;
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+    _pastSubjectiveProvider = Provider.of(context, listen: false);
+    getData();
+  }
+
+  getData() async {
+    result = await _pastSubjectiveProvider.pastSubjective();
+    setState(() {
+      _loader = false;
+    });
+    print('Subjective result: $result');
+    print(
+        "------------------------------------------------ ${result[0].paper_id}");
+  }
+
+  _launchURL(ansURl) async {
+    if (await canLaunch(ansURl)) {
+      await launch(ansURl);
+    } else {
+      throw 'Could not launch $ansURl';
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
-        child: Column(
-          children: [
-            Header(
-              btntext: 'Subjective',
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height * .7,
-              // width: double.infinity,
-              decoration: BoxDecoration(color: Colors.white),
-              padding: EdgeInsets.all(30).copyWith(top: 20),
-              child: SingleChildScrollView(
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        PaperInstructions(),
-                      ],
-                    ),
-                    Wrap(children: [
-                      Text(
-                        "Please read the text below carefully so you can understand it",
-                        style: TextStyle(color: Color(0xff1D6CA7)),
+      body: Column(
+        children: [
+          Header(btntext: "Subjective"),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.68,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.040,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: TabBar(
+                    controller: _tabController,
+                    // indicator: BoxDecoration(color: Colors.cyan[500]),
+                    labelColor: Colors.cyan[900],
+                    unselectedLabelColor: Colors.black38,
+                    tabs: [
+                      Tab(
+                        text: 'Question paper',
                       ),
-                    ]),
-                    Wrap(
-                      children: [
-                        Text(
-                          "Note: Four possible answers A B C and D to each question are given. The choice which you think is correct fill that circle in fromt of that question with Marker or pen ink in the answer-book cutting or filling two or more circles will result in zero mark in that specific question.",
-                          style: TextStyle(color: Colors.black, fontSize: 12),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        partdesc('I', 'Write short answers to any FIVE (5) questions: (10)'),
-                      ],
-                    ),
-                    Row(children: [
-                    
-
-                    ],),
-                 
-                    _question(
-                      1,
-                      '',
-                      'What is meant by chemical equilibrium? ',
-                    ),
-                    _question(
-                      2,'',
-                      'What is meant by a irreversible reaction?',
-                    ),
-                    _question(
-                      3,'',
-                      'What do you mean by the extent of a reaction?',
-                    ),
-
-                    Row(children: [
-                      partdesc('2', 'Write short answers to any FIVE (5) questions: (10)')
-                    ],),
-
-                    
-                    _question(1,'','What is meant by isomerism?'),
-                    _question(2 ,'','What is an ester group? Write down the formula of ethylacetate.'),                   
-                   _question(3, '', 'Write any two uses of organic compounds.'),
-
-                
-                  ],
+                      Tab(
+                        text: 'Answer with video tutorial',
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+
+                // tab bar view here
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: [
+                      subjectivePaper(),
+                      PaperAnswerVideo(),
+                    ],
+                  ),
+                ),
+              ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget subjectivePaper() {
+    return Container(
+      height: MediaQuery.of(context).size.height * .7,
+      // width: double.infinity,
+      decoration: BoxDecoration(color: Colors.white),
+      padding: EdgeInsets.all(30).copyWith(top: 20),
+      child: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                PaperInstructions(),
+              ],
+            ),
+            Wrap(children: [
+              Text(
+                "Please read the text below carefully so you can understand it",
+                style: TextStyle(color: Color(0xff1D6CA7)),
+              ),
+            ]),
+            Wrap(
+              children: [
+                Text(
+                  "Note: Four possible answers A B C and D to each question are given. The choice which you think is correct fill that circle in fromt of that question with Marker or pen ink in the answer-book cutting or filling two or more circles will result in zero mark in that specific question.",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                partdesc(
+                    'I', 'Write short answers to any FIVE (5) questions: (10)'),
+              ],
+            ),
+            Row(
+              children: [],
+            ),
+            _loader == true
+                ? LoadingBounceAnimation(context)
+                : _pastSubjectiveProvider.pastSubjectiveData.isEmpty
+                    ? noDataMsg(context)
+                    : ListView(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        children: [
+                          ListView.builder(
+                              shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
+                              itemCount:
+                                  result.length == null ? 0 : result.length,
+                              itemBuilder: (context, i) {
+                                return _question(i + 1, '', result[i].paper_id,
+                                    result[i].answer.toString());
+                              })
+                        ],
+                      ),
           ],
         ),
       ),
     );
   }
-  Widget partdesc(String parts,String desc){
-    return    Padding(
+
+  Widget partdesc(String parts, String desc) {
+    return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         
-                         Text("Part - $parts ",style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                         Text("$desc",
-                         style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                         Text("Solutions :",style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                       ],
-                     ),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Part - $parts ",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+          Text(
+            "$desc",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+          Text(
+            "Solutions :",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+        ],
+      ),
     );
   }
-  Widget _question(int number,String part, String question) {
+
+  Widget _question(number, String part, String question, ansUrl) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15),
       child: Column(
@@ -125,13 +216,19 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
               )
             ],
           ),
-          Row(children: [Text('$part',style: TextStyle(color: Colors.black),)],),
-         
+          Row(
+            children: [
+              Text(
+                '$part',
+                style: TextStyle(color: Colors.black),
+              )
+            ],
+          ),
           Row(
             children: [
               Container(
                 // color: Colors.blue,
-                width: MediaQuery.of(context).size.width *.8,
+                width: MediaQuery.of(context).size.width * .8,
                 child: Wrap(
                   children: [
                     Text(
@@ -143,12 +240,13 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
               ),
             ],
           ),
-          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await _launchURL(ansUrl);
+                },
                 child: Text(
                   "Show Answer",
                   style: TextStyle(fontSize: 14, color: Colors.black),

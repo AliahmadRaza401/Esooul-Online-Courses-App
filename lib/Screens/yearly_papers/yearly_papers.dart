@@ -1,18 +1,52 @@
 import 'package:esooul/Screens/Paper/topic_list.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
+import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
+import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
+import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
 import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class YearPaperSelection extends StatefulWidget {
-  const YearPaperSelection({Key? key}) : super(key: key);
+class YearlyPaper extends StatefulWidget {
+  const YearlyPaper({Key? key}) : super(key: key);
 
   @override
-  _YearPaperSelectionState createState() => _YearPaperSelectionState();
+  _YearlyPaperState createState() => _YearlyPaperState();
 }
 
-class _YearPaperSelectionState extends State<YearPaperSelection> {
+class _YearlyPaperState extends State<YearlyPaper> {
   bool show = false;
+  late YearlyPaperProvider _yearlyPaperProvider;
+  late PaperCategoreyProvider _paperCategoreyProvider;
+  late SubjectListProvider _subjectListProvider;
+  var result;
+  bool _loader = true;
+  var paperType;
+  var year;
+  var courseID;
+
+  @override
+  void initState() {
+    super.initState();
+    _yearlyPaperProvider = Provider.of(context, listen: false);
+    _paperCategoreyProvider = Provider.of(context, listen: false);
+    _subjectListProvider = Provider.of(context, listen: false);
+    paperType = _paperCategoreyProvider.paperType;
+    courseID = _subjectListProvider.selectedcourse;
+    yearlyPapaer();
+  }
+
+  yearlyPapaer() async {
+    result = await _yearlyPaperProvider.yearlyPaperList(paperType, courseID);
+    print('result data yaeafdsfasd: $result');
+    setState(() {
+      _loader = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,14 +75,28 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.010,
                         ),
-                        _yearPapers(context, 'Maths-Paper-01',
-                            'assets/png/yearpaper.png'),
-                        _yearPapers(context, 'Maths-Paper-02',
-                            'assets/png/yearpaper.png'),
-                        _yearPapers(context, 'Maths-Paper-03',
-                            'assets/png/yearpaper.png'),
-                        _yearPapers(context, 'Maths-Paper-04',
-                            'assets/png/yearpaper.png'),
+                        _loader == true
+                            ? LoadingBounceAnimation(context)
+                            : _yearlyPaperProvider.yearlyPaperData.isEmpty
+                                ? noDataMsg(context)
+                                : ListView(
+                                    shrinkWrap: true,
+                                    physics: ClampingScrollPhysics(),
+                                    children: [
+                                      ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: ClampingScrollPhysics(),
+                                          itemCount: result.length == null
+                                              ? 0
+                                              : result.length,
+                                          itemBuilder: (context, i) {
+                                            return _yearPapers(
+                                                context,
+                                                result[i].course,
+                                                result[i].image);
+                                          })
+                                    ],
+                                  ),
                       ],
                     ),
                   ),
@@ -70,13 +118,15 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                       onTap: () {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Topics()));
+                        _yearlyPaperProvider.questionType = "objective";
                       },
                       child: papertype(context, 'assets/png/Objective.png',
                           'Objective', 'Online MCQs', Color(0xff004E8F))),
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SubjectivePaper()));
+                            builder: (context) => StackOver()));
+                        _yearlyPaperProvider.questionType = "subjective";
                       },
                       child: papertype(context, 'assets/png/Subjective.png',
                           "Subjective", "Readable pdf", Color(0xff72C6EF))),
@@ -102,7 +152,7 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 15),
+              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               padding: EdgeInsets.only(left: 10),
               height: MediaQuery.of(context).size.height * 0.075,
               width: double.infinity,
@@ -120,7 +170,7 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset("$img"),
+                  Image.network("$img"),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
                   ),

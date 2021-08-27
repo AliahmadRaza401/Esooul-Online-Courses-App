@@ -1,19 +1,36 @@
-
 import 'package:esooul/Screens/Report/Report.dart';
+import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Mcqs extends StatefulWidget {
-  const Mcqs({Key? key}) : super(key: key);
+class PastObjective extends StatefulWidget {
+  const PastObjective({Key? key}) : super(key: key);
 
   @override
-  _McqsState createState() => _McqsState();
+  _PastObjectiveState createState() => _PastObjectiveState();
 }
 
-class _McqsState extends State<Mcqs> {
+class _PastObjectiveState extends State<PastObjective> {
   final red = Colors.red;
   final green = Colors.green;
+
+  late PastObjectiveProvider _pastObjectiveProvider;
+  var result;
+  @override
+  void initState() {
+    super.initState();
+    _pastObjectiveProvider = Provider.of(context, listen: false);
+    getData();
+  }
+
+  getData() async {
+    result = await _pastObjectiveProvider.pastObjective();
+    print('Objective result: $result');
+  
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +110,8 @@ class _McqsState extends State<Mcqs> {
                                       onPressed: () {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
-                                                builder: (context) => Report()));
+                                                builder: (context) =>
+                                                    Report()));
                                       },
                                       style: ElevatedButton.styleFrom(
                                         padding: EdgeInsets.only(

@@ -41,7 +41,11 @@ dependencies:
   slide_button: ^0.2.9
   form_field_validator: ^1.1.0
   loading_animations: ^2.2.0
+<<<<<<< HEAD
   blinking_text: ^1.0.1+2
+=======
+  url_launcher: ^6.0.9
+>>>>>>> c8095358b2bbda5529f1652aceba038bf48d9d6d
 
 dev_dependencies:
   flutter_test:
