@@ -48,8 +48,9 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TopicList()));
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TopicList()));
                     },
                     child: papercard(
                       context,
@@ -120,36 +121,52 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                         ))
                   ],
                 ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    // scrollDirection:Axis.horizontal ,
-                    itemCount: 9,
-                    itemBuilder: (context, i) {
-                      return GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>YearPaperSelection()));
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 5),
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xffEBEBEB).withOpacity(.21),
-                                  ),
-                                  height: MediaQuery.of(context).size.height * .05,
-                                  width: MediaQuery.of(context).size.width * .86,
-                                  child: Center(
-                                      child: Text(
-                                    "${currentdate.year - i}",
-                                    style: TextStyle(fontSize: 20),
-                                  ))),
-                            )
-                          ],
-                        ),
-                      );
-                    })
+                SizedBox(height: MediaQuery.of(context).size.height *.015),
+                Container(
+                  width: MediaQuery.of(context).size.width *.82,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: ClipRRect(
+                     borderRadius: BorderRadius.circular(30),
+                    child: SingleChildScrollView(
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          // scrollDirection:Axis.horizontal ,
+                          itemCount: 9,
+                          itemBuilder: (context, i) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => YearPaperSelection()));
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 5),
+                                    child: Container(
+                                      
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.withOpacity(.07),
+                                        ),
+                                        height: MediaQuery.of(context).size.height *
+                                            .05,
+                                        width:
+                                            MediaQuery.of(context).size.width * .82,
+                                        child: Center(
+                                            child: Text(
+                                          "${currentdate.year - i}",
+                                          style: TextStyle(fontSize: 20,color:Colors.black),
+                                        ))),
+                                  )
+                                ],
+                              ),
+                            );
+                          }),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -167,7 +184,7 @@ Widget papercard(BuildContext context, String icon, String title, String desc,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                  blurRadius: 2,
+                  blurRadius: 5,
                   spreadRadius: 5,
                   color: Color(0xffD7E0E4),
                   offset: Offset(1, 2))
@@ -190,7 +207,7 @@ Widget papercard(BuildContext context, String icon, String title, String desc,
             top: MediaQuery.of(context).size.height * .015,
             left: MediaQuery.of(context).size.width * .025),
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.white),
+            border: Border.all(color: Colors.white.withOpacity(.3)),
             image: DecorationImage(
                 image: AssetImage('assets/png/backgroundpapers.png'),
                 fit: BoxFit.cover),

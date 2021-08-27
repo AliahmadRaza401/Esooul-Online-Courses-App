@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
                     height: MediaQuery.of(context).size.height * .52,
                   ),
                   Container(
-                      padding: EdgeInsets.all(0).copyWith(top: 15),
+                      padding: EdgeInsets.all(0).copyWith(top: 5),
                       height: double.infinity,
                       width: double.infinity,
                       child: Column(
@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                             child: homeHeader(context),
                           ),
                           Container(
-                            height: MediaQuery.of(context).size.height * .67,
+                            height: MediaQuery.of(context).size.height * .65,
                             width: double.infinity,
                             child: SingleChildScrollView(
                               child: Column(

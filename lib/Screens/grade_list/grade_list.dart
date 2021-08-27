@@ -107,7 +107,7 @@ class _GradeListState extends State<GradeList> {
         _gradeListProvider.selectedGradeID = gradeID;
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
+        margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,

@@ -174,18 +174,19 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                  // SizedBox(width:MediaQuery.of(context).size.width*.07),
                   Column(children: [
                     Image.asset("$icon",
-                    // height: MediaQuery.of(context).size.height*.2,
+                    height: MediaQuery.of(context).size.height*.1,
                     )
                   ],),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                    Text("$title",style: TextStyle(fontSize: 30),),
-                    Text("$desc",style: TextStyle(fontSize: 17))
+                    Text("$title",style: TextStyle(fontSize: 25),),
+                    Text("$desc",style: TextStyle(fontSize: 15))
                   ],)
                 ],)
               ],),
