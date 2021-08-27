@@ -1,7 +1,5 @@
-import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   String btntext;
@@ -15,18 +13,6 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  late LoginProvider _loginProvider;
-  var userFName;
-  var userLName;
-  @override
-  void initState() {
-    super.initState();
-    _loginProvider = Provider.of(context, listen: false);
-    userFName =
-        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
-    // userLName = _loginProvider.userLname;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -70,7 +56,7 @@ class _HeaderState extends State<Header> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
-                      children: [_myText("Hi, $userFName")],
+                      children: [_myText("Hi, John")],
                     ),
                     Row(
                       children: [_myText("Let's Start Learning")],
@@ -110,7 +96,7 @@ class _HeaderState extends State<Header> {
             ),
             GestureDetector(
               onTap: () {
-                return _invitefriendAlert()();
+                return invitefriendAlert();
               },
               child: Row(
                 children: [
@@ -171,7 +157,7 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  _invitefriendAlert() {
+  invitefriendAlert() {
     return showDialog(
       context: context,
       builder: (context) => new AlertDialog(
