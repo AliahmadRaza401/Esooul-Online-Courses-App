@@ -2,6 +2,7 @@ import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
+import 'package:blinking_text/blinking_text.dart';
 
 Widget boardsCard(
   BuildContext context,
@@ -370,9 +371,9 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
   return Padding(
     padding: const EdgeInsets.only(top: 5),
     child: GestureDetector(
-      onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NodataMessage()));
-
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => NodataMessage()));
       },
       child: Container(
         decoration: BoxDecoration(
@@ -415,9 +416,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
       10,
     ).copyWith(top: 20),
     child: GestureDetector(
-      onTap: (){
-         Navigator.of(context).push(MaterialPageRoute(
-         builder: (context) => SubjectivePaper()));
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => SubjectivePaper()));
       },
       child: Container(
         color: Color(0xffF1F1F1),
@@ -445,7 +446,13 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                         style: TextStyle(
                             color: Color(0xff00B0D7),
                             fontWeight: FontWeight.bold),
-                      ),
+                      )
+                      // BlinkText(
+                      //   "$title",
+                      //   style: TextStyle(
+                      //       color: Color(0xff00B0D7),
+                      //       fontWeight: FontWeight.bold),
+                      // ),
                     ],
                   )
                 ],
