@@ -15,6 +15,9 @@ class LoginProvider extends ChangeNotifier {
   }
 
   var result;
+  var userFname;
+  var userLname;
+  var userEmail;
 
   Future signIn({@required email, @required password}) async {
     try {
@@ -45,18 +48,33 @@ class LoginProvider extends ChangeNotifier {
     prefs.setString('userLName', value);
   }
 
- Future getUserFName() async {
+  userEmailSave(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('userEmail', value);
+  }
+
+  Future getUserFName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var user = prefs.getString('userFName');
-    print('userFname: $user');
-
     return user;
   }
 
- Future getUserLName() async {
+  Future getUserLName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var user = prefs.getString('userLName');
     return user;
+  }
+
+  Future getUserEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var user = prefs.getString('userEmail');
+    return user;
+  }
+
+  Future saveName() async {
+    userFname = await getUserFName();
+    userLname = await getUserLName();
+    userEmail = await getUserEmail();
   }
 
   // Check Uer Login or Not

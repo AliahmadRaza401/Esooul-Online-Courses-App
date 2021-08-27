@@ -1,5 +1,7 @@
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Header extends StatefulWidget {
   String btntext;
@@ -13,6 +15,18 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  late LoginProvider _loginProvider;
+  var userFName;
+  var userLName;
+  @override
+  void initState() {
+    super.initState();
+    _loginProvider = Provider.of(context, listen: false);
+    userFName =
+        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
+    // userLName = _loginProvider.userLname;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,7 +48,7 @@ class _HeaderState extends State<Header> {
               Color(0xff004E8F),
             ],
           ),
-          color: Colors.blue,
+          // color: Colors.blue,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Column(
@@ -42,16 +56,18 @@ class _HeaderState extends State<Header> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset(
-                  "assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.25
-                  // height: MediaQuery.of(context).size.height * 0.1,
-                  // width: MediaQuery.of(context).size.width * 0.1
-                ),
+                Image.asset("assets/png/EsoulLogo.png",
+                    width: MediaQuery.of(context).size.width * .25
+                    // height: MediaQuery.of(context).size.height * 0.1,
+                    // width: MediaQuery.of(context).size.width * 0.1
+                    ),
               ],
             ),
+            
+           
             Container(
-               margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
+              margin:
+            EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

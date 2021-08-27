@@ -23,26 +23,19 @@ class _HomeState extends State<Home> {
   late LoginProvider _loginProvider;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _homeProvider = Provider.of(context, listen: false);
     _loginProvider = Provider.of(context, listen: false);
-    getName();
+    userFName =
+        _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
     // getboards();
   }
 
-  getName() async {
-    userFName = await _loginProvider.getUserFName();
-    print('userFName: $userFName');
-    userLName = await _loginProvider.getUserLName();
-    print('userLName: $userLName');
-  }
-
-  getboards() async {
-    var result = await _homeProvider.boardsArea();
-    boardAreaData = result['data'];
-    print('boardAreaData: $boardAreaData');
-  }
+  // getboards() async {
+  //   var result = await _homeProvider.boardsArea();
+  //   boardAreaData = result['data'];
+  //   print('boardAreaData: $boardAreaData');
+  // }
 
   @override
   Widget build(BuildContext context) {

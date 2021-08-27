@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/boards_list/board_list.dart';
+import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:flutter/material.dart';
 
 Widget boardsCard(
@@ -210,7 +211,7 @@ homeHeader(BuildContext context, fName) {
                   Row(
                     children: [
                       Text(
-                        "Hi, ${fName == null ? "Mr" : fName} ",
+                        "Hi, ${fName} ",
                         style: TextStyle(fontSize: 17),
                       ),
                       SizedBox(
@@ -312,34 +313,40 @@ homeHeader(BuildContext context, fName) {
 Widget guessPaper(BuildContext context, String bgImg, String name) {
   return Padding(
     padding: const EdgeInsets.only(top: 5),
-    child: Container(
-      decoration: BoxDecoration(
-          color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
-      height: MediaQuery.of(context).size.height * .1,
-      width: MediaQuery.of(context).size.width * .29,
-      child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
-                image: DecorationImage(
-                  image: AssetImage("$bgImg"),
-                  fit: BoxFit.cover,
+    child: GestureDetector(
+      onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NodataMessage()));
+
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
+        height: MediaQuery.of(context).size.height * .1,
+        width: MediaQuery.of(context).size.width * .29,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  image: DecorationImage(
+                    image: AssetImage("$bgImg"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                height: MediaQuery.of(context).size.height * .06,
+                width: MediaQuery.of(context).size.width * .28,
               ),
-              height: MediaQuery.of(context).size.height * .06,
-              width: MediaQuery.of(context).size.width * .28,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * .005),
-            Text(
-              "$name",
-              style: TextStyle(fontSize: 14, color: Colors.black),
-            )
-          ],
+              SizedBox(height: MediaQuery.of(context).size.height * .005),
+              Text(
+                "$name",
+                style: TextStyle(fontSize: 14, color: Colors.black),
+              )
+            ],
+          ),
         ),
       ),
     ),

@@ -1,7 +1,5 @@
-import 'dart:convert';
-import 'package:esooul/config/config.dart';
 import 'package:http/http.dart' as http;
-import 'package:esooul/api/api.dart';
+
 import 'package:flutter/material.dart';
 
 class PaperCategoreyProvider extends ChangeNotifier {

@@ -1,10 +1,12 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
+import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 
 import 'package:esooul/Screens/Profile/Privacy.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'Terms and privacy.dart';
 
 class Profile extends StatefulWidget {
@@ -15,10 +17,22 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  late LoginProvider _loginProvider;
+  var userFName;
+  var userLName;
+  var userEmail;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    _loginProvider = Provider.of(context, listen: false);
+    userFName =
+        _loginProvider.userFname == null ? "Hi! " : _loginProvider.userFname;
+    userLName =
+        _loginProvider.userLname == null ? "Mr" : _loginProvider.userLname;
+    userEmail = _loginProvider.userEmail == null
+        ? "@gmail.com"
+        : _loginProvider.userEmail;
   }
 
   @override
@@ -69,7 +83,8 @@ class _ProfileState extends State<Profile> {
                                   topLeft: Radius.circular(
                                       MediaQuery.of(context).size.width * .078),
                                   topRight: Radius.circular(
-                                      MediaQuery.of(context).size.width * .078))),
+                                      MediaQuery.of(context).size.width *
+                                          .078))),
                           height: MediaQuery.of(context).size.height * .15,
                           width: double.infinity,
                         ),
@@ -87,25 +102,27 @@ class _ProfileState extends State<Profile> {
                           child: Column(
                             children: [
                               Text(
-                                "John Doe, 27",
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 25),
+                                userFName + " " + userLName,
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 25),
                               ),
                               Text(
-                                'San Francisco, USA',
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 14),
+                                userEmail,
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 14),
                               ),
                               Text(
                                 "john Doe@gmail.com",
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 10),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 10),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height * .01,
+                                height:
+                                    MediaQuery.of(context).size.height * .01,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Column(
                                     children: [
@@ -191,17 +208,21 @@ class _ProfileState extends State<Profile> {
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     padding: EdgeInsets.only(
-                                        left: MediaQuery.of(context).size.width *
-                                            .4,
-                                        top: MediaQuery.of(context).size.height *
-                                            .015,
+                                        left:
+                                            MediaQuery.of(context).size.width *
+                                                .4,
+                                        top:
+                                            MediaQuery.of(context).size.height *
+                                                .015,
                                         bottom:
                                             MediaQuery.of(context).size.height *
                                                 .015,
-                                        right: MediaQuery.of(context).size.width *
-                                            .4),
+                                        right:
+                                            MediaQuery.of(context).size.width *
+                                                .4),
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100)),
+                                        borderRadius:
+                                            BorderRadius.circular(100)),
                                     primary: Colors.white),
                                 child: Text(
                                   "Settings",

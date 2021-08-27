@@ -27,7 +27,7 @@ class BoardListProvider extends ChangeNotifier {
       if (result['status'] == 200) {
         var data = result['data'];
         print('data: $data');
-
+        boardListData.clear();
         for (var i in data) {
           BoardsListModel modelData = BoardsListModel(
             id: i['id'],

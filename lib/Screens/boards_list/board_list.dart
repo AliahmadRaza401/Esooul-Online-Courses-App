@@ -107,11 +107,12 @@ class _SelectBoardState extends State<SelectBoard> {
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         padding: EdgeInsets.only(left: 10),
         height: MediaQuery.of(context).size.height * 0.075,
         width: double.infinity,
         decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
             color: Colors.white,
             boxShadow: [
               BoxShadow(
