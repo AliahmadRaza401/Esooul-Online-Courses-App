@@ -54,15 +54,11 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     return new Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: RadialGradient(
-            center: Alignment.bottomCenter,
-            colors: [
-              Color(0xFFBDBDBD),
-              Colors.blue,
-            ],
-            radius: 1.0,
-          ),
-        ),
+            gradient: RadialGradient(
+          center: Alignment.center,
+          radius: 1,
+          colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
+        )),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Image.asset(

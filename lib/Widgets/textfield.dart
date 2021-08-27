@@ -36,7 +36,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.70,
+      width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.060,
       padding: const EdgeInsets.symmetric(
         horizontal: 12,
@@ -189,7 +189,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.70,
+      width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.060,
       padding: const EdgeInsets.symmetric(
         horizontal: 12,

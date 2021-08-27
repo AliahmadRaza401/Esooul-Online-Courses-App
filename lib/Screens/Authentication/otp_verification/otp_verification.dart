@@ -5,6 +5,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
+import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -92,155 +93,172 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            // color: Color(0xff5098C8),
-            gradient: RadialGradient(
-          center: Alignment(0, -0.5),
-          radius: 1,
-          colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
-        )),
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+                // color: Color(0xff5098C8),
+                gradient: RadialGradient(
+              center: Alignment(0, -0.5),
+              radius: 1,
+              colors: [Colors.white, Color(0xFFE6E6E6), Color(0xFFAAAAAA)],
+            )),
 
-        // margin: EdgeInsets.only(
-        //   top: MediaQuery.of(context).size.height * .1,
-        //   left: MediaQuery.of(context).size.width * .01,
-        //   right: MediaQuery.of(context).size.width * .01,
-        // ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.111,
-            ),
-            Image.asset("assets/png/elogo.png"),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.060,
-            ),
-            Text(
-              "Don't worry! it's all under control.",
-              style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff5A5A5A)),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * .01,
-                left: MediaQuery.of(context).size.width * .02,
-                right: MediaQuery.of(context).size.width * .02,
-              ),
-              height: MediaQuery.of(context).size.height * .719,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFFFFFFFF),
-                        Color(0xffBBE0E8),
-                        Color(0xFF02B1D7)
-                      ]),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(
-                          MediaQuery.of(context).size.width * .08),
-                      topRight: Radius.circular(
-                          MediaQuery.of(context).size.width * .08))),
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.020,
+            // margin: EdgeInsets.only(
+            //   top: MediaQuery.of(context).size.height * .1,
+            //   left: MediaQuery.of(context).size.width * .01,
+            //   right: MediaQuery.of(context).size.width * .01,
+            // ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.111,
+                ),
+                Image.asset("assets/png/elogo.png"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.060,
+                ),
+                Text(
+                  "Don't worry! it's all under control.",
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff5A5A5A)),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .01,
+                    left: MediaQuery.of(context).size.width * .02,
+                    right: MediaQuery.of(context).size.width * .02,
                   ),
-                  Text(
-                    "Enter 4-digit code to verify",
-                    style: TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
-                  ),
-                  Text(
-                    "your credentials",
-                    style: TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.060,
-                  ),
-                  otpField(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: Text(
-                      hasError ? "*Please fill up all the cells properly" : "",
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                  Container(
-                    height: 60,
-                    margin: EdgeInsets.only(bottom: 10),
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: FlatButton(
-                      child: _loading == true
-                          ? CircularProgressIndicator(
-                              color: Colors.white,
-                            )
-                          : Text(
-                              "Confirm",
-                              style: TextStyle(fontSize: 18),
-                            ),
-                      onPressed: () {
-                        formKey.currentState!.validate();
-                        // conditions for validating
-                        if (currentText.length != 4) {
-                          errorController.add(ErrorAnimationType
-                              .shake); // Triggering error shake animation
-                          setState(() {
-                            hasError = true;
-                          });
-                        } else {
-                          setState(
-                            () {
-                              hasError = false;
-                            },
-                          );
-                          tokenConfirm();
-                        }
-                      },
-                      color: Color(0xff5098C8),
-                      textColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                  height: MediaQuery.of(context).size.height * .71,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0xFFFFFFFF),
+                            Color(0xffBBE0E8),
+                            Color(0xFF02B1D7)
+                          ]),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(
+                              MediaQuery.of(context).size.width * .08),
+                          topRight: Radius.circular(
+                              MediaQuery.of(context).size.width * .08))),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
                       ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
                       Text(
-                        "Didn't receive yet?",
-                        style: TextStyle(
-                          color: Color(0xff393939),
-                          fontSize: 15,
+                        "Enter 4-digit code to verify",
+                        style:
+                            TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                      ),
+                      Text(
+                        "your credentials",
+                        style:
+                            TextStyle(fontSize: 18.0, color: Color(0xff5A5A5A)),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.060,
+                      ),
+                      otpField(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Text(
+                          hasError
+                              ? "*Please fill up all the cells properly"
+                              : "",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 10),
+
+                        child: SwipingButton(
+                          text: "to enter code",
+                          containerText: "to enter code",
+                          onSwipeCallback: () {
+                            formKey.currentState!.validate();
+                            // conditions for validating
+                            if (currentText.length != 4) {
+                              errorController.add(ErrorAnimationType
+                                  .shake); // Triggering error shake animation
+                              setState(() {
+                                hasError = true;
+                              });
+                            } else {
+                              setState(
+                                () {
+                                  hasError = false;
+                                },
+                              );
+                              tokenConfirm();
+                            }
+                          },
+                          height: 80,
+                        ),
+                        // child: FlatButton(
+                        //   child: _loading == true
+                        //       ? CircularProgressIndicator(
+                        //           color: Colors.white,
+                        //         )
+                        //       : Text(
+                        //           "Confirm",
+                        //           style: TextStyle(fontSize: 18),
+                        //         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Didn't receive yet?",
+                            style: TextStyle(
+                              color: Color(0xff393939),
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SwipingButton(
+                        text: "to Resend",
+                        containerText: "to Resend Code",
+                        onSwipeCallback: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LogIn()),
+                          );
+                        },
+                        height: 80,
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 15.0),
+                            child: Text("Copyright Reserved@Esooul"),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 15.0),
-                        child: Text("Copyright Reserved@Esooul"),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
