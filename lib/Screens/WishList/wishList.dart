@@ -1,6 +1,5 @@
 import 'package:esooul/Screens/paper_type/past_paper.dart';
 import 'package:esooul/Widgets/back_button.dart';
-import 'package:esooul/Screens/MCQs/MCQs.dart';
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Screens/Topics/Topics.dart';
 import 'package:esooul/Widgets/header.dart';
