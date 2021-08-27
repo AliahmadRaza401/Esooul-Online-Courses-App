@@ -76,7 +76,7 @@ class _YearPaperSelectionState extends State<YearPaperSelection> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SubjectivePaper()));
+                            builder: (context) => StackOver()));
                       },
                       child: papertype(context, 'assets/png/Subjective.png',
                           "Subjective", "Readable pdf", Color(0xff72C6EF))),

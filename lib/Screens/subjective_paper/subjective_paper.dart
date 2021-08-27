@@ -1,25 +1,85 @@
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
-class SubjectivePaper extends StatefulWidget {
-  const SubjectivePaper({Key? key}) : super(key: key);
-
+class StackOver extends StatefulWidget {
   @override
-  _SubjectivePaperState createState() => _SubjectivePaperState();
+  _StackOverState createState() => _StackOverState();
 }
 
-class _SubjectivePaperState extends State<SubjectivePaper> {
+class _StackOverState extends State<StackOver>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Colors.white,
-      body: Container(
-        child: Column(
-          children: [
-            Header(
-              btntext: 'Subjective',
+      body: Column(
+        children: [
+          Header(btntext: "Subjective"),
+          Container(
+            width: MediaQuery.of(context).size.width ,
+            height: MediaQuery.of(context).size.height * 0.68,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.040,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: MaterialApp(
+                    home: TabBar(
+                      controller: _tabController,
+                      // indicator: BoxDecoration(color: Colors.cyan[500]),
+                      labelColor: Colors.cyan[900],
+                      unselectedLabelColor: Colors.black38,
+                      tabs: [
+                        Tab(
+                          text: 'Question paper',
+                        ),
+                        Tab(
+                          text: 'Answer with video tutorial',
+                        ),
+                        
+                      ],
+                    ),
+                  ),
+                ),
+                // tab bar view here
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: [
+                    subjectivePaper(),
+                    Text("data")
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Container(
+          ),
+        ],
+      ),
+    );
+  }
+
+
+Widget subjectivePaper(){
+  return Container(
               height: MediaQuery.of(context).size.height * .7,
               // width: double.infinity,
               decoration: BoxDecoration(color: Colors.white),
@@ -84,31 +144,42 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
+            );
+}
+
+  Widget partdesc(String parts, String desc) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Part - $parts ",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+          Text(
+            "$desc",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+          Text(
+            "Solutions :",
+            style: TextStyle(color: Colors.black),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
+        ],
       ),
     );
   }
-  Widget partdesc(String parts,String desc){
-    return    Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         
-                         Text("Part - $parts ",style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                         Text("$desc",
-                         style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                         Text("Solutions :",style: TextStyle(color: Colors.black),),
-                         SizedBox(height: MediaQuery.of(context).size.height *.01,),
-                       ],
-                     ),
-    );
-  }
-  Widget _question(int number,String part, String question) {
+
+  Widget _question(int number, String part, String question) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15),
       child: Column(
@@ -125,13 +196,19 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
               )
             ],
           ),
-          Row(children: [Text('$part',style: TextStyle(color: Colors.black),)],),
-         
+          Row(
+            children: [
+              Text(
+                '$part',
+                style: TextStyle(color: Colors.black),
+              )
+            ],
+          ),
           Row(
             children: [
               Container(
                 // color: Colors.blue,
-                width: MediaQuery.of(context).size.width *.8,
+                width: MediaQuery.of(context).size.width * .8,
                 child: Wrap(
                   children: [
                     Text(
@@ -143,7 +220,6 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
               ),
             ],
           ),
-          
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -279,3 +355,5 @@ class _SubjectivePaperState extends State<SubjectivePaper> {
         ));
   }
 }
+
+

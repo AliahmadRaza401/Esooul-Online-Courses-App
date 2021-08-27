@@ -417,7 +417,7 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
     child: GestureDetector(
       onTap: (){
          Navigator.of(context).push(MaterialPageRoute(
-         builder: (context) => SubjectivePaper()));
+         builder: (context) => StackOver()));
       },
       child: Container(
         color: Color(0xffF1F1F1),
