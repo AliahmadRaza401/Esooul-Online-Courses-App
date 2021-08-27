@@ -105,13 +105,13 @@ Widget recommendedCard(BuildContext context, String img, String name,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
-              spreadRadius:5,
+              spreadRadius: 5,
               blurRadius: 6,
               offset: Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
-        padding: EdgeInsets.only(right:15),
+        padding: EdgeInsets.only(right: 15),
         width: MediaQuery.of(context).size.width * .92,
         height: MediaQuery.of(context).size.height * .12,
         child: Row(
@@ -127,41 +127,51 @@ Widget recommendedCard(BuildContext context, String img, String name,
                 ),
               ],
             ),
-            SizedBox(width: MediaQuery.of(context).size.width *.02,),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .02,
+            ),
             Container(
               // color: Colors.amber,
-              height: MediaQuery.of(context).size.height *.1,
+              height: MediaQuery.of(context).size.height * .1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "$name",
-                    style: TextStyle(color: Colors.black,fontSize: 13),
+                    style: TextStyle(color: Colors.black, fontSize: 13),
                   ),
                   Container(
-                    // color: Colors.black,
-                    width: MediaQuery.of(context).size.width *.53,
-                    child: 
-                  
-                  Expanded(child: Text('$board', style: TextStyle(color: Color(0xff8C8585),fontSize: 12)))),
-                  
+                      // color: Colors.black,
+                      width: MediaQuery.of(context).size.width * .53,
+                      child: Expanded(
+                          child: Text('$board',
+                              style: TextStyle(
+                                  color: Color(0xff8C8585), fontSize: 12)))),
                   Row(
                     children: [
                       Text("Likes $likes K    ",
-                          style: TextStyle(color: Color(0xff72C6EF), fontSize: 10)),
+                          style: TextStyle(
+                              color: Color(0xff72C6EF), fontSize: 10)),
                       Text("Created $date",
-                          style: TextStyle(color: Color(0xff999999), fontSize: 10))
+                          style:
+                              TextStyle(color: Color(0xff999999), fontSize: 10))
                     ],
                   )
                 ],
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height *.07,
-              left: MediaQuery.of(context).size.width *.02,
+              margin: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * .07,
+                left: MediaQuery.of(context).size.width * .005,
               ),
-              child: Icon(Icons.favorite,color: Colors.red,size: 30,),)
+              child: Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 30,
+              ),
+            )
           ],
         )),
   );
@@ -172,7 +182,12 @@ homeHeader(BuildContext context) {
     child: Column(
       children: [
         Row(
-          children: [Image.asset("assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.32,)],
+          children: [
+            Image.asset(
+              "assets/png/EsoulLogo.png",
+              width: MediaQuery.of(context).size.width * .32,
+            )
+          ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
