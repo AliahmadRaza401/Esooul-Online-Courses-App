@@ -269,17 +269,22 @@ homeHeader(BuildContext context, fName) {
               EdgeInsets.only(left: MediaQuery.of(context).size.width * .02),
 
           // color: Colors.blueGrey,
-          child: Row(
-            children: [
-              Text(
-                "Invite Friend",
-                style: TextStyle(fontSize: 15),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .02,
-              ),
-              Image.asset('assets/png/share.png')
-            ],
+          child: GestureDetector(
+            onTap: () {
+              return invitefriendAlert(context);
+            },
+            child: Row(
+              children: [
+                Text(
+                  "Invite Friend",
+                  style: TextStyle(fontSize: 15),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .02,
+                ),
+                Image.asset('assets/png/share.png')
+              ],
+            ),
           ),
         ),
         SizedBox(
@@ -303,6 +308,56 @@ homeHeader(BuildContext context, fName) {
               hintStyle: TextStyle(color: Color(0xffC3C5C9)),
               hintText: 'Select your board',
               fillColor: Colors.white),
+        ),
+      ],
+    ),
+  );
+}
+
+invitefriendAlert(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (context) => new AlertDialog(
+      backgroundColor: Colors.white,
+      contentPadding: EdgeInsets.fromLTRB(0, 60, 0, 10),
+      actionsPadding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+      // actionPadding:
+      content: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            GestureDetector(
+              child: Image.asset(
+                "assets/png/Instagram.png",
+              ),
+            ),
+            GestureDetector(child: Image.asset("assets/png/Twitter.png")),
+            GestureDetector(child: Image.asset("assets/png/Linkedin.png")),
+            GestureDetector(child: Image.asset("assets/png/Facebook.png")),
+            GestureDetector(child: Image.asset("assets/png/YouTube.png")),
+          ],
+        ),
+      ),
+      actions: <Widget>[
+        Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(MediaQuery.of(context).size.width * 0.60,
+                  MediaQuery.of(context).size.height * 0.050),
+              primary: Color(0xffEBEBEB),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30), // <-- Radius
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context, rootNavigator: true)
+                  .pop(); // dismisses only the dialog and returns nothing
+            },
+            child: new Text(
+              'Invite with Referal Code',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
         ),
       ],
     ),

@@ -42,11 +42,11 @@ class _HeaderState extends State<Header> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.asset(
-                  "assets/png/EsoulLogo.png",width:MediaQuery.of(context).size.width *.25
-                  // height: MediaQuery.of(context).size.height * 0.1,
-                  // width: MediaQuery.of(context).size.width * 0.1
-                ),
+                Image.asset("assets/png/EsoulLogo.png",
+                    width: MediaQuery.of(context).size.width * .25
+                    // height: MediaQuery.of(context).size.height * 0.1,
+                    // width: MediaQuery.of(context).size.width * 0.1
+                    ),
               ],
             ),
             Row(
@@ -96,7 +96,7 @@ class _HeaderState extends State<Header> {
             ),
             GestureDetector(
               onTap: () {
-                return _myAlert();
+                return _invitefriendAlert()();
               },
               child: Row(
                 children: [
@@ -157,7 +157,7 @@ class _HeaderState extends State<Header> {
     );
   }
 
-  _myAlert() {
+  _invitefriendAlert() {
     return showDialog(
       context: context,
       builder: (context) => new AlertDialog(
