@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SelectBoard extends StatefulWidget {
-  SelectBoard({Key? key}) : super(key: key);
+  var boardID;
+  SelectBoard({Key? key, @required this.boardID}) : super(key: key);
 
   @override
   _SelectBoardState createState() => _SelectBoardState();
@@ -29,7 +30,7 @@ class _SelectBoardState extends State<SelectBoard> {
   }
 
   getBoardList() async {
-    result = await _boardListProvider.getBoardList();
+    result = await _boardListProvider.getBoardList(widget.boardID);
     setState(() {
       _loader = false;
     });

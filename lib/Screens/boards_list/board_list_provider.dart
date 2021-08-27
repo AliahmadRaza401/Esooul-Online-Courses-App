@@ -15,11 +15,11 @@ class BoardListProvider extends ChangeNotifier {
   var result;
   var boardListData = [];
 
-  Future getBoardList() async {
+  Future getBoardList(String boardID) async {
     try {
       print("-----------Boards List Getting----------------");
       final _response = await http.get(
-        Uri.parse(educationalBoardsApi("jR")),
+        Uri.parse(educationalBoardsApi(boardID)),
         headers: headers,
       );
 
