@@ -2,7 +2,6 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
-import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,11 +31,11 @@ class _HomeState extends State<Home> {
     // getboards();
   }
 
-  // getboards() async {
-  //   var result = await _homeProvider.boardsArea();
-  //   boardAreaData = result['data'];
-  //   print('boardAreaData: $boardAreaData');
-  // }
+  getboards() async {
+    var result = await _homeProvider.boardsArea();
+    boardAreaData = result['data'];
+    print('boardAreaData: $boardAreaData');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,18 +86,21 @@ class _HomeState extends State<Home> {
                               child: Column(
                                 children: [
                                   // ListView.builder(
+                                  //     // scrollDirection: Axis.horizontal,
                                   //     physics: ClampingScrollPhysics(),
                                   //     shrinkWrap: true,
                                   //     itemCount: boardAreaData.length == null
                                   //         ? 0
                                   //         : boardAreaData.length,
                                   //     itemBuilder: (context, i) {
-                                  //       return Text(boardAreaData[i]['title']);
-                                  //       // boardsCard(
-                                  //       //     context,
-                                  //       //     'assets/png/federal.png',
-                                  //       //     boardAreaData[i]['title'],
-                                  //       //     boardAreaData[i]['description']);
+                                  //       return
+                                  //           // Text(boardAreaData[i]['title']);
+                                  //           boardsCard(
+                                  //               context,
+                                  //               'assets/png/federal.png',
+                                  //               boardAreaData[i]['title'],
+                                  //               boardAreaData[i]
+                                  //                   ['description']);
                                   //     }),
                                   Padding(
                                     padding: const EdgeInsets.only(
@@ -155,7 +157,6 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 10, right: 15, left: 15),
@@ -211,7 +212,6 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-
                                   sapratedWidgets(context, 'Important', ''),
                                   Padding(
                                     padding: const EdgeInsets.only(
