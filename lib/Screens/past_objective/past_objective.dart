@@ -289,7 +289,7 @@ class _PastObjectiveState extends State<PastObjective> {
                                             //                   notAttemped,
                                             //             )));
                                             if (totalQuestion ==
-                                                questionNumber) {
+                                                questionNumber + 2) {
                                               Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                       builder: (context) =>
@@ -325,10 +325,10 @@ class _PastObjectiveState extends State<PastObjective> {
                                                         .size
                                                         .height *
                                                     .015),
-                                            primary:
-                                                questionNumber == totalQuestion
-                                                    ? Colors.blue
-                                                    : Color(0xff677A8F),
+                                            primary: questionNumber + 2 ==
+                                                    totalQuestion
+                                                ? Colors.blue
+                                                : Color(0xff677A8F),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100),
