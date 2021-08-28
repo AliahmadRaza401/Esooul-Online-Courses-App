@@ -62,6 +62,15 @@ class _PastObjectiveState extends State<PastObjective> {
         pass = pass + 1;
         Timer(Duration(seconds: 1), nextQuestion);
       });
+    } else if (questionNumber + 1 == totalQuestion) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Report(
+                total: totalQuestion,
+                pass: pass,
+                fail: fail,
+                attemped: attemped,
+                notAttemped: notAttemped,
+              )));
     } else {
       print("False");
       setState(() {
@@ -266,26 +275,35 @@ class _PastObjectiveState extends State<PastObjective> {
                                       ),
                                       ElevatedButton(
                                           onPressed: () {
-                                            Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        Report(
-                                                          total: totalQuestion,
-                                                          pass: pass,
-                                                          fail: fail,
-                                                          attemped: attemped,
-                                                          notAttemped:
-                                                              notAttemped,
-                                                        )));
-                                            // if (totalQuestion == questionNumber) {
-                                            //   Navigator.of(context).push(
-                                            //       MaterialPageRoute(
-                                            //           builder: (context) =>
-                                            //               Report()));
-                                            // } else {
-                                            //   snackBar(
-                                            //       "Kindly Finish Question Firstly!");
-                                            // }
+                                            // Navigator.of(context).push(
+                                            //     MaterialPageRoute(
+                                            //         builder: (context) =>
+                                            //             Report(
+                                            //               total: totalQuestion,
+                                            //               pass: pass,
+                                            //               fail: fail,
+                                            //               attemped: attemped,
+                                            //               notAttemped:
+                                            //                   notAttemped,
+                                            //             )));
+                                            if (totalQuestion ==
+                                                questionNumber + 1) {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          Report(
+                                                            total:
+                                                                totalQuestion,
+                                                            pass: pass,
+                                                            fail: fail,
+                                                            attemped: attemped,
+                                                            notAttemped:
+                                                                notAttemped,
+                                                          )));
+                                            } else {
+                                              snackBar(
+                                                  "Kindly Finish Question Firstly!");
+                                            }
                                           },
                                           style: ElevatedButton.styleFrom(
                                             padding: EdgeInsets.only(
@@ -305,10 +323,10 @@ class _PastObjectiveState extends State<PastObjective> {
                                                         .size
                                                         .height *
                                                     .015),
-                                            primary: Colors.blue,
-                                            // questionNumber == totalQuestion
-                                            //     ? Colors.blue
-                                            //     : Color(0xff677A8F),
+                                            primary: questionNumber ==
+                                                    totalQuestion + 1
+                                                ? Colors.blue
+                                                : Color(0xff677A8F),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100),
