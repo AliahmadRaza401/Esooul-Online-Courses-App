@@ -1,6 +1,6 @@
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
-import 'package:esooul/Screens/subjective_paper/past_subjective_provider.dart';
+import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
@@ -34,8 +34,7 @@ class _StackOverState extends State<StackOver>
       _loader = false;
     });
     print('Subjective result: $result');
-    print(
-        "------------------------------------------------ ${result[0].paper_id}");
+  
   }
 
   _launchURL(ansURl) async {
@@ -379,5 +378,13 @@ class _StackOverState extends State<StackOver>
             )
           ],
         ));
+  }
+    snackBar(String message) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 2),
+      ),
+    );
   }
 }
