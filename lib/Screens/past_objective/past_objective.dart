@@ -49,6 +49,8 @@ class _PastObjectiveState extends State<PastObjective> {
   }
 
   optionValidate() {
+    print("total $totalQuestion");
+    print("QNo : ${questionNumber + 2}");
     setState(() {
       attemped = attemped + 1;
     });
@@ -62,7 +64,7 @@ class _PastObjectiveState extends State<PastObjective> {
         pass = pass + 1;
         Timer(Duration(seconds: 1), nextQuestion);
       });
-    } else if (questionNumber + 1 == totalQuestion) {
+    } else if (questionNumber + 2 == totalQuestion) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => Report(
                 total: totalQuestion,
