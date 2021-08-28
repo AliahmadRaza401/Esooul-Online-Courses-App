@@ -34,7 +34,8 @@ class _StackOverState extends State<StackOver>
       _loader = false;
     });
     print('Subjective result: $result');
-  
+    print(
+        "------------------------------------------------ ${result[0].paper_id}");
   }
 
   _launchURL(ansURl) async {
@@ -378,13 +379,5 @@ class _StackOverState extends State<StackOver>
             )
           ],
         ));
-  }
-    snackBar(String message) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: Duration(seconds: 2),
-      ),
-    );
   }
 }
