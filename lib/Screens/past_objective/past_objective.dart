@@ -62,7 +62,7 @@ class _PastObjectiveState extends State<PastObjective> {
         pass = pass + 1;
         Timer(Duration(seconds: 1), nextQuestion);
       });
-    } else if (questionNumber + 1 == totalQuestion) {
+    } else if (questionNumber  == totalQuestion) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => Report(
                 total: totalQuestion,
@@ -287,7 +287,7 @@ class _PastObjectiveState extends State<PastObjective> {
                                             //                   notAttemped,
                                             //             )));
                                             if (totalQuestion ==
-                                                questionNumber + 1) {
+                                                questionNumber ) {
                                               Navigator.of(context).push(
                                                   MaterialPageRoute(
                                                       builder: (context) =>
@@ -324,7 +324,7 @@ class _PastObjectiveState extends State<PastObjective> {
                                                         .height *
                                                     .015),
                                             primary: questionNumber ==
-                                                    totalQuestion + 1
+                                                    totalQuestion
                                                 ? Colors.blue
                                                 : Color(0xff677A8F),
                                             shape: RoundedRectangleBorder(

@@ -3,7 +3,6 @@ import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/main.dart';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -101,23 +100,32 @@ class _ReportState extends State<Report> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                card(Icons.task_alt_outlined, 'Attempted',
-                                    widget.attemped, widget.total, Colors.grey),
+                                card(Icons.task_alt_outlined, 
+                                'Attempted',
+                                widget.attemped, 
+                                widget.total,
+                                Colors.grey
+                                ),
                                 card(
                                     Icons.task_alt_outlined,
                                     'Correct answered',
                                     widget.pass,
                                     widget.total,
-                                    Colors.green),
-                                card(Icons.task_alt_outlined, 'Wrong answered',
-                                    widget.fail, widget.total, Colors.red),
+                                    Colors.green
+                                    ),
+                                card(Icons.task_alt_outlined,
+                                'Wrong answered',
+                                widget.fail,
+                                widget.total, 
+                                Colors.red
+                                ),
                                 card(
-                                    Icons
-                                        .do_not_disturb_on_total_silence_outlined,
+                                    Icons.do_not_disturb_on_total_silence_outlined,
                                     'Not attempted',
                                     widget.notAttemped,
                                     widget.total,
-                                    Colors.grey),
+                                    Colors.grey
+                                    ),
                                 Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
@@ -242,7 +250,9 @@ class _ReportState extends State<Report> {
 
   Widget card(icon, String title, int obtained, int total, final colortype) {
     double value = obtained / total;
-    double percentage = value * 100;
+    
+    double  number= value * 100;
+    double percentage= double.parse((number).toStringAsFixed(1));
     return Container(
       // height: MediaQuery.of(context).size.height * .09,
       width: MediaQuery.of(context).size.width * .9,
