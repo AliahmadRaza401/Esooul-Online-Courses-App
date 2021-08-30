@@ -98,17 +98,21 @@ class _CoursesState extends State<Courses> {
                           likes: "Likes 4K",
                           date: "Created 21 jun 2021"),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
+                        height: MediaQuery.of(context).size.height * 0.05,
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PaperAnswerVideo()),
-                            );
-                          },
-                          child: Text("press me"))
+<<<<<<< HEAD
+                      // ElevatedButton(
+                      //     onPressed: () {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(
+                      //             builder: (context) => PaperAnswerVideo()),
+                      //       );
+                      //     },
+                      //     child: Text("press me"))
+=======
+            
+>>>>>>> d5daac0e177964a07962bc047f880e4ec02034fb
                     ],
                   ),
                 ),

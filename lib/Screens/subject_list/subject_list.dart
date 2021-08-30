@@ -17,6 +17,7 @@ class SubjectList extends StatefulWidget {
 
 class _SubjectListState extends State<SubjectList> {
   var result;
+  var avatar;
   bool _loader = true;
   late SubjectListProvider _subjectListProvider;
 
@@ -76,7 +77,10 @@ class _SubjectListState extends State<SubjectList> {
                                           : result.length,
                                       itemBuilder: (context, i) {
                                         return _myContainer(
-                                            result[i].title, result[i].id);
+                                            result[i].image,
+                                            result[i].title,
+                                            result[i].id,
+                                            "Lahore Board");
                                       })
                                 ],
                               ),
@@ -90,7 +94,7 @@ class _SubjectListState extends State<SubjectList> {
     );
   }
 
-  _myContainer(String grade, selectedCourse) {
+  _myContainer(String subimg, String grade, selectedCourse, String boardname) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -103,10 +107,12 @@ class _SubjectListState extends State<SubjectList> {
         );
       },
       child: Container(
+
+
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         padding: EdgeInsets.only(left: 10),
-        height: MediaQuery.of(context).size.height * 0.075,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width * .92,
+        height: MediaQuery.of(context).size.height * .12,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,
@@ -122,20 +128,43 @@ class _SubjectListState extends State<SubjectList> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.050,
-              width: MediaQuery.of(context).size.width * 0.035,
-              decoration: BoxDecoration(
-                color: Color(0xff00B0D7),
-                borderRadius: BorderRadius.circular(50),
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  
+                   height: MediaQuery.of(context).size.height * .1,
+                  width: MediaQuery.of(context).size.width * .2,
+                  decoration: BoxDecoration(
+                    // color: Colors.amber,
+                  image: DecorationImage(image: NetworkImage("$subimg"),
+                  fit: BoxFit.cover
+                  )
+                  ),)
+              ],
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.20,
+              width: MediaQuery.of(context).size.width * 0.05,
             ),
-            Text(
-              grade,
-              style: TextStyle(color: Colors.black, fontSize: 18.0),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  grade,
+                  style: TextStyle(color: Colors.black, fontSize: 18.0),
+                ),
+                Container(
+                    // color: Colors.black,
+                    width: MediaQuery.of(context).size.width * .53,
+                    child: Wrap(
+                      children: [
+                        Text('$boardname',
+                            style: TextStyle(
+                                color: Color(0xff8C8585), fontSize: 12))
+                      ],
+                    )),
+              ],
             ),
           ],
         ),

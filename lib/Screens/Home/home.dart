@@ -212,7 +212,7 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-                                  sapratedWidgets(context, 'Important', ''),
+                                  importantText(context, 'Important', ''),
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 15, right: 15),
@@ -235,7 +235,7 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-                                  sapratedWidgets(context,
+                                  recomendedtext(context,
                                       'Recommended for you', 'Show all'),
                                   Container(
                                     width:
@@ -272,6 +272,9 @@ class _HomeState extends State<Home> {
                                               'Board of Intermediate and Secondary Education (BISE) Lahore',
                                               2,
                                               '12 jun 2021'),
+                                               SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                      ),
                                         ],
                                       ),
                                     ),

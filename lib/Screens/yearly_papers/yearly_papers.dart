@@ -158,7 +158,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               padding: EdgeInsets.only(left: 10),
-              height: MediaQuery.of(context).size.height * 0.075,
+              height: MediaQuery.of(context).size.height * 0.12,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -174,14 +174,26 @@ class _YearlyPaperState extends State<YearlyPaper> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.network("$img"),
+                  Container(
+                  
+                   height: MediaQuery.of(context).size.height * .1,
+                  width: MediaQuery.of(context).size.width * .2,
+                  decoration: BoxDecoration(
+                    // color: Colors.amber,
+                  image: DecorationImage(image: NetworkImage("$img"),
+                  fit: BoxFit.cover
+                  )
+                  ),),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
                   ),
-                  Text(
+                  Wrap(children: [
+                    Text(
                     grade,
                     style: TextStyle(color: Colors.black, fontSize: 18.0),
                   ),
+                  ],)
+                  
                 ],
               ),
             ),

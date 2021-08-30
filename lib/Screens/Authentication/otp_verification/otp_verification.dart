@@ -292,7 +292,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
               fontWeight: FontWeight.bold,
             ),
             length: 4,
-            obscureText: true,
+            obscureText: false,
             obscuringCharacter: '*',
             // obscuringWidget: FlutterLogo(
             //   size: 24,
@@ -308,7 +308,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             },
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(5),
               fieldHeight: 50,
               fieldWidth: 60,
               activeFillColor: hasError ? Colors.white : Color(0xff5098C8),
