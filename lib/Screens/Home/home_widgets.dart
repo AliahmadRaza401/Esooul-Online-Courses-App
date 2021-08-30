@@ -4,7 +4,6 @@ import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
 import 'package:blinking_text/blinking_text.dart';
 
-
 Widget boardsCard(
   BuildContext context,
   String img,
@@ -22,7 +21,7 @@ Widget boardsCard(
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(3, 0), // changes position of shadow
+            offset: Offset(3, 0),
           ),
         ],
         borderRadius:
@@ -222,10 +221,10 @@ homeHeader(BuildContext context, fName) {
                         "Hi, ${fName} ",
                         style: TextStyle(fontSize: 17),
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * .02,
-                      ),
-                      Image.asset("assets/png/hi.png")
+                      // SizedBox(
+                      //   // width: MediaQuery.of(context).size.width * .01,
+                      // ),
+                      Image.asset("assets/png/hi.gif",height:30,width: 30,)
                     ],
                   ),
                 ],
@@ -449,13 +448,11 @@ Widget importantText(BuildContext context, String title, String desc) {
                         style: TextStyle(
                             color: Color(0xff00B0D7),
                             fontWeight: FontWeight.bold),
-                            
                       ),
                     ],
                   )
                 ],
               ),
-             
             ],
           ),
         ),
@@ -497,7 +494,6 @@ Widget recomendedtext(BuildContext context, String title, String desc) {
                         style: TextStyle(
                             color: Color(0xff00B0D7),
                             fontWeight: FontWeight.bold),
-                           
                       ),
                     ],
                   )

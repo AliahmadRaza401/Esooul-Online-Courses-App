@@ -263,37 +263,40 @@ class _TopicsState extends State<Topics> {
   }
 
   Widget desc(String icon, String def, String description) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Column(
-          children: [Image.asset("$icon")],
-        ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * .04,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  "$def",
-                  style: TextStyle(color: Colors.black, fontSize: 15),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Text(
-                  '$description',
-                  style: TextStyle(fontSize: 12, color: Colors.black),
-                )
-              ],
-            )
-          ],
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            children: [Image.asset("$icon")],
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .04,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "$def",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    '$description',
+                    style: TextStyle(fontSize: 12, color: Colors.black),
+                  )
+                ],
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

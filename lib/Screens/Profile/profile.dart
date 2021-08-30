@@ -214,10 +214,23 @@ class _ProfileState extends State<Profile> {
                             child: ClipOval(
                               child: Image.asset('assets/png/Mask Group.png'),
                             ),
-                            backgroundColor: Colors.blueAccent,
+                            backgroundColor: Color(0xff72C6EF),
                             radius: MediaQuery.of(context).size.height * .06,
                           ),
-                        )
+                        ),
+                        Positioned(
+                          right: 20,
+                          top: MediaQuery.of(context).size.height *.16,
+                          
+                          child: GestureDetector(
+                            
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Settings()));
+                            },
+                            child: Icon(Icons.settings_outlined,size: 35,))),
+
+                            
                       ],
                     ),
                   ],
