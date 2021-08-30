@@ -16,6 +16,7 @@ class _TopicsState extends State<Topics> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
+        // height: MediaQuery.M,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -90,7 +91,8 @@ class _TopicsState extends State<Topics> {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
-                                            builder: (context) => PastObjective()));
+                                            builder: (context) =>
+                                                PastObjective()));
                                   },
                                   style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.grey,
@@ -118,7 +120,10 @@ class _TopicsState extends State<Topics> {
                             ),
                           ],
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * .1,
+                      ),
                     ]),
                   ],
                 ),
@@ -169,7 +174,7 @@ class _TopicsState extends State<Topics> {
             ),
             Container(
               height: MediaQuery.of(context).size.height * .15,
-              width: MediaQuery.of(context).size.width *.87,
+              width: MediaQuery.of(context).size.width * .87,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

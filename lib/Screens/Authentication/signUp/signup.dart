@@ -289,7 +289,7 @@ class _SignUpState extends State<SignUp> {
                                     horizontal:
                                         MediaQuery.of(context).size.width *
                                             0.41),
-                                width: 5,
+                                width: 35,
                                 child: CircularProgressIndicator()),
                         // ElevatedButton(
                         //   child: _loading == false

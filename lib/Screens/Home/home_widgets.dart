@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 
+import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
 
 Widget boardsCard(
@@ -32,18 +33,23 @@ Widget boardsCard(
       padding: const EdgeInsets.all(3),
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  img,
+          Row(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * .28,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      img,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                      MediaQuery.of(context).size.height * .02),
                 ),
-                fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.height * .07,
               ),
-              borderRadius: BorderRadius.circular(
-                  MediaQuery.of(context).size.height * .02),
-            ),
-            height: MediaQuery.of(context).size.height * .07,
+            ],
           ),
           Row(
             children: [
@@ -415,10 +421,7 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
       10,
     ).copyWith(top: 20),
     child: GestureDetector(
-      onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => StackOver()));
-      },
+      onTap: () {},
       child: Container(
         color: Color(0xffF1F1F1),
         width: MediaQuery.of(context).size.width * .92,

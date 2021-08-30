@@ -111,11 +111,6 @@ class _ProfileState extends State<Profile> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 14),
                               ),
-                              Text(
-                                "john Doe@gmail.com",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 10),
-                              ),
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * .01,

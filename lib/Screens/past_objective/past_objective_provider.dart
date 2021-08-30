@@ -16,14 +16,14 @@ class PastObjectiveProvider extends ChangeNotifier {
 
   var pastObjectiveData = [];
 
-  Future pastObjective() async {
+  Future pastObjective(paperID) async {
     try {
       print("-----------Objective List Getting----------------");
       final _response = await http.post(
         Uri.parse(pastObjectiveApi),
         headers: headers,
         body: jsonEncode({
-          'paper_id': "MA",
+          'paper_id': paperID,
           'question_type': "objective",
         }),
       );

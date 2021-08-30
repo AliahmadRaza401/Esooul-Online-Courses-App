@@ -63,8 +63,7 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                     onTap: () {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TopicList()));
-                                                  _paperCategoreyProvider.paperType = "custom";
-
+                      _paperCategoreyProvider.paperType = "custom";
                     },
                     child: papercard(
                       context,
@@ -147,12 +146,15 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           // scrollDirection:Axis.horizontal ,
-                          itemCount: 9,
+                          itemCount: 3,
                           itemBuilder: (context, i) {
                             return GestureDetector(
                               onTap: () {
+                                print(currentdate.year - i - 2);
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => YearlyPaper()));
+                                    builder: (context) => YearlyPaper(
+                                          year: currentdate.year - i - 2,
+                                        )));
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +173,7 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                                                 .82,
                                         child: Center(
                                             child: Text(
-                                          "${currentdate.year - i}",
+                                          "${currentdate.year - i - 2}",
                                           style: TextStyle(
                                               fontSize: 20,
                                               color: Colors.black),
