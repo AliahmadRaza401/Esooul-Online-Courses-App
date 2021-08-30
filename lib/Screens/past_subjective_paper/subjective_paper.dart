@@ -1,3 +1,4 @@
+import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
@@ -23,6 +24,9 @@ class _StackOverState extends State<StackOver>
   bool _loader = true;
   late YearlyPaperProvider _yearlyPaperProvider;
   var paperID;
+  bool _isLoading = true;
+  late PDFDocument document;
+  bool showans = false;
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
@@ -31,6 +35,16 @@ class _StackOverState extends State<StackOver>
     _yearlyPaperProvider = Provider.of(context, listen: false);
     paperID = _yearlyPaperProvider.yearlyPaperID;
     getData();
+    loadDocument();
+  }
+
+  loadDocument() async {
+    document = await PDFDocument.fromURL("http://www.orimi.com/pdf-test.pdf"
+        // "http://conorlastowka.com/book/CitationNeededBook-Sample.pdf"
+        );
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   getData() async {
@@ -89,7 +103,8 @@ class _StackOverState extends State<StackOver>
                   ),
                 ),
 
-                // tab bar view here
+                // tab bar view
+
                 Expanded(
                   child: TabBarView(
                     controller: _tabController,
@@ -142,9 +157,6 @@ class _StackOverState extends State<StackOver>
                     'I', 'Write short answers to any FIVE (5) questions: (10)'),
               ],
             ),
-            Row(
-              children: [],
-            ),
             _loader == true
                 ? LoadingBounceAnimation(context)
                 : _pastSubjectiveProvider.pastSubjectiveData.isEmpty
@@ -164,6 +176,23 @@ class _StackOverState extends State<StackOver>
                               })
                         ],
                       ),
+            ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    showans = !showans;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xff3ECBEA),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    )),
+                child: Text(
+                  "Show PDF Answer",
+                  style: TextStyle(color: Colors.black),
+                )),
+            Visibility(visible: showans, child: _showPDF())
           ],
         ),
       ),
@@ -260,7 +289,8 @@ class _StackOverState extends State<StackOver>
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     )),
-              )
+              ),
+              //showing pdf file from url
             ],
           )
         ],
@@ -385,6 +415,60 @@ class _StackOverState extends State<StackOver>
       SnackBar(
         content: Text(message),
         duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  _showPDF() {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.60,
+      width: MediaQuery.of(context).size.width * 0.90,
+      child: //showing pdf file from url
+          Center(
+        child: _isLoading
+            ? Center(child: CircularProgressIndicator())
+            : PDFViewer(
+                document: document,
+                zoomSteps: 1,
+                //uncomment below line to preload all pages
+                lazyLoad: false,
+                // uncomment below line to scroll vertically
+                scrollDirection: Axis.horizontal,
+
+                //uncomment below code to replace bottom navigation with your own
+                navigationBuilder:
+                    (context, page, totalPages, jumpToPage, animateToPage) {
+                  return ButtonBar(
+                    alignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.first_page),
+                        onPressed: () {
+                          jumpToPage();
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          animateToPage(page: page! - 2);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.arrow_forward),
+                        onPressed: () {
+                          animateToPage(page: page);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.last_page),
+                        onPressed: () {
+                          jumpToPage(page: totalPages! - 1);
+                        },
+                      ),
+                    ],
+                  );
+                },
+              ),
       ),
     );
   }
