@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
+import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
@@ -20,21 +21,24 @@ class _StackOverState extends State<StackOver>
   late PastSubjectiveProvider _pastSubjectiveProvider;
   var result;
   bool _loader = true;
+  late YearlyPaperProvider _yearlyPaperProvider;
+  var paperID;
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
     super.initState();
     _pastSubjectiveProvider = Provider.of(context, listen: false);
+    _yearlyPaperProvider = Provider.of(context, listen: false);
+    paperID = _yearlyPaperProvider.yearlyPaperID;
     getData();
   }
 
   getData() async {
-    result = await _pastSubjectiveProvider.pastSubjective();
+    result = await _pastSubjectiveProvider.pastSubjective(paperID);
     setState(() {
       _loader = false;
     });
     print('Subjective result: $result');
-  
   }
 
   _launchURL(ansURl) async {
@@ -69,24 +73,20 @@ class _StackOverState extends State<StackOver>
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
-
-                  child:  TabBar(
-                    
-                      controller: _tabController,
-                      // indicator: BoxDecoration(color: Colors.cyan[500]),
-                      labelColor: Colors.cyan[900],
-                      unselectedLabelColor: Colors.black38,
-                      tabs: [
-                        Tab(
-                          text: 'Question paper',
-                        ),
-                        Tab(
-                          text: 'Answer with video tutorial',
-                        ),
-
-                      ],
-                    ),
-
+                  child: TabBar(
+                    controller: _tabController,
+                    // indicator: BoxDecoration(color: Colors.cyan[500]),
+                    labelColor: Colors.cyan[900],
+                    unselectedLabelColor: Colors.black38,
+                    tabs: [
+                      Tab(
+                        text: 'Question paper',
+                      ),
+                      Tab(
+                        text: 'Answer with video tutorial',
+                      ),
+                    ],
+                  ),
                 ),
 
                 // tab bar view here
@@ -379,7 +379,8 @@ class _StackOverState extends State<StackOver>
           ],
         ));
   }
-    snackBar(String message) {
+
+  snackBar(String message) {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),

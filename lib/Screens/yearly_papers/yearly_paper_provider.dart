@@ -17,8 +17,9 @@ class YearlyPaperProvider extends ChangeNotifier {
   var result;
   var yearlyPaperData = [];
   var questionType;
+  var yearlyPaperID;
 
-  Future yearlyPaperList(paperType, courseID) async {
+  Future yearlyPaperList(paperType, courseID, year) async {
     try {
       print("----------- Yearly Paper Getting----------------");
       final _response = await http.post(
@@ -26,7 +27,7 @@ class YearlyPaperProvider extends ChangeNotifier {
         headers: headers,
         body: jsonEncode({
           'paper_type': paperType,
-          'paper_year': 2015,
+          'paper_year': year,
           'course_id': courseID
         }),
       );

@@ -11,7 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class YearlyPaper extends StatefulWidget {
-  const YearlyPaper({Key? key}) : super(key: key);
+  final year;
+  const YearlyPaper({Key? key, @required this.year}) : super(key: key);
 
   @override
   _YearlyPaperState createState() => _YearlyPaperState();
@@ -40,7 +41,8 @@ class _YearlyPaperState extends State<YearlyPaper> {
   }
 
   yearlyPapaer() async {
-    result = await _yearlyPaperProvider.yearlyPaperList(paperType, courseID);
+    result = await _yearlyPaperProvider.yearlyPaperList(
+        paperType, courseID, widget.year);
     print('result data yaeafdsfasd: $result');
     setState(() {
       _loader = false;
@@ -66,7 +68,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          "Select paper from 2017",
+                          "Select paper from ${widget.year}",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16.0,
@@ -93,7 +95,8 @@ class _YearlyPaperState extends State<YearlyPaper> {
                                             return _yearPapers(
                                                 context,
                                                 result[i].course,
-                                                result[i].image);
+                                                result[i].image,
+                                                result[i].id);
                                           })
                                     ],
                                   ),
@@ -140,13 +143,14 @@ class _YearlyPaperState extends State<YearlyPaper> {
     );
   }
 
-  _yearPapers(BuildContext context, String grade, String img) {
+  _yearPapers(BuildContext context, String grade, String img, yearlyPaperID) {
     return Stack(
       children: [
         GestureDetector(
           onTap: () {
             setState(() {
               show = !show;
+              _yearlyPaperProvider.yearlyPaperID = yearlyPaperID;
             });
           },
           child: Padding(

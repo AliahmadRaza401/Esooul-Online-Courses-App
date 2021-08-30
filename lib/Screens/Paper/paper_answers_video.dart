@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
+import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/header2.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
@@ -15,17 +16,21 @@ class PaperAnswerVideo extends StatefulWidget {
 
 class _PaperAnswerVideoState extends State<PaperAnswerVideo> {
   late PastSubjectiveProvider _pastSubjectiveProvider;
+  late YearlyPaperProvider _yearlyPaperProvider;
+  var paperID;
   var result;
   bool _loader = true;
   @override
   void initState() {
     super.initState();
     _pastSubjectiveProvider = Provider.of(context, listen: false);
+    _yearlyPaperProvider = Provider.of(context, listen: false);
+    paperID = _yearlyPaperProvider.yearlyPaperID;
     getData();
   }
 
   getData() async {
-    result = await _pastSubjectiveProvider.pastSubjective();
+    result = await _pastSubjectiveProvider.pastSubjective(paperID);
     setState(() {
       _loader = false;
     });
