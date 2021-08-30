@@ -146,14 +146,14 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           // scrollDirection:Axis.horizontal ,
-                          itemCount: 3,
+                          itemCount: 4,
                           itemBuilder: (context, i) {
                             return GestureDetector(
                               onTap: () {
-                                print(currentdate.year - i - 2);
+                                print(currentdate.year - i - 1);
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => YearlyPaper(
-                                          year: currentdate.year - i - 2,
+                                          year: currentdate.year - i - 1,
                                         )));
                               },
                               child: Row(
@@ -173,7 +173,7 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                                                 .82,
                                         child: Center(
                                             child: Text(
-                                          "${currentdate.year - i - 2}",
+                                          "${currentdate.year - i - 1}",
                                           style: TextStyle(
                                               fontSize: 20,
                                               color: Colors.black),

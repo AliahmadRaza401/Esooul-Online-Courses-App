@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:esooul/config/config.dart';
 import 'package:esooul/modeles/course_list_model.dart';
-import 'package:esooul/modeles/grade_list_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';

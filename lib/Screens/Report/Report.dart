@@ -1,8 +1,5 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-import 'package:esooul/Screens/Home/home.dart';
-import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
-import 'package:esooul/main.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -53,11 +50,6 @@ class _ReportState extends State<Report> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Hey Mr",
-                                    style: TextStyle(
-                                        color: Color(0xff00B0D7), fontSize: 20),
-                                  ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         .01,

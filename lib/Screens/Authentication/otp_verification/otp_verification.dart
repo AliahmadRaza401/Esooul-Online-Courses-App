@@ -1,12 +1,8 @@
 import 'dart:async';
-
-import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
-import 'package:esooul/Widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
