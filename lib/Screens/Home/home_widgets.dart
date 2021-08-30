@@ -1,8 +1,7 @@
-import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
+
 import 'package:flutter/material.dart';
-import 'package:blinking_text/blinking_text.dart';
 
 Widget boardsCard(
   BuildContext context,
@@ -416,15 +415,9 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
       10,
     ).copyWith(top: 20),
     child: GestureDetector(
-<<<<<<< HEAD
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => SubjectivePaper()));
-=======
-      onTap: (){
-         Navigator.of(context).push(MaterialPageRoute(
-         builder: (context) => StackOver()));
->>>>>>> c8095358b2bbda5529f1652aceba038bf48d9d6d
+            .push(MaterialPageRoute(builder: (context) => StackOver()));
       },
       child: Container(
         color: Color(0xffF1F1F1),
