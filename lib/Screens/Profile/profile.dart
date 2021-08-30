@@ -56,7 +56,7 @@ class _ProfileState extends State<Profile> {
                             left: MediaQuery.of(context).size.width * .01,
                             right: MediaQuery.of(context).size.width * .01,
                           ),
-                          height: MediaQuery.of(context).size.height * .91,
+                          height: MediaQuery.of(context).size.height * .89,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -96,9 +96,9 @@ class _ProfileState extends State<Profile> {
                             left: MediaQuery.of(context).size.width * .02,
                             right: MediaQuery.of(context).size.width * .02,
                           ),
-                          height: MediaQuery.of(context).size.height * .26,
+                          height: MediaQuery.of(context).size.height * .15,
                           width: double.infinity,
-                          decoration: BoxDecoration(),
+                          // decoration: BoxDecoration(color: Colors.amber),
                           child: Column(
                             children: [
                               Text(
@@ -115,89 +115,64 @@ class _ProfileState extends State<Profile> {
                                 height:
                                     MediaQuery.of(context).size.height * .01,
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "2k",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        "Likes",
-                                        style: TextStyle(color: Colors.white),
-                                      )
-                                    ],
-                                  ),
-                                  Column(children: [
-                                    Text(
-                                      "10",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Text(
-                                      "Photos",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ]),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "89",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        "Comments",
-                                        style: TextStyle(color: Colors.white),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              )
+                              
                             ],
                           ),
                         ),
                         Container(
                           decoration: BoxDecoration(
+                            // color: Colors.amber
                             image: DecorationImage(
                                 image: AssetImage('assets/png/image 6.png'),
                                 fit: BoxFit.cover),
                           ),
                           padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * .08,
-                              right: MediaQuery.of(context).size.width * .08,
+                              left: MediaQuery.of(context).size.width * .04,
+                              right: MediaQuery.of(context).size.width * .04,
                               top: MediaQuery.of(context).size.height * .02),
                           margin: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * .37,
+                            top: MediaQuery.of(context).size.height * .3,
                             left: MediaQuery.of(context).size.width * .02,
                             right: MediaQuery.of(context).size.width * .02,
                           ),
                           height: MediaQuery.of(context).size.height * .55,
                           width: double.infinity,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                data(
-                                  'Institute',
-                                  'School Optional',
-                                ),
-                                data('Gender', 'Select'),
-                                data('Grade', 'Select'),
-                                data('Contact Number', 'Type here')
-                              ],
-                            ),
+                          child: Column(
+                            children: [
+                              data(
+                                'First Name',
+                                '$userFName',
+                              ),
+                              data('Last Name', '$userLName'),
+                              data('Email', '$userEmail'),
+                              data('Contact Number', 'Type here'),
+                              SizedBox(height: MediaQuery.of(context).size.height *.02,),
+                              ElevatedButton(onPressed: (){}, 
+                               style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.only(
+                                      left:
+                                          MediaQuery.of(context).size.width *
+                                              .335,
+                                      top:
+                                          MediaQuery.of(context).size.height *
+                                              .01,
+                                      bottom:
+                                          MediaQuery.of(context).size.height *
+                                              .01,
+                                      right:
+                                          MediaQuery.of(context).size.width *
+                                              .335),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(100)),
+                                  primary: Color(0xff00B0D7)),
+                              child: Text("Save"))
+                            ],
                           ),
                         ),
                         Positioned(
                           left: MediaQuery.of(context).size.width * .04,
-                          top: MediaQuery.of(context).size.height * .85,
+                          top: MediaQuery.of(context).size.height * .83,
                           child: Row(
                             children: [
                               ElevatedButton(
@@ -258,9 +233,12 @@ class _ProfileState extends State<Profile> {
       children: [
         Row(
           children: [
-            Text(
-              titel,
-              style: TextStyle(color: Colors.white, fontSize: 20),
+            Padding(
+              padding: const EdgeInsets.only(left:40),
+              child: Text(
+                titel,
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
             ),
           ],
         ),
@@ -269,6 +247,7 @@ class _ProfileState extends State<Profile> {
         ),
         Container(
             height: MediaQuery.of(context).size.height * .04,
+            width: MediaQuery.of(context).size.width *.75,
             child: TextField(
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black),
@@ -280,7 +259,7 @@ class _ProfileState extends State<Profile> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   filled: true,
-                  hintStyle: TextStyle(color: Color(0xffC3C5C9)),
+                  hintStyle: TextStyle(color: Color(0xffC3C5C9),fontSize: 14),
                   hintText: hinttext,
                   fillColor: Colors.white),
             )),

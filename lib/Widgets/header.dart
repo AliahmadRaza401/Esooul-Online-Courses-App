@@ -177,7 +177,6 @@ class _HeaderState extends State<Header> {
           color: Colors.transparent,
           shape: BoxShape.rectangle,
         ),
-        // margin: EdgeInsets.only(right: 8, top: 8),
         child: Center(
           child: Image.asset(imgPath),
         ),

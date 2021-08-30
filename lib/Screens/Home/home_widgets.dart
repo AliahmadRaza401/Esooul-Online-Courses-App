@@ -2,6 +2,8 @@ import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
+import 'package:blinking_text/blinking_text.dart';
+
 
 Widget boardsCard(
   BuildContext context,
@@ -414,7 +416,55 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
   );
 }
 
-Widget sapratedWidgets(BuildContext context, String title, String desc) {
+Widget importantText(BuildContext context, String title, String desc) {
+  return Padding(
+    padding: const EdgeInsets.all(
+      10,
+    ).copyWith(top: 20),
+    child: GestureDetector(
+      onTap: () {},
+      child: Container(
+        color: Color(0xffF1F1F1),
+        width: MediaQuery.of(context).size.width * .92,
+        height: MediaQuery.of(context).size.height * .05,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        color: Color(0xff00B0D7),
+                        height: MediaQuery.of(context).size.height * .05,
+                        width: MediaQuery.of(context).size.width * .015,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .03,
+                      ),
+                      BlinkText(
+                        "$title",
+                        style: TextStyle(
+                            color: Color(0xff00B0D7),
+                            fontWeight: FontWeight.bold),
+                            
+                      ),
+                    ],
+                  )
+                ],
+              ),
+             
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget recomendedtext(BuildContext context, String title, String desc) {
   return Padding(
     padding: const EdgeInsets.all(
       10,
@@ -447,6 +497,7 @@ Widget sapratedWidgets(BuildContext context, String title, String desc) {
                         style: TextStyle(
                             color: Color(0xff00B0D7),
                             fontWeight: FontWeight.bold),
+                           
                       ),
                     ],
                   )
