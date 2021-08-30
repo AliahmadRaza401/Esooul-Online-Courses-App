@@ -9,6 +9,7 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class PastObjective extends StatefulWidget {
@@ -31,10 +32,19 @@ class _PastObjectiveState extends State<PastObjective> {
   late YearlyPaperProvider _yearlyPaperProvider;
   var result;
   var paperID;
+  bool videoVisible = false;
+  bool optionSelected = true;
 
   late AnimationController _animationController;
   late Animation _animation;
   Animation get animation => this._animation;
+  final interval = const Duration(seconds: 1);
+
+  final int timerMaxSeconds = 60;
+
+  int currentSeconds = 0;
+  String get timerText =>
+      '00:${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
 
   @override
   void initState() {
@@ -42,7 +52,18 @@ class _PastObjectiveState extends State<PastObjective> {
     _pastObjectiveProvider = Provider.of(context, listen: false);
     _yearlyPaperProvider = Provider.of(context, listen: false);
     paperID = _yearlyPaperProvider.yearlyPaperID;
+
     getData();
+  }
+
+  startTimeout([int? milliseconds]) {
+    var duration = interval;
+    Timer.periodic(duration, (timer) {
+      setState(() {
+        currentSeconds = timer.tick;
+        if (timer.tick >= timerMaxSeconds) timer.cancel();
+      });
+    });
   }
 
   getData() async {
@@ -51,6 +72,7 @@ class _PastObjectiveState extends State<PastObjective> {
       _loader = false;
       totalQuestion = result.length + 1;
     });
+    startTimeout();
     print("lengh : ${result.length}");
   }
 
@@ -59,25 +81,17 @@ class _PastObjectiveState extends State<PastObjective> {
     print("QNo : ${questionNumber + 2}");
     setState(() {
       attemped = attemped + 1;
+      optionSelected = false;
     });
     print('selectedOption: $selectedOption');
     print("Ans ${result[questionNumber].answer}");
-    // if (questionNumber + 2 == totalQuestion) {
-    //   Navigator.of(context).push(MaterialPageRoute(
-    //       builder: (context) => Report(
-    //             total: totalQuestion,
-    //             pass: pass,
-    //             fail: fail,
-    //             attemped: attemped,
-    //             notAttemped: notAttemped,
-    //           )));
-    // }
     if (selectedOption.toString() == result[questionNumber].answer.toString()) {
       print("True");
       setState(() {
         circleColor[selectedOption] = Colors.green;
         textColor[selectedOption] = Colors.green;
         pass = pass + 1;
+        videoVisible = false;
         if (questionNumber + 2 != totalQuestion) {
           Timer(Duration(seconds: 1), nextQuestion);
         }
@@ -89,9 +103,7 @@ class _PastObjectiveState extends State<PastObjective> {
         circleColor[selectedOption] = Colors.red;
         textColor[selectedOption] = Colors.red;
         fail = fail + 1;
-        if (questionNumber + 2 != totalQuestion) {
-          Timer(Duration(seconds: 1), nextQuestion);
-        }
+        videoVisible = true;
       });
     }
   }
@@ -99,7 +111,7 @@ class _PastObjectiveState extends State<PastObjective> {
   nextQuestion() {
     setState(() {
       questionNumber = questionNumber + 1;
-
+      optionSelected = true;
       textColor[0] = Colors.black;
       textColor[1] = Colors.black;
       textColor[2] = Colors.black;
@@ -160,11 +172,10 @@ class _PastObjectiveState extends State<PastObjective> {
           ),
           Container(
               margin: EdgeInsets.only(
-                // top: MediaQuery.of(context).size.height * 0,
                 left: MediaQuery.of(context).size.width * .015,
                 right: MediaQuery.of(context).size.width * .015,
               ),
-              height: MediaQuery.of(context).size.height * .7,
+              height: MediaQuery.of(context).size.height * .72,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -177,227 +188,226 @@ class _PastObjectiveState extends State<PastObjective> {
                           ? noDataMsg(context)
                           : Container(
                               padding: EdgeInsets.all(30).copyWith(top: 10),
+                              height: MediaQuery.of(context).size.height * .72,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Container(
-                                        margin:
-                                            EdgeInsets.only(top: 0, right: 20),
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 5),
-                                        alignment: Alignment.center,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.3,
-                                        decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              begin: Alignment.topRight,
-                                              end: Alignment.topLeft,
-                                              colors: [
-                                                Color(0xffFF9D43),
-                                                Color(0xffFFD643),
-                                              ],
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Text(
-                                          "Total: " +
-                                              "${totalQuestion == null ? 0 : totalQuestion - 1}",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 17),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  // Padding(
-                                  //   padding: const EdgeInsets.all(8.0),
-                                  //   child: DefaultTabController(
-                                  //       length: 2,
-                                  //       child: TabBar(tabs: [tabMaker()])),
-                                  // ),
-                                  Column(
-                                    children: [
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.02,
-                                      ),
-                                      question(
-                                          questionNumber == null
-                                              ? 0
-                                              : questionNumber + 1,
-                                          result[questionNumber].question ==
-                                                  null
-                                              ? ""
-                                              : result[questionNumber]
-                                                  .question),
-                                      ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: ClampingScrollPhysics(),
-                                        itemCount: result[questionNumber]
-                                                    .option
-                                                    .length ==
-                                                null
-                                            ? 0
-                                            : result[questionNumber]
-                                                .option
-                                                .length,
-                                        itemBuilder: (context, i) {
-                                          return options(
-                                              result[questionNumber]
-                                                          .option[i] ==
-                                                      null
-                                                  ? ""
-                                                  : result[questionNumber]
-                                                      .option[i],
-                                              i,
-                                              circleColor,
-                                              textColor);
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                  // mcq(
-                                  //     '01)  The water of crystallization is responsible for the',
-                                  //     'Melting points of crystals',
-                                  //     'Boiling points of crystals',
-                                  //     'Transition point of crystal',
-                                  //     'Shapes of crystals'),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        .04,
-                                  ),
-                                  GestureDetector(
-                                      onTap: () {
-                                        snackBar("Comming Soon...");
-                                      },
-                                      child: videoContainer(context)),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        .03,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "Skip and go to next question",
-                                        style: TextStyle(color: Colors.black),
-                                      ),
-                                      SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                .01,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                      Column(
                                         children: [
-                                          CircleAvatar(
-                                            backgroundColor: Color(0xff677A8F),
-                                            radius: 25,
-                                            child: Icon(
-                                                Icons.arrow_back_ios_sharp),
+                                          percentageIndicator(
+                                            context,
                                           ),
-                                          ElevatedButton(
-                                              onPressed: () {
-                                                // Navigator.of(context).push(
-                                                //     MaterialPageRoute(
-                                                //         builder: (context) =>
-                                                //             Report(
-                                                //               total: totalQuestion,
-                                                //               pass: pass,
-                                                //               fail: fail,
-                                                //               attemped: attemped,
-                                                //               notAttemped:
-                                                //                   notAttemped,
-                                                //             )));
-                                                if (totalQuestion ==
-                                                    questionNumber + 2) {
-                                                  Navigator.of(context).push(
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              Report(
-                                                                total:
-                                                                    totalQuestion -
-                                                                        1,
-                                                                pass: pass,
-                                                                fail: fail,
-                                                                attemped:
-                                                                    attemped,
-                                                                notAttemped:
-                                                                    notAttemped,
-                                                              )));
-                                                } else {
-                                                  snackBar(
-                                                      "Kindly Finish Question Firstly!");
-                                                }
-                                              },
-                                              style: ElevatedButton.styleFrom(
-                                                padding: EdgeInsets.only(
-                                                    left: MediaQuery.of(context)
-                                                            .size
-                                                            .width *
-                                                        .14,
-                                                    right:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            .15,
-                                                    top: MediaQuery.of(context)
-                                                            .size
-                                                            .height *
-                                                        .015,
-                                                    bottom:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            .015),
-                                                primary: questionNumber + 2 ==
-                                                        totalQuestion
-                                                    ? Colors.blue
-                                                    : Color(0xff677A8F),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            // mainAxisAlignment:
+                                            //     MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 5),
+                                                alignment: Alignment.center,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.3,
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      begin: Alignment.topRight,
+                                                      end: Alignment.topLeft,
+                                                      colors: [
+                                                        Color(0xffFF9D43),
+                                                        Color(0xffFFD643),
+                                                      ],
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: Text(
+                                                  "Total: " +
+                                                      "${totalQuestion == null ? 0 : totalQuestion - 1}",
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 17),
                                                 ),
                                               ),
-                                              child: Text(
-                                                'Submit Quiz',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              )),
-                                          GestureDetector(
-                                            onTap: questionNumber + 2 !=
-                                                    totalQuestion
-                                                ? () {
-                                                    setState(() {
-                                                      notAttemped =
-                                                          notAttemped + 1;
-                                                      questionNumber =
-                                                          questionNumber + 1;
-                                                    });
-                                                  }
-                                                : null,
-                                            child: CircleAvatar(
-                                              backgroundColor:
-                                                  questionNumber + 2 !=
-                                                          totalQuestion
-                                                      ? Color(0xffD4D4D4)
-                                                      : Color(0xff677A8F),
-                                              radius: 25,
-                                              child: Icon(Icons
-                                                  .arrow_forward_ios_sharp),
-                                            ),
-                                          )
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ],
-                                  )
+                                  ),
+                                  Container(
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.02,
+                                        ),
+                                        question(
+                                            questionNumber == null
+                                                ? 0
+                                                : questionNumber + 1,
+                                            result[questionNumber].question ==
+                                                    null
+                                                ? ""
+                                                : result[questionNumber]
+                                                    .question),
+                                        ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: ClampingScrollPhysics(),
+                                          itemCount: result[questionNumber]
+                                                      .option
+                                                      .length ==
+                                                  null
+                                              ? 0
+                                              : result[questionNumber]
+                                                  .option
+                                                  .length,
+                                          itemBuilder: (context, i) {
+                                            return options(
+                                                result[questionNumber]
+                                                            .option[i] ==
+                                                        null
+                                                    ? ""
+                                                    : result[questionNumber]
+                                                        .option[i],
+                                                i,
+                                                circleColor,
+                                                textColor);
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Visibility(
+                                          visible: videoVisible,
+                                          child: videoContainer(context)),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            "Skip and go to next question",
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                .01,
+                                          ),
+                                          Container(
+                                            alignment: Alignment.bottomCenter,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                ElevatedButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        videoVisible = false;
+                                                      });
+                                                      Navigator.of(context).push(
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Report(
+                                                                        total:
+                                                                            totalQuestion,
+                                                                        pass:
+                                                                            pass,
+                                                                        fail:
+                                                                            fail,
+                                                                        attemped:
+                                                                            attemped,
+                                                                        notAttemped:
+                                                                            notAttemped,
+                                                                      )));
+                                                    },
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      padding: EdgeInsets.only(
+                                                          left: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              .14,
+                                                          right:
+                                                              MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  .15,
+                                                          top: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              .015,
+                                                          bottom: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              .015),
+                                                      primary: Colors.blue,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(100),
+                                                      ),
+                                                    ),
+                                                    child: Text(
+                                                      'Submit Quiz',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    )),
+                                                GestureDetector(
+                                                  onTap: questionNumber + 2 !=
+                                                          totalQuestion
+                                                      ? () {
+                                                          setState(() {
+                                                            notAttemped =
+                                                                notAttemped + 1;
+                                                            // questionNumber =
+                                                            //     questionNumber + 1;
+                                                            videoVisible =
+                                                                false;
+                                                          });
+                                                          nextQuestion();
+                                                        }
+                                                      : null,
+                                                  child: CircleAvatar(
+                                                    backgroundColor:
+                                                        questionNumber + 2 ==
+                                                                totalQuestion
+                                                            ? Color(0xffD4D4D4)
+                                                            : Colors.blue,
+                                                    radius: 25,
+                                                    child: Icon(
+                                                        Icons
+                                                            .arrow_forward_ios_sharp,
+                                                        color: Colors.white),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ))
                 ]),
@@ -442,7 +452,9 @@ class _PastObjectiveState extends State<PastObjective> {
         setState(() {
           selectedOption = number;
         });
-        optionValidate();
+        if (optionSelected == true) {
+          optionValidate();
+        }
       },
       child: Container(
         margin: EdgeInsets.symmetric(
@@ -478,6 +490,32 @@ class _PastObjectiveState extends State<PastObjective> {
           style: TextStyle(color: Colors.black),
         ))
       ],
+    );
+  }
+
+  Widget percentageIndicator(
+    context,
+  ) {
+    return LinearPercentIndicator(
+      width: MediaQuery.of(context).size.width * 0.80,
+      animation: true,
+      lineHeight: 25.0,
+      animationDuration: 60000,
+      percent: 1,
+      center: Text(timerText),
+      linearStrokeCap: LinearStrokeCap.roundAll,
+      progressColor: Color(0xff00B0D7),
+      onAnimationEnd: () {
+        print("Time out");
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => Report(
+                  total: totalQuestion,
+                  pass: pass,
+                  fail: fail,
+                  attemped: attemped,
+                  notAttemped: notAttemped,
+                )));
+      },
     );
   }
 }
