@@ -53,11 +53,6 @@ class _ReportState extends State<Report> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Hey Mr",
-                                    style: TextStyle(
-                                        color: Color(0xff00B0D7), fontSize: 20),
-                                  ),
                                   SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         .01,
