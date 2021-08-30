@@ -1,8 +1,5 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
-import 'package:esooul/Screens/Home/home.dart';
-import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/header.dart';
-import 'package:esooul/main.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
