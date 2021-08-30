@@ -26,7 +26,9 @@ class _StackOverState extends State<StackOver>
   var paperID;
   bool _isLoading = true;
   late PDFDocument document;
+  late PDFDocument documentAns;
   bool showans = false;
+  // late int questionNumber = 0;
   @override
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
@@ -35,13 +37,15 @@ class _StackOverState extends State<StackOver>
     _yearlyPaperProvider = Provider.of(context, listen: false);
     paperID = _yearlyPaperProvider.yearlyPaperID;
     getData();
-    loadDocument();
   }
 
   loadDocument() async {
-    document = await PDFDocument.fromURL("http://www.orimi.com/pdf-test.pdf"
-        // "http://conorlastowka.com/book/CitationNeededBook-Sample.pdf"
-        );
+    print("pdf Loading------------------");
+    for (var i in result) {
+      print(i);
+      document = await PDFDocument.fromURL(result[0].question);
+      documentAns = await PDFDocument.fromURL(result[0].answer);
+    }
     setState(() {
       _isLoading = false;
     });
@@ -53,6 +57,7 @@ class _StackOverState extends State<StackOver>
       _loader = false;
     });
     print('Subjective result: $result');
+    loadDocument();
   }
 
   _launchURL(ansURl) async {
@@ -171,28 +176,16 @@ class _StackOverState extends State<StackOver>
                               itemCount:
                                   result.length == null ? 0 : result.length,
                               itemBuilder: (context, i) {
-                                return _question(i + 1, '', result[i].paper_id,
-                                    result[i].answer.toString());
+                                return Column(
+                                  children: [
+                                    _question(i + 1, '', result[i].question,
+                                        result[i].answer.toString()),
+                                    // loadDocument()
+                                  ],
+                                );
                               })
                         ],
                       ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    showans = !showans;
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xff3ECBEA),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    )),
-                child: Text(
-                  "Show PDF Answer",
-                  style: TextStyle(color: Colors.black),
-                )),
-            Visibility(visible: showans, child: _showPDF())
           ],
         ),
       ),
@@ -258,38 +251,40 @@ class _StackOverState extends State<StackOver>
           ),
           Row(
             children: [
-              Container(
-                // color: Colors.blue,
-                width: MediaQuery.of(context).size.width * .8,
-                child: Wrap(
-                  children: [
-                    Text(
-                      "$question",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ],
-                ),
-              ),
+              // loadDocument(question),
+              _showPDF(),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: () async {
-                  await _launchURL(ansUrl);
-                },
-                child: Text(
-                  "Show Answer",
-                  style: TextStyle(fontSize: 14, color: Colors.black),
-                ),
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xff3ECBEA),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    )),
+              Column(
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        print(showans);
+                        setState(() {
+                          showans = !showans;
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Color(0xff3ECBEA),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 10),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          )),
+                      child: Text(
+                        "Show Answer",
+                        style: TextStyle(color: Colors.black),
+                      )),
+                  Visibility(
+                    visible: showans,
+                    child: _showAnsPDF(),
+                  ),
+                ],
               ),
+
               //showing pdf file from url
             ],
           )
@@ -422,13 +417,67 @@ class _StackOverState extends State<StackOver>
   _showPDF() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.60,
-      width: MediaQuery.of(context).size.width * 0.90,
+      width: MediaQuery.of(context).size.width * 0.850,
       child: //showing pdf file from url
           Center(
         child: _isLoading
             ? Center(child: CircularProgressIndicator())
             : PDFViewer(
                 document: document,
+                zoomSteps: 1,
+                //uncomment below line to preload all pages
+                lazyLoad: false,
+                // uncomment below line to scroll vertically
+                scrollDirection: Axis.horizontal,
+
+                //uncomment below code to replace bottom navigation with your own
+                navigationBuilder:
+                    (context, page, totalPages, jumpToPage, animateToPage) {
+                  return ButtonBar(
+                    alignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.first_page),
+                        onPressed: () {
+                          jumpToPage();
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          animateToPage(page: page! - 2);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.arrow_forward),
+                        onPressed: () {
+                          animateToPage(page: page);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.last_page),
+                        onPressed: () {
+                          jumpToPage(page: totalPages! - 1);
+                        },
+                      ),
+                    ],
+                  );
+                },
+              ),
+      ),
+    );
+  }
+
+  _showAnsPDF() {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.60,
+      width: MediaQuery.of(context).size.width * 0.850,
+      child: //showing pdf file from url
+          Center(
+        child: _isLoading
+            ? Center(child: CircularProgressIndicator())
+            : PDFViewer(
+                document: documentAns,
                 zoomSteps: 1,
                 //uncomment below line to preload all pages
                 lazyLoad: false,

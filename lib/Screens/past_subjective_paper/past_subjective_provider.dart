@@ -14,6 +14,7 @@ class PastSubjectiveProvider extends ChangeNotifier {
   }
 
   var pastSubjectiveData = [];
+  var questionPdf = [];
 
   Future pastSubjective(paperID) async {
     try {
