@@ -56,13 +56,22 @@ class _PastObjectiveState extends State<PastObjective> {
     getData();
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   startTimeout([int? milliseconds]) {
     var duration = interval;
     Timer.periodic(duration, (timer) {
-      setState(() {
-        currentSeconds = timer.tick;
-        if (timer.tick >= timerMaxSeconds) timer.cancel();
-      });
+      if (this.mounted) {
+        // check whether the state object is in tree
+        setState(() {
+          currentSeconds = timer.tick;
+          if (timer.tick >= timerMaxSeconds) timer.cancel();
+        });
+      }
     });
   }
 
@@ -99,9 +108,11 @@ class _PastObjectiveState extends State<PastObjective> {
     } else if (selectedOption.toString() !=
         result[questionNumber].answer.toString()) {
       print("False");
+      print(result[questionNumber].answer.toString());
       setState(() {
         circleColor[selectedOption] = Colors.red;
         textColor[selectedOption] = Colors.red;
+        // circleColor[result[questionNumber].answer] = Colors.green;
         fail = fail + 1;
         videoVisible = true;
       });
@@ -190,62 +201,67 @@ class _PastObjectiveState extends State<PastObjective> {
                               padding: EdgeInsets.all(30).copyWith(top: 10),
                               height: MediaQuery.of(context).size.height * .72,
                               child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
-                                    width: double.infinity,
-                                    height:MediaQuery.of(context).size.height *.08,
-                                    child: Column(
-                                    
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                    Row(
-                                    children: [
-                                      percentageIndicator(
-                                        context,
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                        // crossAxisAlignment:
-                                            // CrossAxisAlignment.end,
+                                      width: double.infinity,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              .08,
+                                      child: Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: 5),
-                                            alignment: Alignment.center,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                  begin: Alignment.topRight,
-                                                  end: Alignment.topLeft,
-                                                  colors: [
-                                                    Color(0xffFF9D43),
-                                                    Color(0xffFFD643),
-                                                  ],
+                                          Row(
+                                            children: [
+                                              percentageIndicator(
+                                                context,
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            // crossAxisAlignment:
+                                            // CrossAxisAlignment.end,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 5),
+                                                alignment: Alignment.center,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.3,
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      begin: Alignment.topRight,
+                                                      end: Alignment.topLeft,
+                                                      colors: [
+                                                        Color(0xffFF9D43),
+                                                        Color(0xffFFD643),
+                                                      ],
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: Text(
+                                                  "Total: " +
+                                                      "${totalQuestion == null ? 0 : totalQuestion - 1}",
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 17),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        20)),
-                                            child: Text(
-                                              "Total: " +
-                                                  "${totalQuestion == null ? 0 : totalQuestion - 1}",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 17),
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ],
-                                      ),
-                                  ],)),
+                                      )),
                                   Container(
                                     // color: Colors.amber,
-                                    height: MediaQuery.of(context).size.height *.45,
+                                    height: MediaQuery.of(context).size.height *
+                                        .45,
                                     child: Column(
                                       children: [
                                         SizedBox(
@@ -314,12 +330,10 @@ class _PastObjectiveState extends State<PastObjective> {
                                                 .02,
                                           ),
                                           Container(
-                                            
                                             alignment: Alignment.bottomCenter,
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceEvenly,
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 ElevatedButton(
                                                     onPressed: () {
@@ -380,7 +394,12 @@ class _PastObjectiveState extends State<PastObjective> {
                                                       style: TextStyle(
                                                           color: Colors.white),
                                                     )),
-                                                    SizedBox(width: MediaQuery.of(context).size.width*.06),
+                                                SizedBox(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            .06),
                                                 GestureDetector(
                                                   onTap: questionNumber + 2 !=
                                                           totalQuestion
@@ -472,7 +491,9 @@ class _PastObjectiveState extends State<PastObjective> {
             CircleAvatar(
               child: Text(
                 intToAlphbatic(number),
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               backgroundColor: circleColor[number],
             ),

@@ -36,3 +36,6 @@ categoryCourses(categoreyID) {
 String pastPaperListingApi = BaseUrl + "/api/v1/past-papers-listing";
 String pastObjectiveApi = BaseUrl + "/api/v1/past-paper-objective-questions";
 String pastSubjectiveApi = BaseUrl + "/api/v1/past-paper-subjective-questions";
+pastPaperYearsApi(course_id) {
+  return "https://esooul.com/api/v1/past-papers-years/$course_id";
+}

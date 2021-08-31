@@ -1,13 +1,12 @@
 import 'dart:ui';
 import 'package:esooul/Screens/Paper/topic_list.dart';
-import 'package:esooul/Screens/Topics/Topics.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
+import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_papers.dart';
-import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 
 import 'package:esooul/Widgets/header.dart';
-import 'package:esooul/Widgets/header2.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class PaperCategorey extends StatefulWidget {
@@ -19,12 +18,29 @@ class PaperCategorey extends StatefulWidget {
 
 class _PaperCategoreyState extends State<PaperCategorey> {
   late PaperCategoreyProvider _paperCategoreyProvider;
+  late SubjectListProvider _subjectListProvider;
+
   bool _show = false;
+  bool _yearLoading = true;
+  var courseID;
+  var pastPaperYearsList = [];
 
   @override
   void initState() {
     super.initState();
     _paperCategoreyProvider = Provider.of(context, listen: false);
+    _subjectListProvider = Provider.of(context, listen: false);
+    courseID = _subjectListProvider.selectedcourse;
+    getYears();
+  }
+
+  getYears() async {
+    pastPaperYearsList = await _paperCategoreyProvider.pastPaperYear(courseID);
+    print('pastPaperYearsList: ${pastPaperYearsList}');
+    print(pastPaperYearsList[0].past_papers_years);
+    setState(() {
+      _yearLoading = false;
+    });
   }
 
   @override
@@ -135,61 +151,73 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * .015),
-                Container(
-                  width: MediaQuery.of(context).size.width * .82,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30)),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: SingleChildScrollView(
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          // scrollDirection:Axis.horizontal ,
-                          itemCount: 4,
-                          itemBuilder: (context, i) {
-                            return GestureDetector(
-                              onTap: () {
-                                print(currentdate.year - i - 1);
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => YearlyPaper(
-                                          year: currentdate.year - i - 1,
-                                        )));
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 5),
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey.withOpacity(.07),
-                                        ),
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                .05,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                .82,
-                                        child: Center(
-                                            child: Text(
-                                          "${currentdate.year - i - 1}",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.black),
-                                        ))),
-                                  )
-                                ],
-                              ),
-                            );
-                          }),
-                    ),
-                  ),
-                )
+                _yearLoading == false
+                    ? Container(
+                        padding: EdgeInsets.only(bottom: 10),
+                        width: MediaQuery.of(context).size.width * .82,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: SingleChildScrollView(
+                              child: ListView.builder(
+                                  shrinkWrap: true,
+                                  // scrollDirection:Axis.horizontal ,
+                                  itemCount: pastPaperYearsList == null
+                                      ? 0
+                                      : pastPaperYearsList.length,
+                                  itemBuilder: (context, i) {
+                                    return yearTile(
+                                        context,
+                                        pastPaperYearsList[i]
+                                                    .past_papers_years ==
+                                                null
+                                            ? ""
+                                            : pastPaperYearsList[i]
+                                                .past_papers_years,
+                                        pastPaperYearsList[i]
+                                            .past_papers_years);
+                                  })),
+                        ),
+                      )
+                    : CircularProgressIndicator(
+                        color: Colors.white,
+                      )
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget yearTile(BuildContext context, year, selectedYear) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => YearlyPaper(
+                  year: selectedYear,
+                )));
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 5),
+            child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(.07),
+                ),
+                height: MediaQuery.of(context).size.height * .05,
+                width: MediaQuery.of(context).size.width * .82,
+                child: Center(
+                    child: Text(
+                  year,
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                ))),
+          )
+        ],
       ),
     );
   }
