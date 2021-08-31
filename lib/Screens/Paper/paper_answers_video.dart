@@ -293,7 +293,11 @@ class _PaperAnswerVideoState extends State<PaperAnswerVideo> {
                                                                 .start,
                                                         children: [
                                                           paperText(result[i]
-                                                              .paper_id),
+                                                                      .paper_id ==
+                                                                  null
+                                                              ? ""
+                                                              : result[i]
+                                                                  .paper_id),
                                                         ],
                                                       ),
                                                       SizedBox(
@@ -324,7 +328,11 @@ class _PaperAnswerVideoState extends State<PaperAnswerVideo> {
                                                                 .start,
                                                         children: [
                                                           paperText(result[i]
-                                                              .description),
+                                                                      .description ==
+                                                                  null
+                                                              ? ""
+                                                              : result[i]
+                                                                  .description),
                                                         ],
                                                       ),
                                                       SizedBox(
