@@ -129,15 +129,14 @@ class _SubjectListState extends State<SubjectList> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  
-                   height: MediaQuery.of(context).size.height * .1,
+                  height: MediaQuery.of(context).size.height * .1,
                   width: MediaQuery.of(context).size.width * .2,
                   decoration: BoxDecoration(
-                    // color: Colors.amber,
-                  image: DecorationImage(image: NetworkImage("$subimg"),
-                  fit: BoxFit.cover
-                  )
-                  ),)
+                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.amber,
+                      image: DecorationImage(
+                          image: NetworkImage("$subimg"), fit: BoxFit.fill)),
+                )
               ],
             ),
             SizedBox(

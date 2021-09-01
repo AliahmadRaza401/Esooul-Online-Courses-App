@@ -93,7 +93,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                                           itemBuilder: (context, i) {
                                             return _yearPapers(
                                                 context,
-                                                result[i].course,
+                                                result[i].title,
                                                 result[i].image,
                                                 result[i].id);
                                           })
@@ -160,6 +160,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
               height: MediaQuery.of(context).size.height * 0.12,
               width: double.infinity,
               decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -174,25 +175,28 @@ class _YearlyPaperState extends State<YearlyPaper> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                  
-                   height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.width * .2,
-                  decoration: BoxDecoration(
-                    // color: Colors.amber,
-                  image: DecorationImage(image: NetworkImage("$img"),
-                  fit: BoxFit.cover
-                  )
-                  ),),
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width * .2,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        // color: Colors.amber,
+                        image: DecorationImage(
+                            image: NetworkImage("$img"), fit: BoxFit.fill)),
+                  ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
                   ),
-                  Wrap(children: [
-                    Text(
-                    grade,
-                    style: TextStyle(color: Colors.black, fontSize: 18.0),
-                  ),
-                  ],)
-                  
+                  Container(
+                    width: MediaQuery.of(context).size.width * .5,
+                    child: Wrap(
+                      children: [
+                        Text(
+                          grade,
+                          style: TextStyle(color: Colors.black, fontSize: 18.0),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
