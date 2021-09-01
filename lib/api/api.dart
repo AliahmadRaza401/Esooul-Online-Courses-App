@@ -39,3 +39,4 @@ String pastSubjectiveApi = BaseUrl + "/api/v1/past-paper-subjective-questions";
 pastPaperYearsApi(course_id) {
   return "https://esooul.com/api/v1/past-papers-years/$course_id";
 }
+String coursesApi =BaseUrl + '/api/v1/courses/';
