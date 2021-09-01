@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CommomWidget{
   
   // Dialog alert Okay Button
-  okayAlertDialog(BuildContext context, var error) {
+  okayAlertDialog(BuildContext context, var title, description) {
     // setState(() {
     //   loading = false;
     // });
@@ -24,9 +24,9 @@ class CommomWidget{
     // );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Wrong Email Address"),
+      title: Text(title),
       content: Text(
-        error,
+        description,
         // style: TextStyle(fontSize: 18,fontFamily: Variable.fontStyle),
       ),
       actions: [

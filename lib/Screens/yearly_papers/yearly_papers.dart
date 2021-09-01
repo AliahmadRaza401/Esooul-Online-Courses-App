@@ -1,4 +1,4 @@
-import 'package:esooul/Screens/Topics/Topics.dart';
+import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
@@ -119,7 +119,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Topics()));
+                            MaterialPageRoute(builder: (context) => PastObjectiveInstruction()));
                         _yearlyPaperProvider.questionType = "objective";
                       },
                       child: papertype(context, 'assets/png/Objective.png',

@@ -1,7 +1,7 @@
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Screens/Report/Report.dart';
-import 'package:esooul/Screens/Topics/Topics.dart';
+import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 

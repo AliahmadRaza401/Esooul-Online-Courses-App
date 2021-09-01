@@ -93,7 +93,6 @@ class _PastObjectiveState extends State<PastObjective> {
       optionSelected = false;
     });
     print('selectedOption: $selectedOption');
-    print("Ans ${result[questionNumber].answer}");
     if (selectedOption.toString() == result[questionNumber].answer.toString()) {
       print("True");
       setState(() {
@@ -108,11 +107,15 @@ class _PastObjectiveState extends State<PastObjective> {
     } else if (selectedOption.toString() !=
         result[questionNumber].answer.toString()) {
       print("False");
-      print(result[questionNumber].answer.toString());
+      print("Ans : ${result[questionNumber].answer}");
       setState(() {
         circleColor[selectedOption] = Colors.red;
         textColor[selectedOption] = Colors.red;
-        // circleColor[result[questionNumber].answer] = Colors.green;
+
+        var _correct = int.parse(result[questionNumber].answer);
+        print('_correct: $_correct');
+        circleColor[_correct] = Colors.green;
+
         fail = fail + 1;
         videoVisible = true;
       });
@@ -142,6 +145,17 @@ class _PastObjectiveState extends State<PastObjective> {
       circleColor[7] = Color(0xffD4D4D4);
     });
   }
+
+  Map<int, Color> correctColor = {
+    0: Colors.black,
+    1: Colors.black,
+    2: Colors.black,
+    3: Colors.black,
+    4: Colors.black,
+    5: Colors.black,
+    6: Colors.black,
+    7: Colors.black,
+  };
 
   Map<int, Color> textColor = {
     0: Colors.black,
@@ -337,25 +351,28 @@ class _PastObjectiveState extends State<PastObjective> {
                                               children: [
                                                 ElevatedButton(
                                                     onPressed: () {
-                                                      setState(() {
-                                                        videoVisible = false;
-                                                      });
-                                                      Navigator.of(context).push(
-                                                          MaterialPageRoute(
-                                                              builder:
-                                                                  (context) =>
-                                                                      Report(
-                                                                        total:
-                                                                            totalQuestion,
-                                                                        pass:
-                                                                            pass,
-                                                                        fail:
-                                                                            fail,
-                                                                        attemped:
-                                                                            attemped,
-                                                                        notAttemped:
-                                                                            notAttemped,
-                                                                      )));
+                                                      if (questionNumber + 2 ==
+                                                          totalQuestion) {
+                                                        setState(() {
+                                                          videoVisible = false;
+                                                        });
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        Report(
+                                                                          total:
+                                                                              totalQuestion - 1,
+                                                                          pass:
+                                                                              pass,
+                                                                          fail:
+                                                                              fail,
+                                                                          attemped:
+                                                                              attemped,
+                                                                          notAttemped:
+                                                                              notAttemped,
+                                                                        )));
+                                                      }
                                                     },
                                                     style: ElevatedButton
                                                         .styleFrom(
@@ -381,7 +398,11 @@ class _PastObjectiveState extends State<PastObjective> {
                                                                   .size
                                                                   .height *
                                                               .015),
-                                                      primary: Colors.blue,
+                                                      primary: questionNumber +
+                                                                  2 ==
+                                                              totalQuestion
+                                                          ? Colors.blue
+                                                          : Color(0xffD4D4D4),
                                                       shape:
                                                           RoundedRectangleBorder(
                                                         borderRadius:

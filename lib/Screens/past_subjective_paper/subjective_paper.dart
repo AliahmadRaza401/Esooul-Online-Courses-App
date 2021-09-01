@@ -275,7 +275,7 @@ class _StackOverState extends State<StackOver>
                             borderRadius: BorderRadius.circular(100),
                           )),
                       child: Text(
-                        "Show Answer",
+                        showans != true ? "Show Answer" : "Hide Answer",
                         style: TextStyle(color: Colors.black),
                       )),
                   Visibility(
