@@ -5,6 +5,8 @@ import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
+import 'package:esooul/Screens/custom_objective/custom_objective_provider.dart';
+import 'package:esooul/Screens/custom_subjective/custom_subjective_provider.dart';
 import 'package:esooul/Screens/grade_list/grade_list_provider.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
@@ -64,6 +66,14 @@ final multiProvider = [
   ),
   ChangeNotifierProvider<CoursesProvider>(
     create: (_) => CoursesProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<CustomObjectiveProvider>(
+    create: (_) => CustomObjectiveProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<CustomSubjectiveProvider>(
+    create: (_) => CustomSubjectiveProvider(),
     lazy: true,
   ),
 ];

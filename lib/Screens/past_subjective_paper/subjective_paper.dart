@@ -10,12 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class StackOver extends StatefulWidget {
+class PastSubjective extends StatefulWidget {
   @override
-  _StackOverState createState() => _StackOverState();
+  _PastSubjectiveState createState() => _PastSubjectiveState();
 }
 
-class _StackOverState extends State<StackOver>
+class _PastSubjectiveState extends State<PastSubjective>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 

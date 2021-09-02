@@ -1,8 +1,11 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/Courses/courses_provider.dart';
+import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +20,9 @@ var boardAreaData;
 var data;
 var userFName;
 var userLName;
+var courseslist = [];
+bool loading = true;
+late CoursesProvider _coursesProvider;
 
 class _HomeState extends State<Home> {
   late HomeProvider _homeProvider;
@@ -28,7 +34,17 @@ class _HomeState extends State<Home> {
     _loginProvider = Provider.of(context, listen: false);
     userFName =
         _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
+    _coursesProvider = Provider.of(context, listen: false);
+    getCourses();
     // getboards();
+  }
+
+  getCourses() async {
+    courseslist = await _coursesProvider.coursesGet();
+    print('topicList: ${courseslist}');
+    setState(() {
+      loading = false;
+    });
   }
 
   getboards() async {
@@ -235,49 +251,65 @@ class _HomeState extends State<Home> {
                                       ],
                                     ),
                                   ),
-                                  recomendedtext(context,
-                                      'Recommended for you', 'Show all'),
+                                  recomendedtext(context, 'Recommended for you',
+                                      'Show all'),
+
                                   Container(
                                     width:
-                                        MediaQuery.of(context).size.width * .99,
+                                        MediaQuery.of(context).size.width * .92,
                                     // height: MediaQuery.of(context).size.height * .25,
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        children: [
-                                          recommendedCard(
-                                              context,
-                                              'assets/png/physics9th.png',
-                                              'Physics class 09th',
-                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
-                                              2,
-                                              '12 jun 2021'),
-                                          recommendedCard(
-                                              context,
-                                              'assets/png/maths10th.png',
-                                              'Maths class 10th',
-                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
-                                              2,
-                                              '12 jun 2021'),
-                                          recommendedCard(
-                                              context,
-                                              'assets/png/chemistry10.png',
-                                              'Chemistry class 10th',
-                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
-                                              2,
-                                              '12 jun 2021'),
-                                          recommendedCard(
-                                              context,
-                                              'assets/png/physics9th.png',
-                                              'Physics class 09th',
-                                              'Board of Intermediate and Secondary Education (BISE) Lahore',
-                                              2,
-                                              '12 jun 2021'),
-                                               SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.05,
-                      ),
-                                        ],
-                                      ),
-                                    ),
+                                    child: loading == true
+                                        ? LoadingBounceAnimation(context)
+                                        : ListView(
+                                            shrinkWrap: true,
+                                            physics: ClampingScrollPhysics(),
+                                            children: [
+                                              ListView.builder(
+                                                  shrinkWrap: true,
+                                                  physics:
+                                                      ClampingScrollPhysics(),
+                                                  itemCount:
+                                                      courseslist.length == null
+                                                          ? 0
+                                                          : 7,
+                                                  itemBuilder: (context, i) {
+                                                    return CoursesWidget(
+                                                        imgPath: courseslist[i]
+                                                                    .image ==
+                                                                null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .image,
+                                                        subject: courseslist[i]
+                                                                    .title ==
+                                                                null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .title,
+                                                        grade: courseslist[i].grade == null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .grade,
+                                                        board: courseslist[i].desc ==
+                                                                null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .desc,
+                                                        likes: courseslist[i]
+                                                                    .orgPrice ==
+                                                                null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .orgPrice,
+                                                        date: courseslist[i]
+                                                                    .createdAt ==
+                                                                null
+                                                            ? ""
+                                                            : courseslist[i]
+                                                                .createdAt);
+                                                  }),
+                                            ],
+                                          ),
                                   )
                                 ],
                               ),

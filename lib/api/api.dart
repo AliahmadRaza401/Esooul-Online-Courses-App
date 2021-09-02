@@ -36,6 +36,10 @@ categoryCourses(categoreyID) {
 String pastPaperListingApi = BaseUrl + "/api/v1/past-papers-listing";
 String pastObjectiveApi = BaseUrl + "/api/v1/past-paper-objective-questions";
 String pastSubjectiveApi = BaseUrl + "/api/v1/past-paper-subjective-questions";
+String customObjectiveApi =
+    BaseUrl + "/api/v1/custom-paper-objective-questions";
+String customSubjectiveApi =
+    BaseUrl + "/api/v1/custom-paper-subjective-questions";
 pastPaperYearsApi(course_id) {
   return BaseUrl + "/api/v1/past-papers-years/$course_id";
 }
@@ -43,4 +47,5 @@ pastPaperYearsApi(course_id) {
 topicsApi(course_id) {
   return BaseUrl + "/api/v1/topics/$course_id";
 }
-String coursesApi =BaseUrl + '/api/v1/courses/';
+
+String coursesApi = BaseUrl + '/api/v1/courses/';

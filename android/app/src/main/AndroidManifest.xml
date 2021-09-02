@@ -2,7 +2,7 @@
     package="com.example.esooul">
    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="esooul"
+        android:label="Esooul"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

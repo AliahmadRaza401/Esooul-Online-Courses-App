@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 
@@ -225,7 +226,11 @@ homeHeader(BuildContext context, fName) {
                       // SizedBox(
                       //   // width: MediaQuery.of(context).size.width * .01,
                       // ),
-                      Image.asset("assets/png/hi.gif",height:30,width: 30,)
+                      Image.asset(
+                        "assets/png/hi.gif",
+                        height: 30,
+                        width: 30,
+                      )
                     ],
                   ),
                 ],
@@ -234,19 +239,22 @@ homeHeader(BuildContext context, fName) {
                 children: [
                   Row(
                     children: [
-                      Image.asset("assets/png/search.png"),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * .02,
-                      ),
                       Image.asset(
-                        "assets/png/notification.png",
+                        "assets/png/nsearch.png",
                         height: MediaQuery.of(context).size.height * .04,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * .02,
                       ),
                       Image.asset(
-                        "assets/png/cart.png",
+                        "assets/png/nnotification.png",
+                        height: MediaQuery.of(context).size.height * .04,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .02,
+                      ),
+                      Image.asset(
+                        "assets/png/ncart.png",
                         height: MediaQuery.of(context).size.height * .04,
                       ),
                     ],
@@ -338,12 +346,29 @@ invitefriendAlert(BuildContext context) {
             GestureDetector(
               child: Image.asset(
                 "assets/png/Instagram.png",
+                width: MediaQuery.of(context).size.width * 0.13,
               ),
             ),
-            GestureDetector(child: Image.asset("assets/png/Twitter.png")),
-            GestureDetector(child: Image.asset("assets/png/Linkedin.png")),
-            GestureDetector(child: Image.asset("assets/png/Facebook.png")),
-            GestureDetector(child: Image.asset("assets/png/YouTube.png")),
+            GestureDetector(
+                child: Image.asset(
+              "assets/png/Twitter.png",
+              width: MediaQuery.of(context).size.width * 0.13,
+            )),
+            GestureDetector(
+                child: Image.asset(
+              "assets/png/Linkedin.png",
+              width: MediaQuery.of(context).size.width * 0.13,
+            )),
+            GestureDetector(
+                child: Image.asset(
+              "assets/png/Facebook.png",
+              width: MediaQuery.of(context).size.width * 0.13,
+            )),
+            GestureDetector(
+                child: Image.asset(
+              "assets/png/YouTube.png",
+              width: MediaQuery.of(context).size.width * 0.13,
+            )),
           ],
         ),
       ),
@@ -506,11 +531,17 @@ Widget recomendedtext(BuildContext context, String title, String desc) {
                   )
                 ],
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("$desc", style: TextStyle(color: Color(0xff004E8F))),
-                ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Courses()));
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("$desc", style: TextStyle(color: Color(0xff004E8F))),
+                  ],
+                ),
               )
             ],
           ),

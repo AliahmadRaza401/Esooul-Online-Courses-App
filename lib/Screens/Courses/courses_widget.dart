@@ -63,7 +63,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                       children: <Widget>[
                         Container(
                           height: MediaQuery.of(context).size.height * .1,
-                          width: MediaQuery.of(context).size.width * .15,
+                          width: MediaQuery.of(context).size.width * .18,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(

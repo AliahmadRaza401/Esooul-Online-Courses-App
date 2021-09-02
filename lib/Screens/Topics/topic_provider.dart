@@ -18,6 +18,7 @@ class TopicProvider extends ChangeNotifier {
 
   var topicList = [];
   var selectedTopicID = [];
+  var questionType;
 
   topicGet(course_id) async {
     try {

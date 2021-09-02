@@ -82,25 +82,21 @@ class _HeaderState extends State<Header> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            children: [
-                              _myConatiner("assets/png/search (2).png")
-                            ],
+                            children: [_myConatiner("assets/png/nsearch.png")],
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.020,
                           ),
                           Column(
                             children: [
-                              _myConatiner("assets/png/notification.png")
+                              _myConatiner("assets/png/nnotification.png")
                             ],
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.020,
                           ),
                           Column(
-                            children: [
-                              _myConatiner("assets/png/addtocart.png")
-                            ],
+                            children: [_myConatiner("assets/png/ncart.png")],
                           ),
                         ],
                       )
@@ -129,7 +125,7 @@ class _HeaderState extends State<Header> {
                     Text(
                       "Invite Friend",
                       style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .02,
@@ -199,12 +195,29 @@ class _HeaderState extends State<Header> {
               GestureDetector(
                 child: Image.asset(
                   "assets/png/Instagram.png",
+                width: MediaQuery.of(context).size.width * 0.13,
                 ),
               ),
-              GestureDetector(child: Image.asset("assets/png/Twitter.png")),
-              GestureDetector(child: Image.asset("assets/png/Linkedin.png")),
-              GestureDetector(child: Image.asset("assets/png/Facebook.png")),
-              GestureDetector(child: Image.asset("assets/png/YouTube.png")),
+              GestureDetector(
+                  child: Image.asset(
+                "assets/png/Twitter.png",
+                width: MediaQuery.of(context).size.width * 0.13,
+              )),
+              GestureDetector(
+                  child: Image.asset(
+                "assets/png/Linkedin.png",
+                width: MediaQuery.of(context).size.width * 0.13,
+              )),
+              GestureDetector(
+                  child: Image.asset(
+                "assets/png/Facebook.png",
+                width: MediaQuery.of(context).size.width * 0.13,
+              )),
+              GestureDetector(
+                  child: Image.asset(
+                "assets/png/YouTube.png",
+                width: MediaQuery.of(context).size.width * 0.13,
+              )),
             ],
           ),
         ),

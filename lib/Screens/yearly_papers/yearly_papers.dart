@@ -127,7 +127,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => StackOver()));
+                            builder: (context) =>PastSubjective()));
                         _yearlyPaperProvider.questionType = "subjective";
                       },
                       child: papertype(context, 'assets/png/Subjective.png',
