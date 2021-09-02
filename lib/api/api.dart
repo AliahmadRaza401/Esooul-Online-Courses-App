@@ -43,3 +43,4 @@ pastPaperYearsApi(course_id) {
 topicsApi(course_id) {
   return BaseUrl + "/api/v1/topics/$course_id";
 }
+String coursesApi =BaseUrl + '/api/v1/courses/';

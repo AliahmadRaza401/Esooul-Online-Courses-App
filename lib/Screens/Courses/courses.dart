@@ -1,25 +1,54 @@
+import 'dart:convert';
+import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
-import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Widgets/header.dart';
-
-import 'package:esooul/Widgets/my_slide_button.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/api/api.dart';
+import 'package:esooul/config/config.dart';
+import 'package:esooul/modeles/courses_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:loading_animations/loading_animations.dart';
+import 'package:provider/provider.dart';
 
 class Courses extends StatefulWidget {
-  Courses({Key? key}) : super(key: key);
+  const Courses({Key? key}) : super(key: key);
 
   @override
   _CoursesState createState() => _CoursesState();
 }
 
 class _CoursesState extends State<Courses> {
-  bool isFavorite = false;
+  var jsondata;
+  var courseslist = [];
+  bool loading = true;
+
+  late CoursesProvider _coursesProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    _coursesProvider = Provider.of(context, listen: false);
+    getCourses();
+  }
+
+  getCourses() async {
+    courseslist = await _coursesProvider.coursesGet();
+    print('topicList: ${courseslist}');
+    setState(() {
+      loading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
+          width: double.infinity,
+          height: double.infinity,
           color: Colors.white,
           child: Column(children: [
             Header(
@@ -40,66 +69,39 @@ class _CoursesState extends State<Courses> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.010,
                       ),
-                      CoursesWidget(
-                          imgPath: "assets/png/physics9th.png",
-                          subject: "Physics class 9th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 5K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
-                      ),
-                      CoursesWidget(
-                          imgPath: "assets/png/maths10th.png",
-                          subject: "Maths class 10th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 3K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
-                      ),
-                      CoursesWidget(
-                          imgPath: "assets/png/chemistry10.png",
-                          subject: "Chemistry class 10th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 4K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
-                      ),
-                      CoursesWidget(
-                          imgPath: "assets/png/physics9th.png",
-                          subject: "Physics class 9th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 5K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
-                      ),
-                      CoursesWidget(
-                          imgPath: "assets/png/maths10th.png",
-                          subject: "Maths class 10th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 3K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.018,
-                      ),
-                      CoursesWidget(
-                          imgPath: "assets/png/chemistry10.png",
-                          subject: "Chemistry class 10th",
-                          board:
-                              "Board of intermediate and Secondary\nEducation(BISE) Lahore",
-                          likes: "Likes 4K",
-                          date: "Created 21 jun 2021"),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.05,
-                      ),
+                      loading == true
+                          ? LoadingBounceAnimation(context)
+                          : ListView(
+                              shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
+                              children: [
+                                ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: ClampingScrollPhysics(),
+                                    itemCount: courseslist.length,
+                                    itemBuilder: (context, i) {
+                                      return CoursesWidget(
+                                          imgPath: courseslist[i].image == null
+                                              ? ""
+                                              : courseslist[i].image,
+                                          subject: courseslist[i].title == null
+                                              ? ""
+                                              : courseslist[i].title,
+                                          grade: courseslist[i].grade == null
+                                              ? ""
+                                              : courseslist[i].grade,
+                                          board: courseslist[i].desc == null
+                                              ? ""
+                                              : courseslist[i].desc,
+                                          likes: courseslist[i].orgPrice == null
+                                              ? ""
+                                              : courseslist[i].orgPrice,
+                                          date: courseslist[i].createdAt == null
+                                              ? ""
+                                              : courseslist[i].createdAt);
+                                    }),
+                              ],
+                            )
                     ],
                   ),
                 ),

@@ -80,7 +80,7 @@ class _SubjectListState extends State<SubjectList> {
                                             result[i].image,
                                             result[i].title,
                                             result[i].id,
-                                            "Lahore Board");
+                                            );
                                       })
                                 ],
                               ),
@@ -94,13 +94,12 @@ class _SubjectListState extends State<SubjectList> {
     );
   }
 
-  _myContainer(String subimg, String grade, selectedCourse, String boardname) {
+  _myContainer(String subimg, String grade, selectedCourse, ) {
     return GestureDetector(
       onTap: () {
         setState(() {
           _subjectListProvider.selectedcourse = selectedCourse;
         });
-
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => PaperCategorey()),
@@ -151,16 +150,7 @@ class _SubjectListState extends State<SubjectList> {
                   grade,
                   style: TextStyle(color: Colors.black, fontSize: 18.0),
                 ),
-                Container(
-                    // color: Colors.black,
-                    width: MediaQuery.of(context).size.width * .53,
-                    child: Wrap(
-                      children: [
-                        Text('$boardname',
-                            style: TextStyle(
-                                color: Color(0xff8C8585), fontSize: 12))
-                      ],
-                    )),
+               
               ],
             ),
           ],

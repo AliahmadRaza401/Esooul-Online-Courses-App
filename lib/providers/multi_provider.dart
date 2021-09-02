@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
@@ -59,6 +60,10 @@ final multiProvider = [
   ),
   ChangeNotifierProvider<TopicProvider>(
     create: (_) => TopicProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<CoursesProvider>(
+    create: (_) => CoursesProvider(),
     lazy: true,
   ),
 ];
