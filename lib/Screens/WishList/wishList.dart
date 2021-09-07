@@ -3,7 +3,9 @@ import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/toast.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Wishlist extends StatefulWidget {
   Wishlist({Key? key}) : super(key: key);
@@ -13,13 +15,11 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        
         child: Column(
           children: <Widget>[
             Header(
@@ -67,7 +67,6 @@ class _WishlistState extends State<Wishlist> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.020,
                       ),
-                    
                     ],
                   ),
                 )),
@@ -105,7 +104,9 @@ class _WishlistState extends State<Wishlist> {
                   ),
                 ],
               ),
-              SizedBox(width: MediaQuery.of(context).size.width*.04,),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .04,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,29 +154,42 @@ class _WishlistState extends State<Wishlist> {
                             children: [
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                                                        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.07),
-
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            MediaQuery.of(context).size.width *
+                                                .07),
                                     primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),
                                   ),
-                                  onPressed: () {},
-                                  child: Text("Add to cart",style: TextStyle(fontSize: 13),)),
+                                  onPressed: () {
+                                    AppToast.getSuccessToast(
+                                        msg: "Added Successfully!");
+                                  },
+                                  child: Text(
+                                    "Add to cart",
+                                    style: TextStyle(fontSize: 13),
+                                  )),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.03,
                               ),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.07),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            MediaQuery.of(context).size.width *
+                                                .07),
                                     primary: Color(0xff00B0D7),
                                     shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(20))),
                                   ),
                                   onPressed: () {},
-                                
-                                  child: Text("Remove",style: TextStyle(fontSize: 13),)),
+                                  child: Text(
+                                    "Remove",
+                                    style: TextStyle(fontSize: 13),
+                                  )),
                             ],
                           ),
                         ],
@@ -190,11 +204,4 @@ class _WishlistState extends State<Wishlist> {
       ),
     );
   }
-
-
-
-
-
-
-
 }

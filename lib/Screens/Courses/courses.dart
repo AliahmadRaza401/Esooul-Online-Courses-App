@@ -5,6 +5,7 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/api/api.dart';
 import 'package:esooul/config/config.dart';
+import 'package:esooul/modeles/card_item_model.dart';
 import 'package:esooul/modeles/courses_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class _CoursesState extends State<Courses> {
     print('topicList: ${courseslist}');
     setState(() {
       loading = false;
+     
     });
   }
 
@@ -81,24 +83,22 @@ class _CoursesState extends State<Courses> {
                                     itemCount: courseslist.length,
                                     itemBuilder: (context, i) {
                                       return CoursesWidget(
-                                          imgPath: courseslist[i].image == null
-                                              ? ""
-                                              : courseslist[i].image,
-                                          subject: courseslist[i].title == null
-                                              ? ""
-                                              : courseslist[i].title,
-                                          grade: courseslist[i].grade == null
-                                              ? ""
-                                              : courseslist[i].grade,
-                                          board: courseslist[i].desc == null
-                                              ? ""
-                                              : courseslist[i].desc,
-                                          likes: courseslist[i].orgPrice == null
-                                              ? ""
-                                              : courseslist[i].orgPrice,
-                                          date: courseslist[i].createdAt == null
-                                              ? ""
-                                              : courseslist[i].createdAt);
+                                        imgPath: courseslist[i].image == null
+                                            ? ""
+                                            : courseslist[i].image,
+                                        subject: courseslist[i].title == null
+                                            ? ""
+                                            : courseslist[i].title,
+                                        grade: courseslist[i].grade == null
+                                            ? ""
+                                            : courseslist[i].grade,
+                                        board: courseslist[i].desc == null
+                                            ? ""
+                                            : courseslist[i].desc,
+                                        likes: courseslist[i].orgPrice == null
+                                            ? ""
+                                            : courseslist[i].orgPrice,
+                                      );
                                     }),
                               ],
                             )

@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/card/card.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -95,8 +96,14 @@ class _HeaderState extends State<Header> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.020,
                           ),
-                          Column(
-                            children: [_myConatiner("assets/png/ncart.png")],
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => MyCard()));
+                            },
+                            child: Column(
+                              children: [_myConatiner("assets/png/ncart.png")],
+                            ),
                           ),
                         ],
                       )
@@ -195,7 +202,7 @@ class _HeaderState extends State<Header> {
               GestureDetector(
                 child: Image.asset(
                   "assets/png/Instagram.png",
-                width: MediaQuery.of(context).size.width * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.13,
                 ),
               ),
               GestureDetector(

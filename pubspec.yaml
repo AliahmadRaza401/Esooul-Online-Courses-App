@@ -37,13 +37,14 @@ dependencies:
   shared_preferences: ^2.0.6
   pin_code_fields: ^7.2.0
   data_connection_checker: ^0.3.4
-  fluttertoastalert: ^1.0.3
   slide_button: ^0.2.9
   form_field_validator: ^1.1.0
   loading_animations: ^2.2.0
-  url_launcher: ^6.0.9
   advance_pdf_viewer: ^2.0.0
   blinking_text: ^1.0.1+2
+  fluttertoast: ^8.0.8
+  auto_size_text: ^2.1.0
+
 
 dev_dependencies:
   flutter_test:

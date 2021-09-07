@@ -1,8 +1,7 @@
 import 'package:esooul/Screens/Courses/courses.dart';
+import 'package:esooul/Screens/card/card.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
-import 'package:esooul/Screens/subjective_paper/subjective_paper.dart';
 
-import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
 import 'package:flutter/material.dart';
 import 'package:blinking_text/blinking_text.dart';
 
@@ -253,9 +252,15 @@ homeHeader(BuildContext context, fName) {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * .02,
                       ),
-                      Image.asset(
-                        "assets/png/ncart.png",
-                        height: MediaQuery.of(context).size.height * .04,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => MyCard()));
+                        },
+                        child: Image.asset(
+                          "assets/png/ncart.png",
+                          height: MediaQuery.of(context).size.height * .04,
+                        ),
                       ),
                     ],
                   ),

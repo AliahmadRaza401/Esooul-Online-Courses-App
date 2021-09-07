@@ -1,5 +1,8 @@
+import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey.dart';
+import 'package:esooul/modeles/card_item_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CoursesWidget extends StatefulWidget {
   String imgPath;
@@ -7,7 +10,6 @@ class CoursesWidget extends StatefulWidget {
   String board;
   String grade;
   String likes;
-  String date;
 
   CoursesWidget({
     Key? key,
@@ -15,7 +17,6 @@ class CoursesWidget extends StatefulWidget {
     required this.subject,
     required this.board,
     required this.likes,
-    required this.date,
     required this.grade,
   }) : super(key: key);
 
@@ -24,6 +25,21 @@ class CoursesWidget extends StatefulWidget {
 }
 
 class _CoursesWidgetState extends State<CoursesWidget> {
+  late CardProvider _cardProvider;
+
+  @override
+  void initState() {
+    super.initState();
+    _cardProvider = Provider.of<CardProvider>(context, listen: false);
+  }
+
+  addToCard() {
+    // _cardProvider.cardItem.add(value);
+    _cardProvider.cardItem.add(CardItemModel(
+        "123", "qwr4", "9", "23rsdafasdf", "sxvasd", "adsdf234d", "asdfasdf"));
+    print("card  ${_cardProvider.cardItem}");
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -126,10 +142,13 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                                 width:
                                     MediaQuery.of(context).size.width * 0.020,
                               ),
-                              Text(
-                                widget.date,
-                                style: TextStyle(
-                                    color: Color(0xff999999), fontSize: 12),
+                              GestureDetector(
+                                onTap: addToCard,
+                                child: Text(
+                                  "Add To Card",
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 12),
+                                ),
                               ),
                             ],
                           ),

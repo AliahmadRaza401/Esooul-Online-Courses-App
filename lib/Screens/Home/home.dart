@@ -274,39 +274,36 @@ class _HomeState extends State<Home> {
                                                           : 7,
                                                   itemBuilder: (context, i) {
                                                     return CoursesWidget(
-                                                        imgPath: courseslist[i]
-                                                                    .image ==
-                                                                null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .image,
-                                                        subject: courseslist[i]
-                                                                    .title ==
-                                                                null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .title,
-                                                        grade: courseslist[i].grade == null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .grade,
-                                                        board: courseslist[i].desc ==
-                                                                null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .desc,
-                                                        likes: courseslist[i]
-                                                                    .orgPrice ==
-                                                                null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .orgPrice,
-                                                        date: courseslist[i]
-                                                                    .createdAt ==
-                                                                null
-                                                            ? ""
-                                                            : courseslist[i]
-                                                                .createdAt);
+                                                      imgPath: courseslist[i]
+                                                                  .image ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i]
+                                                              .image,
+                                                      subject: courseslist[i]
+                                                                  .title ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i]
+                                                              .title,
+                                                      grade: courseslist[i]
+                                                                  .grade ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i]
+                                                              .grade,
+                                                      board: courseslist[i]
+                                                                  .desc ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i].desc,
+                                                      likes: courseslist[i]
+                                                                  .orgPrice ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i]
+                                                              .orgPrice,
+                                                    );
                                                   }),
                                             ],
                                           ),

@@ -8,7 +8,6 @@ import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PastSubjective extends StatefulWidget {
   @override
@@ -58,14 +57,6 @@ class _PastSubjectiveState extends State<PastSubjective>
     });
     print('Subjective result: $result');
     loadDocument();
-  }
-
-  _launchURL(ansURl) async {
-    if (await canLaunch(ansURl)) {
-      await launch(ansURl);
-    } else {
-      throw 'Could not launch $ansURl';
-    }
   }
 
   @override
