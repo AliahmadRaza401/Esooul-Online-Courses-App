@@ -19,11 +19,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            brightness: Brightness.dark,
-            primaryColor: Color(0xff00B0D7),
-            accentColor: Colors.cyan[600],
-            fontFamily: 'Georgia',
-          ),
+              brightness: Brightness.dark,
+              primaryColor: Colors.blue,
+              accentColor: Colors.blue,
+              fontFamily: 'Georgia',
+              unselectedWidgetColor: Colors.blue),
           home: Splash()),
     );
   }

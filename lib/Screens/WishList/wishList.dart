@@ -59,7 +59,7 @@ class _WishlistState extends State<Wishlist> {
                       ),
                       _courseContainer(
                           "assets/png/candageography.png",
-                          "Issues in Canadian Geography",
+                          "Issues in Canadian Geography asjkdfhas kahlksdhf",
                           "Ponam Ghazanfar",
                           "Category - History",
                           "1000",
@@ -80,7 +80,7 @@ class _WishlistState extends State<Wishlist> {
       String category, String discountPrice, String price) {
     return Container(
       padding: EdgeInsets.only(left: 10, right: 15),
-      height: MediaQuery.of(context).size.height * 0.13,
+      // height: MediaQuery.of(context).size.height * 0.13,
       width: double.infinity,
       decoration: BoxDecoration(
         boxShadow: [
@@ -111,9 +111,17 @@ class _WishlistState extends State<Wishlist> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    subject,
-                    style: TextStyle(color: Colors.black),
+                  Container(
+                    color: Colors.green,
+                    width: MediaQuery.of(context).size.width * .6,
+                    child: Wrap(
+                      children: [
+                        Text(
+                          subject,
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                   Text(
                     author,

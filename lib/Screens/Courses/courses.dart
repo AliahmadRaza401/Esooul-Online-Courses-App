@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
+import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/toast.dart';
 import 'package:esooul/api/api.dart';
 import 'package:esooul/config/config.dart';
 import 'package:esooul/modeles/card_item_model.dart';
@@ -24,13 +26,14 @@ class _CoursesState extends State<Courses> {
   var jsondata;
   var courseslist = [];
   bool loading = true;
-
   late CoursesProvider _coursesProvider;
+  late CardProvider _cardProvider;
 
   @override
   void initState() {
     super.initState();
     _coursesProvider = Provider.of(context, listen: false);
+    _cardProvider = Provider.of(context, listen: false);
     getCourses();
   }
 
@@ -39,7 +42,6 @@ class _CoursesState extends State<Courses> {
     print('topicList: ${courseslist}');
     setState(() {
       loading = false;
-     
     });
   }
 
@@ -98,6 +100,31 @@ class _CoursesState extends State<Courses> {
                                         likes: courseslist[i].orgPrice == null
                                             ? ""
                                             : courseslist[i].orgPrice,
+                                        addTocard: () {
+                                          // _cardProvider.cardItem
+                                          //     .add(CardItemModel(
+                                          //   courseslist[i].id,
+                                          //   courseslist[i].title,
+                                          //   courseslist[i].grade,
+                                          //   courseslist[i].image,
+                                          //   courseslist[i].desc,
+                                          //   courseslist[i].orgPrice,
+                                          //   courseslist[i].status,
+                                          // ));
+                                          _cardProvider.addToCard(
+                                              item: CardItemModel(
+                                            courseslist[i].id,
+                                            courseslist[i].title,
+                                            courseslist[i].grade,
+                                            courseslist[i].image,
+                                            courseslist[i].desc,
+                                            courseslist[i].orgPrice,
+                                            courseslist[i].status,
+                                            false
+                                          ));
+                                          AppToast.getSuccessToast(
+                                              msg: "Added Successfully!");
+                                        },
                                       );
                                     }),
                               ],

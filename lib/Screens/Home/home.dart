@@ -4,8 +4,11 @@ import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
+import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/toast.dart';
+import 'package:esooul/modeles/card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,11 +30,15 @@ late CoursesProvider _coursesProvider;
 class _HomeState extends State<Home> {
   late HomeProvider _homeProvider;
   late LoginProvider _loginProvider;
+  late CardProvider _cardProvider;
+
   @override
   void initState() {
     super.initState();
     _homeProvider = Provider.of(context, listen: false);
     _loginProvider = Provider.of(context, listen: false);
+    _cardProvider = Provider.of(context, listen: false);
+
     userFName =
         _loginProvider.userFname == null ? "Mr" : _loginProvider.userFname;
     _coursesProvider = Provider.of(context, listen: false);
@@ -303,6 +310,28 @@ class _HomeState extends State<Home> {
                                                           ? ""
                                                           : courseslist[i]
                                                               .orgPrice,
+                                                      addTocard: () {
+                                                        _cardProvider.addToCard(
+                                                            item: CardItemModel(
+                                                                courseslist[i]
+                                                                    .id,
+                                                                courseslist[i]
+                                                                    .title,
+                                                                courseslist[i]
+                                                                    .grade,
+                                                                courseslist[i]
+                                                                    .image,
+                                                                courseslist[i]
+                                                                    .desc,
+                                                                courseslist[i]
+                                                                    .orgPrice,
+                                                                courseslist[i]
+                                                                    .status,
+                                                                false));
+                                                        AppToast.getSuccessToast(
+                                                            msg:
+                                                                "Added Successfully!");
+                                                      },
                                                     );
                                                   }),
                                             ],

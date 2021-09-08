@@ -10,15 +10,17 @@ class CoursesWidget extends StatefulWidget {
   String board;
   String grade;
   String likes;
+  Function addTocard;
 
-  CoursesWidget({
-    Key? key,
-    required this.imgPath,
-    required this.subject,
-    required this.board,
-    required this.likes,
-    required this.grade,
-  }) : super(key: key);
+  CoursesWidget(
+      {Key? key,
+      required this.imgPath,
+      required this.subject,
+      required this.board,
+      required this.likes,
+      required this.grade,
+      required this.addTocard})
+      : super(key: key);
 
   @override
   _CoursesWidgetState createState() => _CoursesWidgetState();
@@ -33,12 +35,12 @@ class _CoursesWidgetState extends State<CoursesWidget> {
     _cardProvider = Provider.of<CardProvider>(context, listen: false);
   }
 
-  addToCard() {
-    // _cardProvider.cardItem.add(value);
-    _cardProvider.cardItem.add(CardItemModel(
-        "123", "qwr4", "9", "23rsdafasdf", "sxvasd", "adsdf234d", "asdfasdf"));
-    print("card  ${_cardProvider.cardItem}");
-  }
+  // addToCard() {
+  //   // _cardProvider.cardItem.add(value);
+  //   _cardProvider.cardItem.add(CardItemModel(
+  //       "123", "qwr4", "9", "23rsdafasdf", "sxvasd", "adsdf234d", "asdfasdf"));
+  //   print("card  ${_cardProvider.cardItem[0].price}");
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +131,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                         ),
                         Container(
                           // color: Colors.amber,
-                          width: MediaQuery.of(context).size.width * .55,
+                          width: MediaQuery.of(context).size.width * .6,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -143,7 +145,9 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                                     MediaQuery.of(context).size.width * 0.020,
                               ),
                               GestureDetector(
-                                onTap: addToCard,
+                                onTap: () {
+                                  widget.addTocard();
+                                },
                                 child: Text(
                                   "Add To Card",
                                   style: TextStyle(
@@ -165,7 +169,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                         size: 30,
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
 
