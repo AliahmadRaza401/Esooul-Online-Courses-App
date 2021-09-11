@@ -106,7 +106,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
 
                   Container(
                     // color: Colors.amber,
-                    height: MediaQuery.of(context).size.width * .2,
+                    // height: MediaQuery.of(context).size.width * .2,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,6 +141,7 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                           height: MediaQuery.of(context).size.height * 0.005,
                         ),
                         Container(
+                          // height: 50,
                           // color: Colors.amber,
                           width: MediaQuery.of(context).size.width * .6,
                           child: Row(
@@ -155,19 +156,24 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       decoration: TextDecoration.lineThrough)),
-                              SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.020,
-                              ),
+                              // SizedBox(
+                              //   width:
+                              //       MediaQuery.of(context).size.width * 0.020,
+                              // ),
                               GestureDetector(
                                 onTap: () {
                                   // widget.addTocard();
                                 },
-                                child: Text(
-                                  "Add To Card",
-                                  style: TextStyle(
-                                      color: Colors.blue, fontSize: 12),
+                                child: Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 30,
                                 ),
+                                //  Text(
+                                //   "Add To Card",
+                                //   style: TextStyle(
+                                //       color: Colors.blue, fontSize: 12),
+                                // ),
                               ),
                             ],
                           ),
@@ -176,15 +182,15 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                     ),
                   ),
                   // SizedBox(width: 10,),
-                  Column(
-                    children: [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                        size: 30,
-                      ),
-                    ],
-                  ),
+                  // Column(
+                  //   children: [
+                  //     Icon(
+                  //       Icons.favorite,
+                  //       color: Colors.red,
+                  //       size: 30,
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
 
