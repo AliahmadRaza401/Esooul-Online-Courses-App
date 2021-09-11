@@ -10,7 +10,8 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class PaperCategorey extends StatefulWidget {
-  PaperCategorey({Key? key}) : super(key: key);
+  var courseID;
+  PaperCategorey({Key? key, @required this.courseID}) : super(key: key);
 
   @override
   _PaperCategoreyState createState() => _PaperCategoreyState();
@@ -18,7 +19,7 @@ class PaperCategorey extends StatefulWidget {
 
 class _PaperCategoreyState extends State<PaperCategorey> {
   late PaperCategoreyProvider _paperCategoreyProvider;
-  late SubjectListProvider _subjectListProvider;
+  // late SubjectListProvider _subjectListProvider;
 
   bool _show = false;
   bool _yearLoading = true;
@@ -29,13 +30,14 @@ class _PaperCategoreyState extends State<PaperCategorey> {
   void initState() {
     super.initState();
     _paperCategoreyProvider = Provider.of(context, listen: false);
-    _subjectListProvider = Provider.of(context, listen: false);
-    courseID = _subjectListProvider.selectedcourse;
+    // _subjectListProvider = Provider.of(context, listen: false);
+    // courseID = _subjectListProvider.selectedcourse;
     getYears();
   }
 
   getYears() async {
-    pastPaperYearsList = await _paperCategoreyProvider.pastPaperYear(courseID);
+    pastPaperYearsList =
+        await _paperCategoreyProvider.pastPaperYear(widget.courseID);
     print('pastPaperYearsList: ${pastPaperYearsList}');
     print(pastPaperYearsList[0].past_papers_years);
     setState(() {
@@ -77,8 +79,10 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TopicList()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TopicList(
+                                courseID: widget.courseID,
+                              )));
                       _paperCategoreyProvider.paperType = "custom";
                     },
                     child: papercard(

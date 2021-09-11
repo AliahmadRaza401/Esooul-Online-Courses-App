@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.androide.esooul",
+  "applicationId": "com.esooul.app",
   "variantName": "processReleaseResources",
   "elements": [
     {

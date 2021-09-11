@@ -304,34 +304,45 @@ class _HomeState extends State<Home> {
                                                               null
                                                           ? ""
                                                           : courseslist[i].desc,
-                                                      likes: courseslist[i]
+                                                      orgPrice: courseslist[i]
                                                                   .orgPrice ==
                                                               null
                                                           ? ""
                                                           : courseslist[i]
                                                               .orgPrice,
-                                                      addTocard: () {
-                                                        _cardProvider.addToCard(
-                                                            item: CardItemModel(
-                                                                courseslist[i]
-                                                                    .id,
-                                                                courseslist[i]
-                                                                    .title,
-                                                                courseslist[i]
-                                                                    .grade,
-                                                                courseslist[i]
-                                                                    .image,
-                                                                courseslist[i]
-                                                                    .desc,
-                                                                courseslist[i]
-                                                                    .orgPrice,
-                                                                courseslist[i]
-                                                                    .status,
-                                                                false));
-                                                        AppToast.getSuccessToast(
-                                                            msg:
-                                                                "Added Successfully!");
-                                                      },
+                                                      showPrice: courseslist[i]
+                                                                  .priceToShow ==
+                                                              null
+                                                          ? ""
+                                                          : courseslist[i]
+                                                              .priceToShow,
+                                                      courseID:
+                                                          courseslist[i].id,
+
+                                                      // addTocard: () {
+                                                      //   _cardProvider.addToCard(
+                                                      //       item: CardItemModel(
+                                                      //           courseslist[i]
+                                                      //               .id,
+                                                      //           courseslist[i]
+                                                      //               .title,
+                                                      //           courseslist[i]
+                                                      //               .grade,
+                                                      //           courseslist[i]
+                                                      //               .image,
+                                                      //           courseslist[i]
+                                                      //               .desc,
+                                                      //           courseslist[i]
+                                                      //               .orgPrice,
+                                                      //           courseslist[i]
+                                                      //               .priceToShow,
+                                                      //           courseslist[i]
+                                                      //               .status,
+                                                      //           false));
+                                                      //   AppToast.getSuccessToast(
+                                                      //       msg:
+                                                      //           "Added Successfully!");
+                                                      // },
                                                     );
                                                   }),
                                             ],

@@ -111,9 +111,9 @@ class _MyCardState extends State<MyCard> {
                                                   decoration: BoxDecoration(
                                                     boxShadow: [
                                                       BoxShadow(
-                                                          blurRadius: 5,
+                                                          blurRadius: 1,
                                                           color: Colors.grey,
-                                                          spreadRadius: 1)
+                                                          spreadRadius: 0.2)
                                                     ],
                                                     color: Colors.white,
                                                     borderRadius:
@@ -158,7 +158,45 @@ class _MyCardState extends State<MyCard> {
                                                                               element.selected);
                                                                       _checkAll =
                                                                           check;
-                                                                      // }
+                                                                      if (item.cardItem[i]
+                                                                              .selected ==
+                                                                          true) {
+                                                                        var orgPrice = item
+                                                                            .cardItem[i]
+                                                                            .orgPrice;
+                                                                        print(
+                                                                            'orgPrice: $orgPrice');
+
+                                                                        _cardProvider
+                                                                            .price = _cardProvider
+                                                                                .price +
+                                                                            orgPrice;
+                                                                        print(
+                                                                            ' _cardProvider.price: ${_cardProvider.price}');
+                                                                        // _cardProvider
+                                                                        //     .totalPrice();
+
+                                                                        // _cardProvider
+                                                                        //     .addPrice(orgPrice);
+                                                                      } else {
+                                                                        var orgPrice = item
+                                                                            .cardItem[i]
+                                                                            .orgPrice;
+                                                                        print(
+                                                                            'orgPrice: $orgPrice');
+                                                                        print(
+                                                                            'Remove orgPrice: $orgPrice');
+
+                                                                        _cardProvider
+                                                                            .price = _cardProvider
+                                                                                .price -
+                                                                            orgPrice  ;
+                                                                        print(
+                                                                            ' _cardProvider.price: ${_cardProvider.price}');
+                                                                        // _cardProvider
+                                                                        //     .totalPrice();
+
+                                                                      }
                                                                     });
                                                                   })
                                                             ],
@@ -227,19 +265,31 @@ class _MyCardState extends State<MyCard> {
                                                                           ],
                                                                         ),
                                                                       ),
-                                                                      Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.end,
-                                                                        children: [
-                                                                          Wrap(
-                                                                            children: [
-                                                                              Text(
-                                                                                "PKR " + item.cardItem[i].price,
-                                                                                style: TextStyle(color: Colors.blue),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ],
+                                                                      Container(
+                                                                        // color: Colors
+                                                                        //     .green,
+                                                                        width: MediaQuery.of(context).size.width *
+                                                                            .5,
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Wrap(
+                                                                              children: [
+                                                                                Text(
+                                                                                  "PKR " + item.cardItem[i].orgPrice,
+                                                                                  style: TextStyle(color: Colors.blue),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                            Wrap(
+                                                                              children: [
+                                                                                Text("PKR " + item.cardItem[i].showPrice, style: TextStyle(color: Colors.black, decoration: TextDecoration.lineThrough)),
+                                                                              ],
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ],
                                                                   ),
@@ -263,12 +313,10 @@ class _MyCardState extends State<MyCard> {
                                                                       () {
                                                                     setState(
                                                                         () {
-                                                                      item.deleteITem(
+                                                                      item.deleteItem(
                                                                           index:
                                                                               i);
                                                                     });
-                                                                    print(_cardProvider
-                                                                        .cardItem);
                                                                   }),
                                                             ],
                                                           ),
@@ -343,138 +391,4 @@ class _MyCardState extends State<MyCard> {
       ),
     );
   }
-
-  // cardContainer(
-  //     BuildContext context,
-  //     String imgPath,
-  //     String subject,
-  //     String grade,
-  //     String description,
-  //     String price,
-  //     checkboxValue,
-  //     Function delete,
-  //     Function checkFunction) {
-  //   return Container(
-  //     padding: EdgeInsets.symmetric(
-  //       vertical: MediaQuery.of(context).size.height * 0.005,
-  //       horizontal: MediaQuery.of(context).size.width * 0.02,
-  //     ),
-  //     margin: EdgeInsets.symmetric(
-  //       vertical: MediaQuery.of(context).size.height * 0.005,
-  //     ),
-  //     // height: MediaQuery.of(context).size.height * 0.13,
-  //     width: double.infinity,
-  //     decoration: BoxDecoration(
-  //       boxShadow: [
-  //         BoxShadow(blurRadius: 5, color: Colors.grey, spreadRadius: 1)
-  //       ],
-  //       color: Colors.white,
-  //       borderRadius: BorderRadius.circular(10),
-  //     ),
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children: [
-  //         //1st Row
-  //         Row(
-  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //           children: <Widget>[
-  //             Column(
-  //               children: [
-  //                 // Checkbox(
-  //                 //     value: checkboxValue,
-  //                 //     onChanged: () {
-  //                 //       checkFunction();
-  //                 //     })
-  //               ],
-  //             ),
-  //             Column(
-  //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //               crossAxisAlignment: CrossAxisAlignment.start,
-  //               children: <Widget>[
-  //                 Row(
-  //                   children: [
-  //                     Column(
-  //                       children: [
-  //                         Container(
-  //                           height: MediaQuery.of(context).size.height * .06,
-  //                           width: MediaQuery.of(context).size.width * .15,
-  //                           decoration: BoxDecoration(
-  //                               borderRadius: BorderRadius.circular(10),
-  //                               // color: Colors.amber,
-  //                               image: DecorationImage(
-  //                                   image: NetworkImage("$imgPath"),
-  //                                   fit: BoxFit.fill)),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     SizedBox(
-  //                       width: MediaQuery.of(context).size.width * .02,
-  //                     ),
-  //                     Column(
-  //                       children: [
-  //                         Container(
-  //                           // color: Colors.green,
-  //                           width: MediaQuery.of(context).size.width * .5,
-  //                           child: Wrap(
-  //                             children: [
-  //                               Text(
-  //                                 subject + grade,
-  //                                 style: TextStyle(
-  //                                     color: Colors.black,
-  //                                     fontWeight: FontWeight.bold),
-  //                               ),
-  //                             ],
-  //                           ),
-  //                         ),
-  //                         Container(
-  //                           // color: Colors.green,
-  //                           width: MediaQuery.of(context).size.width * .5,
-  //                           child: Wrap(
-  //                             children: [
-  //                               Text(
-  //                                 description,
-  //                                 style: TextStyle(color: Colors.black),
-  //                               ),
-  //                             ],
-  //                           ),
-  //                         ),
-  //                         Container(
-  //                           // color: Colors.green,
-  //                           width: MediaQuery.of(context).size.width * .5,
-  //                           child: Wrap(
-  //                             children: [
-  //                               Text(
-  //                                 price,
-  //                                 style: TextStyle(color: Colors.black),
-  //                               ),
-  //                             ],
-  //                           ),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                   ],
-  //                 ),
-  //               ],
-  //             ),
-  //             Column(
-  //               children: [
-  //                 IconButton(
-  //                   icon: const Icon(
-  //                     Icons.delete,
-  //                     color: Colors.red,
-  //                     size: 30,
-  //                   ),
-  //                   // tooltip: 'Increase volume by 10',
-  //                   onPressed: () {
-  //                     delete();
-  //                   },
-  //                 ),
-  //               ],
-  //             ),
-  //           ],
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 }

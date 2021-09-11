@@ -12,7 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class TopicList extends StatefulWidget {
-  TopicList({Key? key}) : super(key: key);
+  var courseID;
+  TopicList({Key? key, @required this.courseID}) : super(key: key);
 
   @override
   _TopicListState createState() => _TopicListState();
@@ -39,7 +40,7 @@ class _TopicListState extends State<TopicList> {
   }
 
   getTopics() async {
-    topiclist = await _topicProvider.topicGet(courseID);
+    topiclist = await _topicProvider.topicGet(widget.courseID);
     print('topicList: ${topiclist}');
     setState(() {
       loading = false;

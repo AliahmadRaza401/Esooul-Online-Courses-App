@@ -12,10 +12,12 @@ class CardItemModel {
   @required
   var desc;
   @required
-  var price;
+  var orgPrice;
+    @required
+  var showPrice;
   @required
   var status;
   bool selected ;
   CardItemModel(this.id, this.title, this.grade, this.image, this.desc,
-      this.price, this.status, this.selected);
+      this.showPrice,this.orgPrice, this.status, this.selected);
 }

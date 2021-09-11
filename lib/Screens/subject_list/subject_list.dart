@@ -97,12 +97,12 @@ class _SubjectListState extends State<SubjectList> {
   _myContainer(String subimg, String grade, selectedCourse, ) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _subjectListProvider.selectedcourse = selectedCourse;
-        });
+        // setState(() {
+        //   _subjectListProvider.selectedcourse = selectedCourse;
+        // });
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PaperCategorey()),
+          MaterialPageRoute(builder: (context) => PaperCategorey(courseID: selectedCourse,)),
         );
       },
       child: Container(

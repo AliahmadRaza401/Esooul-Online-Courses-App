@@ -9,17 +9,19 @@ class CoursesWidget extends StatefulWidget {
   String subject;
   String board;
   String grade;
-  String likes;
-  Function addTocard;
+  String orgPrice;
+  String showPrice;
+  var courseID;
 
   CoursesWidget(
       {Key? key,
       required this.imgPath,
       required this.subject,
       required this.board,
-      required this.likes,
+      required this.orgPrice,
+      required this.showPrice,
       required this.grade,
-      required this.addTocard})
+      required this.courseID})
       : super(key: key);
 
   @override
@@ -45,7 +47,16 @@ class _CoursesWidgetState extends State<CoursesWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        print("ID: ${widget.courseID}");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => PaperCategorey(
+                    courseID: widget.courseID,
+                  )),
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: Container(
@@ -136,17 +147,21 @@ class _CoursesWidgetState extends State<CoursesWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                widget.likes,
+                                widget.orgPrice,
                                 style: TextStyle(
-                                    color: Color(0xff72C6EF), fontSize: 12),
+                                    color: Color(0xff72C6EF), fontSize: 13),
                               ),
+                              Text(widget.showPrice,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      decoration: TextDecoration.lineThrough)),
                               SizedBox(
                                 width:
                                     MediaQuery.of(context).size.width * 0.020,
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  widget.addTocard();
+                                  // widget.addTocard();
                                 },
                                 child: Text(
                                   "Add To Card",
