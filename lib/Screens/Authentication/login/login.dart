@@ -11,6 +11,7 @@ import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
+import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -264,14 +265,22 @@ class _LogInState extends State<LogIn> {
 
                           // swipeButton(),
 
-                          _loading == false
-                              ? SwipingButton(
-                                  text: "SignIn",
-                                  containerText: "to SignIn",
-                                  onSwipeCallback: signIn,
-                                  height: 80,
-                                )
-                              : CircularProgressIndicator(),
+                          // _loading == false
+                          //     ? SwipingButton(
+                          //         text: "SignIn",
+                          //         containerText: "to SignIn",
+                          //         onSwipeCallback: signIn,
+                          //         height: 80,
+                          //       )
+                          //     : CircularProgressIndicator(),
+                          mainActionButton(
+                              context,
+                              _loading == false
+                                  ? Text("SignIn")
+                                  : CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                              signIn),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),

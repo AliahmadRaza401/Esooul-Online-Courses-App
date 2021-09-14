@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
+import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
@@ -182,43 +183,72 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                               fontWeight: FontWeight.w400),
                         ),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(bottom: 10),
-                          child: _loading == false
-                              ? SwipingButton(
-                                  text: "Verify code",
-                                  containerText: "to verify code",
-                                  onSwipeCallback: () {
-                                    formKey.currentState!.validate();
-                                    // conditions for validating
-                                    if (currentText.length != 4) {
-                                      errorController.add(ErrorAnimationType
-                                          .shake); // Triggering error shake animation
-                                      setState(() {
-                                        hasError = true;
-                                      });
-                                    } else {
-                                      setState(
-                                        () {
-                                          hasError = false;
-                                        },
-                                      );
-                                      tokenConfirm();
-                                    }
-                                  },
-                                  height: 80,
-                                )
-                              : CircularProgressIndicator()
-                          // child: FlatButton(
-                          //   child: _loading == true
-                          //       ? CircularProgressIndicator(
-                          //           color: Colors.white,
-                          //         )
-                          //       : Text(
-                          //           "Confirm",
-                          //           style: TextStyle(fontSize: 18),
-                          //         ),
-                          ),
+                      mainActionButton(
+                        context,
+                        _loading == false
+                            ? Text("Verify code")
+                            : CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                        () {
+                          formKey.currentState!.validate();
+                          // conditions for validating
+                          if (currentText.length != 4) {
+                            errorController.add(ErrorAnimationType
+                                .shake); // Triggering error shake animation
+                            setState(() {
+                              hasError = true;
+                            });
+                          } else {
+                            setState(
+                              () {
+                                hasError = false;
+                              },
+                            );
+                            tokenConfirm();
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                      // Container(
+                      //     margin: EdgeInsets.only(bottom: 10),
+                      //     child: _loading == false
+                      //         ? SwipingButton(
+                      //             text: "Verify code",
+                      //             containerText: "to verify code",
+                      //             onSwipeCallback: () {
+                      //               formKey.currentState!.validate();
+                      //               // conditions for validating
+                      //               if (currentText.length != 4) {
+                      //                 errorController.add(ErrorAnimationType
+                      //                     .shake); // Triggering error shake animation
+                      //                 setState(() {
+                      //                   hasError = true;
+                      //                 });
+                      //               } else {
+                      //                 setState(
+                      //                   () {
+                      //                     hasError = false;
+                      //                   },
+                      //                 );
+                      //                 tokenConfirm();
+                      //               }
+                      //             },
+                      //             height: 80,
+                      //           )
+                      //         : CircularProgressIndicator()
+                      // child: FlatButton(
+                      //   child: _loading == true
+                      //       ? CircularProgressIndicator(
+                      //           color: Colors.white,
+                      //         )
+                      //       : Text(
+                      //           "Confirm",
+                      //           style: TextStyle(fontSize: 18),
+                      //         ),
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -231,26 +261,27 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
                           ),
                         ],
                       ),
-                      SwipingButton(
-                        text: "Resend OTP",
-                        containerText: "to Resend Code",
-                        onSwipeCallback: () {
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.020,
+                      ),
+                      mainActionButtonOutline(
+                        context,
+                        Text(
+                          "Resend OTP",
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                        () {
                           resendOTP();
                         },
-                        height: 80,
                       ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 15.0),
-                            child: Text(
-                              "Copyright Reserved@Esooul",
-                              style: TextStyle(color: Color(0xff5A5A5A)),
-                            ),
-                          ),
-                        ),
-                      ),
+                      // SwipingButton(
+                      //   text: "Resend OTP",
+                      //   containerText: "to Resend Code",
+                      //   onSwipeCallback: () {
+                      //     resendOTP();
+                      //   },
+                      //   height: 80,
+                      // ),
                     ],
                   ),
                 ),
@@ -304,7 +335,7 @@ class _OtpVerifivationState extends State<OtpVerifivation> {
             },
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(10),
               fieldHeight: 50,
               fieldWidth: 60,
               activeFillColor: hasError ? Colors.white : Color(0xff5098C8),

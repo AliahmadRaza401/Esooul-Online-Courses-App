@@ -6,6 +6,7 @@ import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
+import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
@@ -277,31 +278,32 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        _loading == false
-                            ? SwipingButton(
-                                text: "Create Account",
-                                containerText: "to create",
-                                onSwipeCallback: signUp,
-                                height: 80,
-                              )
-                            : Container(
-                                margin: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                            0.41),
-                                width: 35,
-                                child: CircularProgressIndicator()),
-                        // ElevatedButton(
-                        //   child: _loading == false
-                        //       ? Text('Sign Up')
-                        //       : CircularProgressIndicator(
-                        //           color: Colors.white,
-                        //         ),
-                        //   onPressed: signUp,
-                        // ),
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height * 0.01,
-                        // ),
+                        // _loading == false
+                        //     ? SwipingButton(
+                        //         text: "Create Account",
+                        //         containerText: "to create",
+                        //         onSwipeCallback: signUp,
+                        //         height: 80,
+                        //       )
+                        //     : Container(
+                        //         margin: EdgeInsets.symmetric(
+                        //             horizontal:
+                        //                 MediaQuery.of(context).size.width *
+                        //                     0.41),
+                        //         width: 35,
+                        //         child: CircularProgressIndicator()),
+                        mainActionButton(
+                            context,
+                            _loading == false
+                                ? Text("SignUp")
+                                : CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                            signUp),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.020,
+                        ),
+
                         Center(
                           child: Text(
                             "Already Have an account?",
@@ -310,20 +312,21 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
-                        // SizedBox(
-                        //   height: MediaQuery.of(context).size.height * 0.010,
-                        // ),
-                        SwipingButton(
-                          text: "SignIn",
-                          containerText: "to SignIn",
-                          onSwipeCallback: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => LogIn()),
-                            );
-                          },
-                          height: 80,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.010,
                         ),
+
+                        mainActionButtonOutline(
+                            context,
+                            Text(
+                              "LogIn",
+                              style: TextStyle(color: Colors.blue),
+                            ), () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LogIn()),
+                          );
+                        }),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.045),
                         Padding(

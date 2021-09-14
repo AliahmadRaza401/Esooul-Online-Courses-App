@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
+import 'package:esooul/payment/jazz_cash_payment.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -190,7 +191,7 @@ class _MyCardState extends State<MyCard> {
                                                                         _cardProvider
                                                                             .price = _cardProvider
                                                                                 .price -
-                                                                            orgPrice  ;
+                                                                            orgPrice;
                                                                         print(
                                                                             ' _cardProvider.price: ${_cardProvider.price}');
                                                                         // _cardProvider
@@ -375,12 +376,12 @@ class _MyCardState extends State<MyCard> {
                           ],
                         ),
                       ),
-                      SwipingButton(
-                        text: "Swipe",
-                        containerText: "to Pay",
-                        onSwipeCallback: () {},
-                        height: 80,
-                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => JazzCashPayment()));
+                          },
+                          child: Text("Pay")),
                     ],
                   ),
                 ),

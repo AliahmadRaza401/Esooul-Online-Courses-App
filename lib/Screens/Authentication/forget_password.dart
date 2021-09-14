@@ -2,6 +2,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
+import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -134,10 +135,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         ),
                         Padding(
                           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                          child: SwipingButton(
-                            text: "to recover",
-                            containerText: "to Recover",
-                            onSwipeCallback: () {
+                          child: mainActionButton(
+                            context,
+                            Text("Recover"),
+                            () {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.push(
                                   context,
@@ -148,8 +149,23 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                                 );
                               }
                             },
-                            height: 80,
                           ),
+                          // SwipingButton(
+                          //   text: "to recover",
+                          //   containerText: "to Recover",
+                          //   onSwipeCallback: () {
+                          //     if (_formKey.currentState!.validate()) {
+                          //       Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) => OtpVerifivation(
+                          //                   uniqueID: null,
+                          //                 )),
+                          //       );
+                          //     }
+                          //   },
+                          //   height: 80,
+                          // ),
                         ),
 
                         Expanded(
