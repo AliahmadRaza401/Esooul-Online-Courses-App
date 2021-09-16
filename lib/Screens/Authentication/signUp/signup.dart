@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_widget.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
@@ -34,6 +35,8 @@ class _SignUpState extends State<SignUp> {
   var result;
   bool _loading = false;
   var uniqueID;
+  bool _isObscurePassord = true;
+  bool _isObscureConfPassord = true;
 
   // late FocusNode emailNode;
   // late FocusNode passwordNode;
@@ -168,113 +171,150 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
-                          child: TextFormFieldWidget(
-                            label: 'First Name',
-                            controller: _firstnameController,
-                            //node: emailNode,
-                            formvalidator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Enter your name';
-                              } else if (value.length < 3) {
-                                return "name must be at least 3 characters";
-                              }
-                            },
-                            onChange: (value) {
-                              setState(() => fname = value);
-                            },
+                        // Padding(
+                        //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                        //   child: TextFormFieldWidget(
+                        //     label: 'First Name',
+                        //     controller: _firstnameController,
+                        //     //node: emailNode,
+                        //     formvalidator: (value) {
+                        //       if (value == null || value.isEmpty) {
+                        //         return 'Enter your name';
+                        //       } else if (value.length < 3) {
+                        //         return "name must be at least 3 characters";
+                        //       }
+                        //     },
+                        //     onChange: (value) {
+                        //       setState(() => fname = value);
+                        //     },
 
-                            textInputtype: TextInputType.name,
-                          ),
-                        ),
+                        //     textInputtype: TextInputType.name,
+                        //   ),
+                        // ),
+                        inputField(
+                            context,
+                            "First Name",
+                            Icons.person,
+                            _firstnameController,
+                            MultiValidator(
+                                [RequiredValidator(errorText: "Required")])),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
-                          child: TextFormFieldWidget(
-                            label: 'Last Name',
-                            controller: _lastnameController,
-                            //node: emailNode,
-                            formvalidator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Enter your name';
-                              } else if (value.length < 3) {
-                                return "name must be at least 3 characters";
-                              }
-                            },
-                            onChange: (value) {
-                              setState(() => lname = value);
-                            },
+                        inputField(
+                            context,
+                            "Last Name",
+                            Icons.person,
+                            _lastnameController,
+                            MultiValidator(
+                                [RequiredValidator(errorText: "Required")])),
+                        // Padding(
+                        //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                        //   child: TextFormFieldWidget(
+                        //     label: 'Last Name',
+                        //     controller: _lastnameController,
+                        //     //node: emailNode,
+                        //     formvalidator: (value) {
+                        //       if (value == null || value.isEmpty) {
+                        //         return 'Enter your name';
+                        //       } else if (value.length < 3) {
+                        //         return "name must be at least 3 characters";
+                        //       }
+                        //     },
+                        //     onChange: (value) {
+                        //       setState(() => lname = value);
+                        //     },
 
-                            textInputtype: TextInputType.name,
-                          ),
-                        ),
+                        //     textInputtype: TextInputType.name,
+                        //   ),
+                        // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
+                        inputField(
+                            context,
+                            "Email",
+                            Icons.person,
+                            _emailController,
+                            MultiValidator([
+                              EmailValidator(errorText: "Enter valid Email"),
+                              RequiredValidator(errorText: "Required")
+                            ])),
+                        // Padding(
+                        //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                        //   child: TextFormFieldWidget(
+                        //     label: 'Email',
+                        //     controller: _emailController,
+                        //     //node: emailNode,
+                        //     formvalidator: emailValidator,
+                        //     onChange: (value) {
+                        //       setState(() => email = value);
+                        //     },
 
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
-                          child: TextFormFieldWidget(
-                            label: 'Email',
-                            controller: _emailController,
-                            //node: emailNode,
-                            formvalidator: emailValidator,
-                            onChange: (value) {
-                              setState(() => email = value);
-                            },
-
-                            textInputtype: TextInputType.emailAddress,
-                          ),
-                        ),
+                        //     textInputtype: TextInputType.emailAddress,
+                        //   ),
+                        // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
-                          child: PasswordTextField(
-                            label: 'Password',
-                            controller: _passwordController,
-                            //node: emailNode,
-                            formvalidator: passwordValidator,
-                            onChange: (value) {
-                              setState(() => password = value);
-                            },
-                            obscuretext: true,
-                            textInputtype: TextInputType.visiblePassword,
-                          ),
-                        ),
+                        passwordInputField(
+                            context,
+                            "Password",
+                            Icons.lock,
+                            _passwordController,
+                            MultiValidator([
+                              RequiredValidator(errorText: "Required"),
+                              MinLengthValidator(6,
+                                  errorText: "Password must be greater then 6")
+                            ])),
+                        // Padding(
+                        //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                        //   child: PasswordTextField(
+                        //     label: 'Password',
+                        //     controller: _passwordController,
+                        //     //node: emailNode,
+                        //     formvalidator: passwordValidator,
+                        //     onChange: (value) {
+                        //       setState(() => password = value);
+                        //     },
+                        //     obscuretext: true,
+                        //     textInputtype: TextInputType.visiblePassword,
+                        //   ),
+                        // ),
 
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
-                          child: PasswordTextField(
-                            label: 'Confirm Password',
-                            controller: _confirmpasswordController,
-                            //node: emailNode,
-                            obscuretext: true,
-                            formvalidator: (val) => MatchValidator(
-                                    errorText: "password do not match")
-                                .validateMatch(val.toString(), password),
-                            // formvalidator: (value) {
-                            //   if (value == null || value.isEmpty) {
-                            //     return 'Password is too short';
-                            //   } else if (value != password) {
-                            //     return "Password not match";
-                            //   }
-                            // },
-                            onChange: (value) {
-                              setState(() => confirmpassword = value);
-                            },
-                            isSecure: true,
-                            textInputtype: TextInputType.visiblePassword,
-                          ),
-                        ),
+                        matchInputField(
+                            context,
+                            "Confirm Password",
+                            Icons.lock,
+                            _confirmpasswordController,
+                            _passwordController.text),
+                        // Padding(
+                        //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
+                        //   child: PasswordTextField(
+                        //     label: 'Confirm Password',
+                        //     controller: _confirmpasswordController,
+                        //     //node: emailNode,
+                        //     obscuretext: true,
+                        //     formvalidator: (val) => MatchValidator(
+                        //             errorText: "password do not match")
+                        //         .validateMatch(val.toString(), password),
+                        //     // formvalidator: (value) {
+                        //     //   if (value == null || value.isEmpty) {
+                        //     //     return 'Password is too short';
+                        //     //   } else if (value != password) {
+                        //     //     return "Password not match";
+                        //     //   }
+                        //     // },
+                        //     onChange: (value) {
+                        //       setState(() => confirmpassword = value);
+                        //     },
+                        //     isSecure: true,
+                        //     textInputtype: TextInputType.visiblePassword,
+                        //   ),
+                        // ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
@@ -370,6 +410,150 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget passwordInputField(BuildContext context, title, icon, controller,
+      MultiValidator validation) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: controller,
+        // onChanged: (value) {
+        //   setState(() {
+        //     password = value;
+        //   });
+        // },
+        validator: validation,
+        cursorColor: Color(0xFF02B1D7),
+        cursorWidth: 2.0,
+        cursorHeight: 26.0,
+        style: TextStyle(
+          color: Color(0xFF02B1D7),
+        ),
+        obscureText: _isObscurePassord,
+
+        decoration: new InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+          hintText: title,
+          hintStyle: TextStyle(
+            color: Color(0xFF02B1D7),
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: 1),
+            child: Icon(
+              icon,
+              color: Color(0xFF02B1D7),
+            ),
+          ),
+          suffixIcon: IconButton(
+              icon: Icon(
+                  _isObscurePassord ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _isObscurePassord = !_isObscurePassord;
+                });
+              }),
+          // enabledBorder: const OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //   borderSide: const BorderSide(
+          //     color: Colors.grey,
+          //   ),
+          // ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(70.0)),
+            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget matchInputField(
+      BuildContext context, title, icon, controller, password) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: controller,
+        obscureText: _isObscureConfPassord,
+        // onChanged: (value) {
+        //   setState(() {
+        //     password = value;
+        //   });
+        // },
+        validator: (val) {
+          if (val == null || val.isEmpty) {
+            return "Required";
+          } else {
+            MatchValidator(errorText: 'passwords do not match')
+                .validateMatch(val, password);
+          }
+        },
+        cursorColor: Color(0xFF02B1D7),
+        cursorWidth: 2.0,
+        cursorHeight: 26.0,
+
+        style: TextStyle(
+          color: Color(0xFF02B1D7),
+        ),
+        decoration: new InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+          hintText: title,
+          hintStyle: TextStyle(
+            color: Color(0xFF02B1D7),
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: 1),
+            child: Icon(
+              icon,
+              color: Color(0xFF02B1D7),
+            ),
+          ),
+          suffixIcon: IconButton(
+              icon: Icon(_isObscureConfPassord
+                  ? Icons.visibility
+                  : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _isObscureConfPassord = !_isObscureConfPassord;
+                });
+              }),
+          // enabledBorder: const OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //   borderSide: const BorderSide(
+          //     color: Colors.grey,
+          //   ),
+          // ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(70.0)),
+            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
           ),
         ),
       ),

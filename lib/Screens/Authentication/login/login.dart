@@ -15,6 +15,7 @@ import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,7 +30,7 @@ class _LogInState extends State<LogIn> {
   String email = "";
   String error = "";
   String password = "";
-
+  bool _isObscure = true;
   // late FocusNode emailNode;
   // late FocusNode passwordNode;
   final _emailController = TextEditingController();
@@ -192,48 +193,50 @@ class _LogInState extends State<LogIn> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.030,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                            child: TextFormFieldWidget(
-                              label: 'Email',
-                              controller: _emailController,
-                              //node: emailNode,
-                              formvalidator: emailValidator,
-                              // formvalidator: (value) {
-                              //   if (value == null || value.isEmpty) {
-                              //     return 'Email is empty';
-                              //   }
-                              // },
-                              onChange: (value) {
-                                setState(() => email = value);
-                              },
+                          emailField(),
+                          // Padding(
+                          //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          //   child: TextFormFieldWidget(
+                          //     label: 'Email',
+                          //     controller: _emailController,
+                          //     //node: emailNode,
+                          //     formvalidator: emailValidator,
+                          //     // formvalidator: (value) {
+                          //     //   if (value == null || value.isEmpty) {
+                          //     //     return 'Email is empty';
+                          //     //   }
+                          //     // },
+                          //     onChange: (value) {
+                          //       setState(() => email = value);
+                          //     },
 
-                              textInputtype: TextInputType.emailAddress,
-                            ),
-                          ),
+                          //     textInputtype: TextInputType.emailAddress,
+                          //   ),
+                          // ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                            child: PasswordTextField(
-                              label: 'Password',
-                              controller: _passwordController,
-                              //node: emailNode,
-                              formvalidator: (value) {
-                                if (value == null ||
-                                    value.isEmpty ||
-                                    value.length < 6) {
-                                  return 'Password is too short';
-                                }
-                              },
-                              onChange: (value) {
-                                setState(() => password = value);
-                              },
-                              obscuretext: true,
-                              textInputtype: TextInputType.visiblePassword,
-                            ),
-                          ),
+                          passwordField(),
+                          // Padding(
+                          //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                          //   child: PasswordTextField(
+                          //     label: 'Password',
+                          //     controller: _passwordController,
+                          //     //node: emailNode,
+                          //     formvalidator: (value) {
+                          //       if (value == null ||
+                          //           value.isEmpty ||
+                          //           value.length < 6) {
+                          //         return 'Password is too short';
+                          //       }
+                          //     },
+                          //     onChange: (value) {
+                          //       setState(() => password = value);
+                          //     },
+                          //     obscuretext: true,
+                          //     textInputtype: TextInputType.visiblePassword,
+                          //   ),
+                          // ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),
@@ -254,25 +257,6 @@ class _LogInState extends State<LogIn> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.010,
                           ),
-                          // ElevatedButton(
-                          //   child: _loading == true
-                          //       ? CircularProgressIndicator(
-                          //           color: Colors.white,
-                          //         )
-                          //       : Text('LogIn'),
-                          //   onPressed: signIn,
-                          // ),
-
-                          // swipeButton(),
-
-                          // _loading == false
-                          //     ? SwipingButton(
-                          //         text: "SignIn",
-                          //         containerText: "to SignIn",
-                          //         onSwipeCallback: signIn,
-                          //         height: 80,
-                          //       )
-                          //     : CircularProgressIndicator(),
                           mainActionButton(
                               context,
                               _loading == false
@@ -293,7 +277,6 @@ class _LogInState extends State<LogIn> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),
-
                           Text(
                             "Don't Have an account?",
                             style: TextStyle(
@@ -303,23 +286,10 @@ class _LogInState extends State<LogIn> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.020,
                           ),
-                          // ElevatedButton(
-                          //   child: Text('Register'),
-                          //   onPressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => SignUp()),
-                          //     );
-                          //   },
-                          // ),
-
                           LoadingButton(),
-
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.010,
                           ),
-
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
@@ -334,29 +304,6 @@ class _LogInState extends State<LogIn> {
                               ),
                             ),
                           )
-
-                          // SliderButton(
-                          //   action: () {
-                          //     ///Do something here
-                          //     Navigator.of(context).pop();
-                          //   },
-                          //   label: Text(
-                          //     "Slide to cancel Event",
-                          //     style: TextStyle(
-                          //         color: Color(0xff4a4a4a),
-                          //         fontWeight: FontWeight.w500,
-                          //         fontSize: 17),
-                          //   ),
-
-                          //   icon: Text(
-                          //     "x",
-                          //     style: TextStyle(
-                          //       color: Colors.black,
-                          //       fontWeight: FontWeight.w400,
-                          //       fontSize: 44,
-                          //     ),
-                          //   ),
-                          // )
                         ],
                       ),
                     ),
@@ -364,6 +311,131 @@ class _LogInState extends State<LogIn> {
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget emailField() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: _emailController,
+        onChanged: (value) {
+          setState(() {
+            email = value;
+          });
+        },
+        validator: MultiValidator([
+          EmailValidator(errorText: "enter a valid email address"),
+          RequiredValidator(errorText: "Required")
+        ]),
+        cursorColor: Color(0xFF02B1D7),
+        cursorWidth: 2.0,
+        cursorHeight: 26.0,
+        style: TextStyle(
+          color: Color(0xFF02B1D7),
+        ),
+        decoration: new InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          hintText: "Email",
+          hintStyle: TextStyle(
+            color: Color(0xFF02B1D7),
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: 1),
+            child: Icon(
+              Icons.email,
+              color: Color(0xFF02B1D7),
+            ),
+          ),
+          // enabledBorder: const OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //   borderSide: const BorderSide(
+          //     color: Colors.grey,
+          //   ),
+          // ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(70.0)),
+            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget passwordField() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: _passwordController,
+        onChanged: (value) {
+          setState(() {
+            password = value;
+          });
+        },
+        validator: MultiValidator([RequiredValidator(errorText: "Required")]),
+        cursorColor: Color(0xFF02B1D7),
+        obscureText: _isObscure,
+        cursorWidth: 2.0,
+        cursorHeight: 26.0,
+        style: TextStyle(
+          color: Color(0xFF02B1D7),
+        ),
+        decoration: new InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          hintText: "Password",
+          hintStyle: TextStyle(
+            color: Color(0xFF02B1D7),
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: 1),
+            child: Icon(
+              Icons.lock,
+              color: Color(0xFF02B1D7),
+            ),
+          ),
+          suffixIcon: IconButton(
+              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _isObscure = !_isObscure;
+                });
+              }),
+          // enabledBorder: const OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //   borderSide: const BorderSide(
+          //     color: Colors.grey,
+          //   ),
+          // ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(70.0)),
+            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
           ),
         ),
       ),

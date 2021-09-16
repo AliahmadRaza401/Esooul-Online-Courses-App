@@ -112,7 +112,7 @@ class _WishlistState extends State<Wishlist> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    color: Colors.green,
+                    // color: Colors.green,
                     width: MediaQuery.of(context).size.width * .6,
                     child: Wrap(
                       children: [
