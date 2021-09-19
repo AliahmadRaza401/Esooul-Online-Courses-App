@@ -48,11 +48,14 @@ class _SignUpState extends State<SignUp> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
+
+  late LoginProvider _loginProvider;
   @override
   void initState() {
     super.initState();
     // configLoading();
     _signUpProvider = Provider.of<SignUpProvider>(context, listen: false);
+    _loginProvider = Provider.of<LoginProvider>(context, listen: false);
   }
 
   signUp() async {
@@ -78,7 +81,7 @@ class _SignUpState extends State<SignUp> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('token', result['message']['token']);
       _signUpProvider.token = result['message']['token'];
-
+      _loginProvider.userEmailSave(result['data']['email']);
       // setState(() {
       // });
       print("Token: ${result['message']['token']}");

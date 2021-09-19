@@ -54,7 +54,7 @@ class _Header2State extends State<Header2> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
-                      children: [_myText("Hi, John")],
+                      children: [_myText("Hi")],
                     ),
                     Row(
                       children: [_myText("Let's Start Learning")],

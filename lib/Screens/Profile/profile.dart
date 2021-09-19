@@ -7,6 +7,7 @@ import 'package:esooul/Screens/Profile/Setting.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'Terms and privacy.dart';
 
 class Profile extends StatefulWidget {
@@ -30,9 +31,15 @@ class _ProfileState extends State<Profile> {
         _loginProvider.userFname == null ? "Hi! " : _loginProvider.userFname;
     userLName =
         _loginProvider.userLname == null ? "Mr" : _loginProvider.userLname;
-    userEmail = _loginProvider.userEmail == null
-        ? "@gmail.com"
-        : _loginProvider.userEmail;
+    getUserEmail();
+  }
+
+  getUserEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userEmail = prefs.getString('userEmail');
+    });
+    print('userEmail: $userEmail');
   }
 
   @override
@@ -102,12 +109,12 @@ class _ProfileState extends State<Profile> {
                           child: Column(
                             children: [
                               Text(
-                                userFName + " " + userLName,
+                                "Hy Mr",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 25),
+                                    color: Colors.white, fontSize: 23),
                               ),
                               Text(
-                                userEmail,
+                                userEmail == null ? '' : userEmail,
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 14),
                               ),
@@ -115,7 +122,6 @@ class _ProfileState extends State<Profile> {
                                 height:
                                     MediaQuery.of(context).size.height * .01,
                               ),
-                              
                             ],
                           ),
                         ),
@@ -146,27 +152,36 @@ class _ProfileState extends State<Profile> {
                               data('Last Name', '$userLName'),
                               data('Email', '$userEmail'),
                               data('Contact Number', 'Type here'),
-                              SizedBox(height: MediaQuery.of(context).size.height *.02,),
-                              ElevatedButton(onPressed: (){}, 
-                               style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.only(
-                                      left:
-                                          MediaQuery.of(context).size.width *
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * .02,
+                              ),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .335,
-                                      top:
-                                          MediaQuery.of(context).size.height *
+                                          top:
+                                              MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  .01,
+                                          bottom: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
                                               .01,
-                                      bottom:
-                                          MediaQuery.of(context).size.height *
-                                              .01,
-                                      right:
-                                          MediaQuery.of(context).size.width *
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
                                               .335),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(100)),
-                                  primary: Color(0xff00B0D7)),
-                              child: Text("Save"))
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(100)),
+                                      primary: Color(0xff00B0D7)),
+                                  child: Text("Save"))
                             ],
                           ),
                         ),
@@ -219,18 +234,17 @@ class _ProfileState extends State<Profile> {
                           ),
                         ),
                         Positioned(
-                          right: 20,
-                          top: MediaQuery.of(context).size.height *.16,
-                          
-                          child: GestureDetector(
-                            
-                            onTap: (){
-                              Navigator.of(context).push(MaterialPageRoute(
+                            right: 20,
+                            top: MediaQuery.of(context).size.height * .16,
+                            child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => Settings()));
-                            },
-                            child: Icon(Icons.settings_outlined,size: 35,))),
-
-                            
+                                },
+                                child: Icon(
+                                  Icons.settings_outlined,
+                                  size: 35,
+                                ))),
                       ],
                     ),
                   ],
@@ -247,7 +261,7 @@ class _ProfileState extends State<Profile> {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left:40),
+              padding: const EdgeInsets.only(left: 40),
               child: Text(
                 titel,
                 style: TextStyle(color: Colors.white, fontSize: 15),
@@ -260,7 +274,7 @@ class _ProfileState extends State<Profile> {
         ),
         Container(
             height: MediaQuery.of(context).size.height * .04,
-            width: MediaQuery.of(context).size.width *.75,
+            width: MediaQuery.of(context).size.width * .75,
             child: TextField(
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black),
@@ -272,7 +286,7 @@ class _ProfileState extends State<Profile> {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   filled: true,
-                  hintStyle: TextStyle(color: Color(0xffC3C5C9),fontSize: 14),
+                  hintStyle: TextStyle(color: Color(0xffC3C5C9), fontSize: 14),
                   hintText: hinttext,
                   fillColor: Colors.white),
             )),

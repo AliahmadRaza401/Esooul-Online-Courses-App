@@ -73,7 +73,20 @@ class _HeaderState extends State<Header> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Row(
-                        children: [_myText("Hi, $userFName")],
+                        children: [
+                          Text(
+                            "Hy!",
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          // SizedBox(
+                          //   // width: MediaQuery.of(context).size.width * .01,
+                          // ),
+                          Image.asset(
+                            "assets/png/hi.gif",
+                            height: 30,
+                            width: 30,
+                          )
+                        ],
                       ),
                     ],
                   ),

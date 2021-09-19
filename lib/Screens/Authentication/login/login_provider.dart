@@ -27,10 +27,9 @@ class LoginProvider extends ChangeNotifier {
       print("Sign In ---------------------------");
       final _response = await http.post(
         Uri.parse(signInApi),
-      headers: {
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-       
         },
         body: jsonEncode({'email': email, 'password': password}),
       );
@@ -57,6 +56,11 @@ class LoginProvider extends ChangeNotifier {
   userEmailSave(String value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('userEmail', value);
+  }
+
+  userUniqueIdSave(String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('userUniqueId', value);
   }
 
   Future getUserFName() async {

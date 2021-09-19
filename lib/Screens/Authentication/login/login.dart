@@ -75,6 +75,8 @@ class _LogInState extends State<LogIn> {
       print("responce Success");
       if (result['message'] == "Success.") {
         await _loginProvider.loginTrue();
+        _loginProvider.userUniqueIdSave(result['data']['uniqueId']);
+        _loginProvider.userEmailSave(result['data']['email']);
         Navigator.of(context).pushReplacement(
             new MaterialPageRoute(builder: (context) => BottomNavBar()));
         setState(() {
@@ -87,8 +89,7 @@ class _LogInState extends State<LogIn> {
         print("user Authenticate");
         // addTokenToSF();
         // _loginProvider.userFName(result['data']['first_name']);
-        // _loginProvider.userLName(result['data']['last_name']);
-        // _loginProvider.userEmailSave(result['data']['email']);
+
         setState(() {
           _loading = false;
         });
