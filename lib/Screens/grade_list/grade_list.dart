@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/grade_list/grade_list_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
@@ -31,7 +32,9 @@ class _GradeListState extends State<GradeList> {
   }
 
   getGradeList() async {
-    result = await _gradeListProvider.getGradeList(widget.educationalBoardsId);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _gradeListProvider.getGradeList(token,widget.educationalBoardsId);
     setState(() {
       _loader = false;
     });

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/past_objective/past_objective_widget.dart';
@@ -76,7 +77,9 @@ class _PastObjectiveState extends State<PastObjective> {
   }
 
   getData() async {
-    result = await _pastObjectiveProvider.pastObjective(paperID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _pastObjectiveProvider.pastObjective(token,paperID);
     setState(() {
       _loader = false;
       totalQuestion = result.length + 1;

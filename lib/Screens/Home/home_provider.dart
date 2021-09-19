@@ -13,12 +13,16 @@ class HomeProvider extends ChangeNotifier {
 
   var result;
 
-  Future boardsArea() async {
+  Future boardsArea(token) async {
     try {
       print("-----------Boards Area----------------");
       final _response = await http.get(
         Uri.parse(boardAreasApi),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       result = jsonDecode(_response.body);

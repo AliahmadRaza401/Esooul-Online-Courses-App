@@ -24,7 +24,10 @@ class OtpVerificationProvider extends ChangeNotifier {
       print(uniqueID);
       final _response = await http.post(
         Uri.parse(otpVerificationApi),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: jsonEncode({
           'uniqueId': uniqueID,
           'otp': otp,
@@ -42,7 +45,10 @@ class OtpVerificationProvider extends ChangeNotifier {
       print("--------- Resend Otp Varification------------------");
       final _response = await http.post(
         Uri.parse(boardAreasApi),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: jsonEncode({
           'email': email,
         }),

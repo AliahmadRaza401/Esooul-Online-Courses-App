@@ -4,6 +4,8 @@ import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_widget.dart';
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
 import 'package:esooul/Widgets/varaibles/globel_varailbles.dart';
@@ -11,6 +13,7 @@ import 'package:esooul/Widgets/varaibles/mainActionButton.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key? key}) : super(key: key);
@@ -68,14 +71,23 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-  expHandler() {
+  expHandler() async {
     print("Error Result ${result['errors']}");
-    if (result['message'] == "Success.") {
+    if (result['status'] == 200) {
       print("SignUp True");
-      uniqueID = result['data']['uniqueId'];
-      print('uniqueId: $uniqueID');
-      alertDialog(context, "SignUp Successfully!",
-          "Click Continue to verify the OTP which send on your given Email");
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('token', result['message']['token']);
+      _signUpProvider.token = result['message']['token'];
+
+      // setState(() {
+      // });
+      print("Token: ${result['message']['token']}");
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => BottomNavBar()));
+      // uniqueID = result['data']['uniqueId'];
+      // print('uniqueId: $uniqueID');
+      // alertDialog(context, "SignUp Successfully!",
+      //     "Click Continue to verify the OTP which send on your given Email");
     } else if (result['message'] != "Success.") {
       if (result['errors'] != null) {
         alertDialog(context, result['errors']['email'][0].toString(),
@@ -191,23 +203,23 @@ class _SignUpState extends State<SignUp> {
                         //     textInputtype: TextInputType.name,
                         //   ),
                         // ),
-                        inputField(
-                            context,
-                            "First Name",
-                            Icons.person,
-                            _firstnameController,
-                            MultiValidator(
-                                [RequiredValidator(errorText: "Required")])),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.020,
-                        ),
-                        inputField(
-                            context,
-                            "Last Name",
-                            Icons.person,
-                            _lastnameController,
-                            MultiValidator(
-                                [RequiredValidator(errorText: "Required")])),
+                        // inputField(
+                        //     context,
+                        //     "First Name",
+                        //     Icons.person,
+                        //     _firstnameController,
+                        //     MultiValidator(
+                        //         [RequiredValidator(errorText: "Required")])),
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.height * 0.020,
+                        // ),
+                        // inputField(
+                        //     context,
+                        //     "Last Name",
+                        //     Icons.person,
+                        //     _lastnameController,
+                        //     MultiValidator(
+                        //         [RequiredValidator(errorText: "Required")])),
                         // Padding(
                         //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                         //   child: TextFormFieldWidget(
@@ -285,12 +297,12 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        matchInputField(
-                            context,
-                            "Confirm Password",
-                            Icons.lock,
-                            _confirmpasswordController,
-                            _passwordController.text),
+                        // matchInputField(
+                        //     context,
+                        //     "Confirm Password",
+                        //     Icons.lock,
+                        //     _confirmpasswordController,
+                        //     _passwordController.text),
                         // Padding(
                         //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                         //   child: PasswordTextField(
@@ -484,81 +496,81 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Widget matchInputField(
-      BuildContext context, title, icon, controller, password) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.9,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(70),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 3,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: TextFormField(
-        controller: controller,
-        obscureText: _isObscureConfPassord,
-        // onChanged: (value) {
-        //   setState(() {
-        //     password = value;
-        //   });
-        // },
-        validator: (val) {
-          if (val == null || val.isEmpty) {
-            return "Required";
-          } else {
-            MatchValidator(errorText: 'passwords do not match')
-                .validateMatch(val, password);
-          }
-        },
-        cursorColor: Color(0xFF02B1D7),
-        cursorWidth: 2.0,
-        cursorHeight: 26.0,
+  // Widget matchInputField(
+  //     BuildContext context, title, icon, controller, password) {
+  //   return Container(
+  //     width: MediaQuery.of(context).size.width * 0.9,
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(70),
+  //       color: Colors.white,
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.grey.withOpacity(0.5),
+  //           spreadRadius: 3,
+  //           blurRadius: 7,
+  //           offset: Offset(0, 3), // changes position of shadow
+  //         ),
+  //       ],
+  //     ),
+  //     child: TextFormField(
+  //       controller: controller,
+  //       obscureText: _isObscureConfPassord,
+  //       // onChanged: (value) {
+  //       //   setState(() {
+  //       //     password = value;
+  //       //   });
+  //       // },
+  //       validator: (val) {
+  //         if (val == null || val.isEmpty) {
+  //           return "Required";
+  //         } else {
+  //           MatchValidator(errorText: 'passwords do not match')
+  //               .validateMatch(val, password);
+  //         }
+  //       },
+  //       cursorColor: Color(0xFF02B1D7),
+  //       cursorWidth: 2.0,
+  //       cursorHeight: 26.0,
 
-        style: TextStyle(
-          color: Color(0xFF02B1D7),
-        ),
-        decoration: new InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-          hintText: title,
-          hintStyle: TextStyle(
-            color: Color(0xFF02B1D7),
-          ),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 1),
-            child: Icon(
-              icon,
-              color: Color(0xFF02B1D7),
-            ),
-          ),
-          suffixIcon: IconButton(
-              icon: Icon(_isObscureConfPassord
-                  ? Icons.visibility
-                  : Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  _isObscureConfPassord = !_isObscureConfPassord;
-                });
-              }),
-          // enabledBorder: const OutlineInputBorder(
-          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          //   borderSide: const BorderSide(
-          //     color: Colors.grey,
-          //   ),
-          // ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(70.0)),
-            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
-          ),
-        ),
-      ),
-    );
-  }
+  //       style: TextStyle(
+  //         color: Color(0xFF02B1D7),
+  //       ),
+  //       decoration: new InputDecoration(
+  //         contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+  //         hintText: title,
+  //         hintStyle: TextStyle(
+  //           color: Color(0xFF02B1D7),
+  //         ),
+  //         prefixIcon: Padding(
+  //           padding: EdgeInsets.only(left: 1),
+  //           child: Icon(
+  //             icon,
+  //             color: Color(0xFF02B1D7),
+  //           ),
+  //         ),
+  //         suffixIcon: IconButton(
+  //             icon: Icon(_isObscureConfPassord
+  //                 ? Icons.visibility
+  //                 : Icons.visibility_off),
+  //             onPressed: () {
+  //               setState(() {
+  //                 _isObscureConfPassord = !_isObscureConfPassord;
+  //               });
+  //             }),
+  //         // enabledBorder: const OutlineInputBorder(
+  //         //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+  //         //   borderSide: const BorderSide(
+  //         //     color: Colors.grey,
+  //         //   ),
+  //         // ),
+  //         focusedBorder: OutlineInputBorder(
+  //           borderRadius: BorderRadius.all(Radius.circular(70.0)),
+  //           borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   alertDialog(BuildContext context, String title, String subTitle) {
     setState(() {
@@ -566,21 +578,21 @@ class _SignUpState extends State<SignUp> {
     });
     // set up the buttons
     Widget cancelButton = FlatButton(
-      child: Text("Cancel"),
+      child: Text("Ok"),
       onPressed: () {
         Navigator.pop(context);
         // Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> UserLogin()));
       },
     );
-    Widget continueButton = FlatButton(
-      child: Text("Continue"),
-      onPressed: result['message'] != "Success."
-          ? null
-          : () {
-              Navigator.of(context).pushReplacement(new MaterialPageRoute(
-                  builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
-            },
-    );
+    // Widget continueButton = FlatButton(
+    //   child: Text("Continue"),
+    //   onPressed: result['message'] != "Success."
+    //       ? null
+    //       : () {
+    //           Navigator.of(context).pushReplacement(new MaterialPageRoute(
+    //               builder: (context) => OtpVerifivation(uniqueID: uniqueID)));
+    //         },
+    // );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text(title),
@@ -590,7 +602,7 @@ class _SignUpState extends State<SignUp> {
       ),
       actions: [
         cancelButton,
-        continueButton,
+        // continueButton,
       ],
     );
     // show the dialog

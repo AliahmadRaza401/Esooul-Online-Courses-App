@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
@@ -40,8 +41,10 @@ class _YearlyPaperState extends State<YearlyPaper> {
   }
 
   yearlyPapaer() async {
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
     result = await _yearlyPaperProvider.yearlyPaperList(
-        paperType, courseID, widget.year);
+        token, paperType, courseID, widget.year);
     print('result data yaeafdsfasd: $result');
     setState(() {
       _loader = false;
@@ -118,8 +121,8 @@ class _YearlyPaperState extends State<YearlyPaper> {
                   SizedBox(height: 150),
                   GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => PastObjectiveInstruction()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PastObjectiveInstruction()));
                         _yearlyPaperProvider.questionType = "objective";
                       },
                       child: papertype(context, 'assets/png/Objective.png',
@@ -127,7 +130,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>PastSubjective()));
+                            builder: (context) => PastSubjective()));
                         _yearlyPaperProvider.questionType = "subjective";
                       },
                       child: papertype(context, 'assets/png/Subjective.png',

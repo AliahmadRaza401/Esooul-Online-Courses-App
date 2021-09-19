@@ -15,12 +15,16 @@ class SubjectListProvider extends ChangeNotifier {
   var courseListData = [];
   var selectedcourse;
 
-  Future getsubjectList(gradeID) async {
+  Future getsubjectList(token,gradeID) async {
     try {
       print("-----------Grade List Getting----------------");
       final _response = await http.get(
         Uri.parse(gradeCourses(gradeID)),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       var result = jsonDecode(_response.body);

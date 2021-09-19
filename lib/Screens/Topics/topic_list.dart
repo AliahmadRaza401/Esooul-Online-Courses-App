@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/custom_objective/custom_objective_instruction.dart';
 import 'package:esooul/Screens/custom_subjective/custom_subjective.dart';
@@ -40,7 +41,9 @@ class _TopicListState extends State<TopicList> {
   }
 
   getTopics() async {
-    topiclist = await _topicProvider.topicGet(widget.courseID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    topiclist = await _topicProvider.topicGet(token,widget.courseID);
     print('topicList: ${topiclist}');
     setState(() {
       loading = false;

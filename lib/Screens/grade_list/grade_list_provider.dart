@@ -15,12 +15,16 @@ class GradeListProvider extends ChangeNotifier {
   var gradeListData = [];
   var selectedGradeID;
 
-  Future getGradeList(educationalBoardsId) async {
+  Future getGradeList(token,educationalBoardsId) async {
     try {
       print("-----------Grade List Getting----------------");
       final _response = await http.get(
         Uri.parse(gradesApi(educationalBoardsId)),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       var result = jsonDecode(_response.body);

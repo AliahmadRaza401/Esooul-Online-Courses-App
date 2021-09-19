@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/custom_objective/custom_objective_provider.dart';
@@ -78,7 +79,9 @@ class _CustomObjectiveState extends State<CustomObjective> {
   }
 
   getData() async {
-    result = await _customObjectiveProvider.customObjective(paperID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _customObjectiveProvider.customObjective(token,paperID);
     print('result: $result');
     setState(() {
       _loader = false;

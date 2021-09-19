@@ -20,12 +20,16 @@ class TopicProvider extends ChangeNotifier {
   var selectedTopicID = [];
   var questionType;
 
-  topicGet(course_id) async {
+  topicGet(token,course_id) async {
     try {
       print("----------- Get Topic ---------------");
       final _responce = await http.get(
         Uri.parse(topicsApi(course_id)),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       var result = jsonDecode(_responce.body);

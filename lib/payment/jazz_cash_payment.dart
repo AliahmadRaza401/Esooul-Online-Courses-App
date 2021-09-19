@@ -14,6 +14,7 @@ class JazzCashPayment extends StatefulWidget {
 class _JazzCashPaymentState extends State<JazzCashPayment> {
   var paymentResult;
   payment() async {
+    print("Payment:");
     var digest;
     String dateandtime = DateFormat("yyyyMMddHHmmss").format(DateTime.now());
     String dexpiredate = DateFormat("yyyyMMddHHmmss")

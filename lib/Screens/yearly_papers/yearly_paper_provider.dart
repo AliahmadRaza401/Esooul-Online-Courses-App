@@ -19,12 +19,16 @@ class YearlyPaperProvider extends ChangeNotifier {
   var questionType;
   var yearlyPaperID;
 
-  Future yearlyPaperList(paperType, courseID, year) async {
+  Future yearlyPaperList(token,paperType, courseID, year) async {
     try {
       print("----------- Yearly Paper Getting----------------");
       final _response = await http.post(
         Uri.parse(pastPaperListingApi),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         body: jsonEncode({
           'paper_type': paperType,
           'paper_year': year,

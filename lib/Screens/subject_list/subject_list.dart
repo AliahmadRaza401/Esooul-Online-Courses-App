@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -30,7 +31,9 @@ class _SubjectListState extends State<SubjectList> {
   }
 
   getSubjectList() async {
-    result = await _subjectListProvider.getsubjectList(widget.gradeID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _subjectListProvider.getsubjectList(token,widget.gradeID);
     setState(() {
       _loader = false;
     });

@@ -18,12 +18,16 @@ class PaperCategoreyProvider extends ChangeNotifier {
   var paperType;
   var pastPaperyearsList = [];
 
-  pastPaperYear(course_id) async {
+  pastPaperYear(token,course_id) async {
     try {
       print("-----------past paper Year---------------");
       final _responce = await http.get(
         Uri.parse(pastPaperYearsApi(course_id)),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       var result = jsonDecode(_responce.body);

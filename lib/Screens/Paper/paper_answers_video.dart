@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -30,7 +31,9 @@ class _PaperAnswerVideoState extends State<PaperAnswerVideo> {
   }
 
   getData() async {
-    result = await _pastSubjectiveProvider.pastSubjective(paperID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _pastSubjectiveProvider.pastSubjective(token,paperID);
     setState(() {
       _loader = false;
     });

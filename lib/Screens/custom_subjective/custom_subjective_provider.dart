@@ -17,12 +17,16 @@ class CustomSubjectiveProvider extends ChangeNotifier {
   var customSubjectiveTopicsData = [];
   var questionPdf = [];
 
-  Future customSubjective(paperID) async {
+  Future customSubjective(token,paperID) async {
     try {
       print("-----------subjective List Getting----------------");
       final _response = await http.post(
         Uri.parse(customSubjectiveApi),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         body: jsonEncode({
           'topic_id': paperID,
           'question_type': "subjective",

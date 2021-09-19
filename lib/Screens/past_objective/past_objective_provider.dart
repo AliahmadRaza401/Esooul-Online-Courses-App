@@ -16,12 +16,16 @@ class PastObjectiveProvider extends ChangeNotifier {
 
   var pastObjectiveData = [];
 
-  Future pastObjective(paperID) async {
+  Future pastObjective(token,paperID) async {
     try {
       print("-----------Objective List Getting----------------");
       final _response = await http.post(
         Uri.parse(pastObjectiveApi),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         body: jsonEncode({
           'paper_id': paperID,
           'question_type': "objective",

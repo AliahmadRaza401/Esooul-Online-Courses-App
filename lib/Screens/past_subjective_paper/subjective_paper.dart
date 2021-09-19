@@ -1,4 +1,5 @@
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
@@ -51,7 +52,9 @@ class _PastSubjectiveState extends State<PastSubjective>
   }
 
   getData() async {
-    result = await _pastSubjectiveProvider.pastSubjective(paperID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _pastSubjectiveProvider.pastSubjective(token,paperID);
     setState(() {
       _loader = false;
     });

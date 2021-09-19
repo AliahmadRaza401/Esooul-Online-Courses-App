@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/card/card_provider.dart';
@@ -38,8 +39,11 @@ class _CoursesState extends State<Courses> {
   }
 
   getCourses() async {
-    courseslist = await _coursesProvider.coursesGet();
-    print('topicList: ${courseslist}');
+       var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+      // print('token: $token');
+    courseslist = await _coursesProvider.coursesGet(token);
+    print('Courses List: ${courseslist}');
     setState(() {
       loading = false;
     });
@@ -82,7 +86,9 @@ class _CoursesState extends State<Courses> {
                                 ListView.builder(
                                     shrinkWrap: true,
                                     physics: ClampingScrollPhysics(),
-                                    itemCount: courseslist.length,
+                                    itemCount: courseslist.length == null
+                                        ? 0
+                                        : courseslist.length,
                                     itemBuilder: (context, i) {
                                       return CoursesWidget(
                                         imgPath: courseslist[i].image == null
@@ -130,7 +136,7 @@ class _CoursesState extends State<Courses> {
                                         //   AppToast.getSuccessToast(
                                         //       msg: "Added Successfully!");
                                         // },
-                                         courseID: courseslist[i].id,
+                                        courseID: courseslist[i].id,
                                       );
                                     }),
                               ],

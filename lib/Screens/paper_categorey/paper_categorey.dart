@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Topics/topic_list.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
@@ -36,8 +37,10 @@ class _PaperCategoreyState extends State<PaperCategorey> {
   }
 
   getYears() async {
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
     pastPaperYearsList =
-        await _paperCategoreyProvider.pastPaperYear(widget.courseID);
+        await _paperCategoreyProvider.pastPaperYear(token,widget.courseID);
     print('pastPaperYearsList: ${pastPaperYearsList}');
     print(pastPaperYearsList[0].past_papers_years);
     setState(() {

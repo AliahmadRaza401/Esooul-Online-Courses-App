@@ -15,12 +15,16 @@ class BoardListProvider extends ChangeNotifier {
   var result;
   var boardListData = [];
 
-  Future getBoardList(String boardID) async {
+  Future getBoardList(token,String boardID) async {
     try {
       print("-----------Boards List Getting----------------");
       final _response = await http.get(
         Uri.parse(educationalBoardsApi(boardID)),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
 
       result = jsonDecode(_response.body);

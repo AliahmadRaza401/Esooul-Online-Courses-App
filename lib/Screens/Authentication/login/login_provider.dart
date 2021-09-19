@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:esooul/Screens/Authentication/login/login.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/config/config.dart';
 import 'package:http/http.dart' as http;
 import 'package:esooul/api/api.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginProvider extends ChangeNotifier {
@@ -25,7 +27,11 @@ class LoginProvider extends ChangeNotifier {
       print("Sign In ---------------------------");
       final _response = await http.post(
         Uri.parse(signInApi),
-        headers: headers,
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+       
+        },
         body: jsonEncode({'email': email, 'password': password}),
       );
 
@@ -81,6 +87,9 @@ class LoginProvider extends ChangeNotifier {
   checkUserAlreadyLogin(BuildContext context) async {
     bool loginUser = await getloginUser();
     print('loginUser: $loginUser');
+    var splashToken = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    print('splashToken: $splashToken');
     if (loginUser == true) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => BottomNavBar()));

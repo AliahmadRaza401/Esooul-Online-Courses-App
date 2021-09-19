@@ -15,12 +15,16 @@ class PastSubjectiveProvider extends ChangeNotifier {
   var pastSubjectiveData = [];
   var questionPdf = [];
 
-  Future pastSubjective(paperID) async {
+  Future pastSubjective(token,paperID) async {
     try {
       print("-----------subjective List Getting----------------");
       final _response = await http.post(
         Uri.parse(pastSubjectiveApi),
-        headers: headers,
+         headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         body: jsonEncode({
           'past_paper_id': paperID,
           'question_type': "subjective",

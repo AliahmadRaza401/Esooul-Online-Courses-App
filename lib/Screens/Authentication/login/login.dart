@@ -70,26 +70,30 @@ class _LogInState extends State<LogIn> {
     }
   }
 
-  expHandler() {
+  expHandler() async {
     if (result['status'] == 200) {
       print("responce Success");
       if (result['message'] == "Success.") {
-        print("user Not Authenticate ");
-        uniqueID = result['data']['uniqueId'];
-        alertDialog(context, result['message'],
-            "Your account is not validate, Click Continue to Validate your account");
+        await _loginProvider.loginTrue();
+        Navigator.of(context).pushReplacement(
+            new MaterialPageRoute(builder: (context) => BottomNavBar()));
+        setState(() {
+          _loading = false;
+        });
+        // uniqueID = result['data']['uniqueId'];
+        // alertDialog(context, result['message'],
+        //     "Your account is not validate, Click Continue to Validate your account");
       } else if (result['message']['token'] != null) {
         print("user Authenticate");
-        addTokenToSF();
-        _loginProvider.userFName(result['data']['first_name']);
-        _loginProvider.userLName(result['data']['last_name']);
-        _loginProvider.userEmailSave(result['data']['email']);
+        // addTokenToSF();
+        // _loginProvider.userFName(result['data']['first_name']);
+        // _loginProvider.userLName(result['data']['last_name']);
+        // _loginProvider.userEmailSave(result['data']['email']);
         setState(() {
           _loading = false;
         });
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
-        _loginProvider.loginTrue();
       } else {
         alertDialog(context, "Login UnSuccessfull",
             "Please check your Email and make sure its Authenticate");

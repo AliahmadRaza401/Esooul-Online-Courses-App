@@ -1,4 +1,5 @@
 import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/custom_subjective/custom_subjective_provider.dart';
@@ -57,7 +58,9 @@ class _CustomSubjectiveState extends State<CustomSubjective>
   }
 
   getData() async {
-    await _customSubjectiveProvider.customSubjective(paperID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    await _customSubjectiveProvider.customSubjective(token,paperID);
     subjectiveQuestions =
         _customSubjectiveProvider.customSubjectiveQuestionData;
     subjectiveTopics = _customSubjectiveProvider.customSubjectiveTopicsData;

@@ -1,3 +1,4 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/grade_list/grade_list.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
@@ -30,7 +31,9 @@ class _SelectBoardState extends State<SelectBoard> {
   }
 
   getBoardList() async {
-    result = await _boardListProvider.getBoardList(widget.boardID);
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    result = await _boardListProvider.getBoardList(token,widget.boardID);
     setState(() {
       _loader = false;
     });

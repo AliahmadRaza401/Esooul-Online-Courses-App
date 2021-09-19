@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
@@ -47,7 +48,9 @@ class _HomeState extends State<Home> {
   }
 
   getCourses() async {
-    courseslist = await _coursesProvider.coursesGet();
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    courseslist = await _coursesProvider.coursesGet(token);
     print('topicList: ${courseslist}');
     setState(() {
       loading = false;
@@ -55,7 +58,9 @@ class _HomeState extends State<Home> {
   }
 
   getboards() async {
-    var result = await _homeProvider.boardsArea();
+      var token = await Provider.of<SignUpProvider>(context, listen: false)
+          .getUserTokenSF();
+    var result = await _homeProvider.boardsArea(token);
     boardAreaData = result['data'];
     print('boardAreaData: $boardAreaData');
   }

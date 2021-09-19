@@ -18,12 +18,16 @@ class CustomObjectiveProvider extends ChangeNotifier {
 
   var customObjectiveData = [];
 
-  Future customObjective(paperID) async {
+  Future customObjective(token,paperID) async {
     try {
       print("-----------Objective List Getting----------------");
       final _response = await http.post(
         Uri.parse(customObjectiveApi),
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
         body: jsonEncode({
           'topic_id': paperID,
           'question_type': "objective",

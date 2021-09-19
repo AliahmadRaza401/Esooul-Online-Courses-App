@@ -4,6 +4,7 @@ import 'package:esooul/api/api.dart';
 import 'package:esooul/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpProvider extends ChangeNotifier {
   late BuildContext context;
@@ -14,6 +15,7 @@ class SignUpProvider extends ChangeNotifier {
 
   var userEmail;
   var result;
+  var token;
 
   Future signUp(
       {@required fName,
@@ -25,13 +27,11 @@ class SignUpProvider extends ChangeNotifier {
       print("Sign Up ---------------------------");
       final _response = await http.post(
         Uri.parse(signUpApi),
-        headers: headers,
-        body: jsonEncode({
-          'first_name': fName,
-          'last_name': lName,
-          'email': email,
-          'password': password
-        }),
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode({'email': email, 'password': password}),
       );
       result = jsonDecode(_response.body);
       // print('result: $result');
@@ -39,5 +39,12 @@ class SignUpProvider extends ChangeNotifier {
     } catch (e) {
       return e;
     }
+  }
+
+  getUserTokenSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    String? token = prefs.getString('token');
+    return token;
   }
 }
