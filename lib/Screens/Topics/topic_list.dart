@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
+import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Screens/custom_objective/custom_objective_instruction.dart';
 import 'package:esooul/Screens/custom_subjective/custom_subjective.dart';
 import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
@@ -9,6 +10,7 @@ import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/dialog.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/modeles/topic_card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +25,7 @@ class TopicList extends StatefulWidget {
 class _TopicListState extends State<TopicList> {
   late SubjectListProvider _subjectListProvider;
   late TopicProvider _topicProvider;
-
+  late CardProvider _cardProvider;
   var courseID;
   var topiclist = [];
   var selectedTopicList = [];
@@ -35,15 +37,17 @@ class _TopicListState extends State<TopicList> {
     super.initState();
     _topicProvider = Provider.of(context, listen: false);
     _subjectListProvider = Provider.of(context, listen: false);
+    _cardProvider = Provider.of(context, listen: false);
+
     courseID = _subjectListProvider.selectedcourse;
     _topicProvider.selectedTopicID.clear();
     getTopics();
   }
 
   getTopics() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
-    topiclist = await _topicProvider.topicGet(token,widget.courseID);
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    topiclist = await _topicProvider.topicGet(token, widget.courseID);
     print('topicList: ${topiclist}');
     setState(() {
       loading = false;
@@ -117,6 +121,8 @@ class _TopicListState extends State<TopicList> {
                   onPressed: () {
                     setState(() {
                       selectedTopicList.clear();
+                      print(
+                          ' Remove all selectedTopicList: $selectedTopicList');
                     });
                   },
                   child: Text(
@@ -205,15 +211,36 @@ class _TopicListState extends State<TopicList> {
                           itemCount:
                               topiclist.length == null ? 0 : topiclist.length,
                           itemBuilder: (context, i) {
-                            return _topic(
-                                topiclist[i].title == null
-                                    ? ""
-                                    : topiclist[i].title,
-                                i % 2 == 0
-                                    ? Color(0xff61B4E0)
-                                    : Color(0xff2878B0),
-                                topiclist[i].title,
-                                topiclist[i].id);
+                            return topiclist[i].payment_status == 0
+                                ? _topic(
+                                    topiclist[i].title == null
+                                        ? ""
+                                        : topiclist[i].title,
+                                    i % 2 == 0
+                                        ? Color(0xff61B4E0)
+                                        : Color(0xff2878B0),
+                                    topiclist[i].title,
+                                    topiclist[i].id)
+                                : _lockTopic(
+                                    topiclist[i].title == null
+                                        ? ""
+                                        : topiclist[i].title,
+                                    i % 2 == 0
+                                        ? Color(0xff61B4E0)
+                                        : Color(0xff2878B0),
+                                    topiclist[i].title,
+                                    topiclist[i].id, () {
+                                    _cardProvider.addToCardTopic(
+                                        item: TopicCardItemModel(
+                                            topiclist[i].id,
+                                            topiclist[i].title,
+                                            topiclist[i].course,
+                                            topiclist[i].image,
+                                            '',
+                                            200,
+                                            topiclist[i].payment_status,
+                                            false));
+                                  });
                           },
                         ),
                       ],
@@ -350,6 +377,95 @@ class _TopicListState extends State<TopicList> {
           ],
         ),
       ),
+    );
+  }
+
+  _lockTopic(String no, Color color, selectTopic, topicID, addToCard()) {
+    return Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height * 0.009),
+          height: MediaQuery.of(context).size.height * 0.050,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Topic $no",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w500),
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.add_rounded,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    // setState(() {
+                    //   if (selectedTopicList.contains(selectTopic)) {
+                    //     CommomWidget().okayAlertDialog(
+                    //       context,
+                    //       "Doublicate",
+                    //       "Topic already exist",
+                    //     );
+                    //   } else {
+                    //     selectedTopicList.add(selectTopic);
+                    //     print("selected : ${selectedTopicList}");
+                    //     _topicProvider.selectedTopicID.add(topicID);
+                    //     print('selectedTopicID: ${_topicProvider.selectedTopicID}');
+                    //   }
+                    // });
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height * 0.009),
+          height: MediaQuery.of(context).size.height * 0.050,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.grey[400]!.withOpacity(0.6),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(
+                Icons.lock,
+                color: Colors.red,
+                size: MediaQuery.of(context).size.height * 0.035,
+              ),
+              GestureDetector(
+                onTap: () {
+                  addToCard();
+                  print(
+                      '_cardProvider.topicCardItem: ${_cardProvider.topicCardItem}');
+                },
+                child: Text(
+                  "Add To Card",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 

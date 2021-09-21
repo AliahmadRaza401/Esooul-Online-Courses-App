@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Courses/courses.dart';
-import 'package:esooul/Screens/card/card.dart';
+import 'package:esooul/Screens/card/course_card.dart';
+import 'package:esooul/Screens/card/my_card.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
 
 import 'package:flutter/material.dart';

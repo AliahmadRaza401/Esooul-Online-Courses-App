@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey.dart';
-import 'package:esooul/modeles/card_item_model.dart';
+import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
+import 'package:esooul/modeles/course_card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,11 +31,13 @@ class CoursesWidget extends StatefulWidget {
 
 class _CoursesWidgetState extends State<CoursesWidget> {
   late CardProvider _cardProvider;
-
+  late SubjectListProvider _subjectListProvider;
   @override
   void initState() {
     super.initState();
     _cardProvider = Provider.of<CardProvider>(context, listen: false);
+    _subjectListProvider =
+        Provider.of<SubjectListProvider>(context, listen: false);
   }
 
   // addToCard() {
@@ -49,6 +52,9 @@ class _CoursesWidgetState extends State<CoursesWidget> {
     return GestureDetector(
       onTap: () {
         print("ID: ${widget.courseID}");
+        setState(() {
+          _subjectListProvider.selectedcourse = widget.courseID;
+        });
         Navigator.push(
           context,
           MaterialPageRoute(

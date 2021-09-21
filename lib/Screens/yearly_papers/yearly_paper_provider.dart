@@ -19,7 +19,7 @@ class YearlyPaperProvider extends ChangeNotifier {
   var questionType;
   var yearlyPaperID;
 
-  Future yearlyPaperList(token,paperType, courseID, year) async {
+  Future yearlyPaperList(token, paperType, courseID, year) async {
     try {
       print("----------- Yearly Paper Getting----------------");
       final _response = await http.post(
@@ -49,6 +49,7 @@ class YearlyPaperProvider extends ChangeNotifier {
             course: i['course'],
             type: i['type'],
             year: i['year'],
+            payment_status: i['payment_status'],
           );
           yearlyPaperData.add(paperData);
         }

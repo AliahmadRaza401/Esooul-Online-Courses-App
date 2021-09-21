@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Screens/past_objective/past_obj_instruction.dart';
 import 'package:esooul/Screens/paper_categorey/paper_categorey_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/subjective_paper.dart';
@@ -7,6 +8,7 @@ import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/noData_msg.dart';
+import 'package:esooul/modeles/course_card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +25,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
   late YearlyPaperProvider _yearlyPaperProvider;
   late PaperCategoreyProvider _paperCategoreyProvider;
   late SubjectListProvider _subjectListProvider;
+  late CardProvider _cardProvider;
   var result;
   bool _loader = true;
   var paperType;
@@ -35,6 +38,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
     _yearlyPaperProvider = Provider.of(context, listen: false);
     _paperCategoreyProvider = Provider.of(context, listen: false);
     _subjectListProvider = Provider.of(context, listen: false);
+    _cardProvider = Provider.of(context, listen: false);
     paperType = _paperCategoreyProvider.paperType;
     courseID = _subjectListProvider.selectedcourse;
     yearlyPapaer();
@@ -45,7 +49,10 @@ class _YearlyPaperState extends State<YearlyPaper> {
         .getUserTokenSF();
     result = await _yearlyPaperProvider.yearlyPaperList(
         token, paperType, courseID, widget.year);
-    print('result data yaeafdsfasd: $result');
+    print('widget.year): ${widget.year})');
+    print('courseID: $courseID');
+    print('paperType: $paperType');
+    print('result data all: $result');
     setState(() {
       _loader = false;
     });
@@ -94,11 +101,29 @@ class _YearlyPaperState extends State<YearlyPaper> {
                                               ? 0
                                               : result.length,
                                           itemBuilder: (context, i) {
-                                            return _yearPapers(
-                                                context,
-                                                result[i].title,
-                                                result[i].image,
-                                                result[i].id);
+                                            return result[i].payment_status == 0
+                                                ? _yearPapers(
+                                                    context,
+                                                    result[i].title,
+                                                    result[i].image,
+                                                    result[i].id)
+                                                : _lockPapers(
+                                                    context,
+                                                    result[i].title,
+                                                    result[i].image,
+                                                    result[i].id, () {
+                                                    _cardProvider.addToCardCourses(
+                                                        item: CourseCardItemModel(
+                                                            result[i].id,
+                                                            result[i].title,
+                                                            result[i].course,
+                                                            result[i].image,
+                                                            result[i].year,
+                                                            500,
+                                                            result[i]
+                                                                .payment_status,
+                                                            false));
+                                                  });
                                           })
                                     ],
                                   ),
@@ -285,6 +310,110 @@ class _YearlyPaperState extends State<YearlyPaper> {
               ),
             ],
           )),
+    );
+  }
+
+  _lockPapers(BuildContext context, String title, String img, yearlyPaperID,
+      addtoCard()) {
+    return Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: EdgeInsets.only(left: 10),
+            height: MediaQuery.of(context).size.height * 0.12,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    spreadRadius: 0.5,
+                    blurRadius: 2,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                shape: BoxShape.rectangle),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * .1,
+                  width: MediaQuery.of(context).size.width * .2,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.amber,
+                      image: DecorationImage(
+                          image: NetworkImage("$img"), fit: BoxFit.fill)),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.05,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: Wrap(
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(color: Colors.black, fontSize: 18.0),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: EdgeInsets.only(left: 10),
+            height: MediaQuery.of(context).size.height * 0.12,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[400]!.withOpacity(0.9),
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.black.withOpacity(0.3),
+                //     spreadRadius: 2,
+                //     blurRadius: 7,
+                //     offset: Offset(0, 3), // changes position of shadow
+                //   ),
+                // ],
+                shape: BoxShape.rectangle),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(
+                  Icons.lock,
+                  color: Colors.red,
+                  size: MediaQuery.of(context).size.height * 0.05,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    addtoCard();
+                    print(
+                        '_cardProvider.courseCardItem: ${_cardProvider.courseCardItem}');
+                  },
+                  child: Text(
+                    "Add To Card",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

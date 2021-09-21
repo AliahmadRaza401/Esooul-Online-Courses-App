@@ -31,9 +31,9 @@ class _SubjectListState extends State<SubjectList> {
   }
 
   getSubjectList() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
-    result = await _subjectListProvider.getsubjectList(token,widget.gradeID);
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    result = await _subjectListProvider.getsubjectList(token, widget.gradeID);
     setState(() {
       _loader = false;
     });
@@ -80,10 +80,10 @@ class _SubjectListState extends State<SubjectList> {
                                           : result.length,
                                       itemBuilder: (context, i) {
                                         return _myContainer(
-                                            result[i].image,
-                                            result[i].title,
-                                            result[i].id,
-                                            );
+                                          result[i].image,
+                                          result[i].title,
+                                          result[i].id,
+                                        );
                                       })
                                 ],
                               ),
@@ -97,15 +97,22 @@ class _SubjectListState extends State<SubjectList> {
     );
   }
 
-  _myContainer(String subimg, String grade, selectedCourse, ) {
+  _myContainer(
+    String subimg,
+    String grade,
+    selectedCourse,
+  ) {
     return GestureDetector(
       onTap: () {
-        // setState(() {
-        //   _subjectListProvider.selectedcourse = selectedCourse;
-        // });
+        setState(() {
+          _subjectListProvider.selectedcourse = selectedCourse;
+        });
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PaperCategorey(courseID: selectedCourse,)),
+          MaterialPageRoute(
+              builder: (context) => PaperCategorey(
+                    courseID: selectedCourse,
+                  )),
         );
       },
       child: Container(
@@ -153,7 +160,6 @@ class _SubjectListState extends State<SubjectList> {
                   grade,
                   style: TextStyle(color: Colors.black, fontSize: 18.0),
                 ),
-               
               ],
             ),
           ],

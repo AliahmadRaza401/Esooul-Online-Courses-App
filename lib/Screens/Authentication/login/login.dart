@@ -295,20 +295,20 @@ class _LogInState extends State<LogIn> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.010,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 10.0),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "Copyright Reserved@Esooul",
-                                  style: TextStyle(
-                                    color: Color(0xff5A5A5A),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
+                          // Expanded(
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.only(bottom: 10.0),
+                          //     child: Align(
+                          //       alignment: Alignment.bottomCenter,
+                          //       child: Text(
+                          //         "Copyright Reserved@Esooul",
+                          //         style: TextStyle(
+                          //           color: Color(0xff5A5A5A),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // )
                         ],
                       ),
                     ),

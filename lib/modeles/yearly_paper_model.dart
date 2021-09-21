@@ -7,6 +7,7 @@ class YearlyPaperModel {
   var course;
   var year;
   var image;
+  var payment_status;
 
   YearlyPaperModel(
       {@required this.id,
@@ -14,5 +15,6 @@ class YearlyPaperModel {
       @required this.type,
       @required this.course,
       @required this.year,
-      @required this.image});
+      @required this.image,
+      @required this.payment_status});
 }

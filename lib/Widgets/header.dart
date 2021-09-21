@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
-import 'package:esooul/Screens/card/card.dart';
+import 'package:esooul/Screens/card/course_card.dart';
+import 'package:esooul/Screens/card/my_card.dart';
 import 'package:esooul/Widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

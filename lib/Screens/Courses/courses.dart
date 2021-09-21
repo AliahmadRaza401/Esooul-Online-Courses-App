@@ -8,7 +8,7 @@ import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/toast.dart';
 import 'package:esooul/api/api.dart';
 import 'package:esooul/config/config.dart';
-import 'package:esooul/modeles/card_item_model.dart';
+import 'package:esooul/modeles/course_card_item_model.dart';
 import 'package:esooul/modeles/courses_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

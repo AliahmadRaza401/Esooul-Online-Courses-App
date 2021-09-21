@@ -20,12 +20,12 @@ class TopicProvider extends ChangeNotifier {
   var selectedTopicID = [];
   var questionType;
 
-  topicGet(token,course_id) async {
+  topicGet(token, course_id) async {
     try {
       print("----------- Get Topic ---------------");
       final _responce = await http.get(
         Uri.parse(topicsApi(course_id)),
-         headers: {
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'Authorization': 'Bearer $token',
@@ -44,6 +44,7 @@ class TopicProvider extends ChangeNotifier {
             id: i['id'],
             image: i['image'],
             title: i['title'],
+            payment_status: i['payment_status'],
           );
           topicList.add(_topicModel);
         }

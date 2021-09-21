@@ -9,7 +9,7 @@ import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:esooul/Widgets/toast.dart';
-import 'package:esooul/modeles/card_item_model.dart';
+import 'package:esooul/modeles/course_card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
