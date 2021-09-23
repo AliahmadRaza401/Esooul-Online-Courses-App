@@ -238,6 +238,7 @@ class _TopicListState extends State<TopicList> {
                                             topiclist[i].image,
                                             '',
                                             200,
+                                            topiclist[i].discount,
                                             topiclist[i].payment_status,
                                             false));
                                   });

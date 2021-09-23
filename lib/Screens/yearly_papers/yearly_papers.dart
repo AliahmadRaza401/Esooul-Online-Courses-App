@@ -120,6 +120,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                                                             result[i].image,
                                                             result[i].year,
                                                             500,
+                                                            result[i].discount,
                                                             result[i]
                                                                 .payment_status,
                                                             false));

@@ -17,10 +17,14 @@ class TopicCard extends StatefulWidget {
 class _TopicCardState extends State<TopicCard> {
   late CardProvider _cardProvider;
   bool _checkAll = false;
+  var totalprice = 0;
   @override
   void initState() {
     super.initState();
     _cardProvider = Provider.of<CardProvider>(context, listen: false);
+    totalprice = _cardProvider.topicPrice;
+
+    print("topic Class");
   }
 
   @override
@@ -71,22 +75,7 @@ class _TopicCardState extends State<TopicCard> {
                                                     ? 0
                                                     : item.topicCardItem.length,
                                             itemBuilder: (context, i) {
-                                              return
-                                                  // cardContainer(
-                                                  //     context,
-                                                  //     item.cardItem[i].image,
-                                                  //     item.cardItem[i].title,
-                                                  //     item.cardItem[i].grade,
-                                                  //     item.cardItem[i].desc,
-                                                  //     item.cardItem[i].price,
-                                                  //     item.cardItem[i].selected,
-                                                  //     () {
-                                                  //   setState(() {
-                                                  //     item.deleteITem(index: i);
-                                                  //   });
-                                                  //   print(_cardProvider.cardItem);
-                                                  // });
-                                                  Container(
+                                              return Container(
                                                 padding: EdgeInsets.symmetric(
                                                   vertical:
                                                       MediaQuery.of(context)
@@ -164,38 +153,40 @@ class _TopicCardState extends State<TopicCard> {
                                                                       print(
                                                                           'orgPrice: ${orgPrice.toString()}');
 
-                                                                      // _cardProvider
-                                                                      //     .price = _cardProvider
-                                                                      //         .price +
-                                                                      //     orgPrice;
-                                                                      // print(
-                                                                      //     ' _cardProvider.price: ${_cardProvider.price}');
-                                                                      // _cardProvider
-                                                                      //     .totalPrice();
+                                                                      _cardProvider
+                                                                          .topicPrice = _cardProvider
+                                                                              .topicPrice +
+                                                                          orgPrice;
+                                                                      print(
+                                                                          ' _cardProvider.price: ${_cardProvider.topicPrice}');
+                                                                      setState(
+                                                                          () {
+                                                                        totalprice =
+                                                                            _cardProvider.totalTopicPrice();
+                                                                      });
+                                                                    } else if (item
+                                                                            .topicCardItem[i]
+                                                                            .selected ==
+                                                                        false) {
+                                                                      int orgPrice = item
+                                                                          .topicCardItem[
+                                                                              i]
+                                                                          .price;
+                                                                      print(
+                                                                          'orgPrice: ${orgPrice.toString()}');
 
-                                                                      // _cardProvider
-                                                                      //     .addPrice(orgPrice);
+                                                                      _cardProvider
+                                                                          .topicPrice = _cardProvider
+                                                                              .topicPrice -
+                                                                          orgPrice;
+                                                                      print(
+                                                                          ' _cardProvider.price: ${_cardProvider.topicPrice}');
+                                                                      setState(
+                                                                          () {
+                                                                        totalprice =
+                                                                            _cardProvider.totalTopicPrice();
+                                                                      });
                                                                     }
-                                                                    //else {
-                                                                    //   var orgPrice = item
-                                                                    //       .topicCardItem[
-                                                                    //           i]
-                                                                    //       .price;
-                                                                    //   print(
-                                                                    //       'orgPrice: $orgPrice');
-                                                                    //   print(
-                                                                    //       'Remove orgPrice: $orgPrice');
-
-                                                                    //   _cardProvider
-                                                                    //       .price = _cardProvider
-                                                                    //           .price -
-                                                                    //       orgPrice;
-                                                                    //   print(
-                                                                    //       ' _cardProvider.price: ${_cardProvider.price}');
-                                                                    //   // _cardProvider
-                                                                    //   //     .totalPrice();
-
-                                                                    // }
                                                                   });
                                                                 })
                                                           ],
@@ -260,7 +251,9 @@ class _TopicCardState extends State<TopicCard> {
                                                                           Wrap(
                                                                         children: [
                                                                           Text(
-                                                                            item.topicCardItem[i].title,
+                                                                            item.topicCardItem[i].title +
+                                                                                "|" +
+                                                                                item.topicCardItem[i].course,
                                                                             style:
                                                                                 TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                                                                           ),
@@ -302,14 +295,14 @@ class _TopicCardState extends State<TopicCard> {
                                                                           Wrap(
                                                                             children: [
                                                                               Text(
-                                                                                item.topicCardItem[i].course,
+                                                                                item.topicCardItem[i].discount == null ? "Discount: 0%" : "Discount: " + item.topicCardItem[i].discount + "%",
                                                                                 style: TextStyle(color: Colors.black),
                                                                               ),
                                                                             ],
                                                                           ),
                                                                           Wrap(
                                                                             children: [
-                                                                              Text("PKR " + item.topicCardItem[i].price,
+                                                                              Text("PKR " + item.topicCardItem[i].price.toString(),
                                                                                   style: TextStyle(
                                                                                     color: Colors.blue,
                                                                                   )),
@@ -337,7 +330,21 @@ class _TopicCardState extends State<TopicCard> {
                                                                 // tooltip: 'Increase volume by 10',
                                                                 onPressed: () {
                                                                   setState(() {
-                                                                    item.deleteCourseItem(
+                                                                    int orgPrice = item
+                                                                        .topicCardItem[
+                                                                            i]
+                                                                        .price;
+
+                                                                    _cardProvider
+                                                                        .topicPrice = _cardProvider
+                                                                            .topicPrice -
+                                                                        orgPrice;
+
+                                                                    totalprice =
+                                                                        totalprice -
+                                                                            orgPrice;
+
+                                                                    item.deleteTopicItem(
                                                                         index:
                                                                             i);
                                                                   });
@@ -374,8 +381,33 @@ class _TopicCardState extends State<TopicCard> {
                         onChanged: (value) {
                           setState(() {
                             _checkAll = value!;
+                            if (_checkAll == true) {
+                              setState(() {
+                                _cardProvider.topicPrice = 0;
+                                totalprice = 0;
+                              });
+                            }
+
                             _cardProvider.topicCardItem.forEach((element) {
                               element.selected = value;
+
+                              if (_checkAll == true) {
+                                _cardProvider.topicPrice =
+                                    _cardProvider.topicPrice + element.price
+                                        as int;
+                                print(
+                                    ' _cardProvider.price: ${_cardProvider.topicPrice}');
+                                setState(() {
+                                  totalprice = _cardProvider.totalTopicPrice();
+                                });
+                              } else if (_checkAll == false) {
+                                setState(() {
+                                  _cardProvider.topicPrice = 0;
+                                  totalprice = 0;
+                                  print(
+                                      '_cardProvider.topicPrice: ${_cardProvider.topicPrice}');
+                                });
+                              }
                             });
                           });
                         }),
@@ -392,7 +424,7 @@ class _TopicCardState extends State<TopicCard> {
                             style: TextStyle(fontSize: 18, color: Colors.black),
                           ),
                           Text(
-                            "PKR 2000",
+                            "PKR: " + totalprice.toString(),
                             style: TextStyle(fontSize: 18, color: Colors.blue),
                           )
                         ],

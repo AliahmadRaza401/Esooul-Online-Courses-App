@@ -5,7 +5,8 @@ import 'package:flutter/widgets.dart';
 class CardProvider extends ChangeNotifier {
   List courseCardItem = [];
   List topicCardItem = [];
-  int price = 2000;
+  int topicPrice = 0;
+  int coursePrice = 0;
 
   void addToCardCourses({required var item}) {
     courseCardItem.add(item);
@@ -14,7 +15,7 @@ class CardProvider extends ChangeNotifier {
 
   void deleteCourseItem({@required index}) {
     // cardItem.remove(index);
-    print("Delete Index:  $index");
+    print("Delete Index item:  $index");
     courseCardItem.remove(courseCardItem[index]);
     notifyListeners();
   }
@@ -44,7 +45,7 @@ class CardProvider extends ChangeNotifier {
 
   totalCoursePrice() {
     var totalPrice = 0;
-    var total = totalPrice + price;
+    var total = totalPrice + coursePrice;
     print('total: $total');
     notifyListeners();
     return total;
@@ -52,9 +53,12 @@ class CardProvider extends ChangeNotifier {
 
   totalTopicPrice() {
     var totalPrice = 0;
-    var total = totalPrice + price;
+    var total = totalPrice + topicPrice;
+    ;
     print('total: $total');
     notifyListeners();
     return total;
   }
+
+  notifyListeners();
 }

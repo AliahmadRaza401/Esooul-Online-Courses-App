@@ -16,10 +16,12 @@ class CourseCard extends StatefulWidget {
 class _CourseCardState extends State<CourseCard> {
   late CardProvider _cardProvider;
   bool _checkAll = false;
+  var totalprice = 0;
   @override
   void initState() {
     super.initState();
     _cardProvider = Provider.of<CardProvider>(context, listen: false);
+    totalprice = _cardProvider.coursePrice;
   }
 
   @override
@@ -153,47 +155,50 @@ class _CourseCardState extends State<CourseCard> {
                                                                             element.selected);
                                                                     _checkAll =
                                                                         check;
-                                                                    // if (item.courseCardItem[i]
-                                                                    //         .selected ==
-                                                                    //     true) {
-                                                                    //   int orgPrice = item
-                                                                    //       .courseCardItem[
-                                                                    //           i]
-                                                                    //       .price;
-                                                                    //   print(
-                                                                    //       'orgPrice: $orgPrice');
+                                                                    if (item.courseCardItem[i]
+                                                                            .selected ==
+                                                                        true) {
+                                                                      int orgPrice = item
+                                                                          .courseCardItem[
+                                                                              i]
+                                                                          .price;
+                                                                      print(
+                                                                          'orgPrice: ${orgPrice.toString()}');
 
-                                                                    //   _cardProvider
-                                                                    //       .price = _cardProvider
-                                                                    //           .price +
-                                                                    //       orgPrice;
-                                                                    //   print(
-                                                                    //       ' _cardProvider.price: ${_cardProvider.price}');
-                                                                    //   // _cardProvider
-                                                                    //   //     .totalPrice();
+                                                                      _cardProvider
+                                                                          .coursePrice = _cardProvider
+                                                                              .coursePrice +
+                                                                          orgPrice;
+                                                                      print(
+                                                                          ' _cardProvider.price: ${_cardProvider.coursePrice}');
+                                                                      setState(
+                                                                          () {
+                                                                        totalprice =
+                                                                            _cardProvider.totalCoursePrice();
+                                                                      });
+                                                                    } else if (item
+                                                                            .courseCardItem[i]
+                                                                            .selected ==
+                                                                        false) {
+                                                                      int orgPrice = item
+                                                                          .courseCardItem[
+                                                                              i]
+                                                                          .price;
+                                                                      print(
+                                                                          'orgPrice: ${orgPrice.toString()}');
 
-                                                                    //   // _cardProvider
-                                                                    //   //     .addPrice(orgPrice);
-                                                                    // } else {
-                                                                    //   int orgPrice = item
-                                                                    //       .courseCardItem[
-                                                                    //           i]
-                                                                    //       .price;
-                                                                    //   print(
-                                                                    //       'orgPrice: $orgPrice');
-                                                                    //   print(
-                                                                    //       'Remove orgPrice: $orgPrice');
-
-                                                                    //   _cardProvider
-                                                                    //       .price = _cardProvider
-                                                                    //           .price -
-                                                                    //       orgPrice;
-                                                                    //   print(
-                                                                    //       ' _cardProvider.price: ${_cardProvider.price}');
-                                                                    //   // _cardProvider
-                                                                    //   //     .totalPrice();
-
-                                                                    // }
+                                                                      _cardProvider
+                                                                          .coursePrice = _cardProvider
+                                                                              .coursePrice -
+                                                                          orgPrice;
+                                                                      print(
+                                                                          ' _cardProvider.price: ${_cardProvider.coursePrice}');
+                                                                      setState(
+                                                                          () {
+                                                                        totalprice =
+                                                                            _cardProvider.totalCoursePrice();
+                                                                      });
+                                                                    }
                                                                   });
                                                                 })
                                                           ],
@@ -330,6 +335,20 @@ class _CourseCardState extends State<CourseCard> {
                                                                 // tooltip: 'Increase volume by 10',
                                                                 onPressed: () {
                                                                   setState(() {
+                                                                    int orgPrice = item
+                                                                        .courseCardItem[
+                                                                            i]
+                                                                        .price;
+
+                                                                    _cardProvider
+                                                                        .coursePrice = _cardProvider
+                                                                            .coursePrice -
+                                                                        orgPrice;
+
+                                                                    totalprice =
+                                                                        totalprice -
+                                                                            orgPrice;
+
                                                                     item.deleteCourseItem(
                                                                         index:
                                                                             i);
@@ -367,8 +386,33 @@ class _CourseCardState extends State<CourseCard> {
                         onChanged: (value) {
                           setState(() {
                             _checkAll = value!;
+                            if (_checkAll == true) {
+                              setState(() {
+                                _cardProvider.coursePrice = 0;
+                                totalprice = 0;
+                              });
+                            }
+
                             _cardProvider.courseCardItem.forEach((element) {
                               element.selected = value;
+
+                              if (_checkAll == true) {
+                                _cardProvider.coursePrice =
+                                    _cardProvider.coursePrice + element.price
+                                        as int;
+                                print(
+                                    ' _cardProvider.price: ${_cardProvider.coursePrice}');
+                                setState(() {
+                                  totalprice = _cardProvider.totalCoursePrice();
+                                });
+                              } else if (_checkAll == false) {
+                                setState(() {
+                                  _cardProvider.coursePrice = 0;
+                                  totalprice = 0;
+                                  print(
+                                      '_cardProvider.topicPrice: ${_cardProvider.coursePrice}');
+                                });
+                              }
                             });
                           });
                         }),
@@ -385,7 +429,7 @@ class _CourseCardState extends State<CourseCard> {
                             style: TextStyle(fontSize: 18, color: Colors.black),
                           ),
                           Text(
-                            "PKR 2000",
+                            "PKR: " + totalprice.toString(),
                             style: TextStyle(fontSize: 18, color: Colors.blue),
                           )
                         ],

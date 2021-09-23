@@ -44,7 +44,10 @@ class TopicProvider extends ChangeNotifier {
             id: i['id'],
             image: i['image'],
             title: i['title'],
+                    discount: i['discount'],
+              price: i['price'],
             payment_status: i['payment_status'],
+     
           );
           topicList.add(_topicModel);
         }

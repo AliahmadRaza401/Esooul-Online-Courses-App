@@ -49,7 +49,10 @@ class YearlyPaperProvider extends ChangeNotifier {
             course: i['course'],
             type: i['type'],
             year: i['year'],
+              discount: i['discount'],
+              price: i['price'],
             payment_status: i['payment_status'],
+           
           );
           yearlyPaperData.add(paperData);
         }
