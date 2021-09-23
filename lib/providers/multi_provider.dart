@@ -14,6 +14,7 @@ import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
 import 'package:esooul/Screens/past_subjective_paper/past_subjective_provider.dart';
 import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_paper_provider.dart';
+import 'package:esooul/payment/payment_provider.dart';
 import 'package:provider/provider.dart';
 
 final multiProvider = [
@@ -77,8 +78,12 @@ final multiProvider = [
     create: (_) => CustomSubjectiveProvider(),
     lazy: true,
   ),
-    ChangeNotifierProvider<CardProvider>(
+  ChangeNotifierProvider<CardProvider>(
     create: (_) => CardProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<PaymentProvider>(
+    create: (_) => PaymentProvider(),
     lazy: true,
   ),
 ];

@@ -49,3 +49,5 @@ topicsApi(course_id) {
 }
 
 String coursesApi = BaseUrl + '/api/v1/courses/';
+String topicPayment = BaseUrl + '/api/v1/topic-payement';
+String paperPayment = BaseUrl + '/api/v1/paper-payement';
