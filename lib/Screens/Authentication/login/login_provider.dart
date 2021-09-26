@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/config/config.dart';
 import 'package:http/http.dart' as http;
 import 'package:esooul/api/api.dart';
@@ -31,7 +33,7 @@ class LoginProvider extends ChangeNotifier {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: jsonEncode({'email': email, 'password': password}),
+        body: jsonEncode({'email': email}),
       );
 
       result = jsonDecode(_response.body);
@@ -99,8 +101,9 @@ class LoginProvider extends ChangeNotifier {
           .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
       print("User Alrady Login");
     } else {
+      print("User Not Login");
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => LogIn()));
+          .push(MaterialPageRoute(builder: (context) => SignUp()));
     }
   }
 

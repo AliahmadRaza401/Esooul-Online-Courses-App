@@ -44,6 +44,8 @@ dependencies:
   blinking_text: ^1.0.1+2
   fluttertoast: ^8.0.8
   auto_size_text: ^2.1.0
+  video_player: ^2.1.4
+  chewie: 
 
 
 dev_dependencies:

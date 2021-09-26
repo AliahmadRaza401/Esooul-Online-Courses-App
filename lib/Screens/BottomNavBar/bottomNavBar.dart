@@ -1,4 +1,5 @@
 import 'package:esooul/Navigator/pageNavigator.dart';
+import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Profile/Setting.dart';
@@ -6,6 +7,7 @@ import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/Screens/WishList/wishList.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -16,18 +18,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   final _indexPage = [Home(), Courses(), Wishlist(), Profile()];
-
-  // // String currentPage;
-  // var activeIndex;
-  // var current;
-
-  // List<Widget> pageList = [
-  //   Home(),
-  //   Courses(),
-  //   Wishlist(),
-  //   Profile(),
-  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -169,9 +166,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: Container(
         // color: Color(0xff212121),
         child: Center(
-          // child: PageNavigator(page: currentPage),
-          child: _indexPage.elementAt(_selectedIndex),
-        ),
+            // child: PageNavigator(page: currentPage),
+            child: _indexPage.elementAt(_selectedIndex)),
       ),
     );
   }

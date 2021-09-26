@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:esooul/Screens/Courses/courses.dart';
 import 'package:esooul/Screens/card/course_card.dart';
 import 'package:esooul/Screens/card/my_card.dart';
@@ -53,53 +54,70 @@ Widget boardsCard(
               ),
             ],
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          title,
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width * .24,
-                      height: MediaQuery.of(context).size.height * .05,
-                      child: Wrap(
-                        children: [
-                          Text(
-                            "$desc",
+          Container(
+            // color: Colors.yellow,
+            height: MediaQuery.of(context).size.height * .11,
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * .25,
+                        child: AutoSizeText(title,
                             style: TextStyle(
-                                color: Color(0xff757070), fontSize: 8),
-                          )
-                        ],
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                            maxLines: 1,
+                            overflow: TextOverflow.fade),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    ],
+                  ),
+                  // SizedBox(
+                  //   height: 2,
+                  // ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * .24,
+                    height: MediaQuery.of(context).size.height * .05,
+                    child: Wrap(
                       children: [
-                        Text(
-                          'see more',
-                          style: TextStyle(color: Colors.black, fontSize: 12),
+                        Container(
+                          // color: Colors.green,
+                          width: MediaQuery.of(context).size.width * .25,
+                          height: MediaQuery.of(context).size.height * .06,
+                          child: AutoSizeText("$desc",
+                              style: TextStyle(
+                                  color: Color(0xff757070), fontSize: 8),
+                              maxLines: 4,
+                              overflow: TextOverflow.fade),
                         ),
+                        // Text(
+                        //   "$desc",
+                        //   style: TextStyle(
+                        //       color: Color(0xff757070), fontSize: 8),
+                        // )
                       ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                    ),
+                  ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'see more',
+                        style: TextStyle(color: Colors.black, fontSize: 12),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -435,10 +453,19 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
                 width: MediaQuery.of(context).size.width * .28,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * .005),
-              Text(
-                "$name",
-                style: TextStyle(fontSize: 14, color: Colors.black),
-              )
+              Container(
+                // color: Colors.green,
+                width: MediaQuery.of(context).size.width * .23,
+                // height: MediaQuery.of(context).size.height * .06,
+                child: AutoSizeText("$name",
+                    style: TextStyle(fontSize: 14, color: Colors.black),
+                    maxLines: 1,
+                    overflow: TextOverflow.fade),
+              ),
+              // Text(
+              //   "$name",
+              //   style: TextStyle(fontSize: 14, color: Colors.black),
+              // )
             ],
           ),
         ),

@@ -58,8 +58,8 @@ class _HomeState extends State<Home> {
   }
 
   getboards() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
     var result = await _homeProvider.boardsArea(token);
     boardAreaData = result['data'];
     print('boardAreaData: $boardAreaData');
@@ -265,7 +265,6 @@ class _HomeState extends State<Home> {
                                   ),
                                   recomendedtext(context, 'Recommended for you',
                                       'Show all'),
-
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width * .92,

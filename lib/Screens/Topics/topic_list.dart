@@ -123,6 +123,8 @@ class _TopicListState extends State<TopicList> {
                   onPressed: () {
                     setState(() {
                       selectedTopicList.clear();
+                      _topicProvider.selectedTopicID.clear();
+                      //Navigator.of(context).push(route)
                       print(
                           ' Remove all selectedTopicList: $selectedTopicList');
                     });
@@ -216,39 +218,15 @@ class _TopicListState extends State<TopicList> {
                                   ? 0
                                   : topiclist.length,
                               itemBuilder: (context, i) {
-                                return topiclist[i].payment_status == 0
-                                    ? _topic(
-                                        topiclist[i].title == null
-                                            ? ""
-                                            : topiclist[i].title,
-                                        i % 2 == 0
-                                            ? Color(0xff61B4E0)
-                                            : Color(0xff2878B0),
-                                        topiclist[i].title,
-                                        topiclist[i].id)
-                                    : _lockTopic(
-                                        topiclist[i].title == null
-                                            ? ""
-                                            : topiclist[i].title,
-                                        i % 2 == 0
-                                            ? Color(0xff61B4E0)
-                                            : Color(0xff2878B0),
-                                        topiclist[i].title,
-                                        topiclist[i].id,
-                                        topiclist[i].price,
-                                        topiclist[i].discount, () {
-                                        _cardProvider.addToCardTopic(
-                                            item: TopicCardItemModel(
-                                                topiclist[i].id,
-                                                topiclist[i].title,
-                                                topiclist[i].course,
-                                                topiclist[i].image,
-                                                '',
-                                                1000,
-                                                topiclist[i].discount,
-                                                topiclist[i].payment_status,
-                                                false));
-                                      });
+                                return _topic(
+                                    topiclist[i].title == null
+                                        ? ""
+                                        : topiclist[i].title,
+                                    i % 2 == 0
+                                        ? Color(0xff61B4E0)
+                                        : Color(0xff2878B0),
+                                    topiclist[i].title,
+                                    topiclist[i].id);
                               },
                             ),
                           ],

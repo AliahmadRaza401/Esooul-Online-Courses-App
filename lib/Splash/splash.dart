@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +28,8 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   Future checkFirstSeen() async {
     _loginProvider.checkUserAlreadyLogin(context);
     await _loginProvider.saveName();
-    // Navigator.of(context).pushReplacement(new MaterialPageRoute(
-    //   builder: (context) => new LogIn()
-    // ));
+    // Navigator.of(context).pushReplacement(
+    //     new MaterialPageRoute(builder: (context) => new BottomNavBar()));
 
     // SharedPreferences prefs = await SharedPreferences.getInstance();
     // bool _seen = (prefs.getBool('seen') ?? false);
@@ -45,7 +45,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   }
 
   @override
-  void afterFirstLayout(BuildContext context) => LogIn();
+  void afterFirstLayout(BuildContext context) => BottomNavBar();
 
   @override
   Widget build(BuildContext context) {
