@@ -6,6 +6,7 @@ import 'package:esooul/Screens/subject_list/subject_list_provider.dart';
 import 'package:esooul/Screens/yearly_papers/yearly_papers.dart';
 
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -37,12 +38,12 @@ class _PaperCategoreyState extends State<PaperCategorey> {
   }
 
   getYears() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
     pastPaperYearsList =
-        await _paperCategoreyProvider.pastPaperYear(token,widget.courseID);
+        await _paperCategoreyProvider.pastPaperYear(token, widget.courseID);
     print('pastPaperYearsList: ${pastPaperYearsList}');
-    print(pastPaperYearsList[0].past_papers_years);
+    // print(pastPaperYearsList[0].past_papers_years);
     setState(() {
       _yearLoading = false;
     });
@@ -159,35 +160,37 @@ class _PaperCategoreyState extends State<PaperCategorey> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * .015),
                 _yearLoading == false
-                    ? Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        width: MediaQuery.of(context).size.width * .82,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: SingleChildScrollView(
-                              child: ListView.builder(
-                                  shrinkWrap: true,
-                                  // scrollDirection:Axis.horizontal ,
-                                  itemCount: pastPaperYearsList == null
-                                      ? 0
-                                      : pastPaperYearsList.length,
-                                  itemBuilder: (context, i) {
-                                    return yearTile(
-                                        context,
-                                        pastPaperYearsList[i]
-                                                    .past_papers_years ==
-                                                null
-                                            ? ""
-                                            : pastPaperYearsList[i]
-                                                .past_papers_years,
-                                        pastPaperYearsList[i]
-                                            .past_papers_years);
-                                  })),
-                        ),
-                      )
+                    ? pastPaperYearsList.isEmpty
+                        ? noDataMsg(context)
+                        : Container(
+                            padding: EdgeInsets.only(bottom: 10),
+                            width: MediaQuery.of(context).size.width * .82,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: SingleChildScrollView(
+                                  child: ListView.builder(
+                                      shrinkWrap: true,
+                                      // scrollDirection:Axis.horizontal ,
+                                      itemCount: pastPaperYearsList == null
+                                          ? 0
+                                          : pastPaperYearsList.length,
+                                      itemBuilder: (context, i) {
+                                        return yearTile(
+                                            context,
+                                            pastPaperYearsList[i]
+                                                        .past_papers_years ==
+                                                    null
+                                                ? ""
+                                                : pastPaperYearsList[i]
+                                                    .past_papers_years,
+                                            pastPaperYearsList[i]
+                                                .past_papers_years);
+                                      })),
+                            ),
+                          )
                     : CircularProgressIndicator(
                         color: Colors.white,
                       )
