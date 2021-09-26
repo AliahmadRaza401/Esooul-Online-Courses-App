@@ -103,7 +103,7 @@ class LoginProvider extends ChangeNotifier {
     } else {
       print("User Not Login");
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => SignUp()));
+          .push(MaterialPageRoute(builder: (context) => LogIn()));
     }
   }
 

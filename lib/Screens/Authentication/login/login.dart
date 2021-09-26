@@ -160,7 +160,7 @@ class _LogInState extends State<LogIn> {
                         left: MediaQuery.of(context).size.width * .02,
                         right: MediaQuery.of(context).size.width * .02,
                         bottom: MediaQuery.of(context).size.height * 0.0),
-                    height: MediaQuery.of(context).size.height * .755,
+                    height: MediaQuery.of(context).size.height * .78,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       boxShadow: [
