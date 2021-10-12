@@ -101,30 +101,11 @@ class _YearlyPaperState extends State<YearlyPaper> {
                                               ? 0
                                               : result.length,
                                           itemBuilder: (context, i) {
-                                            return result[i].payment_status == 0
-                                                ? _yearPapers(
-                                                    context,
-                                                    result[i].title,
-                                                    result[i].image,
-                                                    result[i].id)
-                                                : _lockPapers(
-                                                    context,
-                                                    result[i].title,
-                                                    result[i].image,
-                                                    result[i].id, () {
-                                                    _cardProvider.addToCardCourses(
-                                                        item: CourseCardItemModel(
-                                                            result[i].id,
-                                                            result[i].title,
-                                                            result[i].course,
-                                                            result[i].image,
-                                                            result[i].year,
-                                                            500,
-                                                            result[i].discount,
-                                                            result[i]
-                                                                .payment_status,
-                                                            false));
-                                                  });
+                                            return _yearPapers(
+                                                context,
+                                                result[i].title,
+                                                result[i].image,
+                                                result[i].id);
                                           })
                                     ],
                                   ),
@@ -220,7 +201,7 @@ class _YearlyPaperState extends State<YearlyPaper> {
                     child: Wrap(
                       children: [
                         Text(
-                          grade,
+                          grade == null ? "" : grade,
                           style: TextStyle(color: Colors.black, fontSize: 18.0),
                         ),
                       ],

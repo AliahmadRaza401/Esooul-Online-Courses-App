@@ -27,11 +27,13 @@ class SignUpProvider extends ChangeNotifier {
       print("Sign Up ---------------------------");
       final _response = await http.post(
         Uri.parse(signUpApi),
-      headers: {
+        headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: jsonEncode({'email': email, 'password': password}),
+        body: jsonEncode({
+          'email': email,
+        }),
       );
       result = jsonDecode(_response.body);
       // print('result: $result');

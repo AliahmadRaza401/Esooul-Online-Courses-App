@@ -24,6 +24,7 @@ class _ProfileState extends State<Profile> {
   var userEmail;
   @override
   void initState() {
+
     // TODO: implement initState
     super.initState();
     _loginProvider = Provider.of(context, listen: false);

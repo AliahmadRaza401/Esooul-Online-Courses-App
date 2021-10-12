@@ -78,6 +78,7 @@ class _SignUpState extends State<SignUp> {
     print("Error Result ${result['errors']}");
     if (result['status'] == 200) {
       print("SignUp True");
+      print(result['Token']);
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('token', result['message']['token']);
       _signUpProvider.token = result['message']['token'];
@@ -147,7 +148,7 @@ class _SignUpState extends State<SignUp> {
                     left: MediaQuery.of(context).size.width * .02,
                     right: MediaQuery.of(context).size.width * .02,
                     bottom: MediaQuery.of(context).size.height * 0.0),
-                height: MediaQuery.of(context).size.height * .76,
+                height: MediaQuery.of(context).size.height * .78,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -272,16 +273,16 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        passwordInputField(
-                            context,
-                            "Password",
-                            Icons.lock,
-                            _passwordController,
-                            MultiValidator([
-                              RequiredValidator(errorText: "Required"),
-                              MinLengthValidator(6,
-                                  errorText: "Password must be greater then 6")
-                            ])),
+                        // passwordInputField(
+                        //     context,
+                        //     "Password",
+                        //     Icons.lock,
+                        //     _passwordController,
+                        //     MultiValidator([
+                        //       RequiredValidator(errorText: "Required"),
+                        //       MinLengthValidator(6,
+                        //           errorText: "Password must be greater then 6")
+                        //     ])),
                         // Padding(
                         //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                         //   child: PasswordTextField(

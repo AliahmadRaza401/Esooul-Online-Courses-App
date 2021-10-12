@@ -77,9 +77,9 @@ class _PastObjectiveState extends State<PastObjective> {
   }
 
   getData() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
-    result = await _pastObjectiveProvider.pastObjective(token,paperID);
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    result = await _pastObjectiveProvider.pastObjective(token, paperID);
     setState(() {
       _loader = false;
       totalQuestion = result.length + 1;
@@ -219,73 +219,109 @@ class _PastObjectiveState extends State<PastObjective> {
                               height: MediaQuery.of(context).size.height * .72,
                               child: Column(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                      width: double.infinity,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              .08,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              percentageIndicator(
-                                                context,
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            // crossAxisAlignment:
-                                            // CrossAxisAlignment.end,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Container(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 5),
-                                                alignment: Alignment.center,
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.3,
-                                                decoration: BoxDecoration(
-                                                    gradient: LinearGradient(
-                                                      begin: Alignment.topRight,
-                                                      end: Alignment.topLeft,
-                                                      colors: [
-                                                        Color(0xffFF9D43),
-                                                        Color(0xffFFD643),
-                                                      ],
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child: Text(
-                                                  "Total: " +
-                                                      "${totalQuestion == null ? 0 : totalQuestion - 1}",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 17),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      )),
+                                  // Container(
+                                  //     width: double.infinity,
+                                  //     // height:
+                                  //     //     MediaQuery.of(context).size.height *
+                                  //     //         .08,
+                                  //     child: Column(
+                                  //       mainAxisAlignment:
+                                  //           MainAxisAlignment.spaceBetween,
+                                  //       children: [
+                                  //         // Row(
+                                  //         //   children: [
+                                  //         //     percentageIndicator(
+                                  //         //       context,
+                                  //         //     ),
+                                  //         //   ],
+                                  //         // ),
+                                  //         Row(
+                                  //           // crossAxisAlignment:
+                                  //           // CrossAxisAlignment.end,
+                                  //           mainAxisAlignment:
+                                  //               MainAxisAlignment.end,
+                                  //           children: [
+                                  //             Container(
+                                  //               padding: EdgeInsets.symmetric(
+                                  //                   vertical: 5),
+                                  //               alignment: Alignment.center,
+                                  //               width: MediaQuery.of(context)
+                                  //                       .size
+                                  //                       .width *
+                                  //                   0.3,
+                                  //               decoration: BoxDecoration(
+                                  //                   gradient: LinearGradient(
+                                  //                     begin: Alignment.topRight,
+                                  //                     end: Alignment.topLeft,
+                                  //                     colors: [
+                                  //                       Color(0xffFF9D43),
+                                  //                       Color(0xffFFD643),
+                                  //                     ],
+                                  //                   ),
+                                  //                   borderRadius:
+                                  //                       BorderRadius.circular(
+                                  //                           20)),
+                                  //               child: Text(
+                                  //                 "Total: " +
+                                  //                     "${totalQuestion == null ? 0 : totalQuestion - 1}",
+                                  //                 style: TextStyle(
+                                  //                     color: Colors.black,
+                                  //                     fontSize: 17),
+                                  //               ),
+                                  //             ),
+                                  //           ],
+                                  //         ),
+                                  //       ],
+                                  //     )),
                                   Container(
                                     // color: Colors.amber,
-                                    height: MediaQuery.of(context).size.height *
-                                        .45,
+                                    // height: MediaQuery.of(context).size.height *
+                                    //     .45,
                                     child: Column(
                                       children: [
+                                        Row(
+                                          // crossAxisAlignment:
+                                          // CrossAxisAlignment.end,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 5),
+                                              alignment: Alignment.center,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.3,
+                                              decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                    begin: Alignment.topRight,
+                                                    end: Alignment.topLeft,
+                                                    colors: [
+                                                      Color(0xffFF9D43),
+                                                      Color(0xffFFD643),
+                                                    ],
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              child: Text(
+                                                "Total: " +
+                                                    "${totalQuestion == null ? 0 : totalQuestion - 1}",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 17),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                         SizedBox(
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height *
-                                              0.02,
+                                              0.04,
                                         ),
                                         question(
                                             questionNumber == null
@@ -335,6 +371,26 @@ class _PastObjectiveState extends State<PastObjective> {
                                     children: [
                                       Column(
                                         children: [
+                                          Row(
+                                            children: [
+                                              result[questionNumber].video !=
+                                                      null
+                                                  ? Visibility(
+                                                      visible: videoVisible,
+                                                      child: videoContainer(
+                                                          context,
+                                                          result[questionNumber]
+                                                              .video),
+                                                    )
+                                                  : Text("")
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                .02,
+                                          ),
                                           Text(
                                             "Skip and go to next question",
                                             style:
@@ -524,9 +580,17 @@ class _PastObjectiveState extends State<PastObjective> {
             SizedBox(
               width: MediaQuery.of(context).size.width * .03,
             ),
-            Text(
-              "$val",
-              style: TextStyle(color: textColor[number]),
+            Container(
+              // color: Colors.greenAccent,
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: Wrap(
+                children: [
+                  Text(
+                    "$val",
+                    style: TextStyle(color: textColor[number]),
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -546,29 +610,29 @@ class _PastObjectiveState extends State<PastObjective> {
     );
   }
 
-  Widget percentageIndicator(
-    context,
-  ) {
-    return LinearPercentIndicator(
-      width: MediaQuery.of(context).size.width * 0.84,
-      animation: true,
-      lineHeight: 25.0,
-      animationDuration: 60000,
-      percent: 1,
-      center: Text(timerText),
-      linearStrokeCap: LinearStrokeCap.roundAll,
-      progressColor: Color(0xff00B0D7),
-      onAnimationEnd: () {
-        print("Time out");
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Report(
-                  total: totalQuestion,
-                  pass: pass,
-                  fail: fail,
-                  attemped: attemped,
-                  notAttemped: notAttemped,
-                )));
-      },
-    );
-  }
+  // Widget percentageIndicator(
+  //   context,
+  // ) {
+  //   return LinearPercentIndicator(
+  //     width: MediaQuery.of(context).size.width * 0.84,
+  //     animation: true,
+  //     lineHeight: 25.0,
+  //     animationDuration: 60000,
+  //     percent: 1,
+  //     center: Text(timerText),
+  //     linearStrokeCap: LinearStrokeCap.roundAll,
+  //     progressColor: Color(0xff00B0D7),
+  //     onAnimationEnd: () {
+  //       print("Time out");
+  //       Navigator.of(context).push(MaterialPageRoute(
+  //           builder: (context) => Report(
+  //                 total: totalQuestion,
+  //                 pass: pass,
+  //                 fail: fail,
+  //                 attemped: attemped,
+  //                 notAttemped: notAttemped,
+  //               )));
+  //     },
+  //   );
+  // }
 }

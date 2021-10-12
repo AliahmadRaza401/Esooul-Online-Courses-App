@@ -11,13 +11,13 @@ class TopicCardItemModel {
   var year;
   @required
   var image;
-     @required
+  @required
   var discount;
-    @required
+  @required
   var price;
   @required
   var status;
-  bool selected ;
+  bool selected;
   TopicCardItemModel(this.id, this.title, this.course, this.image, this.year,
-      this.price,this.discount ,this.status, this.selected);
+      this.price, this.discount, this.status, this.selected);
 }

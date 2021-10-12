@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/card/card_provider.dart';
@@ -10,6 +11,7 @@ import 'package:esooul/Widgets/back_button.dart';
 import 'package:esooul/Widgets/dialog.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
+import 'package:esooul/Widgets/noData_msg.dart';
 import 'package:esooul/modeles/topic_card_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -121,6 +123,8 @@ class _TopicListState extends State<TopicList> {
                   onPressed: () {
                     setState(() {
                       selectedTopicList.clear();
+                      _topicProvider.selectedTopicID.clear();
+                      //Navigator.of(context).push(route)
                       print(
                           ' Remove all selectedTopicList: $selectedTopicList');
                     });
@@ -201,18 +205,20 @@ class _TopicListState extends State<TopicList> {
                   MediaQuery.of(context).size.width * 0.04,
                   0),
               child: loading == false
-                  ? ListView(
-                      shrinkWrap: true,
-                      physics: ClampingScrollPhysics(),
-                      children: [
-                        ListView.builder(
+                  ? topiclist.isEmpty
+                      ? Container(height: 200, child: noDataMsg(context))
+                      : ListView(
                           shrinkWrap: true,
                           physics: ClampingScrollPhysics(),
-                          itemCount:
-                              topiclist.length == null ? 0 : topiclist.length,
-                          itemBuilder: (context, i) {
-                            return topiclist[i].payment_status == 0
-                                ? _topic(
+                          children: [
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: ClampingScrollPhysics(),
+                              itemCount: topiclist.length == null
+                                  ? 0
+                                  : topiclist.length,
+                              itemBuilder: (context, i) {
+                                return _topic(
                                     topiclist[i].title == null
                                         ? ""
                                         : topiclist[i].title,
@@ -220,33 +226,13 @@ class _TopicListState extends State<TopicList> {
                                         ? Color(0xff61B4E0)
                                         : Color(0xff2878B0),
                                     topiclist[i].title,
-                                    topiclist[i].id)
-                                : _lockTopic(
-                                    topiclist[i].title == null
-                                        ? ""
-                                        : topiclist[i].title,
-                                    i % 2 == 0
-                                        ? Color(0xff61B4E0)
-                                        : Color(0xff2878B0),
-                                    topiclist[i].title,
-                                    topiclist[i].id, () {
-                                    _cardProvider.addToCardTopic(
-                                        item: TopicCardItemModel(
-                                            topiclist[i].id,
-                                            topiclist[i].title,
-                                            topiclist[i].course,
-                                            topiclist[i].image,
-                                            '',
-                                            200,
-                                            topiclist[i].discount,
-                                            topiclist[i].payment_status,
-                                            false));
-                                  });
-                          },
-                        ),
-                      ],
-                    )
-                  : LoadingBounceAnimation(context),
+                                    topiclist[i].id);
+                              },
+                            ),
+                          ],
+                        )
+                  : Container(
+                      height: 200, child: LoadingBounceAnimation(context)),
             ),
           ),
         ),
@@ -381,13 +367,14 @@ class _TopicListState extends State<TopicList> {
     );
   }
 
-  _lockTopic(String no, Color color, selectTopic, topicID, addToCard()) {
+  _lockTopic(String no, Color color, selectTopic, topicID, price, discount,
+      addToCard()) {
     return Stack(
       children: [
         Container(
           margin: EdgeInsets.only(
               bottom: MediaQuery.of(context).size.height * 0.009),
-          height: MediaQuery.of(context).size.height * 0.050,
+          height: MediaQuery.of(context).size.height * 0.080,
           width: double.infinity,
           decoration: BoxDecoration(
             color: color,
@@ -433,35 +420,110 @@ class _TopicListState extends State<TopicList> {
         Container(
           margin: EdgeInsets.only(
               bottom: MediaQuery.of(context).size.height * 0.009),
-          height: MediaQuery.of(context).size.height * 0.050,
+          height: MediaQuery.of(context).size.height * 0.080,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.grey[400]!.withOpacity(0.6),
             borderRadius: BorderRadius.circular(15),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Column(
             children: [
-              Icon(
-                Icons.lock,
-                color: Colors.red,
-                size: MediaQuery.of(context).size.height * 0.035,
-              ),
-              GestureDetector(
-                onTap: () {
-                  addToCard();
-                  print(
-                      '_cardProvider.topicCardItem: ${_cardProvider.topicCardItem}');
-                },
-                child: Text(
-                  "Add To Card",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    decoration: TextDecoration.underline,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    Icons.lock,
+                    color: Colors.red,
+                    size: MediaQuery.of(context).size.height * 0.035,
                   ),
-                ),
+                  ActionChip(
+                    elevation: 2.0,
+                    padding: EdgeInsets.all(2.0),
+                    avatar: CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      child: Icon(
+                        Icons.shopping_cart,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                    label: Text(
+                      'Add to Card',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () {
+                      addToCard();
+                      print(
+                          '_cardProvider.topicCardItem: ${_cardProvider.topicCardItem}');
+                    },
+                    backgroundColor: Colors.grey[200],
+                    shape: StadiumBorder(
+                        side: BorderSide(
+                      width: 1,
+                      color: Colors.blue,
+                    )),
+                  ),
+
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     addToCard();
+                  //     print(
+                  //         '_cardProvider.topicCardItem: ${_cardProvider.topicCardItem}');
+                  //   },
+                  //   child: Text(
+                  //     "Add To Card",
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontWeight: FontWeight.bold,
+                  //       decoration: TextDecoration.underline,
+                  //       fontSize: MediaQuery.of(context).size.height * 0.02,
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Discount:" + discount,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
+                    ),
+                  ),
+                  Text(
+                    "Rs:" + price,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: MediaQuery.of(context).size.width * 0.035,
+                    ),
+                  ),
+                  // Container(
+                  //   color: Colors.black,
+                  //   width: MediaQuery.of(context).size.width * 0.4,
+                  //   height: MediaQuery.of(context).size.height * 0.05,
+                  //   child: AutoSizeText(
+                  //     'A really long String',
+                  //     style: TextStyle(fontSize: 30, color: Colors.yellow),
+                  //     minFontSize: 18,
+                  //     maxLines: 4,
+                  //     overflow: TextOverflow.ellipsis,
+                  //   ),
+                  // ),
+                  // Container(
+                  //   color: Colors.black,
+                  //   width: MediaQuery.of(context).size.width * 0.4,
+                  //   child: AutoSizeText(
+                  //     'A really long String',
+                  //     style: TextStyle(fontSize: 30, color: Colors.yellow),
+                  //     minFontSize: 18,
+                  //     maxLines: 4,
+                  //     overflow: TextOverflow.ellipsis,
+                  //   ),
+                  // ),
+                ],
               ),
             ],
           ),

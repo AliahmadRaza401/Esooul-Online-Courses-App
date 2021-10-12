@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/Authentication/forget_password.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.dart';
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home.dart';
@@ -38,6 +39,7 @@ class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
   final _passwordController = TextEditingController();
   late LoginProvider _loginProvider;
+  late SignUpProvider _signUpProvider;
   var result;
   var uniqueID;
   bool _loading = false;
@@ -47,6 +49,7 @@ class _LogInState extends State<LogIn> {
     super.initState();
     CheckInternet().checkConnection(context);
     _loginProvider = Provider.of<LoginProvider>(context, listen: false);
+    _signUpProvider = Provider.of<SignUpProvider>(context, listen: false);
   }
 
   @override
@@ -74,9 +77,11 @@ class _LogInState extends State<LogIn> {
     if (result['status'] == 200) {
       print("responce Success");
       if (result['message'] == "Success.") {
-        await _loginProvider.loginTrue();
         _loginProvider.userUniqueIdSave(result['data']['uniqueId']);
         _loginProvider.userEmailSave(result['data']['email']);
+        // SharedPreferences prefs = await SharedPreferences.getInstance();
+        // prefs.setString('token', result['message']['token']);
+        // _signUpProvider.token = result['message']['token'];
         Navigator.of(context).pushReplacement(
             new MaterialPageRoute(builder: (context) => BottomNavBar()));
         setState(() {
@@ -87,7 +92,10 @@ class _LogInState extends State<LogIn> {
         //     "Your account is not validate, Click Continue to Validate your account");
       } else if (result['message']['token'] != null) {
         print("user Authenticate");
-        // addTokenToSF();
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setBool('loginUser', true);
+        print("User  Login  True");
+        addTokenToSF();
         // _loginProvider.userFName(result['data']['first_name']);
 
         setState(() {
@@ -152,7 +160,7 @@ class _LogInState extends State<LogIn> {
                         left: MediaQuery.of(context).size.width * .02,
                         right: MediaQuery.of(context).size.width * .02,
                         bottom: MediaQuery.of(context).size.height * 0.0),
-                    height: MediaQuery.of(context).size.height * .755,
+                    height: MediaQuery.of(context).size.height * .78,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       boxShadow: [
@@ -218,10 +226,10 @@ class _LogInState extends State<LogIn> {
                           //     textInputtype: TextInputType.emailAddress,
                           //   ),
                           // ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.020,
-                          ),
-                          passwordField(),
+                          // SizedBox(
+                          //   height: MediaQuery.of(context).size.height * 0.020,
+                          // ),
+                          // passwordField(),
                           // Padding(
                           //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                           //   child: PasswordTextField(
