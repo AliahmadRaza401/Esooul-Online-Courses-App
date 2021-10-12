@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +46,7 @@ class SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
   }
 
   @override
-  void afterFirstLayout(BuildContext context) => BottomNavBar();
+  void afterFirstLayout(BuildContext context) => CountryNavBar();
 
   @override
   Widget build(BuildContext context) {
