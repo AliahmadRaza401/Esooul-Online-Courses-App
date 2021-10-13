@@ -64,7 +64,7 @@ class _IeltsHomeState extends State<IeltsHome> {
                   children: [
                     GestureDetector(
                       onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
                       },
                       child: courseCard(
                         'assets/png/ieltscover.png',
@@ -75,32 +75,38 @@ class _IeltsHomeState extends State<IeltsHome> {
                       ),
                     ),
                     courseCard(
-                      'assets/png/ieltscover.png',
+                      'assets/png/cambrigielts.png',
                       'Cambridge',
-                      'Canadian curriculum',
+                      'British curriculum',
                       '2017- 2021 Ontario',
-                      'Affordable online study Canada with Elite High School',
+                      'Cambridge Assessment International Education ',
                     ),
                     courseCard(
-                      'assets/png/ieltscover.png',
+                      'assets/png/austrailia.png',
                       'Australia',
-                      'Canadian curriculum',
-                      '2017- 2021 Ontario',
-                      'Affordable online study Canada with Elite High School',
+                      'Australian curriculum',
+                      '2017- 2021 Canberra',
+                      'Cambridge Assessment International Education ',
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
+
+                      },
+                      child: courseCard(
+                        'assets/png/esl.png',
+                        'ESL',
+                        'IELTS, TOFEL, DOLINGO',
+                        '2017- 2021 Canberra',
+                        'Cambridge Assessment International Education ',
+                      ),
                     ),
                     courseCard(
-                      'assets/png/ieltscover.png',
-                      'ESL',
-                      'Canadian curriculum',
-                      '2017- 2021 Ontario',
-                      'Affordable online study Canada with Elite High School',
-                    ),
-                    courseCard(
-                      'assets/png/ieltscover.png',
+                      'assets/png/pakistan.png',
                       'Pakistan',
-                      'Canadian curriculum',
+                      'Pakistani curriculum',
                       '2017- 2021 Ontario',
-                      'Affordable online study Canada with Elite High School',
+                      'Cambridge Assessment International Education ',
                     ),
                   
                     Padding(
@@ -116,7 +122,7 @@ class _IeltsHomeState extends State<IeltsHome> {
                             borderRadius: BorderRadius.circular(20)),
                       ),
                     ),
-                    SizedBox(height: 100,)
+                    SizedBox(height: 5,)
                   ],
                 )),
               ),
