@@ -1,13 +1,14 @@
+import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'ielts_modules.dart';
+import '../Ielts Section/IELTS Home/ielts_modules.dart';
 
-class IeltsHome extends StatefulWidget {
-  const IeltsHome({Key? key}) : super(key: key);
+class CountryHome extends StatefulWidget {
+  const CountryHome({Key? key}) : super(key: key);
 
   @override
-  _IeltsHomeState createState() => _IeltsHomeState();
+  _CountryHomeState createState() => _CountryHomeState();
 }
 
 var boardAreaData;
@@ -15,7 +16,7 @@ var data;
 var userFName;
 var userLName;
 
-class _IeltsHomeState extends State<IeltsHome> {
+class _CountryHomeState extends State<CountryHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,8 +64,14 @@ class _IeltsHomeState extends State<IeltsHome> {
                     child: Column(
                   children: [
                     GestureDetector(
+<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
                       onTap: (){
                         // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
+=======
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => IeltsModules()));
+>>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                       },
                       child: courseCard(
                         'assets/png/ieltscover.png',
@@ -101,28 +108,49 @@ class _IeltsHomeState extends State<IeltsHome> {
                         'Cambridge Assessment International Education ',
                       ),
                     ),
+<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
                     courseCard(
                       'assets/png/pakistan.png',
                       'Pakistan',
                       'Pakistani curriculum',
                       '2017- 2021 Ontario',
                       'Cambridge Assessment International Education ',
+=======
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => BottomNavBar()));
+                      },
+                      child: courseCard(
+                        'assets/png/ieltscover.png',
+                        'Pakistan',
+                        'Canadian curriculum',
+                        '2017- 2021 Ontario',
+                        'Affordable online study Canada with Elite High School',
+                      ),
+>>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                     ),
-                  
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * .22,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/png/Rectangle 122.png'),
-                            fit: BoxFit.cover),
+                            image: DecorationImage(
+                                image:
+                                    AssetImage('assets/png/Rectangle 122.png'),
+                                fit: BoxFit.cover),
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(20)),
                       ),
                     ),
+<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
                     SizedBox(height: 5,)
+=======
+                    SizedBox(
+                      height: 100,
+                    )
+>>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                   ],
                 )),
               ),
@@ -131,8 +159,8 @@ class _IeltsHomeState extends State<IeltsHome> {
         ]))))));
   }
 
-  Widget courseCard(
-      String img,String country, String curriculam, String session, String description) {
+  Widget courseCard(String img, String country, String curriculam,
+      String session, String description) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -163,9 +191,7 @@ class _IeltsHomeState extends State<IeltsHome> {
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                          image: AssetImage('$img'),
-                          fit: BoxFit.cover)
-                          ),
+                          image: AssetImage('$img'), fit: BoxFit.cover)),
                 )
               ],
             ),

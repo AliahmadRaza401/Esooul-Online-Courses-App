@@ -2,6 +2,8 @@ import 'dart:io';
 
 const BaseUrl = "http://www.esooul.com";
 
+const IeltsBaseUrl = "http://ielts.esooul.com";
+
 // final headers = {
 //   HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
 //   HttpHeaders.acceptHeader: 'application/json',

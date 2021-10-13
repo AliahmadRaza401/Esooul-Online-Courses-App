@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/login/login.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signup.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:esooul/Screens/Profile/profile.dart';
 import 'package:esooul/config/config.dart';
 import 'package:http/http.dart' as http;
@@ -98,7 +99,7 @@ class LoginProvider extends ChangeNotifier {
     print('splashToken: $splashToken');
     if (loginUser == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
+          .push(MaterialPageRoute(builder: (context) => CountryNavBar()));
       print("User Alrady Login");
     } else {
       print("User Not Login");

@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:esooul/Screens/Courses/courses.dart';
+import 'package:esooul/Screens/Country%20Home/country_home.dart';
 import 'package:esooul/Screens/card/course_card.dart';
 import 'package:esooul/Screens/card/my_card.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
@@ -428,7 +429,7 @@ Widget guessPaper(BuildContext context, String bgImg, String name) {
     child: GestureDetector(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => NodataMessage()));
+            .push(MaterialPageRoute(builder: (context) => CountryHome()));
       },
       child: Container(
         decoration: BoxDecoration(

@@ -3,6 +3,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification_
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
+import 'package:esooul/Screens/Ielts%20Section/Listening/listening_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
 import 'package:esooul/Screens/card/card_provider.dart';
@@ -84,6 +85,10 @@ final multiProvider = [
   ),
   ChangeNotifierProvider<PaymentProvider>(
     create: (_) => PaymentProvider(),
+    lazy: true,
+  ),
+   ChangeNotifierProvider<ListeningProvider>(
+    create: (_) => ListeningProvider(),
     lazy: true,
   ),
 ];
