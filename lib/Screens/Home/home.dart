@@ -4,7 +4,6 @@ import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
-import 'package:esooul/Screens/Ielts%20Section/IELTS%20Home/ielts_home.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
 import 'package:esooul/Screens/card/card_provider.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -142,12 +141,10 @@ class _HomeState extends State<Home> {
                                           onTap: () {
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
-                                                    builder: (context) =>IeltsHome()
-                                                        // SelectBoard(
-                                                        //   boardID: "mO",
-                                                        // )
-                                                        )
-                                                        );
+                                                    builder: (context) =>
+                                                        SelectBoard(
+                                                          boardID: "mO",
+                                                        )));
                                           },
                                           child: boardsCard(
                                               context,

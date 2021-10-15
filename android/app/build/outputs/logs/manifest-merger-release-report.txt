@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
-MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\b2ea5e05fb4fb851184e9b0af980bf49\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\f09b8ddd78b021f724ecbb270644c7ef\jetified-exoplayer-dash-2.14.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\d9c8ace75a2893fac3be87cf34cd39b5\jetified-exoplayer-smoothstreaming-2.14.1\AndroidManifest.xml:17:1-24:12
@@ -30,29 +30,29 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\mrali\.g
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\5f606c30f064eed94124828de37fadc0\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\96aee308bccd03bc62c306516c23a410\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\15792e6083b2b5b5a7ffa285d47daa24\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
 	package
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:2:5-33
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:2:5-33
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:1-42:12
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:3:4-66
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:3:4-66
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:3:21-63
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:3:21-63
 application
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:4:4-41:19
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:4:4-41:19
 MERGED from [androidx.core:core:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\96aee308bccd03bc62c306516c23a410\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
@@ -60,69 +60,69 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mr
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:5:9-31
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:5:9-31
 	android:icon
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:6:9-43
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:6:9-43
 activity#com.example.esooul.MainActivity
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:7:9-35:20
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:7:9-35:20
 	android:launchMode
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:9:13-43
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:9:13-43
 	android:hardwareAccelerated
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:12:13-47
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:12:13-47
 	android:windowSoftInputMode
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:13:13-55
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:13:13-55
 	android:configChanges
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:11:13-163
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:11:13-163
 	android:theme
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:10:13-47
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:10:13-47
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:8:13-41
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:8:13-41
 meta-data#io.flutter.embedding.android.NormalTheme
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:18:13-21:17
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:18:13-21:17
 	android:resource
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:20:15-52
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:20:15-52
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:19:15-70
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:19:15-70
 meta-data#io.flutter.embedding.android.SplashScreenDrawable
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:27:13-30:17
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:27:13-30:17
 	android:resource
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:29:15-61
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:29:15-61
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:28:15-79
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:28:15-79
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:31:13-34:29
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:31:13-34:29
 action#android.intent.action.MAIN
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:32:17-68
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:32:17-68
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:32:25-66
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:33:17-76
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:33:17-76
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:33:27-74
 meta-data#flutterEmbedding
-ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:38:9-40:33
+ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:38:9-40:33
 	android:value
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:40:13-30
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:40:13-30
 	android:name
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml:39:13-44
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml:39:13-44
 uses-sdk
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
-MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:video_player] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\video_player\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\fluttertoast\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\shared_preferences\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\sqflite\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:advance_pdf_viewer] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\advance_pdf_viewer\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:path_provider] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\path_provider\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:wakelock] D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\build\wakelock\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\b2ea5e05fb4fb851184e9b0af980bf49\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\b2ea5e05fb4fb851184e9b0af980bf49\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\f09b8ddd78b021f724ecbb270644c7ef\jetified-exoplayer-dash-2.14.1\AndroidManifest.xml:20:5-22:41
@@ -161,16 +161,16 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mr
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\96aee308bccd03bc62c306516c23a410\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\15792e6083b2b5b5a7ffa285d47daa24\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\15792e6083b2b5b5a7ffa285d47daa24\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Flutter Projects\EHS Office\Esooul Courses App\Launch updated Version 1.0\esooul\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\60b85d32c76f6174d43e445a6aa2cefb\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\mrali\.gradle\caches\transforms-2\files-2.1\9c869d6c39afd30e0ee6a960de621a9b\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:24:5-79

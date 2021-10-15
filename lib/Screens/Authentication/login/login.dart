@@ -4,6 +4,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 
 import 'package:esooul/Widgets/check_internet.dart';
@@ -83,7 +84,7 @@ class _LogInState extends State<LogIn> {
         // prefs.setString('token', result['message']['token']);
         // _signUpProvider.token = result['message']['token'];
         Navigator.of(context).pushReplacement(
-            new MaterialPageRoute(builder: (context) => BottomNavBar()));
+            new MaterialPageRoute(builder: (context) => CountryNavBar()));
         setState(() {
           _loading = false;
         });
@@ -102,7 +103,7 @@ class _LogInState extends State<LogIn> {
           _loading = false;
         });
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => BottomNavBar()));
+            .push(MaterialPageRoute(builder: (context) => CountryNavBar()));
       } else {
         alertDialog(context, "Login UnSuccessfull",
             "Please check your Email and make sure its Authenticate");

@@ -64,14 +64,9 @@ class _CountryHomeState extends State<CountryHome> {
                     child: Column(
                   children: [
                     GestureDetector(
-<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
-                      onTap: (){
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
-=======
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => IeltsModules()));
->>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                       },
                       child: courseCard(
                         'assets/png/ieltscover.png',
@@ -108,14 +103,6 @@ class _CountryHomeState extends State<CountryHome> {
                         'Cambridge Assessment International Education ',
                       ),
                     ),
-<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
-                    courseCard(
-                      'assets/png/pakistan.png',
-                      'Pakistan',
-                      'Pakistani curriculum',
-                      '2017- 2021 Ontario',
-                      'Cambridge Assessment International Education ',
-=======
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -128,7 +115,6 @@ class _CountryHomeState extends State<CountryHome> {
                         '2017- 2021 Ontario',
                         'Affordable online study Canada with Elite High School',
                       ),
->>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -144,13 +130,9 @@ class _CountryHomeState extends State<CountryHome> {
                             borderRadius: BorderRadius.circular(20)),
                       ),
                     ),
-<<<<<<< HEAD:lib/Screens/Ielts Section/IELTS Home/ielts_home.dart
-                    SizedBox(height: 5,)
-=======
                     SizedBox(
                       height: 100,
                     )
->>>>>>> 13edf3951e17c8778fb6f7550ea776dd5c9366ab:lib/Screens/Country Home/country_home.dart
                   ],
                 )),
               ),

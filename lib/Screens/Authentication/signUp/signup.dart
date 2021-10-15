@@ -5,6 +5,7 @@ import 'package:esooul/Screens/Authentication/otp_verification/otp_verification.
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_widget.dart';
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Widgets/swipe_button/swipebuttonflutter.dart';
 import 'package:esooul/Widgets/textfield.dart';
@@ -87,7 +88,7 @@ class _SignUpState extends State<SignUp> {
       // });
       print("Token: ${result['message']['token']}");
       Navigator.of(context).pushReplacement(
-          new MaterialPageRoute(builder: (context) => BottomNavBar()));
+          new MaterialPageRoute(builder: (context) => CountryNavBar()));
       // uniqueID = result['data']['uniqueId'];
       // print('uniqueId: $uniqueID');
       // alertDialog(context, "SignUp Successfully!",
