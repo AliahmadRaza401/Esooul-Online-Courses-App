@@ -1,4 +1,6 @@
 import 'package:esooul/Screens/Ielts%20Section/Reading/reading_modules.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/speaking_modules.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/writing_modules.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -41,8 +43,17 @@ class _IeltsModulesState extends State<IeltsModules> {
              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ReadingModule()));
            },
            child: moduleCard(context,'assets/png/reading.png','Reading')),
-         moduleCard(context,'assets/png/writing.png','Writing'),
-         moduleCard(context,'assets/png/speaking.png','Speaking'),
+         GestureDetector(
+           onTap: (){
+             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>WritingModules()));
+           },
+           child: moduleCard(context,'assets/png/writing.png','Writing')),
+         GestureDetector(
+           
+            onTap: (){
+             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SpeakingModules()));
+           },
+           child: moduleCard(context,'assets/png/speaking.png','Speaking')),
         ],
       )
       )

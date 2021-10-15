@@ -7,7 +7,10 @@ Widget bulletCard(BuildContext context,String description){
     // color: Colors.blue,
     child: Padding(
       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
-      child: Row(children: [
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.start,
+        children: [
 Text("$bullet",style: TextStyle(color: Colors.black,fontSize: 20),),
 SizedBox(    width: MediaQuery.of(context).size.width *.04,
 ),
@@ -44,15 +47,30 @@ Widget moduleCard(BuildContext context, String icon, String description) {
           "$description",
           style: TextStyle(color: Colors.black, fontSize: 13),
         ),
-        trailing: Icon(
-          Icons.favorite_border_outlined,
-          color: Colors.red,
-          size: 30,
-        ),
+        // trailing: Icon(
+        //   Icons.favorite_border_outlined,
+        //   color: Colors.red,
+        //   size: 30,
+        // ),
       ),
     ),
   );
 }
+
+ Widget snapshot(BuildContext context,String imgPath){
+   return Padding(
+                 padding: const EdgeInsets.symmetric(vertical:10),
+                 child: Row(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     Container(
+                       width: MediaQuery.of(context).size.width*.9,
+                       height:  MediaQuery.of(context).size.height *.3,
+                       decoration: BoxDecoration(image: DecorationImage(image: AssetImage(imgPath),fit: BoxFit.contain)),)
+                   ],
+                 ),
+               );
+ }
 
 
 // this card containe title without trailing icon in listTile
@@ -129,20 +147,23 @@ Widget practiceTestCard(BuildContext context, String description, String buy) {
 Widget myHeading(BuildContext context, String heading) {
     return Row(
       children: [
-        Wrap(
-          children: [
-            Text(
-              heading,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                // fontWeight: FontWeight.bold,
+        Container(
+          width: MediaQuery.of(context).size.width *.9,
+          child: Wrap(
+            children: [
+              Text(
+                heading,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  // fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .03,
-            ),
-          ],
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .03,
+              ),
+            ],
+          ),
         ),
       ],
     );
