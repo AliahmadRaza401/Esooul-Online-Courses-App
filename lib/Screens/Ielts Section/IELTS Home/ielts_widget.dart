@@ -6,7 +6,7 @@ Widget bulletCard(BuildContext context,String description){
     width: MediaQuery.of(context).size.width *.9,
     // color: Colors.blue,
     child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical:5,horizontal: 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.start,

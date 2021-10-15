@@ -360,7 +360,7 @@ String bullet="\u2022";
         Wrap(
           children: [
             Text('$bullet   ',style: TextStyle(color: Colors.black),),
-            
+             
              Text(
               'Smith (2015)',
               style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
@@ -377,10 +377,379 @@ String bullet="\u2022";
         
       ],
     ),
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+             
+             Text(
+              'Smith (2015)',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
+            )
+            , Text(
+              '= subject',
+              style: TextStyle(color: Colors.black, fontSize: 10,),
+            ), 
+          ],
+        ),
+        
+      ],
+    ),
+
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+    
+            Text(
+              ' reported',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.green),
+            ), Text(
+              '= verb',
+              style: TextStyle(color: Colors.black, fontSize: 10),
+            ),
+          ],
+        ),
+        
+      ],
+    ),
+    Row(
+      children: [
+        Container(
+          width:  MediaQuery.of(context).size.width *.9,
+          child: Wrap(
+            children: [
+              Text('$bullet   ',style: TextStyle(color: Colors.black),),
+              
+              Text(
+                'that more research was necessary.',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.cyan),
+              ),
+               
+               Text(
+                '= dependent clause, direct object of the verb "reported"',
+                style: TextStyle(color: Colors.black, fontSize: 10),
+              )
+            ],
+          ),
+        ),
+        
+      ],
+    ),
+
+
+
+
+
+
+
+
+
+
+    
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+             
+             Text(
+              'The authors',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
+            )
+            , Text(
+              ' hypothesized ',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.green),
+            ), Text(
+              'that there would be significant results.',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.cyan),
+            ),
+          ],
+        ),
+        
+      ],
+    ),
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+             
+             Text(
+              'The authors',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
+            )
+            , Text(
+              '= subject',
+              style: TextStyle(color: Colors.black, fontSize: 10,),
+            ), 
+          ],
+        ),
+        
+      ],
+    ),
+
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+    
+            Text(
+              'hypothesized ',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.green),
+            ), Text(
+              '= verb',
+              style: TextStyle(color: Colors.black, fontSize: 10),
+            ),
+          ],
+        ),
+        
+      ],
+    ),
+    Row(
+      children: [
+        Container(
+          width:  MediaQuery.of(context).size.width *.9,
+          child: Wrap(
+            children: [
+              Text('$bullet   ',style: TextStyle(color: Colors.black),),
+              
+              Text(
+                'that there would be significant results',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.cyan),
+              ),
+               
+               Text(
+                '= dependent clause, direct object of the verb "reported"',
+                style: TextStyle(color: Colors.black, fontSize: 10),
+              )
+            ],
+          ),
+        ),
+        
+      ],
+    ),
+
+
+
+
+
+
+
+
+
+    
+
+    
+    Row(
+      children: [
+        Container(
+                    width:  MediaQuery.of(context).size.width *.9,
+
+          child: Wrap(
+            children: [
+              Text('$bullet   ',style: TextStyle(color: Colors.black),),
+               
+               Text(
+                'Jones (2014)',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
+              )
+              , Text(
+                ' asserted ',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.green),
+              ), Text(
+                ' that confidentiality was maintained throughout the study.',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.cyan),
+              ),
+            ],
+          ),
+        ),
+        
+      ],
+    ),
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+             
+             Text(
+              'Jones (2014) ',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.yellow),
+            )
+            , Text(
+              '= subject',
+              style: TextStyle(color: Colors.black, fontSize: 10,),
+            ), 
+          ],
+        ),
+        
+      ],
+    ),
+
+    Row(
+      children: [
+        Wrap(
+          children: [
+            Text('$bullet   ',style: TextStyle(color: Colors.black),),
+    
+            Text(
+              'asserted',
+              style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.green),
+            ), Text(
+              '= verb',
+              style: TextStyle(color: Colors.black, fontSize: 10),
+            ),
+          ],
+        ),
+        
+      ],
+    ),
+    Row(
+      children: [
+        Container(
+          width:  MediaQuery.of(context).size.width *.9,
+          child: Wrap(
+            children: [
+              Text('$bullet   ',style: TextStyle(color: Colors.black),),
+              
+              Text(
+                'that confidentiality was maintained throughout the study',
+                style: TextStyle(color: Colors.black, fontSize: 10,backgroundColor: Colors.cyan),
+              ),
+               
+               Text(
+                '= dependent clause, direct object of the verb "reported"',
+                style: TextStyle(color: Colors.black, fontSize: 10),
+              )
+            ],
+          ),
+        ),
+        
+      ],
+    ),
+
+
+
+
+                       bulletCard(context, 'Rephrasing these sentences into questions and answers is one way to see that the "that" clauses are acting as direct objects.'),
+                       bulletCard(context, 'What did Smith (2015) report?'),
+                          myText(context, 'Answer: that more research was necessary'),
+                       bulletCard(context, 'What did the authors hypothesize?'),
+                          myText(context, 'Answer: that there would be significant results'),
+                       bulletCard(context, 'What did Jones (2014) assert?'),
+                          myText(context, 'Answer: that confidentiality was maintained throughout the study'),
+                          myText(context, 'In formal written English, for clarity, most academic writers choose to keep "that" when it introduces a noun clause (Caplan, 2012). Leaving out "that" can cause the reader to misread (at first anyway) the subject of the dependent clause as being the object of the reporting verb (Jamieson, 2012).'),
+                          bulletCard(context, 'For example, if readers see the sentence, Smith (2015) reported more research was necessary (without that), they may understand “more research” as the thing Smith reported and then have to backtrack and reread upon seeing “was necessary.'),
+
+                          bulletCard(context, 'Any structure that leads to misinterpretation, even temporarily, can be an unwanted distraction from the writer’s message.'),
+                          bulletCard(context, 'In spoken English, however, "that" may be dropped in such sentences. (Intonation patterns—rising and falling pitch—give the listener clues that may not be present in writing.)'),
+                          myHeading(context, '- Passive Voice:'),
+                          myText(context, 'In most instances, put the verb in the active voice rather than in the passive voice.'),
+                          myText(context, 'Passive voice produces a sentence in which the subject receives an action. In contrast, active voice produces a sentence in which the subject performs an action. Passive voice often creates unclear, less direct, wordy sentences, whereas active voice creates clearer, more concise sentences.'),
+                          myText(context, 'To change a sentence from passive to active voice, determine who or what performs the action, and use that person or thing as the subject of the sentence.'),
+                          myText(context, 'Examples'),
+                          myText(context, 'PASSIVE VOICE: My first trip abroad will always be remembered by me. '),
+                          myText(context, 'PASSIVE VOICE: My first trip abroad is one I will always remember. '),
+                          myText(context, 'ACTIVE VOICE: I will always remember my first trip abroad.'),
+                          myText(context, 'PASSIVE VOICE: On April 19, 1775, arms were seized by British soldiers at Concord, precipitating the American Revolution. '),
+                          myText(context, 'ACTIVE VOICE: On April 19, 1775, British soldiers seized arms at Concord, precipitating the American Revolution.'),
+                          myText(context, 'PASSIVE VOICE: Thomas Jefferson’s support of the new Constitution was documented in a letter to James Madison. '), 
+                          myText(context, 'ACTIVE VOICE: Thomas Jefferson documented his support of the new Constitution in a letter to James Madison.'),
+                          myText(context, 'Overuse of to be'),
+                          myText(context, '(a related problem)'),
+                          myText(context, 'Using forms of to be (e.g., is, are, was, were) leads to wordiness. Use an action verb instead.'),
+                          myText(context, 'Example: It is the combination of these two elements that makes the argument weak. REVISED: The combination of these two elements weakens the argument.'),
+
                           myText(context, ''),
-                          myText(context, ''),
-                          myText(context, ''),
-                          myText(context, ''),
+
+                          myHeading(context,'- Predicting the Future:'),
+                          myText(context, 'In the Speaking or the Writing test, you might be asked to make predictions about the future. You should get used to using a variety of ways to do this. Some are included in the example below, taken from a test taker’s response to a question from part three of the Speaking test, in which she was asked about the future of film making.'),
+                          myText(context, 'I think making films will probably be very profitable in the future as well. I mean, the industry will definitely lose some money because of Internet piracy - that’s bound to happen. But I think there’s a strong likelihood that an industry this size will find a way around that, even if there’s not much chance that they,ll be able to stop piracy altogether. Maybe they’ll come up with technology some new that is only effective in the cinemas. They might improve 3-D technology. Or, I don’t know, they could come up with something '),
+                          myText(context, 'completely new, which we haven’t thought of yet. Whatever happens though, they definitely won’t stop making films because of the piracy. There’s no chance of that happening. So yea, they probably won’t make as much money as they make now, but I doubt that the industry will suffer too much! '),
+                          myHeading(context, '- Present Perfect'),
+                          myText(context, 'The Present Perfect tense is a rather important tense in English, but it gives speakers of some languages a difficult time. That is because it uses concepts or ideas that do not exist in those languages. In fact, the structure of the Present Perfect is very simple. The problems come with the use of the tense. In addition, there are some differences in usage between British and American English.'),
+                          myText(context, 'In this lesson we look at the structure and use of the Present Perfect tense, as well as the use of for and since, followed by a quiz to check your understanding.'),
+                          myText(context, 'The Present Perfect tense is really a very interesting tense, and a very useful one. Try not to translate the Present Perfect into your language. Just try to accept the concepts of this tense and learn to "think" Present Perfect! You will soon learn to like the Present Perfect tense!'),
+                          myText(context, 'How do we make the Present Perfect tense?'),
+                          myText(context, 'The structure of the Present Perfect is:'),
+
+                          snapshot(context, 'assets/png/grammer5.PNG'),
+                          myText(context, 'The auxiliary verb (have) is conjugated in the Present Simple: have, has'),
+                          myText(context, 'The main verb is invariable in past participle form: -ed (or irregular)'),
+                          myText(context, 'For negative sentences we insert not between the auxiliary verb and the main verb.'),
+                          myText(context, 'For question sentences, we exchange the subject and the auxiliary verb.'),
+                          myText(context, 'Look at these example sentences with the Present Perfect tense:'),
+                          snapshot(context, 'assets/png/grammer6.PNG'),
+                          snapshot(context, 'assets/png/grammer7.PNG'),
+                          myHeading(context,'Contraction with Present Perfect'),
+                          myText(context, 'When we use the Present Perfect in speaking, we often contract the subject and auxiliary verb. We also sometimes do this in informal writing.'),
+                          snapshot(context, 'assets/png/grammer8.PNG'),
+                          bulletCard(context,'You\'ve told me that before.'),
+                          bulletCard(context,'John\'s seen Harry Potter.'),
+                          myText(context, 'In negative sentences, we may contract the auxiliary verb and "not":'),
+                          bulletCard(context,'You haven\'t won the contest.'),
+                          bulletCard(context,'She hasn\'t heard from him.'),
+                          myText(context, 'He\'s or he\'s??? Be careful! The \'s contraction is used for the auxiliary verbs have and be. For example, "It\'s eaten" can mean:'),
+                          bulletCard(context,'It has eaten. (Present Perfect tense, active voice)'),
+                          bulletCard(context,'It is eaten. (Present Simple tense, passive voice)'),
+                          myText(context, 'It is usually clear from the context.'),
+                          myHeading(context, 'How do we use the Present Perfect tense?'),
+                          myText(context, 'This tense is called the Present Perfect tense. There is always a connection with the past and with the present.'),
+                          myText(context, 'We use the Present Perfect to talk about:'),
+                          bulletCard(context,'experience'),
+                          bulletCard(context,'change'),
+                          bulletCard(context,'continuing situation'),
+                          myHeading(context, 'Present Perfect for experience'),
+                          myText(context, 'We often use the Present Perfect to talk about experience from the past. We are not interested in when you did something. We only want to know if you did it:'),
+                          snapshot(context,'assets/png/grammer9.PNG'),
+                          snapshot(context,'assets/png/grammer10.PNG'),
+                          myText(context, 'Connection with past: the event was in the past'),
+                          myText(context, 'Connection with present: in my head, now, I have a memory of the event; I know something about the event; I have experience of it'),
+                          myText(context, 'Present Perfect for change'),
+                          myText(context, 'We also use the Present Perfect to talk about a change, or new information:'),
+                          snapshot(context,'assets/png/grammer11.PNG'),
+                          snapshot(context,'assets/png/grammer12.PNG'), snapshot(context,'assets/png/grammer13.PNG'),
+                           snapshot(context,'assets/png/grammer14.PNG'),
+
+                          myText(context, 'Connection with past: the past is the opposite of the present'),
+                          myText(context, 'Connection with present: the present is the opposite of the past'),
+                          myText(context, 'Americans do use the Present Perfect but less than British speakers. Americans often use the Past Simple tense instead. An American might say "Did you have lunch?", where a British person would say "Have you had lunch?"'),
+                          myText(context, 'Present Perfect for continuing situation'),
+                          myText(context, 'We often use the Present Perfect to talk about a continuing situation. This is a state that started in the past and continues in the present (and will probably continue into the future). This is a situation (not an action). We usually use for or since with this structure.'),
+                           snapshot(context,'assets/png/grammer15.PNG'),
+                          myText(context, 'Connection with past: the situation started in the past.'),
+                          myText(context, 'Connection with present: the situation continues in the present.'),
+                          myText(context, 'For and Since with Present Perfect tense'),
+                          myText(context, 'We often use for and since with perfect tenses:'),
+                          bulletCard(context, 'We use for to talk about a period of time: five minutes, two weeks, six years'),
+                          bulletCard(context, 'We use since to talk about a point in past time: 9 o\'clock, 1st January, Monday'),
+                            snapshot(context,'assets/png/grammer16.PNG'), 
+                             snapshot(context,'assets/png/grammer17.PNG'),
+                          myText(context, 'Look at these example sentences using for and since with the Present Perfect tense:'),
+                          bulletCard(context,'I have been here for twenty minutes.'),
+                          bulletCard(context,'I have been here since 9 o\'clock.'),
+                          bulletCard(context,'John hasn\'t called for six months.'),
+                          bulletCard(context,'John hasn\'t called since February.'),
+                          bulletCard(context,'He has worked in New York for a long time.'),
+                          bulletCard(context,'He has worked in New York since he left school.'),
+                          myHeading(context, '- Past Simple'),
+                          myText(context, 'The Past Simple Tense is used to refer to actions that were completed in a time period before the present time. In the Simple Past the process of performing the action is not important. What matters is that the action was completed in the past. The action may have been in the recent past or a long time ago. '),
+                          myText(context, 'So let’s start learning the Simple Past Tense – one of the most common tenses in spoken English – and the points to pay attention to.'),
+                          myText(context, 'Using the Simple Past Tense'),
+                          bulletCard(context,'The Simple Past is used for actions that started and finished at a specific time in the past. It’s also possible to use the simple past in a sentence without specifying a time, but it must have previously been made clear that the speaker is referring to a finished period. '),
+
+                          myText(context, 'I saw a movie last week.'),
+                          bulletCard(context, 'The Simple Past is used to describe several actions that were completed in the past.'),
+                          myText(context, 'I finished work, walked to the beach and met my friends.'),
+                          bulletCard(context, 'The Simple Past is used to describe a process that started and finished in the past. In this case, the process of the action is long and is used by specifying time periods such as ‘the whole year’ or ‘all day’.'),
+                          myText(context, 'I lived in Italy for five years.'),
+                          bulletCard(context, 'The Simple Past can also be used in sentences that describe past habits. These sentences have the same purpose as the expression ‘used to’. It should be clear in this kind of sentence that the action referred to is a habit. Time expressions like always, often, usually and never can be used to underline this.'),
+                          myText(context, 'I often played football when I was a young man.'),
+                          myText(context, 'Forming the Simple Past'),
                           myText(context, ''),
                           myText(context, ''),
                           myText(context, ''),
