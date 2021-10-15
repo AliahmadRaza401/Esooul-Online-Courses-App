@@ -48,29 +48,29 @@ class _ListningModuleState extends State<ListningModule> {
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ListningTestInstructions()));
             },
-            child: moduleCard(context, 'assets/png/listningPractice.png','Listening test (Instructions)')),
+            child: moduleCard(context, 'assets/png/listningPractice.png','Practice Lstening test (Instructions)')),
          
          
           GestureDetector(
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PracticeListeningTest()));
             },
-            child: moduleCard(context, 'assets/png/listningPreparation.png','Listening test')),
-            GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));
-              },
-              child: moduleCard(context, 'assets/png/listningPreparation.png','Grammer')),
-            GestureDetector(
-               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Vocabulary()));
-              },
-              child: moduleCard(context, 'assets/png/listningPreparation.png','Vocabulary')),
-            GestureDetector(
-               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsTestTips()));
-              },
-              child: moduleCard(context, 'assets/png/listningPreparation.png','Test')),
+            child: moduleCard(context, 'assets/png/listningPreparation.png','Prepare Listening test')),
+            // GestureDetector(
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));
+            //   },
+            //   child: moduleCard(context, 'assets/png/listningPreparation.png','Grammer')),
+            // GestureDetector(
+            //    onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Vocabulary()));
+            //   },
+            //   child: moduleCard(context, 'assets/png/listningPreparation.png','Vocabulary')),
+            // GestureDetector(
+            //    onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsTestTips()));
+            //   },
+            //   child: moduleCard(context, 'assets/png/listningPreparation.png','Test')),
 
         ],
       ),),

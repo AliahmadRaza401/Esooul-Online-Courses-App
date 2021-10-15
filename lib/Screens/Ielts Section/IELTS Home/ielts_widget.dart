@@ -44,11 +44,11 @@ Widget moduleCard(BuildContext context, String icon, String description) {
           "$description",
           style: TextStyle(color: Colors.black, fontSize: 13),
         ),
-        // trailing: Icon(
-        //   Icons.favorite_border_outlined,
-        //   color: Colors.red,
-        //   size: 30,
-        // ),
+        trailing: Icon(
+          Icons.favorite_border_outlined,
+          color: Colors.red,
+          size: 30,
+        ),
       ),
     ),
   );
