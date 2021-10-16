@@ -67,30 +67,50 @@ class _CountryHomeState extends State<CountryHome> {
                     GestureDetector(
                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => IeltsModules()));
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) => IeltsModules()));
                       },
                       child: courseCard(
                         'assets/png/ieltscover.png',
-                        'Canada',
+                        'OSSD',
                         'Canadian curriculum',
-                        '2017- 2021 Ontario',
-                        'Affordable online study Canada with Elite High School',
+                        // '2017- 2021 Ontario',
+                        // 'Affordable online study Canada with Elite High School',
+                        'assets/png/CanadianFlag.png'
                       ),
                     ),
                     courseCard(
                       'assets/png/cambrigielts.png',
                       'Cambridge',
                       'British curriculum',
-                      '2017- 2021 Ontario',
-                      'Cambridge Assessment International Education ',
+                      // '2017- 2021 Ontario',
+                      // 'Cambridge Assessment International Education ',
+                                              'assets/png/cambrigflag.png'
+
                     ),
-                    courseCard(
-                      'assets/png/austrailia.png',
-                      'Australia',
-                      'Australian curriculum',
-                      '2017- 2021 Canberra',
-                      'Cambridge Assessment International Education ',
+                    // courseCard(
+                    //   'assets/png/austrailia.png',
+                    //   'Australia',
+                    //   'Australian curriculum',
+                    //   // '2017- 2021 Canberra',
+                    //   // 'Cambridge Assessment International Education ',
+                    //                          'assets/png/CanadianFlag.png'
+
+                    // ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => BottomNavBar()));
+                      },
+                      child: courseCard(
+                        'assets/png/ieltscover.png',
+                        'SSC & HSSC',
+                        'Pakistan curriculum',
+                        // '2017- 2021 Ontario',
+                        // 'Affordable online study Canada with Elite High School',
+                                              'assets/png/Pakistanflag.png'
+
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -101,23 +121,15 @@ class _CountryHomeState extends State<CountryHome> {
                         'assets/png/esl.png',
                         'ESL',
                         'IELTS, TOFEL, DOLINGO',
-                        '2017- 2021 Canberra',
-                        'Cambridge Assessment International Education ',
+                        // '2017- 2021 Canberra',
+                        // 'Cambridge Assessment International Education ',
+                                               
+                                              'assets/png/IELTS_logo.jpeg'
+
+
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => BottomNavBar()));
-                      },
-                      child: courseCard(
-                        'assets/png/ieltscover.png',
-                        'Pakistan',
-                        'Canadian curriculum',
-                        '2017- 2021 Ontario',
-                        'Affordable online study Canada with Elite High School',
-                      ),
-                    ),
+                    
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Container(
@@ -143,8 +155,14 @@ class _CountryHomeState extends State<CountryHome> {
         ]))))));
   }
 
-  Widget courseCard(String img, String country, String curriculam,
-      String session, String description) {
+  Widget courseCard(
+    String img,
+   String country, 
+   String curriculam,
+      // String session,
+      //  String description,
+       String flagImage
+       ) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -168,22 +186,26 @@ class _CountryHomeState extends State<CountryHome> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * .16,
-                  height: MediaQuery.of(context).size.height * .08,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                          image: AssetImage('$img'), fit: BoxFit.cover)),
-                )
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .16,
+                          height: MediaQuery.of(context).size.height * .08,
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                  image: AssetImage('$img'), fit: BoxFit.cover)),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width *.03,),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                       Text(
                   "$country",
                   style: TextStyle(
                       color: Colors.black,
@@ -194,79 +216,103 @@ class _CountryHomeState extends State<CountryHome> {
                   "$curriculam",
                   style: TextStyle(color: Colors.black, fontSize: 10),
                 ),
-                Text(
-                  "$session",
-                  style: TextStyle(color: Colors.black, fontSize: 10),
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * .4,
-                      child: Wrap(
-                        children: [
-                          Text(
-                            "$description",
-                            style: TextStyle(fontSize: 10, color: Colors.black),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          "Course 01",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                        Text(
-                          "Course 02",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                        Text(
-                          "Course 03",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "Course 04",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                        Text(
-                          "Course 05",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                        Text(
-                          "Course 06",
-                          style:
-                              TextStyle(color: Color(0xffA19B9B), fontSize: 10),
-                        ),
-                      ],
-                    )
+                    ],)
+                   
                   ],
                 )
               ],
-            )
+            ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+                
+            //     // Text(
+            //     //   "$session",
+            //     //   style: TextStyle(color: Colors.black, fontSize: 10),
+            //     // ),
+            //   ],
+            // ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Container(
+                height: MediaQuery.of(context).size.height *.07,
+                width: MediaQuery.of(context).size.width *.15,
+               decoration: BoxDecoration(
+                 border: Border.all(color: Colors.grey.withOpacity(.5)),
+                  // color: Colors.orange,
+               image: DecorationImage(image: AssetImage(flagImage),fit: BoxFit.cover)
+               ),
+              )
+            ],)
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     Row(
+            //       children: [
+            //         Container(
+            //           width: MediaQuery.of(context).size.width * .4,
+            //           child: Wrap(
+            //             children: [
+            //               Text(
+            //                 "$description",
+            //                 style: TextStyle(fontSize: 10, color: Colors.black),
+            //               )
+            //             ],
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         Column(
+            //           children: [
+            //             Text(
+            //               "Course 01",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //             Text(
+            //               "Course 02",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //             Text(
+            //               "Course 03",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           width: 20,
+            //         ),
+            //         Column(
+            //           children: [
+            //             Text(
+            //               "Course 04",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //             Text(
+            //               "Course 05",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //             Text(
+            //               "Course 06",
+            //               style:
+            //                   TextStyle(color: Color(0xffA19B9B), fontSize: 10),
+            //             ),
+            //           ],
+            //         )
+            //       ],
+            //     )
+            //   ],
+            // )
           ],
         ),
       ),
