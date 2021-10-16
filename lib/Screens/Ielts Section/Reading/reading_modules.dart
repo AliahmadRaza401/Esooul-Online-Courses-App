@@ -23,7 +23,7 @@ class _ReadingModuleState extends State<ReadingModule> {
       backgroundColor: Colors.white,
       body: Container(child: Column(
         children: [
-          Header(btntext: ''),
+          Header(btntext: 'Reading'),
           SizedBox(height: MediaQuery.of(context).size.height *.01,),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -40,20 +40,20 @@ class _ReadingModuleState extends State<ReadingModule> {
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutListning()));
             },
             child: 
-          moduleCard(context, 'assets/png/listning.png','About Readning test')),
+          moduleCard(context, 'assets/png/listning.png','About Reading test')),
 
           GestureDetector(
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ReadingTestInstructions()));
             },
-            child: moduleCard(context, 'assets/png/listningPractice.png','Readning test (Instructions)')),
+            child: moduleCard(context, 'assets/png/listningPractice.png','Reading test (Instructions)')),
          
          
           GestureDetector(
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PracticeListeningTest()));
             },
-            child: moduleCard(context, 'assets/png/listningPreparation.png','Readning test')),
+            child: moduleCard(context, 'assets/png/listningPreparation.png','Reading test')),
             GestureDetector(
               onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));

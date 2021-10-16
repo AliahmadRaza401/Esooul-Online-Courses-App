@@ -64,6 +64,7 @@ class _CountryHomeState extends State<CountryHome> {
                     child: Column(
                   children: [
                     GestureDetector(
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => IeltsModules()));
@@ -91,9 +92,9 @@ class _CountryHomeState extends State<CountryHome> {
                       'Cambridge Assessment International Education ',
                     ),
                     GestureDetector(
-                      onTap: (){
-                                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
-
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => IeltsModules()));
                       },
                       child: courseCard(
                         'assets/png/esl.png',
@@ -131,7 +132,7 @@ class _CountryHomeState extends State<CountryHome> {
                       ),
                     ),
                     SizedBox(
-                      height: 100,
+                      height: 10,
                     )
                   ],
                 )),

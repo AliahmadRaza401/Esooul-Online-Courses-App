@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/Authentication/login/login_provider.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Country%20Home/country_home.dart';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Courses/courses_widget.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
@@ -141,10 +142,12 @@ class _HomeState extends State<Home> {
                                           onTap: () {
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        SelectBoard(
-                                                          boardID: "mO",
-                                                        )));
+                                                    builder: (context) =>CountryHome()
+                                                        // SelectBoard(
+                                                        //   boardID: "mO",
+                                                        // )
+                                                        )
+                                                        );
                                           },
                                           child: boardsCard(
                                               context,
