@@ -1,5 +1,6 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
+import 'package:esooul/Screens/Ielts%20Section/ESL%20home/esl_home.dart';
 import 'package:flutter/material.dart';
 
 import '../Ielts Section/IELTS Home/ielts_modules.dart';
@@ -64,8 +65,7 @@ class _CountryHomeState extends State<CountryHome> {
                     child: Column(
                   children: [
                     GestureDetector(
-                      
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => IeltsModules()));
@@ -93,9 +93,9 @@ class _CountryHomeState extends State<CountryHome> {
                       'Cambridge Assessment International Education ',
                     ),
                     GestureDetector(
-                      onTap: (){
-                                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
-
+                      onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => ESLhome()));
                       },
                       child: courseCard(
                         'assets/png/esl.png',

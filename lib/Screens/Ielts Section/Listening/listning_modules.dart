@@ -1,9 +1,9 @@
 
-import 'package:esooul/Screens/Ielts%20Section/Listening/grammer.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/ielts_test_tips.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/listning_test_instructions.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/practice_listning_test.dart';
-import 'package:esooul/Screens/Ielts%20Section/Listening/vocabulary.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/grammer.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/vocabulary.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -55,16 +55,16 @@ class _ListningModuleState extends State<ListningModule> {
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PracticeListeningTest()));
             },
             child: moduleCard(context, 'assets/png/listningPreparation.png','Listening test')),
-            GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));
-              },
-              child: moduleCard(context, 'assets/png/listningPreparation.png','Grammer')),
-            GestureDetector(
-               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Vocabulary()));
-              },
-              child: moduleCard(context, 'assets/png/listningPreparation.png','Vocabulary')),
+            // GestureDetector(
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));
+            //   },
+            //   child: moduleCard(context, 'assets/png/listningPreparation.png','Grammer')),
+            // GestureDetector(
+            //    onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Vocabulary()));
+            //   },
+            //   child: moduleCard(context, 'assets/png/listningPreparation.png','Vocabulary')),
             GestureDetector(
                onTap: (){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsTestTips()));

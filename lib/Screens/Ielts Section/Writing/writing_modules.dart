@@ -1,10 +1,10 @@
 import 'package:esooul/Screens/Ielts%20Section/IELTS%20Home/ielts_widget.dart';
-import 'package:esooul/Screens/Ielts%20Section/Listening/grammer.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/ielts_test_tips.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/practice_listning_test.dart';
-import 'package:esooul/Screens/Ielts%20Section/Listening/vocabulary.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/vocabulary.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'grammer.dart';
 
 class WritingModules extends StatefulWidget {
   const WritingModules({ Key? key }) : super(key: key);
