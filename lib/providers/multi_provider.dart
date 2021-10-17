@@ -4,6 +4,7 @@ import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Courses/courses_provider.dart';
 import 'package:esooul/Screens/Home/home_provider.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/listening_provider.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/writing_provider.dart';
 import 'package:esooul/Screens/Topics/topic_provider.dart';
 import 'package:esooul/Screens/boards_list/board_list_provider.dart';
 import 'package:esooul/Screens/card/card_provider.dart';
@@ -87,8 +88,12 @@ final multiProvider = [
     create: (_) => PaymentProvider(),
     lazy: true,
   ),
-   ChangeNotifierProvider<ListeningProvider>(
+  ChangeNotifierProvider<ListeningProvider>(
     create: (_) => ListeningProvider(),
+    lazy: true,
+  ),
+  ChangeNotifierProvider<WritingProvider>(
+    create: (_) => WritingProvider(),
     lazy: true,
   ),
 ];

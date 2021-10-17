@@ -23,6 +23,7 @@ class ListeningProvider extends ChangeNotifier {
   listeningTest(token) async {
     try {
       print("----------- Get Listening Test Data ---------------");
+      print(listeningTestApi);
       final _responce = await http.get(
         Uri.parse(listeningTestApi),
         headers: {
@@ -47,7 +48,7 @@ class ListeningProvider extends ChangeNotifier {
       //               discount: i['discount'],
       //         price: i['price'],
       //       payment_status: i['payment_status'],
-     
+
       //     );
       //     topicList.add(_topicModel);
       //   }

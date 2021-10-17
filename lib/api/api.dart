@@ -55,3 +55,5 @@ String paperPayment = BaseUrl + '/api/v1/paper-payement';
 // IETLTS Section
 
 String listeningTestApi = IeltsBaseUrl + '/api/listening-tests';
+String writingTestApi = IeltsBaseUrl + '/api/writting-test';
+
