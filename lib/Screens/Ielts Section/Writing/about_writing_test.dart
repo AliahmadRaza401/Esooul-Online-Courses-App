@@ -28,14 +28,20 @@ class _AboutWritingTestState extends State<AboutWritingTest> {
           children: [
             Header(btntext: "About Writing Test"),
             Container(
+              height: 500,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Html(data: widget.about),
-                    Text(
-                      "hy",
-                      style: TextStyle(color: Colors.black),
+                    Container(
+                      height: 400,
+                      child: Html(
+                        data: """
+                        ${widget.about}
+                        """,
+                        // style: {'p': Style(color: Colors.black)},
+                      ),
                     ),
+                    // Html(data: widget.about)
                   ],
                 ),
               ),

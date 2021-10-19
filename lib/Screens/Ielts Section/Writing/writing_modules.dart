@@ -5,6 +5,7 @@ import 'package:esooul/Screens/Ielts%20Section/Listening/practice_listning_test.
 import 'package:esooul/Screens/Ielts%20Section/Writing/about_writing_test.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/vocabulary.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/writing_provider.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/writing_test.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/writing_test_instruction.dart';
 import 'package:esooul/Widgets/dialog.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -50,27 +51,27 @@ class _WritingModulesState extends State<WritingModules> {
         .getUserTokenSF();
     var data = await writingProvider.writingTest(token);
     // print('data: $data');
-    print("check ${writingData.about}");
 
     if (data['status'] == 200) {
       setState(() {
-        writingData = data['data'];
-        name = data['name'];
+        writingData = data['data'][0];
+        name = writingData['name'];
         about = writingData['about'];
-        instruction = data['instruction'];
-        bar_chart = data['bar_chart'];
-        line_graph = data['line_graph'];
-        pie_chart = data['pie_chart'];
-        multiple_graphs = data['multiple_graphs'];
-        process_diagram = data['process_diagram'];
-        table_chart = data['table_chart'];
-        maps = data['maps'];
-        opinion_essay = data['opinion_essay'];
-        discussion_essay = data['discussion_essay'];
-        process_solution_essay = data['process_solution_essay'];
-        advantages_disadvantages_essay = data['advantages_disadvantages_essay'];
-        double_question_essay = data['double_question_essay'];
-        type = data['type'];
+        instruction = writingData['instruction'];
+        bar_chart = writingData['bar_chart'];
+        line_graph = writingData['line_graph'];
+        pie_chart = writingData['pie_chart'];
+        multiple_graphs = writingData['multiple_graphs'];
+        process_diagram = writingData['process_diagram'];
+        table_chart = writingData['table_chart'];
+        maps = writingData['maps'];
+        opinion_essay = writingData['opinion_essay'];
+        discussion_essay = writingData['discussion_essay'];
+        process_solution_essay = writingData['process_solution_essay'];
+        advantages_disadvantages_essay =
+            writingData['advantages_disadvantages_essay'];
+        double_question_essay = writingData['double_question_essay'];
+        type = writingData['type'];
       });
     } else {
       CommomWidget().okayAlertDialog(
@@ -112,7 +113,7 @@ class _WritingModulesState extends State<WritingModules> {
                   print('about: $about');
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => AboutWritingTest(
-                            about: about,
+                            about: instruction,
                           )));
                 },
                 child: moduleCard(
@@ -120,14 +121,32 @@ class _WritingModulesState extends State<WritingModules> {
             GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => WritingTestInstruction()));
+                      builder: (context) => WritingTestInstruction(
+                            instruction: instruction,
+                          )));
                 },
                 child: moduleCard(context, 'assets/png/listningPractice.png',
                     'Writing test (Instructions)')),
             GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => PracticeListeningTest()));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => WritingTest(
+                          advantageDisadvantageEssay:
+                              advantages_disadvantages_essay,
+                          barChart: bar_chart,
+                          discussionEssay: discussion_essay,
+                          doubleQuestionEssay: double_question_essay,
+                          lineGraph: line_graph,
+                          maps: maps,
+                          multipleGraph: multiple_graphs,
+                          opinionEssay: opinion_essay,
+                          pieChart: pie_chart,
+                          processDiagram: process_diagram,
+                          processSolutionEssay: process_solution_essay,
+                          tableChart: table_chart),
+                    ),
+                  );
                 },
                 child: moduleCard(context, 'assets/png/listningPreparation.png',
                     'Writing test')),

@@ -1,8 +1,10 @@
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class WritingTestInstruction extends StatefulWidget {
-  WritingTestInstruction({Key? key}) : super(key: key);
+  final instruction;
+  WritingTestInstruction({@required this.instruction});
 
   @override
   _WritingTestInstructionState createState() => _WritingTestInstructionState();
@@ -20,7 +22,9 @@ class _WritingTestInstructionState extends State<WritingTestInstruction> {
             Container(
               child: SingleChildScrollView(
                 child: Column(
-                  children: [Text("hy")],
+                  children: [
+                    Html(data: widget.instruction)
+                  ],
                 ),
               ),
             ),

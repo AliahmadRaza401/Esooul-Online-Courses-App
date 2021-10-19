@@ -49,7 +49,7 @@ var userFName;
                     height: MediaQuery.of(context).size.height * .52,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 580),
+                    margin: EdgeInsets.only(top: 630),
                       height: 300,
                       width: double.infinity,
                      decoration: BoxDecoration(image:DecorationImage(image: AssetImage("assets/png/ieltsBackground.png"),
@@ -96,7 +96,7 @@ var userFName;
                                               context,
                                               'assets/png/iELTS.png',
                                               'IELTS',
-                                              'Federal Board of Intermediate and Secondary Education (FBISE), Islamabad'),
+                                              'IELTS is an English language test for study, migration or work'),
                                         ),
                                         GestureDetector(
                                           onTap: () {

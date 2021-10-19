@@ -240,7 +240,7 @@ homeHeader(BuildContext context, fName) {
                     children: [
                       Text(
                         "Hy!",
-                        style: TextStyle(fontSize: 17),
+                        style: TextStyle(fontSize: 17, color: Colors.white),
                       ),
                       // SizedBox(
                       //   // width: MediaQuery.of(context).size.width * .01,
@@ -298,7 +298,7 @@ homeHeader(BuildContext context, fName) {
             children: [
               Text(
                 "Lets start Learning",
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 12, color: Colors.white),
               )
             ],
           ),
@@ -319,7 +319,7 @@ homeHeader(BuildContext context, fName) {
               children: [
                 Text(
                   "Invite Friend",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .02,

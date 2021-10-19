@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:flutter/material.dart';
 
 class BackButtonWidget extends StatelessWidget {
@@ -76,7 +77,11 @@ class BackButtonWidget extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.arrow_back_ios_new_outlined,size: 18,color: Color(0xff2575AE),),
+                      Icon(
+                        Icons.arrow_back_ios_new_outlined,
+                        size: 18,
+                        color: Color(0xff2575AE),
+                      ),
                       Text(
                         " Back",
                         style: TextStyle(
@@ -107,7 +112,7 @@ class BackButtonWidget extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => BottomNavBar()));
+                      MaterialPageRoute(builder: (context) => CountryNavBar()));
                 },
                 child: Icon(
                   Icons.home_outlined,

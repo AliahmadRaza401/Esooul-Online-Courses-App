@@ -48,6 +48,9 @@ dependencies:
   chewie:
   change_app_package_name: ^0.1.3
   flutter_html: ^2.1.5
+  just_audio: ^0.9.13
+  audio_video_progress_bar: ^0.9.0
+  path: ^1.8.0
 
 
 dev_dependencies:

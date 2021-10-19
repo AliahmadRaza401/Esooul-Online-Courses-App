@@ -77,7 +77,7 @@ class _HeaderState extends State<Header> {
                         children: [
                           Text(
                             "Hy!",
-                            style: TextStyle(fontSize: 17),
+                            style: TextStyle(fontSize: 17, color: Colors.white),
                           ),
                           // SizedBox(
                           //   // width: MediaQuery.of(context).size.width * .01,
@@ -145,8 +145,10 @@ class _HeaderState extends State<Header> {
                   children: [
                     Text(
                       "Invite Friend",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 15,
+                          color: Colors.white),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * .02,
