@@ -1,4 +1,5 @@
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/shims/dart_ui_real.dart';
@@ -32,15 +33,14 @@ class _AboutWritingTestState extends State<AboutWritingTest> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height: 400,
-                      child: Html(
-                        data: """
-                        ${widget.about}
-                        """,
-                        // style: {'p': Style(color: Colors.black)},
-                      ),
-                    ),
+                    widget.about == null
+                        ? LoadingBounceAnimation(context)
+                        : Container(
+                            child: Html(
+                              data: widget.about,
+                              // style: {'p': Style(color: Colors.black)},
+                            ),
+                          ),
                     // Html(data: widget.about)
                   ],
                 ),

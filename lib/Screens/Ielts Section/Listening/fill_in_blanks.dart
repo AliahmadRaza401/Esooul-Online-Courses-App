@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/audio_manager.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/listening_provider.dart';
@@ -69,18 +70,12 @@ class _FillInBlanksState extends State<FillInBlanks> {
                   height: MediaQuery.of(context).size.height * .7,
                   child: ListView(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Listening Test ",
-                            style: TextStyle(color: Color(0xff196C7E)),
-                          ),
-                          Text(
-                            "",
-                            style: TextStyle(color: Color(0xffEEBB05)),
-                          ),
-                        ],
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: AutoSizeText(
+                          "Listen voice carefully and write correct answer",
+                          style: TextStyle(color: Color(0xff196C7E)),
+                        ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .02,
@@ -196,6 +191,9 @@ class _FillInBlanksState extends State<FillInBlanks> {
   Widget audioTile(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.15,
+      margin: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05),
+      // width: MediaQuery.of(context).size.width * 0.5,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,

@@ -68,45 +68,34 @@ class _WritingTestState extends State<WritingTest> {
               // padding: EdgeInsets.symmetric(horizontal: 25),
               width: MediaQuery.of(context).size.width * .95,
               child: SingleChildScrollView(
-                child: Container(
-                  // color: Colors.yellow,
-                  height: MediaQuery.of(context).size.height * .7,
-                  child: ListView(
-                    children: [
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Text(
-                      //       "Writing Test ",
-                      //       style: TextStyle(color: Color(0xff196C7E)),
-                      //     ),
-                      //     Text(
-                      //       "",
-                      //       style: TextStyle(color: Color(0xffEEBB05)),
-                      //     ),
-                      //   ],
-                      // ),
-
-                      card("Bar Chart", widget.barChart),
-                      card("Line Graph", widget.lineGraph),
-                      card("Pie Chart", widget.pieChart),
-                      card("Multiple Graphs", widget.multipleGraph),
-                      card("Process Diagram", widget.processDiagram),
-                      card("Table Chart", widget.tableChart),
-                      card("Maps", widget.maps),
-                      card("Opinion Essay", widget.opinionEssay),
-                      card("Discussion Eassy", widget.discussionEssay),
-                      card("Process Solution Essay",
-                          widget.processSolutionEssay),
-                      card("Advantages Disadvantages Easy",
-                          widget.advantageDisadvantageEssay),
-                      card("Double Question Essay", widget.doubleQuestionEssay),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * .02,
+                child: widget.barChart == null
+                    ? LoadingBounceAnimation(context)
+                    : Container(
+                        // color: Colors.yellow,
+                        height: MediaQuery.of(context).size.height * .7,
+                        child: ListView(
+                          children: [
+                            card("Bar Chart", widget.barChart),
+                            card("Line Graph", widget.lineGraph),
+                            card("Pie Chart", widget.pieChart),
+                            card("Multiple Graphs", widget.multipleGraph),
+                            card("Process Diagram", widget.processDiagram),
+                            card("Table Chart", widget.tableChart),
+                            card("Maps", widget.maps),
+                            card("Opinion Essay", widget.opinionEssay),
+                            card("Discussion Eassy", widget.discussionEssay),
+                            card("Process Solution Essay",
+                                widget.processSolutionEssay),
+                            card("Advantages Disadvantages Easy",
+                                widget.advantageDisadvantageEssay),
+                            card("Double Question Essay",
+                                widget.doubleQuestionEssay),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * .02,
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
               ),
             )
           ],

@@ -1,4 +1,5 @@
 import 'package:esooul/Widgets/header.dart';
+import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -23,7 +24,8 @@ class _WritingTestInstructionState extends State<WritingTestInstruction> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Html(data: widget.instruction)
+                   widget.instruction == null ? LoadingBounceAnimation(context)
+                    : Html(data: widget.instruction)
                   ],
                 ),
               ),
