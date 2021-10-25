@@ -1,4 +1,5 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
+import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -34,10 +35,11 @@ class _ReportState extends State<Report> {
                   btntext: 'Report',
                 ),
                 Container(
-                  // height: MediaQuery.of(context).size.height * .7,
+                  // height: MediaQuery.of(context).size.height,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
+                    // color: Colors.blue,
                   ),
                   padding: EdgeInsets.all(5),
                   child: Column(
@@ -89,83 +91,76 @@ class _ReportState extends State<Report> {
                           // height: MediaQuery.of(context).size.height * .44,
                           child: Container(
                             padding: EdgeInsets.all(10),
+                            // color: Colors.green,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                card(Icons.task_alt_outlined, 
-                                'Attempted',
-                                widget.attemped, 
-                                widget.total,
-                                Colors.grey
-                                ),
+                                card(Icons.task_alt_outlined, 'Attempted',
+                                    widget.attemped, widget.total, Colors.grey),
                                 card(
                                     Icons.task_alt_outlined,
                                     'Correct answered',
                                     widget.pass,
                                     widget.total,
-                                    Colors.green
-                                    ),
-                                card(Icons.task_alt_outlined,
-                                'Wrong answered',
-                                widget.fail,
-                                widget.total, 
-                                Colors.red
-                                ),
+                                    Colors.green),
+                                card(Icons.task_alt_outlined, 'Wrong answered',
+                                    widget.fail, widget.total, Colors.red),
                                 card(
-                                    Icons.do_not_disturb_on_total_silence_outlined,
+                                    Icons
+                                        .do_not_disturb_on_total_silence_outlined,
                                     'Not attempted',
                                     widget.notAttemped,
                                     widget.total,
-                                    Colors.grey
-                                    ),
-                                Container(
-                                  width: MediaQuery.of(context).size.width * .9,
-                                  height:
-                                      MediaQuery.of(context).size.height * .07,
-                                  // color: Colors.black,
-                                  padding: EdgeInsets.only(right: 95),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(Icons.access_time_outlined,
-                                                  size: 35,
-                                                  color: Color(0xff00B0D7)),
-                                              SizedBox(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    .04,
-                                              ),
-                                              Text(
-                                                "Time",
-                                                style: TextStyle(
-                                                    color: Color(0xff00B0D7)),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "1 min",
-                                            style: TextStyle(
-                                                color: Color(0xff00B0D7)),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                    Colors.grey),
+                                // Time View
+                                // Container(
+                                //   width: MediaQuery.of(context).size.width * .9,
+                                //   height:
+                                //       MediaQuery.of(context).size.height * .07,
+                                //   // color: Colors.black,
+                                //   padding: EdgeInsets.only(right: 95),
+                                //   child: Row(
+                                //     mainAxisAlignment:
+                                //         MainAxisAlignment.spaceBetween,
+                                //     children: [
+                                //       Column(
+                                //         mainAxisAlignment:
+                                //             MainAxisAlignment.center,
+                                //         children: [
+                                //           Row(
+                                //             children: [
+                                //               Icon(Icons.access_time_outlined,
+                                //                   size: 35,
+                                //                   color: Color(0xff00B0D7)),
+                                //               SizedBox(
+                                //                 width: MediaQuery.of(context)
+                                //                         .size
+                                //                         .width *
+                                //                     .04,
+                                //               ),
+                                //               Text(
+                                //                 "Time",
+                                //                 style: TextStyle(
+                                //                     color: Color(0xff00B0D7)),
+                                //               ),
+                                //             ],
+                                //           ),
+                                //         ],
+                                //       ),
+                                //       Column(
+                                //         mainAxisAlignment:
+                                //             MainAxisAlignment.center,
+                                //         children: [
+                                //           Text(
+                                //             "1 min",
+                                //             style: TextStyle(
+                                //                 color: Color(0xff00B0D7)),
+                                //           ),
+                                //         ],
+                                //       ),
+                                //     ],
+                                //   ),
+                                // ),
                                 Divider(
                                   color: Color(0xffECECEC),
                                 ),
@@ -199,10 +194,10 @@ class _ReportState extends State<Report> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  BottomNavBar()));
+                                                  CountryNavBar()));
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      shadowColor: Colors.grey,
+                                      shadowColor: Colors.grey[200],
 
                                       padding: EdgeInsets.only(
                                           left: MediaQuery.of(context)
@@ -242,9 +237,9 @@ class _ReportState extends State<Report> {
 
   Widget card(icon, String title, int obtained, int total, final colortype) {
     double value = obtained / total;
-    
-    double  number= value * 100;
-    double percentage= double.parse((number).toStringAsFixed(1));
+
+    double number = value * 100;
+    double percentage = double.parse((number).toStringAsFixed(1));
     return Container(
       // height: MediaQuery.of(context).size.height * .09,
       width: MediaQuery.of(context).size.width * .9,

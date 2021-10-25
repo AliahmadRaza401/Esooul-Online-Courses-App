@@ -38,6 +38,7 @@ class _WritingModulesState extends State<WritingModules> {
   var process_solution_essay;
   var advantages_disadvantages_essay;
   var double_question_essay;
+
   var type;
   @override
   void initState() {
@@ -144,7 +145,8 @@ class _WritingModulesState extends State<WritingModules> {
                           pieChart: pie_chart,
                           processDiagram: process_diagram,
                           processSolutionEssay: process_solution_essay,
-                          tableChart: table_chart),
+                          tableChart: table_chart,
+                          ),
                     ),
                   );
                 },

@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/audio_manager.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/listening_provider.dart';
+import 'package:esooul/Screens/Report/Report.dart';
 import 'package:esooul/Widgets/dialog.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
@@ -29,6 +31,12 @@ class FillInBlanks extends StatefulWidget {
 class _FillInBlanksState extends State<FillInBlanks> {
   late final PageManager _pageManager;
   var _extension;
+  late List<TextEditingController> _controller;
+  int correctAns = 0;
+  int falseAns = 0;
+  int attemped = 0;
+  int notAttemped = 0;
+  var ans;
   @override
   void initState() {
     super.initState();
@@ -42,6 +50,62 @@ class _FillInBlanksState extends State<FillInBlanks> {
     print('Filename: $_filename');
     print('Filename without extension: $_nameWithoutExtension');
     print('Extension: $_extension');
+
+    setState(() {
+      correctAns = 0;
+      falseAns = 0;
+      attemped = 0;
+      notAttemped = 0;
+    });
+
+    _controller = List.generate(
+        widget.questions.length == null ? 0 : widget.questions.length,
+        (i) => TextEditingController());
+
+    ans = List.generate(
+        widget.questions.length == null ? 0 : widget.questions.length,
+        (i) => ans);
+  }
+
+  generateResult(BuildContext context, ans) {
+    for (var i = 0; i < widget.questions.length; i++) {
+      if (_controller[i].text == '') {
+        setState(() {
+          notAttemped = notAttemped + 1;
+        });
+      } else {
+        setState(() {
+          attemped = attemped + 1;
+        });
+
+        if (widget.questions[i].answer == _controller[i].text) {
+          print("True");
+          setState(() {
+            correctAns = correctAns + 1;
+          });
+          print(ans[0]);
+        } else {
+          setState(() {
+            falseAns = falseAns + 1;
+          });
+          print(ans[0]);
+        }
+      }
+    }
+
+    print('correctAns: $correctAns');
+    print('falseAns: $falseAns');
+    print('notAttemped: $notAttemped');
+    print('attemped: $attemped');
+
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Report(
+            total:
+                widget.questions.length == null ? 0 : widget.questions.length,
+            pass: correctAns,
+            fail: falseAns,
+            attemped: attemped,
+            notAttemped: notAttemped)));
   }
 
   @override
@@ -93,7 +157,7 @@ class _FillInBlanksState extends State<FillInBlanks> {
                           ],
                         ),
                       ),
-                      widget.questions == null
+                  loading == true
                           ? LoadingBounceAnimation(context)
                           : widget.questions.length <= 0
                               ? noDataMsg(context)
@@ -109,7 +173,7 @@ class _FillInBlanksState extends State<FillInBlanks> {
                                           : widget.questions.length,
                                       itemBuilder: (context, i) {
                                         return listCard(context, i,
-                                            widget.questions[i].question);
+                                            widget.questions[i].question, ans);
                                       },
                                     )
                                   ],
@@ -120,7 +184,9 @@ class _FillInBlanksState extends State<FillInBlanks> {
                       Container(
                         height: MediaQuery.of(context).size.height * .05,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            generateResult(context, ans);
+                          },
                           child: Text(
                             'Submit',
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -147,7 +213,7 @@ class _FillInBlanksState extends State<FillInBlanks> {
     );
   }
 
-  Widget listCard(BuildContext context, count, question) {
+  Widget listCard(BuildContext context, count, question, ans) {
     return Container(
       margin: EdgeInsets.symmetric(
           vertical: MediaQuery.of(context).size.height * 0.02),
@@ -170,17 +236,34 @@ class _FillInBlanksState extends State<FillInBlanks> {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                width: 10,
+                width: MediaQuery.of(context).size.width * 0.02,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: TextField(
+                child: TextFormField(
+                  controller: _controller[count],
+                  // onChanged: (val) {
+                  //   print(val);
+                  // },
                   decoration: InputDecoration(
                     border: UnderlineInputBorder(),
+
                     // hintText: 'Enter a search term',
                   ),
                 ),
               ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.05,
+              ),
+              // ans == "true"
+              //     ? Icon(
+              //         Icons.close,
+              //         color: Colors.red,
+              //       )
+              //     : Icon(
+              //         Icons.done,
+              //         color: Colors.green,
+              //       )
             ],
           ),
         ],
@@ -285,4 +368,8 @@ class _FillInBlanksState extends State<FillInBlanks> {
       ),
     );
   }
+
+  // List myTextController = [
+  //   textController0,
+  // ];
 }
