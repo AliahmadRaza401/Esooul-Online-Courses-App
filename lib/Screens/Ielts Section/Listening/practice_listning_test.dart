@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Home/home.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/fill_in_blanks.dart';
+import 'package:esooul/Screens/Ielts%20Section/Listening/fill_in_blanks1.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/listening_provider.dart';
 import 'package:esooul/Screens/Ielts%20Section/question_types.dart';
 import 'package:esooul/Widgets/dialog.dart';
@@ -48,13 +49,14 @@ class _PracticeListeningTestState extends State<PracticeListeningTest> {
         },
       );
 
-      // var result = jsonDecode(_responce.body);
-      // print('result: $result');
+      var result = jsonDecode(_responce.body);
+      print('result: $result');
       final welcome = listeningTestModelFromJson(_responce.body);
       // print('welcome: ${welcome.data}');
       if (welcome.status == 200) {
         setState(() {
           data = welcome.data;
+          print('data: $data');
         });
       } else {
         CommomWidget().okayAlertDialog(
@@ -115,12 +117,13 @@ class _PracticeListeningTestState extends State<PracticeListeningTest> {
                             itemBuilder: (context, i) {
                               return GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
                                             builder: ((context) => FillInBlanks(
-                                                audio: data[i].audio,
-                                                questions:
-                                                    data[i].questionanswers))));
+                                                  audio: data[i].audio,
+                                                  questions:
+                                                      data[i].questionanswers,
+                                                ))));
                                   },
                                   child: practiceTestCard(
                                       context, data[i].name, ''));

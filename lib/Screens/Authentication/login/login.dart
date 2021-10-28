@@ -110,7 +110,7 @@ class _LogInState extends State<LogIn> {
       }
     } else {
       print("Not Found");
-      alertDialog(context, result['message'],
+      alertDialog(context, "Login Fail!",
           "Something went wrong please check your Email and Password");
     }
   }
