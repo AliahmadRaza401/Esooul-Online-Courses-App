@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Country%20Home/country_Navbar.dart';
 import 'package:esooul/Widgets/header.dart';
@@ -95,13 +97,19 @@ class _ReportState extends State<Report> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                card(Icons.task_alt_outlined, 'Attempted',
-                                    widget.attemped, widget.total, Colors.grey),
+                                card(
+                                    Icons.task_alt_outlined,
+                                    'Attempted',
+                                    widget.attemped == null
+                                        ? 0
+                                        : widget.attemped,
+                                    widget.total == null ? 0 : widget.total,
+                                    Colors.grey),
                                 card(
                                     Icons.task_alt_outlined,
                                     'Correct answered',
-                                    widget.pass,
-                                    widget.total,
+                                    widget.pass == null ? 0 : widget.pass,
+                                    widget.total == null ? 0 : widget.total,
                                     Colors.green),
                                 card(Icons.task_alt_outlined, 'Wrong answered',
                                     widget.fail, widget.total, Colors.red),
@@ -109,8 +117,10 @@ class _ReportState extends State<Report> {
                                     Icons
                                         .do_not_disturb_on_total_silence_outlined,
                                     'Not attempted',
-                                    widget.notAttemped,
-                                    widget.total,
+                                    widget.notAttemped == null
+                                        ? 0
+                                        : widget.notAttemped,
+                                    widget.total == null ? 0 : widget.total,
                                     Colors.grey),
                                 // Time View
                                 // Container(
@@ -167,8 +177,8 @@ class _ReportState extends State<Report> {
                                 card(
                                     Icons.bar_chart_outlined,
                                     'Marks',
-                                    widget.pass,
-                                    widget.total,
+                                    widget.pass == null ? 0 : widget.pass,
+                                    widget.total == null ? 0 : widget.total,
                                     Color(0xffCE9D00)),
                               ],
                             ),

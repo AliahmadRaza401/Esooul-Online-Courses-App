@@ -1,4 +1,4 @@
-import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
+// import 'package:advance_pdf_viewer/advance_pdf_viewer.dart';
 import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
 import 'package:esooul/Screens/Paper/paper_answers_video.dart';
 import 'package:esooul/Screens/past_objective/past_objective_provider.dart';
@@ -25,8 +25,8 @@ class _PastSubjectiveState extends State<PastSubjective>
   late YearlyPaperProvider _yearlyPaperProvider;
   var paperID;
   bool _isLoading = true;
-  late PDFDocument document;
-  late PDFDocument documentAns;
+  // late PDFDocument document;
+  // late PDFDocument documentAns;
   bool showans = false;
   // late int questionNumber = 0;
   @override
@@ -39,27 +39,27 @@ class _PastSubjectiveState extends State<PastSubjective>
     getData();
   }
 
-  loadDocument() async {
-    print("pdf Loading------------------");
-    for (var i in result) {
-      print(i);
-      document = await PDFDocument.fromURL(result[0].question);
-      documentAns = await PDFDocument.fromURL(result[0].answer);
-    }
-    setState(() {
-      _isLoading = false;
-    });
-  }
+  // loadDocument() async {
+  //   print("pdf Loading------------------");
+  //   for (var i in result) {
+  //     print(i);
+  //     document = await PDFDocument.fromURL(result[0].question);
+  //     documentAns = await PDFDocument.fromURL(result[0].answer);
+  //   }
+  //   setState(() {
+  //     _isLoading = false;
+  //   });
+  // }
 
   getData() async {
-      var token = await Provider.of<SignUpProvider>(context, listen: false)
-          .getUserTokenSF();
-    result = await _pastSubjectiveProvider.pastSubjective(token,paperID);
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    result = await _pastSubjectiveProvider.pastSubjective(token, paperID);
     setState(() {
       _loader = false;
     });
     print('Subjective result: $result');
-    loadDocument();
+    // loadDocument();
   }
 
   @override
@@ -245,8 +245,7 @@ class _PastSubjectiveState extends State<PastSubjective>
           ),
           Row(
             children: [
-              // loadDocument(question),
-              _showPDF(),
+              // _showPDF(),
             ],
           ),
           Row(
@@ -272,10 +271,10 @@ class _PastSubjectiveState extends State<PastSubjective>
                         showans != true ? "Show Answer" : "Hide Answer",
                         style: TextStyle(color: Colors.black),
                       )),
-                  Visibility(
-                    visible: showans,
-                    child: _showAnsPDF(),
-                  ),
+                  // Visibility(
+                  //   visible: showans,
+                  //   child: _showAnsPDF(),
+                  // ),
                 ],
               ),
 
@@ -408,111 +407,111 @@ class _PastSubjectiveState extends State<PastSubjective>
     );
   }
 
-  _showPDF() {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.60,
-      width: MediaQuery.of(context).size.width * 0.850,
-      child: //showing pdf file from url
-          Center(
-        child: _isLoading
-            ? Center(child: CircularProgressIndicator())
-            : PDFViewer(
-                document: document,
-                zoomSteps: 1,
-                //uncomment below line to preload all pages
-                lazyLoad: false,
-                // uncomment below line to scroll vertically
-                scrollDirection: Axis.horizontal,
+  // _showPDF() {
+  //   return Container(
+  //     height: MediaQuery.of(context).size.height * 0.60,
+  //     width: MediaQuery.of(context).size.width * 0.850,
+  //     child: //showing pdf file from url
+  //         Center(
+  //       child: _isLoading
+  //           ? Center(child: CircularProgressIndicator())
+  //           : PDFViewer(
+  //               document: document,
+  //               zoomSteps: 1,
+  //               //uncomment below line to preload all pages
+  //               lazyLoad: false,
+  //               // uncomment below line to scroll vertically
+  //               scrollDirection: Axis.horizontal,
 
-                //uncomment below code to replace bottom navigation with your own
-                navigationBuilder:
-                    (context, page, totalPages, jumpToPage, animateToPage) {
-                  return ButtonBar(
-                    alignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.first_page),
-                        onPressed: () {
-                          jumpToPage();
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        onPressed: () {
-                          animateToPage(page: page! - 2);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.arrow_forward),
-                        onPressed: () {
-                          animateToPage(page: page);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.last_page),
-                        onPressed: () {
-                          jumpToPage(page: totalPages! - 1);
-                        },
-                      ),
-                    ],
-                  );
-                },
-              ),
-      ),
-    );
-  }
+  //               //uncomment below code to replace bottom navigation with your own
+  //               navigationBuilder:
+  //                   (context, page, totalPages, jumpToPage, animateToPage) {
+  //                 return ButtonBar(
+  //                   alignment: MainAxisAlignment.spaceEvenly,
+  //                   children: <Widget>[
+  //                     IconButton(
+  //                       icon: Icon(Icons.first_page),
+  //                       onPressed: () {
+  //                         jumpToPage();
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.arrow_back),
+  //                       onPressed: () {
+  //                         animateToPage(page: page! - 2);
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.arrow_forward),
+  //                       onPressed: () {
+  //                         animateToPage(page: page);
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.last_page),
+  //                       onPressed: () {
+  //                         jumpToPage(page: totalPages! - 1);
+  //                       },
+  //                     ),
+  //                   ],
+  //                 );
+  //               },
+  //             ),
+  //     ),
+  //   );
+  // }
 
-  _showAnsPDF() {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.60,
-      width: MediaQuery.of(context).size.width * 0.850,
-      child: //showing pdf file from url
-          Center(
-        child: _isLoading
-            ? Center(child: CircularProgressIndicator())
-            : PDFViewer(
-                document: documentAns,
-                zoomSteps: 1,
-                //uncomment below line to preload all pages
-                lazyLoad: false,
-                // uncomment below line to scroll vertically
-                scrollDirection: Axis.horizontal,
+  // _showAnsPDF() {
+  //   return Container(
+  //     height: MediaQuery.of(context).size.height * 0.60,
+  //     width: MediaQuery.of(context).size.width * 0.850,
+  //     child: //showing pdf file from url
+  //         Center(
+  //       child: _isLoading
+  //           ? Center(child: CircularProgressIndicator())
+  //           : PDFViewer(
+  //               document: documentAns,
+  //               zoomSteps: 1,
+  //               //uncomment below line to preload all pages
+  //               lazyLoad: false,
+  //               // uncomment below line to scroll vertically
+  //               scrollDirection: Axis.horizontal,
 
-                //uncomment below code to replace bottom navigation with your own
-                navigationBuilder:
-                    (context, page, totalPages, jumpToPage, animateToPage) {
-                  return ButtonBar(
-                    alignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.first_page),
-                        onPressed: () {
-                          jumpToPage();
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        onPressed: () {
-                          animateToPage(page: page! - 2);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.arrow_forward),
-                        onPressed: () {
-                          animateToPage(page: page);
-                        },
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.last_page),
-                        onPressed: () {
-                          jumpToPage(page: totalPages! - 1);
-                        },
-                      ),
-                    ],
-                  );
-                },
-              ),
-      ),
-    );
-  }
+  //               //uncomment below code to replace bottom navigation with your own
+  //               navigationBuilder:
+  //                   (context, page, totalPages, jumpToPage, animateToPage) {
+  //                 return ButtonBar(
+  //                   alignment: MainAxisAlignment.spaceEvenly,
+  //                   children: <Widget>[
+  //                     IconButton(
+  //                       icon: Icon(Icons.first_page),
+  //                       onPressed: () {
+  //                         jumpToPage();
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.arrow_back),
+  //                       onPressed: () {
+  //                         animateToPage(page: page! - 2);
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.arrow_forward),
+  //                       onPressed: () {
+  //                         animateToPage(page: page);
+  //                       },
+  //                     ),
+  //                     IconButton(
+  //                       icon: Icon(Icons.last_page),
+  //                       onPressed: () {
+  //                         jumpToPage(page: totalPages! - 1);
+  //                       },
+  //                     ),
+  //                   ],
+  //                 );
+  //               },
+  //             ),
+  //     ),
+  //   );
+  // }
 }
