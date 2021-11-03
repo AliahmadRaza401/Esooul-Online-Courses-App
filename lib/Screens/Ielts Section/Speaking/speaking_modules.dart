@@ -2,6 +2,7 @@ import 'package:esooul/Screens/Ielts%20Section/IELTS%20Home/ielts_widget.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/ielts_test_tips.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/practice_listning_test.dart';
 import 'package:esooul/Screens/Ielts%20Section/Speaking/about_speaking.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/speaking_test.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/grammer.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/vocabulary.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/writing_test_instruction.dart';
@@ -62,7 +63,7 @@ class _SpeakingModulesState extends State<SpeakingModules> {
             GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => PracticeListeningTest()));
+                      builder: (context) => SpeakingTest()));
                 },
                 child: moduleCard(context, 'assets/png/listningPreparation.png',
                     'Speaking test')),
