@@ -48,6 +48,7 @@ class _WorkAndStudiesState extends State<WorkAndStudies> {
                                 part1List[index].question,
                                 Answer(
                                   ans: part1List[index].answer,
+                                  question: part1List[index].question,
                                 )),
                             // Text('$index')
                           ],

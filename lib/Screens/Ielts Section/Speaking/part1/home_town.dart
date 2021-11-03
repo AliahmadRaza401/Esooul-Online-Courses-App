@@ -36,6 +36,7 @@ class _HomeTownState extends State<HomeTown> {
                                 part1List[index].question,
                                 Answer(
                                   ans: part1List[index].answer,
+                                   question: part1List[index].question,
                                 )),
                             // Text('$index')
                           ],
