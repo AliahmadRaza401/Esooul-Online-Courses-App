@@ -1,6 +1,7 @@
-import 'package:esooul/Screens/Ielts%20Section/Speaking/country.dart';
-import 'package:esooul/Screens/Ielts%20Section/Speaking/home_town.dart';
-import 'package:esooul/Screens/Ielts%20Section/Speaking/work_studies.dart';
+
+import 'package:esooul/Screens/Ielts%20Section/Speaking/part1/country.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/part1/home_town.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/part1/work_studies.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 

@@ -1,8 +1,12 @@
+import 'package:esooul/Screens/Authentication/signUp/signUp_provider.dart';
+import 'package:esooul/Screens/Ielts%20Section/Writing/writing_provider.dart';
+import 'package:esooul/Widgets/dialog.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/loading_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart';
+import 'package:provider/provider.dart';
 
 class WritingTestInstruction extends StatefulWidget {
   final instruction;
@@ -13,6 +17,37 @@ class WritingTestInstruction extends StatefulWidget {
 }
 
 class _WritingTestInstructionState extends State<WritingTestInstruction> {
+  late WritingProvider writingProvider;
+  @override
+  void initState() {
+    super.initState();
+    writingProvider = Provider.of<WritingProvider>(context, listen: false);
+    getTest();
+  }
+
+  var instruction;
+  var writingData;
+
+  getTest() async {
+    var token = await Provider.of<SignUpProvider>(context, listen: false)
+        .getUserTokenSF();
+    var data = await writingProvider.writingTest(token);
+    // print('data: $data');
+
+    if (data['status'] == 200) {
+      setState(() {
+        writingData = data['data'][0];
+        instruction = writingData['instruction'];
+      });
+    } else {
+      CommomWidget().okayAlertDialog(
+        context,
+        "Failed",
+        "Check your internet connection",
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +61,9 @@ class _WritingTestInstructionState extends State<WritingTestInstruction> {
               height: MediaQuery.of(context).size.height * 0.68,
               child: ListView(
                 children: [
-                  widget.instruction == null
+                  instruction == null
                       ? LoadingBounceAnimation(context)
-                      : Html(data: widget.instruction),
+                      : Html(data: instruction),
 //                   heading('Answering techniques'),
 //                   Text(
 //                       """So you want to score a band 8 on IELTS Writing? \n Many IELTS test-takers spend a lot of time training to write top-notch essays. To achieve a desired score, they stuff their essays with uncommon vocabulary, overuse complicated grammar or write too many words. But are these means really necessary? The answer is NO.\nThere are a lot of much simpler writings that score 8.0 and higher! This is because you don’t need any special knowledge: the examiner will assess your writing, not your thoughts. Even simple but accurately expressed ideas score better than too complicated ones. To succeed in IELTS Writing, you need to be accurate

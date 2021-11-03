@@ -5,15 +5,15 @@ import 'package:esooul/Widgets/header.dart';
 import 'package:esooul/Widgets/ielts_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeTown extends StatefulWidget {
-  const HomeTown({ Key? key }) : super(key: key);
+class Country extends StatefulWidget {
+  const Country({ Key? key }) : super(key: key);
 
   @override
-  _HomeTownState createState() => _HomeTownState();
+  _CountryState createState() => _CountryState();
 }
 
-class _HomeTownState extends State<HomeTown> {
-bool showAnser=false;
+class _CountryState extends State<Country> {
+  bool showAnser=false;
   void buttonevent(){
     setState(() {
       showAnser=true;
@@ -21,12 +21,12 @@ bool showAnser=false;
     });
     // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>WorkStudiesAnsewer()));
   }
-  List Answers=[
-    'Answer 1',
-    'Answer 2',
-    'Answer 3',
-    'Answer 4',
-    'Answer 5',
+  
+  List Ansewer=[
+    'answer 1',
+    'answer 2',
+    'answer 3',
+    'answer 4',
   ];
   List Questions=[
     'Questions1',
@@ -34,14 +34,7 @@ bool showAnser=false;
     'Questions3',
     'Questions4',
     'Questions5',
-    'Questions6',
-    'Questions7',
-    'Questions8',
-    'Questions9',
-    'Questions10',
-    'Questions11',
-    'Questions12',
-    'Questions13',
+   
     ];
   @override
   Widget build(BuildContext context) {
@@ -56,7 +49,11 @@ bool showAnser=false;
                 child: ListView.builder(
                   itemCount: Questions.length,
                   itemBuilder: (context,index){
-                    return questionCard(context,Questions[index],buttonevent);
+                    return Column(
+                      children: [
+                        questionCard(context,Questions[index],buttonevent),
+                      ],
+                    );
                   }),
               ),
               Visibility(
@@ -118,5 +115,4 @@ bool showAnser=false;
   }
 
 
-  
 }
