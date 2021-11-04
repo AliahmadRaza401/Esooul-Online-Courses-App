@@ -1,5 +1,5 @@
 class SpeakingData {
- static List<QuestionAnswer> workStudyList = [
+  static List<QuestionAnswer> workStudyList = [
     QuestionAnswer(
         question: 'Do you work or are you a student?',
         answer: """I’ve been working as an English teacher for about 15 
@@ -249,14 +249,9 @@ much each person has done. '''),
 
 // --------------------------------------------------------------------
 
-
-
-
-  static  List<QuestionAnswer> homeTownList=[
-      QuestionAnswer(
-        question: '''Please describe your hometown a little. 
-''',
-        answer: """ Well, Delhi is the capital of India and by far the largest 
+  static List<QuestionAnswer> homeTownList = [
+    QuestionAnswer(question: '''Please describe your hometown a little. 
+''', answer: """ Well, Delhi is the capital of India and by far the largest 
      city in the country. It's a densely populated place, so 
              the city is always crowded and noisy. Also, Delhi has 
              the highest number of vehicles, therefore traffic 
@@ -266,12 +261,9 @@ much each person has done. '''),
            Indian culture. It's never boring to live here as the city
           provides a wide array of entertainment options. It is also 
          home to our government and all major institutions.
-"""
-      ),
-      QuestionAnswer(
-       question: '''Tell me a little about the place where you live 
-''',
-       answer: '''I live in Hong Kong. And I should say it's a truly unique 
+"""),
+    QuestionAnswer(question: '''Tell me a little about the place where you live 
+''', answer: '''I live in Hong Kong. And I should say it's a truly unique 
 place. When people generate an image in their heads of 
 what Hong Kong looks like, they envision a concrete 
 jungle. They imagine movies with famous skyscrapers 
@@ -297,11 +289,9 @@ thing that makes me upset, but I'm used to it. As I've
 everything is linked quite closely, and the underground 
 system is really efficient. It can take you anywhere 
 want to get to. I love living here.
-'''
-       ),  QuestionAnswer(
-       question: '''Please describe your hometown a little.
-''',
-       answer: ''' My hometown has just about one hundred thousand 
+'''),
+    QuestionAnswer(question: '''Please describe your hometown a little.
+''', answer: ''' My hometown has just about one hundred thousand 
  people which are regarded as a small one. But describe 
  small size, people have a full access to the same
 facilities as a large city offers such as department
@@ -311,11 +301,9 @@ aren't many vehicles here, so it isn't noisy and polluted.
  What is really important is that there are no traffic jams 
 even during rush hours.
 
-'''
-       ),  QuestionAnswer(
-       question: '''What is your town well-known for? 
-''',
-       answer: '''Well, as it's a resort town, people from all over the 
+'''),
+    QuestionAnswer(question: '''What is your town well-known for? 
+''', answer: '''Well, as it's a resort town, people from all over the 
 country as well as from abroad come there to have a 
 rest, sunbathe, swim, breathe sea air and eat delicious
  seafood. At the height of the season, usually in July, the
@@ -324,11 +312,9 @@ rest, sunbathe, swim, breathe sea air and eat delicious
 some amazing nightclubs and bars for spending an 
 unforgettable night out.
 
-'''
-       ),  QuestionAnswer(
-       question: '''What is your town well-known for? 
-''',
-       answer: '''I believe a wealth of history and culture is a primary.
+'''),
+    QuestionAnswer(question: '''What is your town well-known for? 
+''', answer: '''I believe a wealth of history and culture is a primary.
  source of attraction for tourists. People come there
  visit museums and many places of historic value U
  as X and Y. Every street is steeped in history. As the
@@ -336,30 +322,24 @@ unforgettable night out.
  around it, you can experience a journey through 
 civilizations.
 
-'''
-       ),  QuestionAnswer(
-       question: '''What is your town well-known for? 
-''',
-       answer: '''You see, as it's an industrial city, I'm afraid, there's 
+'''),
+    QuestionAnswer(question: '''What is your town well-known for? 
+''', answer: '''You see, as it's an industrial city, I'm afraid, there's 
 nothing it can boast of. There are neither ancient 
 buildings nor other places of interest that could
  possibly attract tourists. However, it is in my city that 
 the best shoes are produced.
 
-'''
-       ),  QuestionAnswer(
-       question: '''Do you like your hometown? 
-''',
-       answer: '''Yeah, it is never boring no matter what your interests. 
+'''),
+    QuestionAnswer(question: '''Do you like your hometown? 
+''', answer: '''Yeah, it is never boring no matter what your interests. 
 It's a large city, so you can easily find where to go and 
 what to do. One thing I particularly like about it is that although it is vast, there are a thousand small and intimate places there such as 
 peaceful gardens a small friendly restaurant.
 
-'''
-       ),  QuestionAnswer(
-       question: '''Do you like your hometown?
-''',
-       answer: ''' I'm afraid not. I don't think it's a great place for living 
+'''),
+    QuestionAnswer(question: '''Do you like your hometown?
+''', answer: ''' I'm afraid not. I don't think it's a great place for living 
  and what irritates me most is the quality of our road  
 driving a car every day turns into continuous detecting 
 ﻿potholes instead of focusing on the road traffic. It's
@@ -369,63 +349,51 @@ like the forest of high-rise office and residential
 buildings. You know, it's impossible to get a lung
 ' Fresh air unless you drive 30 kilometers away from 
 city. And yet, the cost of living is incredibly high.
-'''
-       ),  QuestionAnswer(
-       question: '''Is that a big city or a small place?
-''',
-       answer: ''' It's neither small nor big. Actually, it largely depends on
+'''),
+    QuestionAnswer(question: '''Is that a big city or a small place?
+''', answer: ''' It's neither small nor big. Actually, it largely depends on
  what city you compare it with. I would say it's big,
  enough to provide city dwellers with all necessary 
 facilities, whereas it's nowhere near as large as New
  York or Sydney, for example.
-'''
-       ), QuestionAnswer(
-       question: '''Is that a big city or a small place? 
-''',
-       answer: '''Well, I'm from one of those everyone-knows-everyone 
+'''),
+    QuestionAnswer(question: '''Is that a big city or a small place? 
+''', answer: '''Well, I'm from one of those everyone-knows-everyone 
 towns. So, I have no trouble meeting people face to face
  and I'm glad all the facilities are within walking distance.
  Just imagine, it takes just X minutes to get from one
  end of my hometown to the other.
-'''
-       ), QuestionAnswer(
-       question: '''Is that a big city or a small place?
-''',
-       answer: ''' I live in a huge sprawling city. No, to say 'huge' is to say 
+'''),
+    QuestionAnswer(question: '''Is that a big city or a small place?
+''', answer: ''' I live in a huge sprawling city. No, to say 'huge' is to say 
 nothing causes if you view the city from a tall building.
  you get the feeling that it doesn't end. It's so big that it 
 takes hours to go from one side of the city to the other.
 
-'''
-       ), QuestionAnswer(
-       question: '''How long have you been living there?
-''',
-       answer: ''' Well, I've been living there since I was born. At times |
+'''),
+    QuestionAnswer(question: '''How long have you been living there?
+''', answer: ''' Well, I've been living there since I was born. At times |
  leave the city just for a while when I go on holidays.
 
-'''
-       ), QuestionAnswer(
-       question: '''How long have you been living there?
-''',
-       answer: ''' I'm new to the area and even don't know anyone and
+'''),
+    QuestionAnswer(question: '''How long have you been living there?
+''', answer: ''' I'm new to the area and even don't know anyone and
  Anything. So I can't help feeling lonely, but I hope things 
 Will improve in the near future.
 
-'''
-       ), QuestionAnswer(
-       question: '''How long have you been living there?
-''',
-       answer: ''' I've been living here for 2 years now. I had to move here 
+'''),
+    QuestionAnswer(question: '''How long have you been living there?
+''', answer: ''' I've been living here for 2 years now. I had to move here 
 to be with my husband who was offered a job here. And 
 I understood that turning down that offer was out of
  question.
 
-'''
-       ), QuestionAnswer(
-       question: '''Do you think you will continue living there for a
+'''),
+    QuestionAnswer(
+        question: '''Do you think you will continue living there for a
  Long time? 
 ''',
-       answer: '''Every time an opportunity to move to a different place
+        answer: '''Every time an opportunity to move to a different place
  Turns up, I come to realise that I want to be here above
  Everywhere else as the city is rich in everything you
  Could possibly desire. There are lots of things to do and
@@ -434,34 +402,32 @@ I understood that turning down that offer was out of
 Driven people like me as a lot of large international
  Companies have chosen it for their headquarters.
 
-'''
-       ), QuestionAnswer(
-       question: '''Do you think you will continue living there for a
+'''),
+    QuestionAnswer(
+        question: '''Do you think you will continue living there for a
 long time?
 ''',
-       answer: ''' Well, I want to move to a larger city as soon as possible
+        answer: ''' Well, I want to move to a larger city as soon as possible
  As living here is unlikely to give me a chance to
  Implement my goals and make my all dreams come 
 True. I've tried to, but couldn't find a decent opportunity.
  Locally. So, given half a chance, I'll try to start a new life
  In a different place.
 
-'''
-       ), QuestionAnswer(
-       question: '''
+'''),
+    QuestionAnswer(question: '''
 Do you think you will continue living there for a
             Long time? 
-''',
-       answer: '''   No way will I stay here forever! To be honest, I've 
+''', answer: '''   No way will I stay here forever! To be honest, I've 
      Planning to move to a new place for a long time a
      Really fed up with hustle and bustle of a large city. And 
    Living here is nothing but the rat race. You know, I feel
    I'm already on the verge of getting burnt out.
-'''
-       ), QuestionAnswer(
-       question: '''Would you like to live in the countryside in the future?
+'''),
+    QuestionAnswer(
+        question: '''Would you like to live in the countryside in the future?
 ''',
-       answer: '''Oh no! Not until I retire! I'm only 25 and dreaming of a 
+        answer: '''Oh no! Not until I retire! I'm only 25 and dreaming of a 
     High-flying career, but I'm afraid that living in the 
   Countryside will leave my career in tatters. Besides, I'm 
  A very active and sociable person, so I think I will be 
@@ -469,22 +435,23 @@ Do you think you will continue living there for a
  And abundance of entertainment options a big city
    Provides.
 
-'''
-       ), QuestionAnswer(
-       question: '''Well, this isn't what I'm dreaming of. I'd rather say I
+'''),
+    QuestionAnswer(
+        question: '''Well, this isn't what I'm dreaming of. I'd rather say I
 ''',
-       answer: ''' don't mind swapping city life for a rural idyll. I'm tired of
+        answer:
+            ''' don't mind swapping city life for a rural idyll. I'm tired of
  the constant rat race and I'll definitely enjoy a slower 
 pace of life. Also, I want to live in a house with multiple
  rooms, a garage and swimming pool which is obvious
  not possible until I move out of the city.
 
-'''
-       ), QuestionAnswer(
-       question: '''What is the difference between living in the countryside
+'''),
+    QuestionAnswer(
+        question: '''What is the difference between living in the countryside
  And the city? 
 ''',
-       answer: '''I guess that the most striking difference is that if you are 
+        answer: '''I guess that the most striking difference is that if you are 
  Countryside there isn't much traffic even during rush
  Hours. Again, as there are fewer vehicles emitting
 , exhaust fumes, rural areas are nowhere near as
@@ -495,11 +462,11 @@ pace of life. Also, I want to live in a house with multiple
  Aren’t many opportunities for professional growth? 
  The choice of facilities is limited.
 
-'''
-       ), QuestionAnswer(
-       question: '''There's generally not much to do in the countryside,
+'''),
+    QuestionAnswer(
+        question: '''There's generally not much to do in the countryside,
 ''',
-       answer: '''   Especially in the winter, so I'm sure the majority of 
+        answer: '''   Especially in the winter, so I'm sure the majority of 
               Young people like to chat with their friend online or play
              Computer games. They may also like to get together in
              Order to play football, ride bicycles or explore the
@@ -511,11 +478,11 @@ pace of life. Also, I want to live in a house with multiple
      Activity with adults is having barbeque parties or just
        Chatting with their neighbors over the fence.
 
-'''
-       ), QuestionAnswer(
-       question: '''How has your town changed over the last 20 years?
+'''),
+    QuestionAnswer(
+        question: '''How has your town changed over the last 20 years?
 ''',
-       answer: ''' Oh, I would say it has undergone sweeping changes 
+        answer: ''' Oh, I would say it has undergone sweeping changes 
 'cause those who haven't been there for a long time
  can hardly recognize it. First of all, the general quality 
 of the city landscape has improved, so it's way more
@@ -524,11 +491,11 @@ of the city landscape has improved, so it's way more
  Erected. Therefore, it has turned into a remarkable
  Tourist attraction.
 
-'''
-       ), QuestionAnswer(
-       question: '''How has your town changed over the last 20 years?
+'''),
+    QuestionAnswer(
+        question: '''How has your town changed over the last 20 years?
 ''',
-       answer: ''' Well, as far as I can see, the city has undergone
+        answer: ''' Well, as far as I can see, the city has undergone
  Tremendous changes as it has turned from a small
  Peaceful town into a large bustling city. It's now 
 Approximately twice as large as it used to be. So it 
@@ -539,11 +506,9 @@ More places to visit and things to do as a lot of facilities
  Still issues with public transport which is as inefficient 
 As many years ago.
 
-'''
-       ), QuestionAnswer(
-       question: '''How has your town changed over the last 20 years
-''',
-       answer: ''' In my opinion, there has hardly been any notice
+'''),
+    QuestionAnswer(question: '''How has your town changed over the last 20 years
+''', answer: ''' In my opinion, there has hardly been any notice
  Changes over the last two decades. It's just a lot more
  Crowded now. There's more traffic, and therefore more 
 Pollution. Of course, several modern buildings have
@@ -552,11 +517,118 @@ Pollution. Of course, several modern buildings have
 Worse as the town has lost its identity it used to
 Better place to live in 
 
-'''
-       ), 
-       
-    ];
+'''),
+  ];
+
+  // --------------------------------------------------------------------
+
+  static List<QuestionAnswer> countryList = [
+    QuestionAnswer(
+        question: '''Tell me a little about your country ?''',
+        answer: """Well, Russia is the largest country in the world,
+ Occupying about one-sixth of the world's surface. It's
+ Largely an industrial country and one of the most
+ developed world's economies. As it's so large, it
+ encompasses whopping 9 time zones and has a variety.  """),
+    QuestionAnswer(
+        question: '''Tell me a little about your country? ''',
+        answer: """Oh, there are so many things I can tell you about it... I
+ Don’t even know where to start. Well, first of all, Ukraine 
+Is a large country situated in the heart of Europe.
+ There's even some place that Ukraine claims
+ To be Europe's geographical center. It's not far from Rakhiv, a
+ Small town in the Carpathian Mountains. In fact, it's just
+ A board with an inscription. Another interesting fact I
+ Found out about recently is that with 70% of Ukrainian
+ Adults having a secondary or higher education Ukraine 
+Ranks fourth among the most educated nations, and it
+ Has the fourth highest number of certified IT
+Professionals in the world. However, I don't know how
+Reliable this information is. Also, one quarter of the
+ World’s black soil reserves are located in Ukraine. And
+ Because of its properties our black soil is consider
+Best in the world. Well, what else... the country is
+ Washed by the waters of the Black Sea and the St
+ Azov in the south. And there's a mountain range in the
+ West. To tell the truth, I can spend hours speaking
+ About my country.
+ """),
+    QuestionAnswer(
+        question: '''Which part of your country do most people live in?''',
+        answer: """As far as I know, almost 10% of the country's entire 
+Population lives just in one city, in Moscow. It is an
+ Interesting fact, taking into account that Russia is the 
+Largest country in the world. The second most
+ Populated city is St. Petersburg. Both Moscow and
+ St. Petersburg are attractive to people because there
+ Are more jobs on offer than in other cities in Russia.
+  """),
+    QuestionAnswer(
+        question: '''Where is your country located? ''',
+        answer: """Well, I'm not very good at geography, but from what I 
+Remember India is located in Southeast Asia, sharing the
+ Border with 6 or 7 countries in the north. Its land 
+Neighbors include China, Nepal and Bangladesh
+That's for sure. Also, India borders the Arabian Sea, the
+ Bay of Bengal and the Indian Ocean in the south.   """),
+    QuestionAnswer(
+        question: '''Tell me about the main industries in your country? ''',
+        answer: """ As far as I can judge the most lucrative sector is
+ Manufacturing.. It seems that the goods that aren't
+ Produced in China simply don't exist. And I don't even
+ Doubt that it manufactures more goods than the rest of
+ The world combined. China is one of the world's biggest
+ Producers of toys, textiles, apparel, electronic... you
+ Name it. Also, the country's economy relies heavily on
+ Agriculture. The dominant agricultural product is
+, undoubtedly, rice. Besides, China grows wheat
+, tobacco, potatoes, peanuts, soybeans, corn, tea and
+ Oilseeds.
+   """),
+    QuestionAnswer(
+        question: '''Tell me about the main industries in your country? ''',
+        answer: """Well, as far as I know there are 3 industries driving, 
+Ukraine's economy. Firstly, Ukraine is a leading global
+ Agro-export player. For example, it's the breadbasket of
+ Europe. It's also one of the world's top wheat exporters
+ And the world's third largest producer of barley.
+ Secondly, another lucrative sector is machine building.
+ For instance, Ukraine has been and still is a world
+ Leader in rocket building. Also, I know for sure that
+ Transportation vehicles manufactured by Ukrainian
+ Economy include cars, trucks, buses, railway car
+ Diesel locomotives, airplanes, and ships. Finally
+Ukraine is a major producer of steel and iron as the
+ Country has abundant reserves of iron and other ores.
+   """),
+    QuestionAnswer(
+        question: '''What are some of the good things and some of the bad
+ Things about living in your country?
+ ''',
+        answer: """I think the greatest problem is poverty. Many people
+ Have so low incomes that they can hardly make ends
+ Meet. Some of them cannot afford even basic needs
+ like food and housing. This makes people resort to
+ Committing crimes in a desperate attempt to survive.
+ However, the good bit is that there are signs that the
+ Economy is recovering and the government is taking,
+ Measures to fight poverty. So, things will probably
+ Improve soon.
+   """),
+    QuestionAnswer(
+        question: '''What are some of the good things and some of the bad
+ Things about living in your country?
+ ''',
+        answer: """I would say the greatest benefit is that people here
+ Enjoy a high quality of living. What I mean is, in general,
+ The incomes are high, the level of unemployment is
+ Comparatively low. Everyone has an opportunity to
+ Obtain education and find a well-paid job. However, all
+ This means higher taxes, but what you get is noticeable.   """),
+  ];
 }
+
+// ---------------------------------------------------------
 
 class QuestionAnswer {
   final String question;
