@@ -626,9 +626,133 @@ Ukraine is a major producer of steel and iron as the
  Obtain education and find a well-paid job. However, all
  This means higher taxes, but what you get is noticeable.   """),
   ];
+
+  // -------------------------------------------
+
+  
+  static List<QuestionAnswer> part2Test1 = [
+    QuestionAnswer(question: '''Describe an experience when you were not allowed to use a mobile phone.
+''', answer: """The most recent occasion when I couldn't use my
+ Smartphone was last month when I was on board a
+ Plane flying to X.
+
+             At first, all the passengers boarded the plane and took
+           Their seats. When the plane was ready for takeoff, the
+             Pilot came over the intercom, greeted the passengers
+          And asked everyone to either switch off the phones or           
+            Use them in an 'airplane mode', which shuts off phone
+            Transmissions during the flight.
+
+           I quickly turned off mine and was really surprised that
+          There were still people who refused to follow the rule
+           And had a confrontation with a flight attendant.
+
+I know (as I read some articles dedicated to this that
+ This may not be so critical an issue when the is 
+Already at cruising altitudes as there's no direct 
+Evidence of mobile phones or other devices interference
+ With aircraft systems, but it's really important due to
+ Takeoff and landing phases because of its possible.
+ Interference with ground networks, which is dangerous
+. You know, there's also no proof that wireless devices
+ Do not cause any problems, and I'm sure that the signal
+ Of the phone does interfere with navigation instruments
+ And can cause instrument display malfunctions. So
+ Even during the flight I kept my phone and other
+ Devices turned off 'cause I didn't want to be
+ Responsible or share responsibility for a crash.
+
+"""),
+
+  ];
+
+    static List<QuestionAnswer> part2Test2 = [
+    QuestionAnswer(question: '''Describe a time when you did shopping in a street market.
+''', answer: """Several years ago my best friend and I were on holiday
+ In X country. Our tour guide recommended us to go to
+ The city's oldest street market, which is one of the
+ Oldest shopping streets in X, always abuzz with local
+ People and holidaymakers who go there to buy spices,
+ Fruit, clothing, souvenirs, handicrafts, fabrics, to name
+ But a few. He told us that this would be a great way to
+ Get an interesting glimpse into local culture and do
+ Shopping, and it indeed was an unforgettable life
+ Experience.
+
+Now I can safely say that it's by far the most crowded
+ Street I have ever seen. Both sides of a narrow medieval
+  Street were teeming with people, it was just like a bee
+ Hive. Vendors all vied in offering their goods to
+ Shoppers. Shoppers from all over the world were
+Swarming around stalls so I had to squeeze through
+ Crowd to get a closer look at anything that was such
+ Couldn’t even stop and look around as the crowd
+ Literally dragged me along. It was really noisy.
+Despite all the difficulties, I managed to buy spices
+ My mom as she likes cooking and some local
+Handicrafts and souvenirs because I collect such
+ Things.
+
+With my friend, whom I was travelling with, 
+ But no sooner had we reached the place than we were
+ Separated by the crowd. So we quickly understood that
+ There was no point in trying to resist in order to keep
+ Together. I just tried to look around every other minute
+Not to lose sight of her. For this reason, I can say I went
+ There on my own.
+
+ Oh, and I nearly forgot one thing. I had to be very
+ Careful not to become pickpockets' victim because
+Such crowded places are a paradise for them. 
+Interesting as the market's vibrant atmosphere my 
+. Shopping lots of fun. But it was a bit dangerous too. 
+
+
+"""),
+
+  ];
+
+      static List<QuestionAnswer> part2Test3 = [
+    QuestionAnswer(question: '''Describe a puzzle that you solved.
+''', answer: """Well, when I was a child, I was a jigsaw puzzle
+             Enthusiast. I assembled puzzles whenever I had a spare
+            Moment. But after I had completed a 5000-piece
+            Gradient puzzle, I lost interest in this activity. Since then 
+            I've been given lots of them, but they are still
+            Unopened, collecting dust on some shelf.
+
+ The only puzzle that I have completed since childhood 
+Was a 3D wooden mechanical pendulum clock puzzle
+ That my friend gave me for my birthday last year. I was
+ Really excited 'cause it was something new for me. And I
+ Was hoping it would be challenging as well.
+
+ I thought it would take me a while to assemble it,
+ But it took me a minute to figure out the process. And once
+ You have the hang of it, it's super easy and lots of fun
+ So I put it together, all by myself in just a few hour
+ There were easy to follow instructions. And need
+ Neither glue nor scissors to put it together. The only
+ Challenge I faced was that some pieces required a 
+ Deal of hand strength to snap together. But it was 
+ 'cause they snapped together perfectly, making it
+Almost impossible to break apart once its assembled.
+
+ So even though it wasn't extremely challenging
+, I enjoyed solving it 'cause doing jigsaw puzzles is a really
+ Good way to unwind after a hard working day and 
+spend quality time on your own.
+
+
+"""),
+
+  ];
+
 }
 
 // ---------------------------------------------------------
+
+
 
 class QuestionAnswer {
   final String question;

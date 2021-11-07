@@ -1,4 +1,5 @@
-import 'package:esooul/Screens/Ielts%20Section/Speaking/parts_lists.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/part1/parts_lists.dart';
+import 'package:esooul/Screens/Ielts%20Section/Speaking/part2/parts_lists.dart';
 import 'package:esooul/Widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -25,12 +26,13 @@ class _SpeakingTestState extends State<SpeakingTest> {
                   children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PartsLists()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Part1Lists()));
                     },
                     child: partsCard(1, Colors.green)),
                   GestureDetector(
                      onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PartsLists()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                      Part2Lists()));
                     },
                     child: partsCard(2, Colors.blue)),
                 ],),
@@ -42,7 +44,7 @@ class _SpeakingTestState extends State<SpeakingTest> {
             children: [
             GestureDetector(
                onTap: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PartsLists()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Part2Lists()));
                     },
               child: partsCard(3, Colors.orange)),
             

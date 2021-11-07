@@ -10,12 +10,13 @@ class Answer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Header(btntext: 'Answer'),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.9,
+        child: Column(
+          children: [
+            Header(btntext: 'Answer'),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     SizedBox(
@@ -49,8 +50,8 @@ class Answer extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
