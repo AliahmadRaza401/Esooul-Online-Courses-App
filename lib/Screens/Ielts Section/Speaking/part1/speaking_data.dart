@@ -629,10 +629,12 @@ Ukraine is a major producer of steel and iron as the
 
   // -------------------------------------------
 
-  
   static List<QuestionAnswer> part2Test1 = [
-    QuestionAnswer(question: '''Describe an experience when you were not allowed to use a mobile phone.
-''', answer: """The most recent occasion when I couldn't use my
+    QuestionAnswer(
+        question:
+            '''Describe an experience when you were not allowed to use a mobile phone.
+''',
+        answer: """The most recent occasion when I couldn't use my
  Smartphone was last month when I was on board a
  Plane flying to X.
 
@@ -663,12 +665,13 @@ Evidence of mobile phones or other devices interference
  Responsible or share responsibility for a crash.
 
 """),
-
   ];
 
-    static List<QuestionAnswer> part2Test2 = [
-    QuestionAnswer(question: '''Describe a time when you did shopping in a street market.
-''', answer: """Several years ago my best friend and I were on holiday
+  static List<QuestionAnswer> part2Test2 = [
+    QuestionAnswer(
+        question: '''Describe a time when you did shopping in a street market.
+''',
+        answer: """Several years ago my best friend and I were on holiday
  In X country. Our tour guide recommended us to go to
  The city's oldest street market, which is one of the
  Oldest shopping streets in X, always abuzz with local
@@ -709,10 +712,9 @@ Interesting as the market's vibrant atmosphere my
 
 
 """),
-
   ];
 
-      static List<QuestionAnswer> part2Test3 = [
+  static List<QuestionAnswer> part2Test3 = [
     QuestionAnswer(question: '''Describe a puzzle that you solved.
 ''', answer: """Well, when I was a child, I was a jigsaw puzzle
              Enthusiast. I assembled puzzles whenever I had a spare
@@ -745,14 +747,520 @@ spend quality time on your own.
 
 
 """),
-
   ];
 
+  static List<QuestionAnswer> part3Test1 = [
+    QuestionAnswer(question: '''Is it a waste of time to take pictures with
+ Mobile phones?
+
+''', answer: """Well, I'd say both yes and no. It can be regarded as a
+ Waste of time if people want to create professional
+Looking photos that they can be proud of as,
+ Unfortunately, smartphone photos usually have low 
+Picture quality, compared to those made by professional
+ Cameras. But it isn't a waste of time if people need
+ Photos for sharing with friends on their social networks
+ And in all kinds of messengers. Above that,
+ Smartphones make it easy for people to take
+ Photographs and capture memories irrespective of
+ Where people are and without special training thanks to 
+Phones' auto-focusing, auto-metering and easy-to-use cameras.
+ To sum up, I wouldn't say that taking 
+Smartphone pictures is a waste of time, except those
+ Cases when people need professional-looking photos.
+
+"""),
+    QuestionAnswer(question: '''Is it a waste of time to take pictures with
+ Mobile phones?
+''', answer: """ Well, I'd say both yes and no. It can be regarded as a
+ Waste of time if people want to create professional
+Looking photos that they can be proud of as,
+ Unfortunately, smartphone photos usually have low 
+Picture quality, compared to those made by professional
+ Cameras. But it isn't a waste of time if people need
+ Photos for sharing with friends on their social networks
+ And in all kinds of messengers. Above that,
+ Smartphones make it easy for people to take
+ Photographs and capture memories irrespective of
+ Where people are and without special training thanks to 
+Phones' auto-focusing, auto-metering and easy-to-use cameras.
+ To sum up, I wouldn't say that taking 
+Smartphone pictures is a waste of time, except those
+ Cases when people need professional-looking photos.
+
+"""),
+    QuestionAnswer(
+        question: '''What positive and negative effects do mobile phones
+ Have on friendship?
+
+''',
+        answer: """ On the one hand, and it's obvious, smartphones make it
+ Easier to keep in touch with friends, and therefore they
+ Help you keep connected with your friends no matter
+ How far apart you are. You can text your friends, make
+ Video calls any time you want. You can disclose any
+ Personal information and respond to others in their
+ Social networks. However, smartphones, originally
+ Designed as a communication tool, actually hinder
+ Rather than foster interpersonal connectedness.
+ Unfortunately, there are many situations in which you
+ Ignore friends in favor of a mobile phone. For example,
+ You feel the quick buzz of our phone and feel
+ compelled to see what's happening, even if that means
+ Turning your attention away from other people. When
+ you are on your phone, you are not looking at other
+ People and not reading their facial expressions, tears in
+ Their eyes, frowns, smiles. You don't hear the nuances
+ in their tone of voice, or notice their body posture. For
+ Example, I used to have a friend who checked her
+ Phone so much when we were together that I finally
+ Told her she had to choose — me or her phone. Also
+ There are many situations in which you are middle
+ Scrolling through the latest news or playing a game.
+ Instead of chatting with your friends. But giving your
+ Time, energy, thought, and attention to your
+ Smartphone instead of the person you're with is
+ Gradually ruining your friendships 'cause your friends
+May feel ignored and pushed away. I'll tell you more,
+ Just having a phone out and present during a
+ Conversation (say, on the table between you) interferes 
+With the sense of connection to the other person
+ The quality of the conversation. This phenomenon it
+ Especially the case during meaningful conversations.
+
+"""),
+    QuestionAnswer(
+        question: '''Do young and old people use phones in the same way?
+''',
+        answer: """Oh, definitely no. Seniors generally lag behind their
+ Younger counterparts especially when it comes to using
+ Mobile phones. The only pattern they share is voice
+ Calling. In other patterns old people are usually second
+ To the young. Teens and young adults are more
+ Enthusiastic users of cellphones, they are also bigger
+ Users of text messaging. I guess the young send and
+ Receive at least five times more messages a day than
+ Older people. Younger adults tend to use their phones
+ For multimedia content, for taking pictures or video, for
+ Accessing Internet. They are also more likely to turn to
+ Their phones to avoid others around them or to fight
+ Boredom. All this is still strange for the old.
+
+"""),
+    QuestionAnswer(
+        question: ''' What are the differences between writing a letter and
+    Writing a text message on a cell phone?
+
+''',
+        answer: """ Oh, there are quite a few of differences, actually.
+ First of all, writing a text message is faster than writing a
+ Letter 'cause text messages are generally much shorter.
+ Secondly, messages are instant while letters can take
+ Weeks to be delivered, which makes communication? 
+More complicated. On the other hand, it is more
+ Personal to write by hand as it adds a human touch to
+ The relationship. Handwritten letters always convey
+. Greater effort and greater care taken and let recipients 
+Know that they are important for somebody.
+
+
+"""),
+    QuestionAnswer(
+        question: '''Many people think mobile phones can be annoying at
+ Times. Can you give any examples of that? 
+''',
+        answer: """Well, one of the examples when I get annoyed with a 
+Mobile phone is when the phone ring interrupts an
+ Important conversation or distracts my attention from
+ What I really need to do at the moment. Another
+ Annoying case is when people talk loudly on their
+ Phones on public transport. Such phone conversations
+ Grab my attention and don't let me relax or focus on my
+ Thoughts, which I dislike. I can also get irritated when 
+People around play music loudly on a phone 'cause it
+ Shows their disrespect to others, which I don't consider
+ Appropriate. These are the main situations I don't like to
+ Get in.
+"""),
+    QuestionAnswer(
+        question: '''Many people think mobile phones can be annoying at
+ Times. Can you give any examples of that? 
+
+''',
+        answer: """Well, one of the examples when I get annoyed with a 
+Mobile phone is when the phone ring interrupts an
+ Important conversation or distracts my attention from
+ What I really need to do at the moment. Another
+ Annoying case is when people talk loudly on their
+ Phones on public transport. Such phone conversations
+ Grab my attention and don't let me relax or focus on my
+ Thoughts, which I dislike. I can also get irritated when 
+People around play music loudly on a phone 'cause it
+ Shows their disrespect to others, which I don't consider
+ Appropriate. These are the main situations I don't like to
+ Get in.
+
+"""),
+  ];
+
+  static List<QuestionAnswer> part3Test2 = [
+    QuestionAnswer(
+        question: '''What is the difference between street markets and 
+Super markets?
+
+''',
+        answer: """Well, supermarkets are self-service stores while
+Markets are places where sellers serve buyers. One
+More difference is that supermarkets are indoor shops
+While street markets are located outdoors. I’d also add
+That the conditions inside supermarkets are more
+Comfortable than those of the street markets, I mean
+Those shops are always warm in winter and cool in
+Summer. And the most important difference, to my 
+Mind, is that produce at street markets is more fresh,
+And sometimes more diverse, than that in
+Supermarkets.
+
+"""),
+    QuestionAnswer(
+        question: '''Do many people go the street markets in your country?
+''',
+        answer: """Well, quite a few, actually. People like Visiting Street
+Markets as there is always a variety of products to
+Everyone likes and budget. What is more, the
+Produce there is always fresh and usually lasts longer
+Than that from the supermarket 
+
+"""),
+    QuestionAnswer(question: '''Do you like going to street markets?
+''', answer: """I do, but not very often. I don’t like crowed and noisy 
+Places very much, but at the same time I adore to buy
+Fresh high –quality products, Oh, and I also adore to
+Bargain at the markets, so I’d rather say I like visiting
+Them than out 
+
+"""),
+    QuestionAnswer(question: '''What are the advantages and disadvantages of
+Shopping at a big shopping Centre?
+
+''', answer: """Oh, one of the biggest advantages of shopping at a
+Large shopping mall is a chance to visit a variety of
+Shops without having to spend a lot time on going to
+Different areas of the city. Another advantage is a
+Chance to get both shopping and entertainment
+Opportunities at a single location... Oh, and, of course,
+And opportunities to park a car thanks to vast parking  
+Areas… As far as disadvantages are connected, I’d 
+Lay emphasis on huge crowds of people, especially at
+Weekends and on holidays, and the temptation to buy
+unnecessary things because of sales and special
+Offers…
+
+What are the advantages and disadvantages of
+Shopping at a big shopping Centre?
+Oh, one of the biggest advantages of shopping at a
+Large shopping mall is a chance to visit a variety of
+Shops without having to spend a lot time on going to
+Different areas of the city. Another advantage is a
+Chance to get both shopping and entertainment
+Opportunities at a single location... Oh, and, of course,
+And opportunities to park a car thanks to vast parking  
+Areas… As far as disadvantages are connected, I’d 
+Lay emphasis on huge crowds of people, especially at
+Weekends and on holidays, and the temptation to buy
+unnecessary things because of sales and special
+Offers…
+
+"""),
+    QuestionAnswer(question: '''Why is online shopping popular these days?
+
+''', answer: """ I believe there are many reasons, really. First of all, it's
+ Convenient. You don't have to make time, drive all the 
+Way to a store and, god forbid, if the items you were in
+ The pursuit of appeared to be unavailable. On the
+ Internet, you can buy whatever you want in a matter of
+ Seconds without interrupting other activities. You can
+ do it literally on the go. All you need is to have a
+ Payment card and any Internet-enabled device. Further,
+ Online shops can offer prices which are hard to beat as
+ Costs of their operations are substantially lower than
+ those of traditional ones. Also, it is without doubt
+ There’s a much larger selection than any traditional 
+Store can possibly keep in stock. Many people like
+ Online shopping as it gives them access to products
+ They can't buy locally. I guess in general online 
+shopping has become so popular with people because
+ It’s absolutely hassle-free.
+
+"""),
+    QuestionAnswer(
+        question: '''Do you think online shopping will replace shopping? 
+In reality? 
+
+''',
+        answer: """Well, chances that in-store shopping will entirely disappear
+ Are slim. The thing is no matter how popular
+ Online shopping will be, there will always be some items 
+Those shoppers simply won't countenance buying
+ For example, I don't doubt that more and more 
+ Will buy things that are mass produced online as thin,
+﻿Are exactly the same no matter where you purchase
+ Them. So you don't need to personally inspect these
+ Items to know if they are what you are really looking for.
+ However, many people are likely to continue doing. 
+Shopping in a traditional way when it comes to 
+Shopping for clothes as, in most cases, it is necessary
+ To try them on before buying. Otherwise, people 
+Wasting a lot of time sending stuff back.
+
+"""),
+    QuestionAnswer(question: '''Why is online shopping popular these days?
+
+''', answer: """ I believe there are many reasons, really. First of all, it's
+ Convenient. You don't have to make time, drive all the 
+Way to a store and, god forbid, if the items you were in
+ The pursuit of appeared to be unavailable. On the
+ Internet, you can buy whatever you want in a matter of
+ Seconds without interrupting other activities. You can
+ do it literally on the go. All you need is to have a
+ Payment card and any Internet-enabled device. Further,
+ Online shops can offer prices which are hard to beat as
+ Costs of their operations are substantially lower than
+ those of traditional ones. Also, it is without doubt
+ There’s a much larger selection than any traditional 
+Store can possibly keep in stock. Many people like
+ Online shopping as it gives them access to products
+ They can't buy locally. I guess in general online 
+Shopping has become so popular with people because
+ It’s absolutely hassle-free.
+
+
+"""),
+    QuestionAnswer(
+        question: '''Do you think online shopping will replace shopping? 
+In reality? 
+
+''',
+        answer: """Well, chances that in-store shopping will entirely disappear
+ Are slim. The thing is no matter how popular
+ Online shopping will be, there will always be some items 
+Those shoppers simply won't countenance buying
+ For example, I don't doubt that more and more 
+ Will buy things that are mass produced online as thin,
+﻿Are exactly the same no matter where you purchase
+ Them. So you don't need to personally inspect these
+ Items to know if they are what you are really looking for.
+ However, many people are likely to continue doing. 
+Shopping in a traditional way when it comes to 
+Shopping for clothes as, in most cases, it is necessary
+ To try them on before buying. Otherwise, people 
+Wasting a lot of time sending stuff back.
+
+"""),
+    QuestionAnswer(question: '''Do you think men and women have the same?
+ Shopping habits?
+
+''', answer: """ Definitely no! Women usually treat shopping as a fun
+ Experience or an adventure while men perceive it as an
+ Errand or chore. What is more, women mainly shop 
+Based on future needs (food for next week, a cocktail 
+Dress for an upcoming party.). While men tend to
+ Purchase when the need is immediate. Women usually 
+Compare prices; spend a lot of time hunting down
+ Bargains and prefer to do shopping together with their
+ Friends while men seldom compare prices, don't care if 
+The item is on sale and generally shop alone. So, there 
+Are a lot of differences between female and male 
+Shopping habits, to my mind.
+
+"""),
+    QuestionAnswer(question: '''How often do people in your country go shopping?
+
+''', answer: """Well, it entirely depends on what products they are
+Looking for. The majority of people, I think go to a
+Supermarket almost every day to buy fresh bread and 
+Some everyday items which they’ve run out of. I mean
+Some household goods, personal hygiene products and
+Water. Many people have a habit of going to a local 
+Farmers’ market at weekends to buy some fresh fruits
+And veggies because produce is usually offered within
+24 hours post-harvest. As for such things as household
+Appliances or clothes, they are brought more seldom as,
+Firstly, they are rather expensive and, secondly, people
+Don’t need new ones so often. 
+
+"""),
+    QuestionAnswer(question: '''What kinds of places are popular for shopping in
+ Your country?
+
+''', answer: """ I guess a number of people nowadays are doing
+ Shopping online as a price is really hard to beat due to
+ The fact that costs of operations of online shops are
+ Substantially lower than those of traditional ones. Plus,
+ It’s really convenient. People can do shopping when
+ And where they want. However, there are still many 
+People who would not trade shopping experience at
+ Large department stores for the world. For many of
+ Them, it's a way to have fun and relieve the stress
+ Addition, many customers still want to touch, fee
+l check the quality goods before making purchases.
+
+"""),
+  ];
+
+  static List<QuestionAnswer> part3Test3 = [
+    QuestionAnswer(question: '''Why do people like digital mind games?
+
+''', answer: """ Well, I think, first of all, this is because digital games are
+ Easily accessible, I mean that they are either low-cost
+ or free and can be downloaded in a matter of seconds. 
+Also, they are a great way to fight boredom while
+ Commuting, waiting in lines, or during other
+ Uninteresting routines. Also, these games can be played
+ On the go and they don't take up much of people's time.
+ Well, and the last reason I'd like to mention is that going
+Digital can help the environment as digital copies do not
+ Have all those paper covers, paper instruction booklets
+ or cardboard cartons that are very slow to decompose.
+ These are the main reasons, to my mind.
+"""),
+    QuestionAnswer(question: '''Why do people like digital mind games?
+
+''', answer: """ Well, I think, first of all, this is because digital games are
+ Easily accessible, I mean that they are either low-cost
+ or free and can be downloaded in a matter of seconds. 
+Also, they are a great way to fight boredom while
+ Commuting, waiting in lines, or during other
+ Uninteresting routines. Also, these games can be played
+ On the go and they don't take up much of people's time.
+ Well, and the last reason I'd like to mention is that going
+Digital can help the environment as digital copies do not
+ Have all those paper covers, paper instruction booklets
+ or cardboard cartons that are very slow to decompose.
+ These are the main reasons, to my mind.
+"""),
+    QuestionAnswer(
+        question: '''Are mind games like crossword puzzle games popular
+ in your country?
+
+''',
+        answer: """Oh yeah, they are as they provide people with an
+ Opportunity to unplug and give themselves and family.
+ An escape from the information overload that is buzzing. 
+Through the very fabric of our lives 24 by7. The reason
+ why I'm saying 'themselves and family is because mind
+ Games are both a great way to spend quality time alone
+ And connect with family while working toward a shared
+ Goal. Well, and one more reason why puzzle games are
+ So popular in my country is because they are a kind of
+ Mental workout that improves people's problem-solving.
+ skills and attention span which are of primary
+ Importance for those who want to succeed in our busy, 
+Competitive world.
+
+"""),
+    QuestionAnswer(question: '''Why do people like mind games?
+
+''', answer: """ Well, I think that, first of all, people like mind games
+ Because these games help them evaporate the
+  Of everyday life giving them a kind of an escape
+  The information overload that is buzzing through the
+ Very fabric of modern life 24 by_7. So, first of all, people
+ Use puzzles as a great meditation tool and stress
+ Reliever in the contemporary world. The second reason
+ Why people opt for mind games, as it strikes me, is
+Because mind games are a great way to spend quality
+ Time both alone and with close people. Well, and one
+ More reason which explains people's interest in puzzles
+ is the fact that mind games are a kind of mental 
+Workout that improves people's problem-solving skills 
+And attention span which are of primary important
+ Those who want to succeed in our busy, competition
+ World.
+
+
+"""),
+    QuestionAnswer(question: '''Why do parents let their children play puzzles?
+
+''', answer: """ Well, I think parents do so because they understand
+ That puzzles can be a valuable tool for children to learn
+ New things as well as keep the mind active and working
+. What is more, it is common knowledge that puzzles
+ Present many benefits for children's development. For
+ Example, kids develop hand-eye coordination, enhance
+ The large movements of kids to the point where they
+ Can then work on their fine motor skills, which lead to
+ Better handwriting and typing skills. Also, puzzles give
+ Children the chance to use adaptable thinking,
+ Deduction and reasoning skills as kids figure out how to
+ Put the puzzle together. Well, and one more benefit of
+ Playing puzzles is the fact that they deepen children's
+ Understanding of how to follow directions to achieve
+ Their goals. I guess these are the main reasons why
+ Parents let their kids do puzzles.
+
+"""),
+    QuestionAnswer(
+        question: '''What kinds of puzzles improve people's intelligence?
+
+''',
+        answer: """ Well, unfortunately, I'm not well-versed in mind-teasers 
+And know not that many kinds of puzzles but among
+ Those kinds which I know, I would give prominence to
+ logic puzzles, Sudoku puzzles and crosswords as they 
+Exercise parts of the brain that may not be stimulated
+ Otherwise and this way increase our neuroplasticity, or,
+ In other words, improve our intelligence. Also, these
+ Kinds of puzzles require thinking in unconventional 
+Ways with given constraints in mind, which boosts our
+ Brain activity in general and logical thinking in
+ Particular. So yeah, I think that these are the puzzles
+ Which improve our intelligence more than any other
+Mind games.
+
+"""),
+    QuestionAnswer(question: '''Why are detective stories attractive to people?
+
+''', answer: """
+
+ Oh, I think detective stories appeal to so many people
+, First of all, because people have a natural drive to pick
+ Up the details, piece them together and find out who
+ Committed the crime before the murderer is revealed by
+The detective. This means that people like detective
+e stories because such stories invoke their imagination
+ And let them get gripped by the suspense of whodunit
+. What is more, detective stories offer people a sense of
+ Vicarious satisfaction as well as escape from the fears,
+ Worries, strain and stress of everyday life. Well, these
+ Are the main reasons why people get fascinated by this
+ Type of stories, to my mind.
+
+"""),
+    QuestionAnswer(
+        question: '''Which is better, a detective movie or its original novel? 
+''',
+        answer: """Well, for me an original novel is much better than a
+ Detective movie. The first reason why it is so is because 
+Novels give in-depth understanding of characters and
+ Plot while movies are more a kind of summary of books.
+ What is more, while reading a novel I always pay
+ Attention to every line, imagine how things are going 
+And create the scenes in my head in fine detail. When it 
+Comes to movies I just see everything as it is without
+ Giving my imagination a chance to fill my head with
+ Amazing pictures which usually far exceed the visual
+ Effects displayed in movies. And the last reason why I
+ Love original novels more than films is because 
+Watching a movie is quite quick while reading a novel is 
+A lengthy process which makes me even more involved
+ In the plot and extends my pleasure.
+
+"""),
+  ];
 }
 
 // ---------------------------------------------------------
-
-
 
 class QuestionAnswer {
   final String question;
