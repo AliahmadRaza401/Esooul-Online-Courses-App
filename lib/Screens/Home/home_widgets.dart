@@ -81,28 +81,24 @@ Widget boardsCard(
                   // SizedBox(
                   //   height: 2,
                   // ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * .24,
-                    height: MediaQuery.of(context).size.height * .05,
-                    child: Wrap(
-                      children: [
-                        Container(
-                          // color: Colors.green,
-                          width: MediaQuery.of(context).size.width * .25,
-                          height: MediaQuery.of(context).size.height * .06,
-                          child: AutoSizeText("$desc",
-                              style: TextStyle(
-                                  color: Color(0xff757070), fontSize: 8),
-                              maxLines: 4,
-                              overflow: TextOverflow.fade),
-                        ),
-                        // Text(
-                        //   "$desc",
-                        //   style: TextStyle(
-                        //       color: Color(0xff757070), fontSize: 8),
-                        // )
-                      ],
-                    ),
+                  Wrap(
+                    children: [
+                      Container(
+                        // color: Colors.green,
+                        width: MediaQuery.of(context).size.width * .24,
+                        height: MediaQuery.of(context).size.height * .035,
+                        child: AutoSizeText("$desc",
+                            style: TextStyle(
+                                color: Color(0xff757070), fontSize: 8),
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis),
+                      ),
+                      // Text(
+                      //   "$desc",
+                      //   style: TextStyle(
+                      //       color: Color(0xff757070), fontSize: 8),
+                      // )
+                    ],
                   ),
                   // SizedBox(
                   //   height: 10,
@@ -239,7 +235,7 @@ homeHeader(BuildContext context, fName) {
                   Row(
                     children: [
                       Text(
-                        "Hy!",
+                        "Hello!",
                         style: TextStyle(fontSize: 17, color: Colors.white),
                       ),
                       // SizedBox(
@@ -318,7 +314,7 @@ homeHeader(BuildContext context, fName) {
             child: Row(
               children: [
                 Text(
-                  "Invite Friend",
+                  "Invite a Friend",
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 SizedBox(
