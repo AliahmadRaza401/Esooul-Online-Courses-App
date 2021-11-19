@@ -248,15 +248,16 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.020,
                         ),
-                        inputField(
-                            context,
-                            "Email",
-                            Icons.person,
-                            _emailController,
-                            MultiValidator([
-                              EmailValidator(errorText: "Enter valid Email"),
-                              RequiredValidator(errorText: "Required")
-                            ])),
+                        emailField(),
+                        // inputField(
+                        //     context,
+                        //     "Email",
+                        //     Icons.person,
+                        //     _emailController,
+                        //     MultiValidator([
+                        //       EmailValidator(errorText: "Enter valid Email"),
+                        //       RequiredValidator(errorText: "Required")
+                        //     ])),
                         // Padding(
                         //   padding: const EdgeInsets.fromLTRB(13, 0, 13, 0),
                         //   child: TextFormFieldWidget(
@@ -427,6 +428,67 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget emailField() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 3,
+            blurRadius: 7,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: TextFormField(
+        controller: _emailController,
+        onChanged: (value) {
+          setState(() {
+            email = value;
+          });
+        },
+        validator: MultiValidator([
+          EmailValidator(errorText: "enter a valid email address"),
+          RequiredValidator(errorText: "Required")
+        ]),
+        cursorColor: Color(0xFF02B1D7),
+        cursorWidth: 2.0,
+        cursorHeight: 26.0,
+        style: TextStyle(
+          color: Color(0xFF02B1D7),
+        ),
+        decoration: new InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+          hintText: "Email",
+          hintStyle: TextStyle(
+            color: Color(0xFF02B1D7),
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: 1),
+            child: Icon(
+              Icons.email,
+              color: Color(0xFF02B1D7),
+            ),
+          ),
+          // enabledBorder: const OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          //   borderSide: const BorderSide(
+          //     color: Colors.grey,
+          //   ),
+          // ),
+          enabledBorder: InputBorder.none,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(70.0)),
+            borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
           ),
         ),
       ),

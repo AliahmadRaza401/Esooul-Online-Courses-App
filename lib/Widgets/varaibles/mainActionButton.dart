@@ -21,8 +21,8 @@ Widget mainActionButton(BuildContext context, title, Function callback) {
           padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .3,
               right: MediaQuery.of(context).size.width * .3,
-              top: MediaQuery.of(context).size.height * .015,
-              bottom: MediaQuery.of(context).size.height * .015),
+              top: MediaQuery.of(context).size.height * .017,
+              bottom: MediaQuery.of(context).size.height * .017),
           primary: Color(0xff00B0D7),
           // side: BorderSide(width: 1, color: Colors.black),
           shape: RoundedRectangleBorder(
@@ -52,8 +52,8 @@ Widget mainActionButtonOutline(BuildContext context, title, Function callback) {
           padding: EdgeInsets.only(
               left: MediaQuery.of(context).size.width * .3,
               right: MediaQuery.of(context).size.width * .3,
-              top: MediaQuery.of(context).size.height * .015,
-              bottom: MediaQuery.of(context).size.height * .015),
+              top: MediaQuery.of(context).size.height * .017,
+              bottom: MediaQuery.of(context).size.height * .017),
           primary: Colors.white,
           side: BorderSide(width: 2, color: Color(0xff00B0D7)),
           shape: RoundedRectangleBorder(

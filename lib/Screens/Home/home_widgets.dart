@@ -344,7 +344,7 @@ homeHeader(BuildContext context, fName) {
               ),
               filled: true,
               hintStyle: TextStyle(color: Color(0xffC3C5C9)),
-              hintText: 'Select your board',
+              hintText: 'Search',
               fillColor: Colors.white),
         ),
       ],

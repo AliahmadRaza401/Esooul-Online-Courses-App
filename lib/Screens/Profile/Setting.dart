@@ -44,7 +44,7 @@ class _SettingsState extends State<Settings> {
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Header(btntext: "Setting"),
-                SizedBox(height:MediaQuery.of(context).size.height *.05),
+                SizedBox(height: MediaQuery.of(context).size.height * .05),
                 setting("assets/png/sliders2.png", "Settings", .05),
                 setting("assets/png/user-alt.png", 'Edit Profile', .05),
                 setting("assets/png/Vector.png", 'Pay to unlock pack', .04),
@@ -73,7 +73,7 @@ class _SettingsState extends State<Settings> {
                 GestureDetector(
                     onTap: () {
                       _loginProvider.loginFalse();
-                      Navigator.of(context).push(
+                      Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context) => LogIn()));
                     },
                     child: setting("assets/png/log-out.png", 'Logout', .05)),
@@ -99,12 +99,11 @@ class _SettingsState extends State<Settings> {
               Image.asset(
                 img,
                 height: MediaQuery.of(context).size.height * .045,
-                
-                width: MediaQuery.of(context).size.width *.05 ,
+                width: MediaQuery.of(context).size.width * .05,
               ),
             ],
           ),
-          SizedBox(width: MediaQuery.of(context).size.width *.05),
+          SizedBox(width: MediaQuery.of(context).size.width * .05),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

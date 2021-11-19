@@ -382,6 +382,7 @@ class _LogInState extends State<LogIn> {
           //     color: Colors.grey,
           //   ),
           // ),
+          enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(70.0)),
             borderSide: BorderSide(color: Color(0xFF02B1D7), width: 2),
