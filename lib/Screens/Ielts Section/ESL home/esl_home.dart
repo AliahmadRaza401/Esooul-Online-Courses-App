@@ -1,21 +1,21 @@
-
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/Ielts%20Section/IELTS%20Home/ielts_modules.dart';
 import 'package:esooul/Screens/Ielts%20Section/Listening/ielts_test_tips.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/grammer.dart';
 import 'package:esooul/Screens/Ielts%20Section/Writing/vocabulary.dart';
 import 'package:esooul/Screens/boards_list/board_list.dart';
+import 'package:esooul/Widgets/comingSoon_msg.dart';
 import 'package:flutter/material.dart';
 
 class ESLhome extends StatefulWidget {
-  const ESLhome({ Key? key }) : super(key: key);
+  const ESLhome({Key? key}) : super(key: key);
 
   @override
   _ESLhomeState createState() => _ESLhomeState();
 }
 
 class _ESLhomeState extends State<ESLhome> {
-var userFName;
+  var userFName;
 
   @override
   Widget build(BuildContext context) {
@@ -50,13 +50,14 @@ var userFName;
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 630),
-                      height: 300,
-                      width: double.infinity,
-                     decoration: BoxDecoration(image:DecorationImage(image: AssetImage("assets/png/ieltsBackground.png"),
-                     ),
+                    height: 300,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/png/ieltsBackground.png"),
+                      ),
                       // color: Colors.amber,
-                     
-                     ),
+                    ),
                   ),
                   Container(
                       padding: EdgeInsets.all(0).copyWith(top: 5),
@@ -75,7 +76,6 @@ var userFName;
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                               
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 10, right: 15, left: 15),
@@ -87,10 +87,8 @@ var userFName;
                                           onTap: () {
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
-                                                    builder: (context) =>IeltsModules()
-                                                       
-                                                        )
-                                                        );
+                                                    builder: (context) =>
+                                                        IeltsModules()));
                                           },
                                           child: boardsCard(
                                               context,
@@ -103,9 +101,7 @@ var userFName;
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        SelectBoard(
-                                                          boardID: "jR",
-                                                        )));
+                                                        ComingSoon()));
                                           },
                                           child: boardsCard(
                                               context,
@@ -118,9 +114,7 @@ var userFName;
                                             Navigator.of(context).push(
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        SelectBoard(
-                                                          boardID: "k5",
-                                                        )));
+                                                        ComingSoon()));
                                           },
                                           child: boardsCard(
                                               context,
@@ -141,7 +135,10 @@ var userFName;
                                       children: [
                                         GestureDetector(
                                           onTap: () {
-                                          Navigator.of(context).push(MaterialPageRoute(builder:(context)=>Vocabulary() ));
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Vocabulary()));
                                           },
                                           child: guessPaper(
                                               context,
@@ -149,8 +146,11 @@ var userFName;
                                               'Vocabulary'),
                                         ),
                                         GestureDetector(
-                                          onTap: (){
-                                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Grammer()));
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Grammer()));
                                           },
                                           child: guessPaper(
                                               context,
@@ -158,8 +158,11 @@ var userFName;
                                               'Grammer'),
                                         ),
                                         GestureDetector(
-                                          onTap: (){
-                                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsTestTips()));
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        IeltsTestTips()));
                                           },
                                           child: guessPaper(
                                               context,
@@ -169,7 +172,6 @@ var userFName;
                                       ],
                                     ),
                                   ),
-                                 
                                 ],
                               ),
                             ),

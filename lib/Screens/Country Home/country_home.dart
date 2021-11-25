@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/Ielts%20Section/ESL%20home/esl_home.dart';
+import 'package:esooul/Widgets/comingSoon_msg.dart';
 import 'package:flutter/material.dart';
 
 import '../Ielts Section/IELTS Home/ielts_modules.dart';
@@ -67,26 +68,29 @@ class _CountryHomeState extends State<CountryHome> {
                     GestureDetector(
                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>IeltsModules()));
                       onTap: () {
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => IeltsModules()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ComingSoon()));
                       },
                       child: courseCard(
-                        'assets/png/ieltscover.png',
-                        'OSSD',
-                        'Canadian curriculum',
-                        // '2017- 2021 Ontario',
-                        // 'Affordable online study Canada with Elite High School',
-                        'assets/png/CanadianFlag.png'
-                      ),
+                          'assets/png/ieltscover.png',
+                          'OSSD',
+                          'Canadian curriculum',
+                          // '2017- 2021 Ontario',
+                          // 'Affordable online study Canada with Elite High School',
+                          'assets/png/CanadianFlag.png'),
                     ),
-                    courseCard(
-                      'assets/png/cambrigielts.png',
-                      'Cambridge',
-                      'British curriculum',
-                      // '2017- 2021 Ontario',
-                      // 'Cambridge Assessment International Education ',
-                                              'assets/png/cambrigflag.png'
-
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ComingSoon()));
+                      },
+                      child: courseCard(
+                          'assets/png/cambrigielts.png',
+                          'Cambridge',
+                          'British curriculum',
+                          // '2017- 2021 Ontario',
+                          // 'Cambridge Assessment International Education ',
+                          'assets/png/cambrigflag.png'),
                     ),
                     // courseCard(
                     //   'assets/png/austrailia.png',
@@ -103,14 +107,12 @@ class _CountryHomeState extends State<CountryHome> {
                             builder: (context) => BottomNavBar()));
                       },
                       child: courseCard(
-                        'assets/png/ieltscover.png',
-                        'SSC & HSSC',
-                        'Pakistan curriculum',
-                        // '2017- 2021 Ontario',
-                        // 'Affordable online study Canada with Elite High School',
-                                              'assets/png/Pakistanflag.png'
-
-                      ),
+                          'assets/png/ieltscover.png',
+                          'SSC & HSSC',
+                          'Pakistan curriculum',
+                          // '2017- 2021 Ontario',
+                          // 'Affordable online study Canada with Elite High School',
+                          'assets/png/Pakistanflag.png'),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -118,18 +120,15 @@ class _CountryHomeState extends State<CountryHome> {
                             MaterialPageRoute(builder: (context) => ESLhome()));
                       },
                       child: courseCard(
-                        'assets/png/esl.png',
-                        'ESL',
-                        'IELTS, TOFEL, DOLINGO',
-                        // '2017- 2021 Canberra',
-                        // 'Cambridge Assessment International Education ',
-                                               
-                                              'assets/png/IELTS_logo.jpeg'
+                          'assets/png/esl.png',
+                          'ESL',
+                          'IELTS, TOFEL, DOLINGO',
+                          // '2017- 2021 Canberra',
+                          // 'Cambridge Assessment International Education ',
 
-
-                      ),
+                          'assets/png/IELTS_logo.jpeg'),
                     ),
-                    
+
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Container(
@@ -156,13 +155,12 @@ class _CountryHomeState extends State<CountryHome> {
   }
 
   Widget courseCard(
-    String img,
-   String country, 
-   String curriculam,
+      String img,
+      String country,
+      String curriculam,
       // String session,
       //  String description,
-       String flagImage
-       ) {
+      String flagImage) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
@@ -197,27 +195,30 @@ class _CountryHomeState extends State<CountryHome> {
                               color: Colors.black,
                               borderRadius: BorderRadius.circular(20),
                               image: DecorationImage(
-                                  image: AssetImage('$img'), fit: BoxFit.cover)),
+                                  image: AssetImage('$img'),
+                                  fit: BoxFit.cover)),
                         ),
                       ],
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width *.03,),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .03,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                       Text(
-                  "$country",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "$curriculam",
-                  style: TextStyle(color: Colors.black, fontSize: 10),
-                ),
-                    ],)
-                   
+                        Text(
+                          "$country",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "$curriculam",
+                          style: TextStyle(color: Colors.black, fontSize: 10),
+                        ),
+                      ],
+                    )
                   ],
                 )
               ],
@@ -226,7 +227,7 @@ class _CountryHomeState extends State<CountryHome> {
             //   crossAxisAlignment: CrossAxisAlignment.start,
             //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             //   children: [
-                
+
             //     // Text(
             //     //   "$session",
             //     //   style: TextStyle(color: Colors.black, fontSize: 10),
@@ -236,16 +237,17 @@ class _CountryHomeState extends State<CountryHome> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Container(
-                height: MediaQuery.of(context).size.height *.07,
-                width: MediaQuery.of(context).size.width *.15,
-               decoration: BoxDecoration(
-                 border: Border.all(color: Colors.grey.withOpacity(.5)),
-                  // color: Colors.orange,
-               image: DecorationImage(image: AssetImage(flagImage),fit: BoxFit.cover)
-               ),
-              )
-            ],)
+                Container(
+                  height: MediaQuery.of(context).size.height * .07,
+                  width: MediaQuery.of(context).size.width * .15,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.withOpacity(.5)),
+                      // color: Colors.orange,
+                      image: DecorationImage(
+                          image: AssetImage(flagImage), fit: BoxFit.cover)),
+                )
+              ],
+            )
             // Column(
             //   crossAxisAlignment: CrossAxisAlignment.start,
             //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
