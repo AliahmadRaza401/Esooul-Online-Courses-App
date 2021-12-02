@@ -4,6 +4,7 @@ import 'package:esooul/Screens/Country%20Home/country_home.dart';
 import 'package:esooul/Screens/card/course_card.dart';
 import 'package:esooul/Screens/card/my_card.dart';
 import 'package:esooul/Screens/paper_type/commin_soon_message.dart';
+import 'package:esooul/Widgets/comingSoon_msg.dart';
 
 import 'package:flutter/material.dart';
 import 'package:blinking_text/blinking_text.dart';
@@ -422,45 +423,51 @@ invitefriendAlert(BuildContext context) {
 Widget guessPaper(BuildContext context, String bgImg, String name) {
   return Padding(
     padding: const EdgeInsets.only(top: 5),
-    child: Container(
-      decoration: BoxDecoration(
-          color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
-      height: MediaQuery.of(context).size.height * .12,
-      width: MediaQuery.of(context).size.width * .29,
-      child: Padding(
-        padding: const EdgeInsets.all(5),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(18),
-                image: DecorationImage(
-                  image: AssetImage("$bgImg"),
-                  fit: BoxFit.cover,
+    child: GestureDetector(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => ComingSoon()));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Color(0xffF1F1F1), borderRadius: BorderRadius.circular(20)),
+        height: MediaQuery.of(context).size.height * .12,
+        width: MediaQuery.of(context).size.width * .29,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                  image: DecorationImage(
+                    image: AssetImage("$bgImg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                height: MediaQuery.of(context).size.height * .06,
+                width: MediaQuery.of(context).size.width * .28,
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * .01),
+              Container(
+                // color: Colors.green,
+                width: MediaQuery.of(context).size.width * .23,
+                // height: MediaQuery.of(context).size.height * .06,
+                child: Center(
+                  child: AutoSizeText("$name",
+                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      maxLines: 1,
+                      overflow: TextOverflow.fade),
                 ),
               ),
-              height: MediaQuery.of(context).size.height * .06,
-              width: MediaQuery.of(context).size.width * .28,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * .01),
-            Container(
-              // color: Colors.green,
-              width: MediaQuery.of(context).size.width * .23,
-              // height: MediaQuery.of(context).size.height * .06,
-              child: Center(
-                child: AutoSizeText("$name",
-                    style: TextStyle(fontSize: 14, color: Colors.black),
-                    maxLines: 1,
-                    overflow: TextOverflow.fade),
-              ),
-            ),
-            // Text(
-            //   "$name",
-            //   style: TextStyle(fontSize: 14, color: Colors.black),
-            // )
-          ],
+              // Text(
+              //   "$name",
+              //   style: TextStyle(fontSize: 14, color: Colors.black),
+              // )
+            ],
+          ),
         ),
       ),
     ),

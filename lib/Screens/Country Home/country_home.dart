@@ -1,6 +1,7 @@
 import 'package:esooul/Screens/BottomNavBar/bottomNavBar.dart';
 import 'package:esooul/Screens/Home/home_widgets.dart';
 import 'package:esooul/Screens/Ielts%20Section/ESL%20home/esl_home.dart';
+import 'package:esooul/Screens/cambridge/cambridge_home.dart';
 import 'package:esooul/Widgets/comingSoon_msg.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +83,7 @@ class _CountryHomeState extends State<CountryHome> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ComingSoon()));
+                            builder: (context) => CambridgeHome()));
                       },
                       child: courseCard(
                           'assets/png/cambrigielts.png',

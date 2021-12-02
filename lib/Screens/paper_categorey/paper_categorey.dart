@@ -280,10 +280,16 @@ Widget papercard(BuildContext context, String icon, String title, String desc,
             Image.asset("$icon"),
             Text(
               "$title",
-              style: TextStyle(fontSize: 25),
+              style: TextStyle(fontSize: 25, color: Colors.white),
             ),
-            Text("$desc"),
-            Text("$papers")
+            Text(
+              "$desc",
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              "$papers",
+              style: TextStyle(color: Colors.white),
+            )
           ],
         ),
       ),
